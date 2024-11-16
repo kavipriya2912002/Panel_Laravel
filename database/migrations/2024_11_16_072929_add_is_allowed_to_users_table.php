@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_allowed')->default(true);
+            $table->boolean('is_allowed')->default(false)->after('email');;
         });
     }
     

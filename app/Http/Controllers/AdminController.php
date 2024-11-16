@@ -22,12 +22,13 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
     
-        // Handle the action based on the form submission
+        // Determine action based on form input
         if ($request->action === 'allow') {
             $user->is_allowed = true;
+           
             $user->save();
     
-            // Update the LoginRequest status as approved
+            // Update related LoginRequest status to 'approved'
             $loginRequest = LoginRequest::where('user_id', $user->id)->first();
             if ($loginRequest) {
                 $loginRequest->status = 'approved';
@@ -35,9 +36,10 @@ class AdminController extends Controller
             }
         } elseif ($request->action === 'reject') {
             $user->is_allowed = false;
+           
             $user->save();
     
-            // Update the LoginRequest status as rejected
+            // Update related LoginRequest status to 'rejected'
             $loginRequest = LoginRequest::where('user_id', $user->id)->first();
             if ($loginRequest) {
                 $loginRequest->status = 'rejected';
@@ -45,34 +47,10 @@ class AdminController extends Controller
             }
         }
     
-        // Redirect back to the dashboard after updating the user status
-        return redirect()->route('admin.index')->with('status', 'User status updated successfully');
+        // Redirect back with success message
+        return redirect()->route('admin.index')->with('status', 'User status updated successfully.');
     }
     
-    
-
-    public function getLoginRequests()
-    {
-        $requests = LoginRequest::where('status', 'pending')->with('user')->get();
-        return view('admin.login-requests', compact('requests'));
-    }
-
-    public function approveLogin($id)
-    {
-        $request = LoginRequest::find($id);
-        $request->update(['status' => 'allowed']);
-        // Notify the user or update their login session logic here
-        return back()->with('success', 'Login approved.');
-    }
-
-    public function rejectLogin($id)
-    {
-        $request = LoginRequest::find($id);
-        $request->update(['status' => 'rejected']);
-        // Notify the user or log them out if required
-        return back()->with('success', 'Login rejected.');
-    }
-
     
 
 }
