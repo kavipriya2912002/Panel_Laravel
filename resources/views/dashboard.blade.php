@@ -131,9 +131,11 @@
         }
     })
     .then(response => {
-        console.log(response.data); // Log the response
-        messageElement.textContent = response.data.message;
-        messageElement.style.color = 'green';
+        // Display the success message and the updated wallet balance
+        messageElement.innerHTML = `
+            <p style="color: green;">${response.data.message}</p>
+            <p>Your current wallet balance is: ₹ ${response.data.wallet}</p>
+        `;
         amountInput.value = ''; // Reset the input field
     })
     .catch(error => {

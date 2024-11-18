@@ -42,7 +42,7 @@ class WalletController extends Controller
         // Return response with the updated wallet
         return response()->json([
             'message' => 'Money added successfully to your wallet.',
-            'wallet' => $wallet,
+            'wallet' => $wallet->balance,
         ]);
     }
     
