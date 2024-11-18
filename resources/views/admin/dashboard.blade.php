@@ -11,9 +11,11 @@
                 <li class="mb-4">
                     <button onclick="showSection('user-list')" class="w-full text-center">User List</button>
                 </li>
-                <li>
+                <hr>
+                <li class="mb-4 mt-2">
                     <button onclick="showSection('login-status')" class="w-full text-center">Login Status</button>
                 </li>
+                <hr>
             </ul>
         </div>
         <div id="user-list" class="w-3/4 p-6">
