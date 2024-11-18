@@ -46,10 +46,30 @@
                 </div>
 
                 <!-- Wallet Content -->
-                <div id="wallet" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold">Wallet</h3>
-                    <p>This is the Wallet section content.</p>
+                <div id="wallet" class="tab-content block p-4 max-w-sm mx-auto">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Wallet</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="amount" class="block text-sm font-medium text-gray-700">Enter Amount</label>
+                            <input 
+                                id="amount" 
+                                type="number" 
+                                placeholder="Enter amount" 
+                                class="w-3/4 mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        </div>
+                        <button 
+                            class="w-3/4 bg-blue-500 text-white !font-medium py-2 rounded-md hover:!bg-blue-600 focus:outline-none focus:!ring-2 focus:!ring-blue-500 focus:ring-offset-2"
+                            onclick="addMoneyToWallet()"> <!-- Added onclick event -->
+                            Add Money to Wallet
+                        </button>
+                        <div id="wallet-message" class="text-center mt-2"></div> <!-- Message Display -->
+                    </div>
                 </div>
+                
+                  
+                  
+                  
 
                 <!-- Deposit Content -->
                 <div id="deposit" class="tab-content hidden">
@@ -73,6 +93,7 @@
     </div>
 
     <!-- JavaScript to handle tab switching -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         function showContent(tabName) {
             // Hide all tab contents
@@ -85,5 +106,42 @@
             const activeContent = document.getElementById(tabName);
             activeContent.classList.remove('hidden');
         }
+
+        function addMoneyToWallet() {
+    const amountInput = document.getElementById('amount');
+    const amount = amountInput.value;
+    const messageElement = document.getElementById('wallet-message');
+
+    // Clear previous messages
+    messageElement.textContent = '';
+
+    // Validate the input
+    if (!amount || isNaN(amount) || amount <= 0) {
+        messageElement.textContent = 'Please enter a valid amount.';
+        messageElement.style.color = 'red';
+        return;
+    }
+
+    // Send the request to the backend
+    axios.post('/dashboard', {
+        amount: amount,
+    }, {
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        }
+    })
+    .then(response => {
+        console.log(response.data); // Log the response
+        messageElement.textContent = response.data.message;
+        messageElement.style.color = 'green';
+        amountInput.value = ''; // Reset the input field
+    })
+    .catch(error => {
+        console.error(error); // Log the error
+        messageElement.textContent = 'Failed to add money. Please try again.';
+        messageElement.style.color = 'red';
+    });
+}
+
     </script>
 </x-app-layout>

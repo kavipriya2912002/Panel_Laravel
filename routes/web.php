@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,6 +18,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::middleware('auth')->group(function () {
+    // In routes/web.php
+Route::post('/dashboard', [WalletController::class, 'addMoney']);
+
+
+});
+
+
+
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');

@@ -9,10 +9,10 @@
         <div class="w-1/4 bg-gray-800 text-white p-4">
             <ul>
                 <li class="mb-4">
-                    <button onclick="showSection('user-list')" class="w-full text-left">User List</button>
+                    <button onclick="showSection('user-list')" class="w-full text-center">User List</button>
                 </li>
                 <li>
-                    <button onclick="showSection('login-status')" class="w-full text-left">Login Status</button>
+                    <button onclick="showSection('login-status')" class="w-full text-center">Login Status</button>
                 </li>
             </ul>
         </div>

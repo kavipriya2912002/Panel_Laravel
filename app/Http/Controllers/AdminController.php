@@ -18,12 +18,7 @@ class AdminController extends Controller
     // Pass both variables to the view
     return view('admin.dashboard', compact('users', 'requests'));
     }
-
-
-
-
-
-    
+   
     public function updateStatus(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -56,7 +51,4 @@ class AdminController extends Controller
         // Redirect back with success message
         return redirect()->route('admin.index')->with('status', 'User status updated successfully.');
     }
-    
-    
-
 }
