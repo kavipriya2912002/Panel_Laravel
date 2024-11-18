@@ -18,6 +18,12 @@ class AdminController extends Controller
     // Pass both variables to the view
     return view('admin.dashboard', compact('users', 'requests'));
     }
+
+
+
+
+
+    
     public function updateStatus(Request $request, $id)
     {
         $user = User::findOrFail($id);
