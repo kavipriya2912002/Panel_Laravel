@@ -35,8 +35,8 @@ class AdminController extends Controller
             $user->save();
     
             // Update related LoginRequest status to 'approved'
-            $loginRequest = LoginRequest::where('user_id', $user->id)->first();
-            if ($loginRequest) {
+            $loginRequests = LoginRequest::where('user_id', $user->id)->get();
+            foreach ($loginRequests as $loginRequest) {
                 $loginRequest->status = 'approved';
                 $loginRequest->save();
             }
@@ -46,8 +46,8 @@ class AdminController extends Controller
             $user->save();
     
             // Update related LoginRequest status to 'rejected'
-            $loginRequest = LoginRequest::where('user_id', $user->id)->first();
-            if ($loginRequest) {
+            $loginRequests = LoginRequest::where('user_id', $user->id)->get();
+            foreach ($loginRequests as $loginRequest) {
                 $loginRequest->status = 'rejected';
                 $loginRequest->save();
             }
