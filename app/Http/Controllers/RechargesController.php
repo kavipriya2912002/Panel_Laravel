@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use App\Models\Recharge;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -50,5 +51,72 @@ class RechargesController extends Controller
             // Handle API failure
             return response()->json(['error' => 'Recharge failed. Please try again.'], 500);
         }
+    }
+
+
+    // Initiate a recharge
+    public function initiateRecharges(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'operator_id' => 'required|exists:operators,id',
+            'phone_number' => 'required|digits:10',
+            'amount' => 'required|numeric|min:1',
+        ]);
+
+        $wallet = Wallet::where('user_id', $request->user_id)->first();
+        if ($wallet->balance < $request->amount) {
+            return response()->json(['error' => 'Insufficient balance'], 400);
+        }
+
+        // Deduct the amount
+        $wallet->balance -= $request->amount;
+        $wallet->save();
+
+        // Call operator API (mock)
+        $operatorApiResponse = [
+            'transaction_id' => 'TXN' . rand(1000, 9999),
+            'status' => 'success',
+        ];
+
+        // Save recharge details
+        $recharge = Recharge::create([
+            'user_id' => $request->user_id,
+            'operator_id' => $request->operator_id,
+            'amount' => $request->amount,
+            'phone_number' => $request->phone_number,
+            'status' => $operatorApiResponse['status'],
+            'transaction_id' => $operatorApiResponse['transaction_id'],
+        ]);
+
+        return response()->json($recharge);
+    }
+
+    // Check recharge status
+    public function checkStatus($transactionId)
+    {
+        $recharge = Recharge::where('transaction_id', $transactionId)->firstOrFail();
+
+        // Mock status update
+        $recharge->status = 'success';
+        $recharge->save();
+
+        return response()->json(['status' => $recharge->status]);
+    }
+
+    // Retry a failed recharge
+    public function retryRecharge($transactionId)
+    {
+        $recharge = Recharge::where('transaction_id', $transactionId)->firstOrFail();
+
+        if ($recharge->status !== 'failed') {
+            return response()->json(['error' => 'Recharge cannot be retried'], 400);
+        }
+
+        // Mock retry
+        $recharge->status = 'success';
+        $recharge->save();
+
+        return response()->json(['message' => 'Recharge retried successfully']);
     }
 }
