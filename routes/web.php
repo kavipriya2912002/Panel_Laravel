@@ -27,27 +27,10 @@ Route::post('/dashboard', [WalletController::class, 'addMoney']);
 
 });
 
-
-
-
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/user-status/{id}', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
 });
-
-
-
-// Route::prefix('admin')->middleware('auth:admin')->group(function () {
-//     Route::get('/admin/login-requests', [AdminController::class, 'getLoginRequests'])->name('admin.login-requests');
-// Route::post('/admin/login-requests/{id}/approve', [AdminController::class, 'approveLogin']);
-// Route::post('/admin/login-requests/{id}/reject', [AdminController::class, 'rejectLogin']);
-
-// });
-
-
-
-
-
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin-auth.php';

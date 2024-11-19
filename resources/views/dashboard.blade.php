@@ -33,7 +33,7 @@
                     <a href="#" class="flex items-center text-gray-600 p-4 hover:text-indigo-600"
                         onclick="showContent('transfer')">
                         <img src="{{ asset('build/assets/transfer.svg') }}" alt="Transfer Icon" class="h-5 w-5">
-                        <span class="px-4">Transfers</span>
+                        <span class="px-4">Transactions</span>
                     </a>
                     <a href="#" class="flex items-center text-gray-600 p-4 hover:text-indigo-600"
                         onclick="showContent('recharge')">
@@ -206,9 +206,40 @@
 
                 <!-- Transfer Content -->
                 <div id="transfer" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold">Transfers</h3>
-                    <p>This is the Transfer section content.</p>
+                    <!-- Transaction Table -->
+                    <table class="min-w-full table-auto mt-4 bg-white shadow-lg rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700">
+                                <th class="px-6 py-3 text-left font-medium">Wallet ID</th>
+                                <th class="px-6 py-3 text-left font-medium">Type</th>
+                                <th class="px-6 py-3 text-left font-medium">Amount</th>
+                                <th class="px-6 py-3 text-left font-medium">Reason</th>
+                                <th class="px-6 py-3 text-left font-medium">Transaction ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Row -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">W12345</td>
+                                <td class="px-6 py-4">Debit</td>
+                                <td class="px-6 py-4">$500</td>
+                                <td class="px-6 py-4">Payment for service</td>
+                                <td class="px-6 py-4">T123456789</td>
+                            </tr>
+                            <!-- Repeat rows for other transactions -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">W12346</td>
+                                <td class="px-6 py-4">Credit</td>
+                                <td class="px-6 py-4">$100</td>
+                                <td class="px-6 py-4">Refund</td>
+                                <td class="px-6 py-4">T987654321</td>
+                            </tr>
+                            <!-- Add more rows as necessary -->
+                        </tbody>
+                    </table>
                 </div>
+                
+                
 
                 <!-- Recharge Content -->
                 <div id="recharge" class="tab-content hidden">
