@@ -39,11 +39,157 @@
 
             <!-- Content Area -->
             <div class="flex-1 p-6">
+
+
+
+
+
                 <!-- Home Content -->
                 <div id="home" class="tab-content">
-                    <h3 class="text-xl font-semibold">Home</h3>
-                    <p>Welcome to the dashboard! This is the Home section.</p>
+                   <div class="flex">
+                        <!-- main1 -->
+                        <div class="mr-12">
+                            <div class="mt-5 w-96 p-5 bg-white rounded-2xl shadow-md text-center">
+                                <div class="flex justify-between items-center mb-5">
+                                    <h3 class="text-lg font-bold">Balance</h3>
+                                    <div class="flex space-x-2">
+                                        <button class="w-10 h-10 bg-gray-200 rounded-full text-lg">₹</button>
+                                        <button class="w-10 h-10 bg-black text-white rounded-full text-lg">$</button>
+                                    </div>
+                                </div>
+                                <div class="text-3xl font-bold mb-5">$ 8,453.00</div>
+                                <div class="flex justify-between">
+                                    <div class="flex items-center space-x-2 text-green-500">
+                                        <img src="{{ asset('build/assets/uparrow.svg') }}" class="h-5 w-5">
+                                        <span>+$ 2,431.00</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-red-500">
+                                        <img src="{{ asset('build/assets/downarrow.svg') }}" class="h-5 w-5">
+                                        <span>-$ 526.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 w-96 p-5 bg-white rounded-2xl shadow-md">
+                                <div class="flex justify-between items-center mb-5">
+                                    <h3 class="text-lg font-bold">Information</h3>
+                                    <img src="{{ asset('build/assets/pen.svg') }}" class="h-5 w-5">
+                                </div>
+
+                                <div class="flex items-center space-x-2">
+                                    <img src="{{ asset('build/assets/location.svg') }}">
+                                    <p class="ml-2">Location: India</p>
+                                </div><br>
+
+                                <div class="flex items-center space-x-2">
+                                    <img src="{{ asset('build/assets/address.svg') }}">
+                                    <p class="ml-2">Address: Mumbai</p>
+                                </div><br>
+
+                                <div class="flex items-center space-x-2">
+                                    <img src="{{ asset('build/assets/wallet.svg') }}">
+                                    <p class="ml-2">Wallet ID: 6HE46URR677wSR446Ic</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 w-96 p-5 bg-white rounded-xl shadow-md">
+                                <div class="flex justify-between items-center mb-5">
+                                    <h3 class="text-lg font-semibold">Security</h3>
+                                    <img src="{{ asset('build/assets/dots.svg') }}" class="h-5 w-5">
+                                </div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="relative w-10 h-10">
+                                            <img src="{{ asset('build/assets/p2.svg') }}" class="absolute top-0 left-0 w-full h-full">
+                                            <img src="{{ asset('build/assets/p1.svg') }}" class="absolute top-1 left-1 w-4/5 h-4/5">
+                                        </div>
+                                        <div>2X A Enabled</div>
+                                    </div>
+                                    <div class="w-10 h-5 bg-black rounded-full relative">
+                                        <div class="absolute top-0.5 left-6 w-4 h-4 bg-white rounded-full transition-all"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="relative w-10 h-10">
+                                            <img src="{{ asset('build/assets/p3.svg') }}" class="absolute top-0 left-0 w-full h-full">
+                                            <img src="{{ asset('build/assets/p4.svg') }}" class="absolute top-1 left-1 w-4/5 h-4/5">
+                                        </div>
+                                        <div>Key</div>
+                                    </div>
+                                    <button class="px-4 py-1 bg-gray-200 border border-gray-300 rounded-md text-sm hover:bg-gray-300">
+                                        Change
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- main2 -->
+                        <div class="mt-8 mr-12">
+                            <div class="w-96 bg-white rounded-2xl shadow-md overflow-hidden p-5">
+                                <div class="mb-5">
+                                    <img src="{{ asset('build/assets/pic.png') }}" class="rounded-lg mx-auto">
+                                </div>
+
+                                <div>
+                                    <h2 class="text-center text-lg font-bold mb-5">Transactions</h2>
+                                    <div class="flex justify-center space-x-2 mb-5">
+                                        <button class="flex-1 py-2 bg-black text-white rounded-full">Send</button>
+                                        <button class="flex-1 py-2 bg-gray-200 rounded-full">Apply</button>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm text-gray-500 mb-1 block">Pay to</label>
+                                        <div class="bg-gray-100 p-3 rounded-lg text-sm mb-4">
+                                            <input type="text" class="w-full bg-transparent focus:outline-none">
+                                            <p class="text-xs text-gray-400 mt-1">Please enter the Wallet ID or Destination email</p>
+                                        </div>
+                                        <div class="flex gap-4">
+                                            <div class="flex-1">
+                                                <label class="text-sm text-gray-500 mb-1 block">Amount</label>
+                                                <input type="text" value="$ 400" class="w-full p-2 rounded-lg border">
+                                            </div>
+                                            <div class="flex-1">
+                                                <label class="text-sm text-gray-500 mb-1 block">Reason</label>
+                                                <input type="text" value="Shopping" class="w-full p-2 rounded-lg border">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 text-sm">
+                                            <p>Commission: <span class="text-gray-500">$5</span></p>
+                                            <p>Total: <span class="text-gray-500">$405</span></p>
+                                        </div>
+                                        <button class="w-full py-3 mt-4 bg-gradient-to-r from-pink-500 to-pink-300 text-white rounded-full text-lg">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- main3 -->
+                        <div class="flex flex-col items-center space-y-5">
+                            <img src="{{ asset('build/assets/i2.png') }}" class="w-44 h-48 rounded-2xl">
+                            <img src="{{ asset('build/assets/i3.png') }}" class="w-44 h-48 rounded-2xl">
+                            <img src="{{ asset('build/assets/i1.png') }}" class="w-44 h-48 rounded-2xl">
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <!-- Wallet Content -->
                 <div id="wallet" class="tab-content block p-4 max-w-sm mx-auto">
