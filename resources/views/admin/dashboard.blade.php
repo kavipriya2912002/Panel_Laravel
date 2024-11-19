@@ -5,8 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="flex">
-        <div class="w-1/4 bg-gray-800 text-white p-4">
+    <div class="flex flex-col lg:flex-row">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white p-4">
             <ul>
                 <li class="mb-4">
                     <button onclick="showSection('user-list')" class="w-full text-center">User List</button>
@@ -15,10 +16,12 @@
                 <li class="mb-4 mt-2">
                     <button onclick="showSection('login-status')" class="w-full text-center">Login Status</button>
                 </li>
-                <hr>
+                
             </ul>
         </div>
-        <div id="user-list" class="w-3/4 p-6">
+
+        <!-- Content -->
+        <div id="user-list" class="w-full lg:w-3/4 p-6">
             <div id="userList" class="content-section">
                 <h3 class="text-lg font-bold mb-4">List of Registered Users</h3>
                 <table class="min-w-full border-collapse border border-gray-300">
@@ -44,7 +47,7 @@
             </div>
         </div>
 
-        <div id="login-status" class="w-3/4 p-6 hidden">
+        <div id="login-status" class="w-full lg:w-3/4 p-6 hidden">
             <h3 class="text-lg font-bold mb-4">Login Requests</h3>
             <table class="min-w-full border-collapse border border-gray-300">
                 <thead>
@@ -66,13 +69,11 @@
                                     <button type="submit" class="px-4 py-2 bg-green-500 text-white">Allow</button>
                                 </form>
                                 
-                                
                                 <form method="POST" action="{{ route('admin.updateStatus', $request->id) }}" class="inline-block">
                                     @csrf
                                     <input type="hidden" name="action" value="reject">
                                     <button type="submit" class="px-4 py-2 bg-red-500 text-white">Reject</button>
                                 </form>
-                                
                             </td>
                         </tr>
                     @endforeach
@@ -85,15 +86,13 @@
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
-@endif
-
+    @endif
 
     <form method="POST" action="{{ route('admin.logout') }}">
         @csrf
-
         <x-responsive-nav-link :href="route('logout')"
-                onclick="event.preventDefault();
-                            this.closest('form').submit();">
+            onclick="event.preventDefault();
+                        this.closest('form').submit();">
             {{ __('Log Out') }}
         </x-responsive-nav-link>
     </form>

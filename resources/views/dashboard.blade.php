@@ -176,42 +176,38 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <!-- Wallet Content -->
                 <div id="wallet" class="tab-content block p-4 max-w-sm mx-auto">
                     <h3 class="text-xl font-semibold mb-4 text-center">Wallet</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="amount" class="block text-sm font-medium text-gray-700">Enter Amount</label>
-                            <input 
-                                id="amount" 
-                                type="number" 
-                                placeholder="Enter amount" 
-                                class="w-3/4 mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
+                
+                    <div class="mt-5 w-96 p-5 bg-white rounded-2xl shadow-md">
+                        <div class="flex justify-between items-center mb-5">
+                            <h3 class="text-lg font-bold">Information</h3>
                         </div>
-                        <button 
-                            class="w-3/4 bg-blue-500 text-white !font-medium py-2 rounded-md hover:!bg-blue-600 focus:outline-none focus:!ring-2 focus:!ring-blue-500 focus:ring-offset-2"
-                            onclick="addMoneyToWallet()"> <!-- Added onclick event -->
-                            Add Money to Wallet
-                        </button>
-                        <div id="wallet-message" class="text-center mt-2"></div> <!-- Message Display -->
+                
+                        <div class="flex flex-col space-y-4">
+                            <div>
+                                <label for="amount" class="block text-sm font-medium text-gray-700">Enter Amount</label>
+                                <input 
+                                    id="amount" 
+                                    type="number" 
+                                    placeholder="Enter amount" 
+                                    class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                
+                            <div>
+                                <button 
+                                    class="w-full bg-blue-500 text-white !font-medium py-2 rounded-md hover:!bg-blue-600 focus:outline-none focus:!ring-2 focus:!ring-blue-500 focus:ring-offset-2"
+                                    onclick="addMoneyToWallet()"> <!-- Added onclick event -->
+                                    Add Money to Wallet
+                                </button>
+                            </div>
+                            <div id="wallet-message" class="text-center mt-3 mb-3"></div>
+                        </div>
                     </div>
                 </div>
+                
                 
                   
                   
