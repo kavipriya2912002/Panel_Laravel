@@ -281,7 +281,7 @@
                                 <h3 class="text-lg font-bold">Balance</h3>
                                 <div class="flex space-x-2">
                                     <button class="w-10 h-10 bg-gray-200 rounded-full text-lg">₹</button>
-                                    
+
                                 </div>
                             </div>
                             <div class="text-3xl font-bold mb-6">$ 8,453.00</div>
@@ -300,7 +300,7 @@
                         <div class="mt-5 w-full sm:w-96 p-5 bg-white rounded-2xl shadow-md" style="height: 210px;">
                             <div class="flex justify-between items-center mb-5">
                                 <h3 class="text-lg font-bold">Information</h3>
-                                
+
                             </div>
 
                             <div class="flex items-center space-x-2">
@@ -430,9 +430,9 @@
             <!-- Transfer Content -->
             <div id="transfer" class="tab-content hidden container lg:ml-64 md:ml-64">
                 <h3 class="mb-8 font-extrabold">
-                All Transactions
-              </h3>
-            
+                    All Transactions
+                </h3>
+
                 <table class="text-left w-full">
                     <thead class="bg-black flex text-white w-full">
                         <tr class="flex w-full mb-4">
@@ -441,18 +441,19 @@
                             <th class="p-4 w-1/4">Amount</th>
                             <th class="p-4 w-1/4">Reason</th>
                             <th class="p-4 w-1/4">Transaction ID</th>
-            
+
                         </tr>
                     </thead>
-                <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;">
+                    <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
+                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full"
+                        style="height: 50vh;">
                         <tr class="flex w-full mb-4">
                             <td class="p-4 w-1/4">W12346</td>
                             <td class="p-4 w-1/4">Credit</td>
                             <td class="p-4 w-1/4">$100</td>
                             <td class="p-4 w-1/4">Refund</td>
                             <td class="p-4 w-1/4">T987654321</td>
-            
+
                         </tr>
                         <tr class="flex w-full mb-4">
                             <td class="p-4 w-1/4">W12346</td>
@@ -489,7 +490,7 @@
                             <td class="p-4 w-1/4">Refund</td>
                             <td class="p-4 w-1/4">T987654321</td>
                         </tr>
-                        
+
                         <tr class="flex w-full mb-4">
                             <td class="p-4 w-1/4">W12346</td>
                             <td class="p-4 w-1/4">Credit</td>
@@ -531,425 +532,421 @@
 
 
             <!-- Recharge Content -->
-            <div id="recharge" class="tab-content hidden lg:ml-56 md:ml-56">
-                <div class="flexwrapper">
-                    <div class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
-                        <h2 class="text-xl text-center text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
-                        <form>
-                            <div class="flex gap-4 mb-4">
-                                <label class="flex items-center">
-                                    <input type="radio" name="recharge" class="mr-2">
-                                    Prepaid
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="radio" name="recharge" class="mr-2">
-                                    Postpaid
-                                </label>
-                            </div>
-                            <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required
-    class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-
-                            <div class="custom-dropdown mb-4">
-                                <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
-                                <div class="dropdown-menu space-y-2">
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
-                                        <img src="build/assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
-                                        <span>Airtel</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="jio">
-                                        <img src="build/assets/jio.png" alt="Jio Logo" class="w-6 h-6">
-                                        <span>Jio</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
-                                        <img src="build/assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
-                                        <span>Vodafone</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
-                                        <img src="build/assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
-                                        <span>BSNL</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
-                                        <img src="build/assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
-                                        <span>MTNL</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="amount flex justify-between items-center mb-4">
-                                <div class="a1 w-2/3">
-                                    <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
-                                    <input type="text" class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                                </div>
-                                <div class="a2 text-right">
-                                    <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse Plans</a>
-                                    <p class="text-xs text-gray-500">of all operators</p>
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="w-full p-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors">
-                                Proceed To Recharge
-                            </button>
-                        </form>
+            <div id="recharge" class="tab-content hidden px-4 sm:px-6 lg:px-8">
+               <div class="flexwrapper ">
+                <div
+                class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                <h2 class="text-xl text-center text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
+                <form>
+                    <div class="flex gap-4 mb-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="recharge" class="mr-2">
+                            Prepaid
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="recharge" class="mr-2">
+                            Postpaid
+                        </label>
                     </div>
-                    
-                    
+                    <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone"
+                        placeholder="Enter your phone number" required
+                        class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
 
-
-                    <div class="max-w-screen-l mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
-                        <h1 class="text-2xl font-bold mb-4 text-gray-800">Browse Plans</h1>
-                        <hr>
-
-                        <h1 class="text-2xl font-bold mb-4 text-gray-800">Browse Plans of Jio - Andhra</h1>
-                        <div class="flex gap-4 mb-6">
-                            <button onclick="showTable('recommended')"
-                                class="py-2 px-4 bg-blue-600 text-white rounded-lg border border-blue-600 cursor-pointer active:bg-blue-700 active:text-white">
-                                Recommended
-                            </button>
-                            <button onclick="showTable('unlimited')"
-                                class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
-                                True Unlimited
-                            </button>
-                            <button onclick="showTable('data')"
-                                class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
-                                Data Add On
-                            </button>
-                            <button onclick="showTable('entertainment')"
-                                class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
-                                Entertainment
-                            </button>
-                            <button onclick="showTable('international')"
-                                class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
-                                International Roaming
-                            </button>
-                            <button onclick="showTable('discontinued')"
-                                class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
-                                Discontinued Plans
-                            </button>
+                    <div class="custom-dropdown mb-4">
+                        <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
+                        <div class="dropdown-menu space-y-2">
+                            <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
+                                <img src="build/assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
+                                <span>Airtel</span>
+                            </div>
+                            <div class="dropdown-item flex items-center space-x-2" data-value="jio">
+                                <img src="build/assets/jio.png" alt="Jio Logo" class="w-6 h-6">
+                                <span>Jio</span>
+                            </div>
+                            <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
+                                <img src="build/assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
+                                <span>Vodafone</span>
+                            </div>
+                            <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
+                                <img src="build/assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
+                                <span>BSNL</span>
+                            </div>
+                            <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
+                                <img src="build/assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
+                                <span>MTNL</span>
+                            </div>
                         </div>
-
-
-                        <div id="recommended" class="table-container"
-                            style="display: block; max-height: 300px; border: 1px solid #ccc;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="overflow-y-scroll">
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- True Unlimited Table -->
-                        <div id="unlimited" class="table-container"
-                            style="display: none; overflow-x: auto; max-width: 100%;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Data Add On Table -->
-                        <div id="data" class="table-container"
-                            style="display: block; overflow-x: auto; max-width: 100%;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Maharashtra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">24 GB</td>
-                                        <td class="px-4 py-2 border">336 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                        <td class="px-4 py-2 border">Rs. 895</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- True Unlimited Table -->
-                        <div id="entertainment" class="table-container"
-                            style="display: none; overflow-x: auto; max-width: 100%;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Mumbai</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">1.5 GB/day</td>
-                                        <td class="px-4 py-2 border">84 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 555</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Data Add On Table -->
-                        <div id="international" class="table-container"
-                            style="display: none; overflow-x: auto; max-width: 100%;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Delhi</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">2 GB/day</td>
-                                        <td class="px-4 py-2 border">56 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 444</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Delhi</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">2 GB/day</td>
-                                        <td class="px-4 py-2 border">56 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 444</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Delhi</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">2 GB/day</td>
-                                        <td class="px-4 py-2 border">56 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 444</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                        <div id="discontinued" class="table-container"
-                            style="display: none; overflow-x: auto; max-width: 100%;">
-                            <table class="table-auto w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100 border-b border-gray-200">
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                                        <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Andhra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">2 GB/day</td>
-                                        <td class="px-4 py-2 border">56 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 565</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border">Andhra</td>
-                                        <td class="px-4 py-2 border">Recharge</td>
-                                        <td class="px-4 py-2 border">2 GB/day</td>
-                                        <td class="px-4 py-2 border">56 Days</td>
-                                        <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                        <td class="px-4 py-2 border">Rs. 565</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-10 bg-gray-100 p-6 rounded-lg">
-                            <strong>Disclaimer:</strong> While we support most recharges, we request you to verify with
-                            your operator once before proceeding.
-                        </p>
                     </div>
-
-
-
-                </div>
+                    <div class="amount flex justify-between items-center mb-4">
+                        <div class="a1 w-2/3">
+                            <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
+                            <input type="text"
+                                class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                        </div>
+                        <div class="a2 text-right">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse
+                                Plans</a>
+                            <p class="text-xs text-gray-500">of all operators</p>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full p-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors">
+                        Proceed To Recharge
+                    </button>
+                </form>
             </div>
+        </div>
+               
+
+                <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
+                    <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
+                    <hr>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
+                        <button onclick="showTable('recommended')"
+                            class="py-2 px-4 bg-blue-600 text-white rounded-lg border border-blue-600 cursor-pointer active:bg-blue-700 active:text-white">
+                            Recommended
+                        </button>
+                        <button onclick="showTable('unlimited')"
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            True Unlimited
+                        </button>
+                        <button onclick="showTable('data')"
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            Data Add On
+                        </button>
+                        <button onclick="showTable('entertainment')"
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            Entertainment
+                        </button>
+                        <button onclick="showTable('international')"
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            International Roaming
+                        </button>
+                        <button onclick="showTable('discontinued')"
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            Discontinued Plans
+                        </button>
+                </div>
+                                    
+        
+                <div id="recommended" class="table-container overflow-x-auto">
+                <table class="table-auto w-full border-collapse border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100 border-b border-gray-200">
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border">Maharashtra</td>
+                            <td class="px-4 py-2 border">Recharge</td>
+                            <td class="px-4 py-2 border">24 GB</td>
+                            <td class="px-4 py-2 border">336 Days</td>
+                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                            <td class="px-4 py-2 border">Rs. 895</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+        
+                    <!-- True Unlimited Table -->
+                    <div id="unlimited" class="table-container overflow-x-auto">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <!-- Data Add On Table -->
+                    <div id="data" class="table-container overflow-x-auto">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <!-- True entertainment Table -->
+                    <div id="entertainment" class="table-container overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Mumbai</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">1.5 GB/day</td>
+                                    <td class="px-4 py-2 border">84 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <!-- international Table -->
+                    <div id="international" class="table-container overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Delhi</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">2 GB/day</td>
+                                    <td class="px-4 py-2 border">56 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Delhi</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">2 GB/day</td>
+                                    <td class="px-4 py-2 border">56 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Delhi</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">2 GB/day</td>
+                                    <td class="px-4 py-2 border">56 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div id="discontinued" class="table-container overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Andhra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">2 GB/day</td>
+                                    <td class="px-4 py-2 border">56 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 565</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Andhra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">2 GB/day</td>
+                                    <td class="px-4 py-2 border">56 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
+                                    <td class="px-4 py-2 border">Rs. 565</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-10 bg-gray-100 p-6 rounded-lg">
+                        <strong>Disclaimer : </strong> While we support most recharges, we request you to verify with your operator once before proceeding.
+                    </p>
+                </div>
+                
+                
+            
+            </div>
+            <!-- recharge end -->
+</div>
         </div>
     </div>
     </div>
