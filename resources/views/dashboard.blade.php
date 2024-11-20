@@ -162,7 +162,7 @@
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-500 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-grid" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -184,7 +184,7 @@
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -218,7 +218,7 @@
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-code" width="20"
                                                 height="20" viewBox="0 0 24 24" stroke-width="1.5"
@@ -237,7 +237,7 @@
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            class="flex items-center focus:outline-none ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -376,22 +376,15 @@
                         </div>
                     </div>
 
-
-
-
-                    <!-- main3 -->
-                    <div class="flex flex-col items-center space-y-5">
-                        <img src="{{ asset('build/assets/i2.png') }}" class="w-46 h-50 rounded-2xl"
-                            style="height: 200px;">
-                        <img src="{{ asset('build/assets/i3.png') }}" class="w-46 h-50 rounded-2xl"
-                            style="height: 200px;">
-                        <img src="{{ asset('build/assets/i1.png') }}" class="w-46 h-50 rounded-2xl"
-                            style="height: 200px;">
+                  <!-- main3 -->
+                    <div class="hidden sm:flex flex-col items-center space-y-5">
+                        <img src="{{ asset('build/assets/i2.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('build/assets/i3.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('build/assets/i1.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
                     </div>
+                    
                 </div>
             </div>
-
-
 
             <!-- Wallet Content -->
 
@@ -537,7 +530,8 @@
                     {{-- first table --}}
                     <div
                         class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
-                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
+                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
+                        </h2>
                         <form>
                             <div class="flex gap-4 mb-4">
                                 <label class="flex items-center">
@@ -606,27 +600,27 @@
 
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
                         <button onclick="showTable('recommended')"
-                            class="py-2 px-4 bg-blue-600 text-white rounded-lg border border-blue-600 cursor-pointer active:bg-blue-700 active:text-white">
+                            class="py-2 px-4 bg-black text-white rounded-lg border border-black cursor-pointer active:bg-black active:text-white">
                             Recommended
                         </button>
                         <button onclick="showTable('unlimited')"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-black hover:text-white">
                             True Unlimited
                         </button>
                         <button onclick="showTable('data')"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-black hover:text-white">
                             Data Add On
                         </button>
                         <button onclick="showTable('entertainment')"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-black hover:text-white">
                             Entertainment
                         </button>
                         <button onclick="showTable('international')"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-black hover:text-white">
                             International Roaming
                         </button>
                         <button onclick="showTable('discontinued')"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
+                            class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-black hover:text-white">
                             Discontinued Plans
                         </button>
                     </div>
