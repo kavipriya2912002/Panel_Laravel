@@ -532,11 +532,12 @@
 
 
             <!-- Recharge Content -->
-            <div id="recharge" class="tab-content hidden px-4 sm:px-6 lg:px-8">
-                <div class="flexwrapper ">
+            <div id="recharge" class="tab-content hidden px-4">
+                <div class="flex flex-wrap gap-4 ">
+                    {{-- first table --}}
                     <div
                         class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
-                        <h2 class="text-xl text-center text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
+                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
                         <form>
                             <div class="flex gap-4 mb-4">
                                 <label class="flex items-center">
@@ -551,7 +552,7 @@
                             <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
                             <input type="tel" id="phone" name="phone"
                                 placeholder="Enter your phone number" required
-                                class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                                class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-black focus:ring-1 focus:ring-gray-500">
 
                             <div class="custom-dropdown mb-4">
                                 <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
@@ -582,7 +583,7 @@
                                 <div class="a1 w-2/3">
                                     <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
                                     <input type="text"
-                                        class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                                        class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-gray-500">
                                 </div>
                                 <div class="a2 text-right">
                                     <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse
@@ -591,13 +592,13 @@
                                 </div>
                             </div>
                             <button type="submit"
-                                class="w-full p-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors">
+                                class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
                                 Proceed To Recharge
                             </button>
                         </form>
                     </div>
                 </div>
-
+                {{-- second table --}}
 
                 <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
@@ -650,7 +651,8 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -658,7 +660,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -666,7 +670,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -674,7 +680,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -682,7 +690,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -690,7 +700,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -698,7 +710,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -724,7 +738,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -732,7 +748,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -740,7 +758,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -748,7 +768,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -756,7 +778,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -782,7 +806,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -790,7 +816,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -798,7 +826,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Maharashtra</td>
@@ -806,7 +836,9 @@
                                     <td class="px-4 py-2 border">24 GB</td>
                                     <td class="px-4 py-2 border">336 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -832,7 +864,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -840,7 +874,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -848,7 +884,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Mumbai</td>
@@ -856,7 +894,9 @@
                                     <td class="px-4 py-2 border">1.5 GB/day</td>
                                     <td class="px-4 py-2 border">84 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 555</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -882,7 +922,9 @@
                                     <td class="px-4 py-2 border">2 GB/day</td>
                                     <td class="px-4 py-2 border">56 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Delhi</td>
@@ -890,7 +932,9 @@
                                     <td class="px-4 py-2 border">2 GB/day</td>
                                     <td class="px-4 py-2 border">56 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Delhi</td>
@@ -898,7 +942,9 @@
                                     <td class="px-4 py-2 border">2 GB/day</td>
                                     <td class="px-4 py-2 border">56 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 444</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -924,7 +970,9 @@
                                     <td class="px-4 py-2 border">2 GB/day</td>
                                     <td class="px-4 py-2 border">56 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 565</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border">Andhra</td>
@@ -932,7 +980,9 @@
                                     <td class="px-4 py-2 border">2 GB/day</td>
                                     <td class="px-4 py-2 border">56 Days</td>
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
-                                    <td class="px-4 py-2 border">Rs. 565</td>
+                                    <td class="px-4 py-2 border"> <button
+                                            class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
+
                                 </tr>
                             </tbody>
                         </table>

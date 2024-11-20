@@ -1,5 +1,4 @@
 
-      /* Dropdown container styling */
       .custom-dropdown {
         position: relative;
         width: 200px;
@@ -10,13 +9,11 @@
         background: #fff;
     }
   
-    /* Selected operator styling */
     .selected-operator {
         font-size: 16px;
         color: #555;
     }
   
-    /* Dropdown menu styling */
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -27,10 +24,9 @@
         border-radius: 4px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
-        display: none; /* Initially hidden */
+        display: none; 
     }
   
-    /* Dropdown item styling */
     .dropdown-item {
         display: flex;
         align-items: center;
@@ -43,7 +39,6 @@
         background: #f0f0f0;
     }
   
-    /* Image styling inside dropdown */
     .dropdown-item img {
         height: 24px;
         width: 24px;
@@ -51,51 +46,41 @@
         border-radius: 50%;
     }
   
-    /* Name styling inside dropdown */
     .dropdown-item span {
         font-size: 14px;
         color: #333;
     }
   
   
-  /* Container for all the items */
   .image {
     display: flex;
-    justify-content: space-between; /* Equal spacing between items */
-    align-items: center; /* Align items vertically */
-    /* margin-left: 200px; */
+    justify-content: space-between; 
+    align-items: center; 
     margin-right: 200px;
-    /* border-radius: 10px; */
     margin-top: 30px;
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
     height: 250px;
     width: 1500px;
     padding-left: 30px;
     padding-right: 30px;
-    /* background-color: #ffffff; */
-    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+    flex-wrap: wrap; 
   }
   
-  /* Style for each item */
   .item {
     display: flex;
-    justify-content: center; /* Center the image and text horizontally */
-    align-items: center; /* Center the image and text vertically */
+    justify-content: center; 
+    align-items: center; 
     text-align: center;
-    flex-direction: column; /* Align image and text vertically */
-    width: 100px; /* Set a fixed width for each item */
-    height: 100px; /* Set a fixed height for each item */
+    flex-direction: column; 
+    width: 100px; 
+    height: 100px; 
   }
   
-  /* Make all images the same size */
   .item img {
-    width: 100px; /* Adjust the size of the image */
-    height: 100px; /* Adjust the size of the image */
-    object-fit: contain; /* Ensure the aspect ratio of images is preserved */
-    margin-bottom: 10px; /* Optional: Add some space between image and text */
+    width: 100px; 
+    height: 100px; 
+    object-fit: contain; 
+    margin-bottom: 10px; 
   }
-  
-  /* Optional: Hover effect for items */
   .item:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
@@ -112,15 +97,14 @@
   }
   
   .table-container {
-    display: none; /* Initially hidden */
-    overflow-y: auto; /* Enable vertical scroll bar */
-    max-height: 300px; /* Set maximum height for the container */
-    border: 1px solid #ccc; /* Optional: Border for clarity */
+    display: none; 
+    overflow-y: auto; 
+    max-height: 300px; 
+    border: 1px solid #ccc; 
   }
   .table-container.active {
-    display: block; /* Show active table */
+    display: block; 
   }
-  /* Optional: Styling for smooth scrollbars (modern browsers) */
   .table-container::-webkit-scrollbar {
     width: 8px;
   }
