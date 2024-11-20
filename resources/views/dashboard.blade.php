@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/style.css">
+{{-- <link rel="stylesheet" href="css/style.css"> --}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-4 bg-gray-100 min-h-screen">
+    <div class="py-4 bg-gray-100 min-h-screen flex">
         <div class="flex">
             <!-- sidebar -->
 
@@ -58,23 +58,7 @@
                                             <span class="text-sm ml-2" onclick="showContent('wallet')">Wallet</span>
                                         </a>
                                     </li>
-                                    {{-- <li
-                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-compass" width="18"
-                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
-                                                <circle cx="12" cy="12" r="9"></circle>
-                                            </svg>
-                                            <span class="text-sm ml-2"
-                                                onclick="showContent('deposit')">Deposit-Withdraw</span>
-                                        </a>
-                                    </li> --}}
+                            
                                     <li
                                         class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
@@ -161,8 +145,7 @@
                                 <ul class="mt-12">
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-500 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none  ">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-grid" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -183,8 +166,7 @@
                                     </li>
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none  ">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -198,27 +180,10 @@
                                             <span class="text-sm ml-2" onclick="showContent('wallet')">Wallet</span>
                                         </a>
                                     </li>
-                                    {{-- <li
-                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-compass" width="18"
-                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
-                                                <circle cx="12" cy="12" r="9"></circle>
-                                            </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('deposit')">Deposit
-                                                Withdraw</span>
-                                        </a>
-                                    </li> --}}
+                                    
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none  ">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none  ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-code" width="20"
                                                 height="20" viewBox="0 0 24 24" stroke-width="1.5"
@@ -236,8 +201,7 @@
                                     </li>
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
-                                        <a href="javascript:void(0)"
-                                            class="flex items-center focus:outline-none ">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -270,7 +234,7 @@
         <div class="flex-1 p-6">
             <!-- Home Content -->
             <div id="home" class="tab-content">
-                <div class="flex flex-wrap justify-center lg:justify-start lg:ml-36 md:ml-36">
+                <div class="flex flex-wrap justify-center lg:justify-start">
 
 
                     <!-- main1 -->
@@ -359,10 +323,10 @@
 
                     <!-- main2 -->
                     <div
-                        class="w-full sm:max-w-4xl md:max-w-2xl lg:max-w-4xl h-[500px] bg-white rounded-lg shadow-lg flex flex-col items-center overflow-hidden mr-8 mb-8">
+                        class="w-full sm:max-w-4xl md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow-lg flex flex-col items-center overflow-hidden mr-8 mb-8">
                         <!-- Using inline style to ensure the image size is forced to 100px x 100px -->
-                        <img src="{{ asset('assets/3487900.jpg') }}" alt="Large Image"
-                            class="object-contain mt-4" style="width: 400px; height: 390px;">
+                        <img src="{{ asset('assets/3487900.jpg') }}" alt="Large Image" class="object-contain mt-4"
+                            style="width: 400px; height: 390px;">
                         <div class="p-5 text-center">
                             <h2 class="mt-4 text-3xl font-bold text-gray-800">Accept payments online with ease</h2>
                             <p class="mt-4 text-lg text-gray-600 px-12 leading-7">
@@ -376,13 +340,16 @@
                         </div>
                     </div>
 
-                  <!-- main3 -->
+                    <!-- main3 -->
                     <div class="hidden sm:flex flex-col items-center space-y-5">
-                        <img src="{{ asset('assets/i2.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
-                        <img src="{{ asset('assets/i3.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
-                        <img src="{{ asset('assets/i1.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('assets/i2.png') }}" class="w-46 h-50 rounded-2xl"
+                            style="height: 200px;">
+                        <img src="{{ asset('assets/i3.png') }}" class="w-46 h-50 rounded-2xl"
+                            style="height: 200px;">
+                        <img src="{{ asset('assets/i1.png') }}" class="w-46 h-50 rounded-2xl"
+                            style="height: 200px;">
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -421,7 +388,7 @@
             </div> --}}
 
             <!-- Transfer Content -->
-            <div id="transfer" class="tab-content hidden container lg:ml-64 md:ml-64">
+            <div id="transfer" class="tab-content hidden container">
                 <h3 class="mb-8 font-extrabold">
                     All Transactions
                 </h3>
@@ -529,7 +496,7 @@
                 <div class="flex flex-wrap gap-4 ">
                     {{-- first table --}}
                     <div
-                        class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                        class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
                         <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
                         </h2>
                         <form>
@@ -594,7 +561,7 @@
                 </div>
                 {{-- second table --}}
 
-                <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
+                {{-- <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
 
@@ -985,7 +952,7 @@
                         <strong>Disclaimer : </strong> While we support most recharges, we request you to verify with
                         your operator once before proceeding.
                     </p>
-                </div>
+                </div> --}}
 
 
 
