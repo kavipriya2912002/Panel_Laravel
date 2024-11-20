@@ -287,11 +287,11 @@
                             <div class="text-3xl font-bold mb-6">$ 8,453.00</div>
                             <div class="flex justify-between">
                                 <div class="flex items-center space-x-2 text-green-500">
-                                    <img src="{{ asset('build/assets/uparrow.svg') }}" class="h-5 w-5">
+                                    <img src="{{ asset('assets/uparrow.svg') }}" class="h-5 w-5">
                                     <span>+$ 2,431.00</span>
                                 </div>
                                 <div class="flex items-center space-x-2 text-red-500">
-                                    <img src="{{ asset('build/assets/downarrow.svg') }}" class="h-5 w-5">
+                                    <img src="{{ asset('assets/downarrow.svg') }}" class="h-5 w-5">
                                     <span>-$ 526.00</span>
                                 </div>
                             </div>
@@ -304,17 +304,17 @@
                             </div>
 
                             <div class="flex items-center space-x-2">
-                                <img src="{{ asset('build/assets/location.svg') }}">
+                                <img src="{{ asset('assets/location.svg') }}">
                                 <p class="ml-2">Location: India</p>
                             </div><br>
 
                             <div class="flex items-center space-x-2">
-                                <img src="{{ asset('build/assets/address.svg') }}">
+                                <img src="{{ asset('assets/address.svg') }}">
                                 <p class="ml-2">Address: Mumbai</p>
                             </div><br>
 
                             <div class="flex items-center space-x-2">
-                                <img src="{{ asset('build/assets/wallet.svg') }}">
+                                <img src="{{ asset('assets/wallet.svg') }}">
                                 <p class="ml-2">Wallet ID: 6HE46URR677wSR446Ic</p>
                             </div>
                         </div>
@@ -322,14 +322,14 @@
                         <div class="mt-5 w-full sm:w-96 p-5 bg-white rounded-xl shadow-md" style="height: 200px;">
                             <div class="flex justify-between items-center mb-5">
                                 <h3 class="text-lg font-semibold">Security</h3>
-                                <img src="{{ asset('build/assets/dots.svg') }}" class="h-5 w-5">
+                                <img src="{{ asset('assets/dots.svg') }}" class="h-5 w-5">
                             </div>
                             <div class="flex justify-between items-center mb-4">
                                 <div class="flex items-center space-x-3">
                                     <div class="relative w-10 h-10">
-                                        <img src="{{ asset('build/assets/p2.svg') }}"
+                                        <img src="{{ asset('assets/p2.svg') }}"
                                             class="absolute top-0 left-0 w-full h-full">
-                                        <img src="{{ asset('build/assets/p1.svg') }}"
+                                        <img src="{{ asset('assets/p1.svg') }}"
                                             class="absolute top-1 left-1 w-4/5 h-4/5">
                                     </div>
                                     <div>2X A Enabled</div>
@@ -342,9 +342,9 @@
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center space-x-3">
                                     <div class="relative w-10 h-10">
-                                        <img src="{{ asset('build/assets/p3.svg') }}"
+                                        <img src="{{ asset('assets/p3.svg') }}"
                                             class="absolute top-0 left-0 w-full h-full">
-                                        <img src="{{ asset('build/assets/p4.svg') }}"
+                                        <img src="{{ asset('assets/p4.svg') }}"
                                             class="absolute top-1 left-1 w-4/5 h-4/5">
                                     </div>
                                     <div>Key</div>
@@ -361,7 +361,7 @@
                     <div
                         class="w-full sm:max-w-4xl md:max-w-2xl lg:max-w-4xl h-[500px] bg-white rounded-lg shadow-lg flex flex-col items-center overflow-hidden mr-8 mb-8">
                         <!-- Using inline style to ensure the image size is forced to 100px x 100px -->
-                        <img src="{{ asset('build/assets/3487900.jpg') }}" alt="Large Image"
+                        <img src="{{ asset('assets/3487900.jpg') }}" alt="Large Image"
                             class="object-contain mt-4" style="width: 400px; height: 390px;">
                         <div class="p-5 text-center">
                             <h2 class="mt-4 text-3xl font-bold text-gray-800">Accept payments online with ease</h2>
@@ -378,9 +378,9 @@
 
                   <!-- main3 -->
                     <div class="hidden sm:flex flex-col items-center space-y-5">
-                        <img src="{{ asset('build/assets/i2.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
-                        <img src="{{ asset('build/assets/i3.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
-                        <img src="{{ asset('build/assets/i1.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('assets/i2.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('assets/i3.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
+                        <img src="{{ asset('assets/i1.png') }}" class="w-46 h-50 rounded-2xl" style="height: 200px;">
                     </div>
                     
                 </div>
@@ -552,23 +552,23 @@
                                 <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
                                 <div class="dropdown-menu space-y-2">
                                     <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
-                                        <img src="build/assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
+                                        <img src="assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
                                         <span>Airtel</span>
                                     </div>
                                     <div class="dropdown-item flex items-center space-x-2" data-value="jio">
-                                        <img src="build/assets/jio.png" alt="Jio Logo" class="w-6 h-6">
+                                        <img src="assets/jio.png" alt="Jio Logo" class="w-6 h-6">
                                         <span>Jio</span>
                                     </div>
                                     <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
-                                        <img src="build/assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
+                                        <img src="assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
                                         <span>Vodafone</span>
                                     </div>
                                     <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
-                                        <img src="build/assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
+                                        <img src="assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
                                         <span>BSNL</span>
                                     </div>
                                     <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
-                                        <img src="build/assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
+                                        <img src="assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
                                         <span>MTNL</span>
                                     </div>
                                 </div>
