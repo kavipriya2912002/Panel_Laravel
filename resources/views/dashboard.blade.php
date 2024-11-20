@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-gray-100 min-h-screen">
+    <div class="py-4 bg-gray-100 min-h-screen">
         <div class="flex">
             <!-- sidebar -->
 
@@ -533,71 +533,71 @@
 
             <!-- Recharge Content -->
             <div id="recharge" class="tab-content hidden px-4 sm:px-6 lg:px-8">
-               <div class="flexwrapper ">
-                <div
-                class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
-                <h2 class="text-xl text-center text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
-                <form>
-                    <div class="flex gap-4 mb-4">
-                        <label class="flex items-center">
-                            <input type="radio" name="recharge" class="mr-2">
-                            Prepaid
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="recharge" class="mr-2">
-                            Postpaid
-                        </label>
-                    </div>
-                    <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone"
-                        placeholder="Enter your phone number" required
-                        class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                <div class="flexwrapper ">
+                    <div
+                        class="max-w-sm w-full h-96 p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                        <h2 class="text-xl text-center text-gray-800 mb-4">Recharge or Pay Mobile Bill</h2>
+                        <form>
+                            <div class="flex gap-4 mb-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="recharge" class="mr-2">
+                                    Prepaid
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="recharge" class="mr-2">
+                                    Postpaid
+                                </label>
+                            </div>
+                            <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone"
+                                placeholder="Enter your phone number" required
+                                class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
 
-                    <div class="custom-dropdown mb-4">
-                        <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
-                        <div class="dropdown-menu space-y-2">
-                            <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
-                                <img src="build/assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
-                                <span>Airtel</span>
+                            <div class="custom-dropdown mb-4">
+                                <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
+                                <div class="dropdown-menu space-y-2">
+                                    <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
+                                        <img src="build/assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
+                                        <span>Airtel</span>
+                                    </div>
+                                    <div class="dropdown-item flex items-center space-x-2" data-value="jio">
+                                        <img src="build/assets/jio.png" alt="Jio Logo" class="w-6 h-6">
+                                        <span>Jio</span>
+                                    </div>
+                                    <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
+                                        <img src="build/assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
+                                        <span>Vodafone</span>
+                                    </div>
+                                    <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
+                                        <img src="build/assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
+                                        <span>BSNL</span>
+                                    </div>
+                                    <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
+                                        <img src="build/assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
+                                        <span>MTNL</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dropdown-item flex items-center space-x-2" data-value="jio">
-                                <img src="build/assets/jio.png" alt="Jio Logo" class="w-6 h-6">
-                                <span>Jio</span>
+                            <div class="amount flex justify-between items-center mb-4">
+                                <div class="a1 w-2/3">
+                                    <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
+                                    <input type="text"
+                                        class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                                </div>
+                                <div class="a2 text-right">
+                                    <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse
+                                        Plans</a>
+                                    <p class="text-xs text-gray-500">of all operators</p>
+                                </div>
                             </div>
-                            <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
-                                <img src="build/assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
-                                <span>Vodafone</span>
-                            </div>
-                            <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
-                                <img src="build/assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
-                                <span>BSNL</span>
-                            </div>
-                            <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
-                                <img src="build/assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
-                                <span>MTNL</span>
-                            </div>
-                        </div>
+                            <button type="submit"
+                                class="w-full p-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors">
+                                Proceed To Recharge
+                            </button>
+                        </form>
                     </div>
-                    <div class="amount flex justify-between items-center mb-4">
-                        <div class="a1 w-2/3">
-                            <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
-                            <input type="text"
-                                class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                        </div>
-                        <div class="a2 text-right">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse
-                                Plans</a>
-                            <p class="text-xs text-gray-500">of all operators</p>
-                        </div>
-                    </div>
-                    <button type="submit"
-                        class="w-full p-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors">
-                        Proceed To Recharge
-                    </button>
-                </form>
-            </div>
-        </div>
-               
+                </div>
+
 
                 <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
@@ -628,82 +628,82 @@
                             class="py-2 px-4 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-600 hover:text-white">
                             Discontinued Plans
                         </button>
-                </div>
-                                    
-        
-                <div id="recommended" class="table-container overflow-x-auto">
-                <table class="table-auto w-full border-collapse border border-gray-200">
-                    <thead>
-                        <tr class="bg-gray-100 border-b border-gray-200">
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
-                            <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border">Maharashtra</td>
-                            <td class="px-4 py-2 border">Recharge</td>
-                            <td class="px-4 py-2 border">24 GB</td>
-                            <td class="px-4 py-2 border">336 Days</td>
-                            <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
-                            <td class="px-4 py-2 border">Rs. 895</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-        
+                    </div>
+
+
+                    <div id="recommended" class="table-container overflow-x-auto">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200">
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Plan type</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Data</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Validity</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Description</th>
+                                    <th class="p-3 text-left text-sm font-semibold text-gray-600">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border">Maharashtra</td>
+                                    <td class="px-4 py-2 border">Recharge</td>
+                                    <td class="px-4 py-2 border">24 GB</td>
+                                    <td class="px-4 py-2 border">336 Days</td>
+                                    <td class="px-4 py-2 border">Unlimited Calls | 50 SMS for 28 days</td>
+                                    <td class="px-4 py-2 border">Rs. 895</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <!-- True Unlimited Table -->
                     <div id="unlimited" class="table-container overflow-x-auto">
                         <table class="table-auto w-full border-collapse border border-gray-200">
@@ -761,7 +761,7 @@
                             </tbody>
                         </table>
                     </div>
-                
+
                     <!-- Data Add On Table -->
                     <div id="data" class="table-container overflow-x-auto">
                         <table class="table-auto w-full border-collapse border border-gray-200">
@@ -811,10 +811,10 @@
                             </tbody>
                         </table>
                     </div>
-                
+
                     <!-- True entertainment Table -->
                     <div id="entertainment" class="table-container overflow-x-auto">
-                    <table class="table-auto w-full border-collapse border border-gray-200">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
                             <thead>
                                 <tr class="bg-gray-100 border-b border-gray-200">
                                     <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
@@ -861,10 +861,10 @@
                             </tbody>
                         </table>
                     </div>
-                
+
                     <!-- international Table -->
                     <div id="international" class="table-container overflow-x-auto">
-                    <table class="table-auto w-full border-collapse border border-gray-200">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
                             <thead>
                                 <tr class="bg-gray-100 border-b border-gray-200">
                                     <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
@@ -906,7 +906,7 @@
 
 
                     <div id="discontinued" class="table-container overflow-x-auto">
-                    <table class="table-auto w-full border-collapse border border-gray-200">
+                        <table class="table-auto w-full border-collapse border border-gray-200">
                             <thead>
                                 <tr class="bg-gray-100 border-b border-gray-200">
                                     <th class="p-3 text-left text-sm font-semibold text-gray-600">Circle</th>
@@ -938,16 +938,17 @@
                         </table>
                     </div>
                     <p class="text-sm text-gray-600 mt-10 bg-gray-100 p-6 rounded-lg">
-                        <strong>Disclaimer : </strong> While we support most recharges, we request you to verify with your operator once before proceeding.
+                        <strong>Disclaimer : </strong> While we support most recharges, we request you to verify with
+                        your operator once before proceeding.
                     </p>
                 </div>
-                
-                
-            
+
+
+
             </div>
             <!-- recharge end -->
-</div>
         </div>
+    </div>
     </div>
     </div>
 
@@ -965,115 +966,154 @@
             activeContent.classList.remove('hidden');
         }
     </script>
-</x-app-layout>
+    <script>
+        var sideBar = document.getElementById("mobile-nav");
+        var openSidebar = document.getElementById("openSideBar");
+        var closeSidebar = document.getElementById("closeSideBar");
+        sideBar.style.transform = "translateX(-260px)";
 
-<script>
-    var sideBar = document.getElementById("mobile-nav");
-    var openSidebar = document.getElementById("openSideBar");
-    var closeSidebar = document.getElementById("closeSideBar");
-    sideBar.style.transform = "translateX(-260px)";
-
-    function sidebarHandler(flag) {
-        if (flag) {
-            sideBar.style.transform = "translateX(0px)";
-            openSidebar.classList.add("hidden");
-            closeSidebar.classList.remove("hidden");
-        } else {
-            sideBar.style.transform = "translateX(-260px)";
-            closeSidebar.classList.add("hidden");
-            openSidebar.classList.remove("hidden");
+        function sidebarHandler(flag) {
+            if (flag) {
+                sideBar.style.transform = "translateX(0px)";
+                openSidebar.classList.add("hidden");
+                closeSidebar.classList.remove("hidden");
+            } else {
+                sideBar.style.transform = "translateX(-260px)";
+                closeSidebar.classList.add("hidden");
+                openSidebar.classList.remove("hidden");
+            }
         }
-    }
 
 
-    function toggleDropdownMenu(event) {
-        const dropdownMenu = this.querySelector('.dropdown-menu');
+        function toggleDropdownMenu(event) {
+            const dropdownMenu = this.querySelector('.dropdown-menu');
 
-        // Close other open menus
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) menu.style.display = 'none';
-        });
-
-        // Toggle current menu
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-
-        event.stopPropagation();
-    }
-
-    function selectDropdownItem(event) {
-        const selectedOperator = this.querySelector('span').textContent.trim();
-        const operatorInput = document.getElementById('operator');
-        const selectedDiv = document.querySelector('.selected-operator');
-
-        // Update the selected operator and hidden input value
-        if (selectedDiv) selectedDiv.textContent = selectedOperator;
-        if (operatorInput) operatorInput.value = this.dataset.value;
-
-        // Hide dropdown menu
-        const dropdownMenu = this.closest('.dropdown-menu');
-        if (dropdownMenu) dropdownMenu.style.display = 'none';
-
-        event.stopPropagation();
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Toggle dropdown menu on click
-        const dropdownWrappers = document.querySelectorAll('.custom-dropdown');
-        dropdownWrappers.forEach(wrapper => {
-            wrapper.addEventListener('click', toggleDropdownMenu);
-        });
-
-        // Handle dropdown item selection
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', selectDropdownItem);
-        });
-
-        // Close dropdown if clicked outside
-        document.addEventListener('click', function() {
+            // Close other open menus
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.style.display = 'none';
+                if (menu !== dropdownMenu) menu.style.display = 'none';
+            });
+
+            // Toggle current menu
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+
+            event.stopPropagation();
+        }
+
+        function selectDropdownItem(event) {
+            const selectedOperator = this.querySelector('span').textContent.trim();
+            const operatorInput = document.getElementById('operator');
+            const selectedDiv = document.querySelector('.selected-operator');
+
+            // Update the selected operator and hidden input value
+            if (selectedDiv) selectedDiv.textContent = selectedOperator;
+            if (operatorInput) operatorInput.value = this.dataset.value;
+
+            // Hide dropdown menu
+            const dropdownMenu = this.closest('.dropdown-menu');
+            if (dropdownMenu) dropdownMenu.style.display = 'none';
+
+            event.stopPropagation();
+        }
+
+
+        function addMoneyToWallet() {
+            const amountInput = document.getElementById('amount');
+            const amount = amountInput.value;
+            const messageElement = document.getElementById('wallet-message');
+
+            // Clear previous messages
+            messageElement.textContent = '';
+
+            // Validate the input
+            if (!amount || isNaN(amount) || amount <= 0) {
+                messageElement.textContent = 'Please enter a valid amount.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            // Send the request to the backend
+            axios.post('/dashboard', {
+                    amount: amount,
+                }, {
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    }
+                })
+                .then(response => {
+                    // Display the success message and the updated wallet balance
+                    messageElement.innerHTML = `
+            <p style="color: green;">${response.data.message}</p>
+            <p>Your current wallet balance is: ₹ ${response.data.wallet}</p>
+        `;
+                    amountInput.value = ''; // Reset the input field
+                })
+                .catch(error => {
+                    console.error(error); // Log the error
+                    messageElement.textContent = 'Failed to add money. Please try again.';
+                    messageElement.style.color = 'red';
+                });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle dropdown menu on click
+            const dropdownWrappers = document.querySelectorAll('.custom-dropdown');
+            dropdownWrappers.forEach(wrapper => {
+                wrapper.addEventListener('click', toggleDropdownMenu);
+            });
+
+            // Handle dropdown item selection
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', selectDropdownItem);
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.style.display = 'none';
+                });
             });
         });
-    });
-</script>
+    </script>
 
-<script>
-    function showTable(tableId) {
-        // Hide all tables
-        const tables = document.querySelectorAll('.table-container');
-        tables.forEach(table => table.style.display = 'none');
+    <script>
+        function showTable(tableId) {
+            // Hide all tables
+            const tables = document.querySelectorAll('.table-container');
+            tables.forEach(table => table.style.display = 'none');
 
-        // Show the selected table
-        document.getElementById(tableId).style.display = 'block';
-    }
-</script>
-
-
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('main-content');
-        sidebar.classList.toggle('hidden'); // Toggle sidebar visibility
-        mainContent.classList.toggle('lg:ml-64'); // Adjust main content position
-    }
-</script>
-
-<script>
-    var sideBar = document.getElementById("mobile-nav");
-    var openSidebar = document.getElementById("openSideBar");
-    var closeSidebar = document.getElementById("closeSideBar");
-    sideBar.style.transform = "translateX(-260px)";
-
-    function sidebarHandler(flag) {
-        if (flag) {
-            sideBar.style.transform = "translateX(0px)";
-            openSidebar.classList.add("hidden");
-            closeSidebar.classList.remove("hidden");
-        } else {
-            sideBar.style.transform = "translateX(-260px)";
-            closeSidebar.classList.add("hidden");
-            openSidebar.classList.remove("hidden");
+            // Show the selected table
+            document.getElementById(tableId).style.display = 'block';
         }
-    }
-</script>
+    </script>
+
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('hidden'); // Toggle sidebar visibility
+            mainContent.classList.toggle('lg:ml-64'); // Adjust main content position
+        }
+    </script>
+
+    <script>
+        var sideBar = document.getElementById("mobile-nav");
+        var openSidebar = document.getElementById("openSideBar");
+        var closeSidebar = document.getElementById("closeSideBar");
+        sideBar.style.transform = "translateX(-260px)";
+
+        function sidebarHandler(flag) {
+            if (flag) {
+                sideBar.style.transform = "translateX(0px)";
+                openSidebar.classList.add("hidden");
+                closeSidebar.classList.remove("hidden");
+            } else {
+                sideBar.style.transform = "translateX(-260px)";
+                closeSidebar.classList.add("hidden");
+                openSidebar.classList.remove("hidden");
+            }
+        }
+    </script>
+</x-app-layout>
