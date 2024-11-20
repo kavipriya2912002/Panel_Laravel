@@ -11,7 +11,7 @@
             <!-- sidebar -->
 
             <!-- component -->
-            <div class="w-full h-full">
+            <div class="h-full">
                 <dh-component>
                     <div class="flex flex-no-wrap">
                         <div style="min-height: 400px"
