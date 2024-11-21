@@ -561,7 +561,7 @@
                 </div>
                 {{-- second table --}}
 
-                {{-- <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
+                <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
 
@@ -952,7 +952,7 @@
                         <strong>Disclaimer : </strong> While we support most recharges, we request you to verify with
                         your operator once before proceeding.
                     </p>
-                </div> --}}
+                </div>
 
 
 
