@@ -21,11 +21,12 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    // In routes/web.php
+  
 Route::post('/dashboard', [WalletController::class, 'addMoney']);
 
 
 });
+
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');

@@ -58,7 +58,7 @@
                                             <span class="text-sm ml-2" onclick="showContent('wallet')">Wallet</span>
                                         </a>
                                     </li>
-                            
+
                                     <li
                                         class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
@@ -81,6 +81,33 @@
                                         class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
                                             class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('recharge')">Mobile
+                                                Recharge</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)"
+                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stack" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" />
+                                                <polyline points="12 4 4 8 12 12 20 8 12 4" />
+                                                <polyline points="4 12 12 16 20 12" />
+                                                <polyline points="4 16 12 20 20 16" />
+                                            </svg>
+                                            <span class="text-sm ml-2"
+                                                onclick="showContent('electricity')">Electricity</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)"
+                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -91,10 +118,39 @@
                                                     d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
                                                 </path>
                                             </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('recharge')">Mobile
-                                                Recharge</span>
+                                            <span class="text-sm ml-2" onclick="showContent('gas')">Gas Bill</span>
                                         </a>
                                     </li>
+                                    <li
+                                    class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                    <a href="javascript:void(0)"
+                                        class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-puzzle" width="18"
+                                            height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z"></path>
+                                            <path
+                                                d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
+                                            </path>
+                                        </svg>
+                                        <span class="text-sm ml-2" onclick="showContent('loan')">Pay Loan</span>
+                                    </a>
+                                </li>
+
+                                <li
+                                    class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                    <a href="javascript:void(0)"
+                                        class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z"></path>
+                                            <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                        </svg>
+                                        <span class="text-sm ml-2" onclick="showContent('landline')">Broadband/Landline</span>
+                                    </a>
+                                </li>
 
                                 </ul>
 
@@ -180,7 +236,7 @@
                                             <span class="text-sm ml-2" onclick="showContent('wallet')">Wallet</span>
                                         </a>
                                     </li>
-                                    
+
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)" class="flex items-center focus:outline-none  ">
@@ -202,6 +258,31 @@
                                     <li
                                         class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('recharge')">Mobile
+                                                Recharge</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stack" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" />
+                                                <polyline points="12 4 4 8 12 12 20 8 12 4" />
+                                                <polyline points="4 12 12 16 20 12" />
+                                                <polyline points="4 16 12 20 20 16" />
+                                            </svg>
+                                            <span class="text-sm ml-2"
+                                                onclick="showContent('electricity')">Electricity</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-puzzle" width="18"
                                                 height="18" viewBox="0 0 24 24" stroke-width="1.5"
@@ -212,10 +293,37 @@
                                                     d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
                                                 </path>
                                             </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('recharge')">Mobile
-                                                Recharge</span>
+                                            <span class="text-sm ml-2" onclick="showContent('gas')">Gas Bill</span>
                                         </a>
                                     </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-puzzle" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <path
+                                                    d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
+                                                </path>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('loan')">Pay Loan</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('landline')">Broadband/Landline</span>
+                                        </a>
+                                    </li>
+
 
                                 </ul>
 
@@ -561,11 +669,11 @@
                 </div>
                 {{-- second table --}}
 
-                <div class="max-w-screen-lg mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
+                <div class="max-w-screen-sm mx-auto my-6 bg-white p-5 rounded-lg shadow-md">
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
 
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
+                    <div class="flex flex-col lg:flex-row flex-wrap justify-center lg:justify-start gap-4 mb-6">
                         <button onclick="showTable('recommended')"
                             class="py-2 px-4 bg-black text-white rounded-lg border border-black cursor-pointer active:bg-black active:text-white">
                             Recommended
@@ -591,6 +699,7 @@
                             Discontinued Plans
                         </button>
                     </div>
+
 
 
                     <div id="recommended" class="table-container overflow-x-auto">
@@ -956,14 +1065,294 @@
 
 
 
+
+
+
+
             </div>
             <!-- recharge end -->
+
+
+
+
+            <div id="electricity" class="tab-content hidden">
+                <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Electricity Bill</h2>
+                    <form id="electricityForm">
+                        <div class="flex gap-4 mb-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="recharge" value="electricityBoard" class="mr-2">
+                                Electricity Boards
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="recharge" value="apartments" class="mr-2">
+                                Apartments
+                            </label>
+                        </div>
+
+                        <!-- Dynamic Input Fields -->
+                        <div id="dynamicFields"></div>
+
+                        <button type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                            Proceed
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="loan" class="tab-content hidden">
+                <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Pay Loan EMI</h2>
+                    <form id="loanForm">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Lender</label>
+                            <select name="lender" class="w-full p-2 border rounded">
+                                <option value="" disabled selected>Select Loan Lender</option>
+                                <option value="hdfc">HDFC Bank</option>
+                                <option value="sbi">State Bank of India (SBI)</option>
+                                <option value="icici">ICICI Bank</option>
+                                <option value="axis">Axis Bank</option>
+                                <option value="kotak">Kotak Mahindra Bank</option>
+                                <option value="bajaj">Bajaj Finserv</option>
+                                <option value="idfc">IDFC First Bank</option>
+                                <option value="yesBank">Yes Bank</option>
+                                <option value="indusInd">IndusInd Bank</option>
+                                <option value="bankOfBaroda">Bank of Baroda</option>
+                                <option value="canara">Canara Bank</option>
+                                <option value="punjabNational">Punjab National Bank</option>
+                                <option value="lic">LIC Housing Finance</option>
+                                <option value="tataCapital">Tata Capital</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Loan Number</label>
+                            <input type="text" name="loanNumber" class="w-full p-2 border rounded" placeholder="Enter Loan Number">
+                        </div>
+                        <button type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                            Get Payable Amount
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+
+
+
+
+            <div id="gas" class="tab-content hidden">
+                <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Book LPG Gas Cylinder</h2>
+                    <form id="gasForm">
+                        <div class="flex gap-4 mb-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="recharge" value="gasBill" class="mr-2">
+                                Pay Gas Bill
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="recharge" value="cylinderBill" class="mr-2">
+                                Book A Cylinder
+                            </label>
+                        </div>
+            
+                        <!-- Dynamic Input Fields -->
+                        <div id="gasDynamicFields"></div>
+            
+                        <button type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                            Proceed
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="landline" class="tab-content hidden">
+                <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Pay Broadband / Landline Bill</h2>
+                    <form id="landlineForm">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Broadband / Landline Operator</label>
+                            <select id="landlineOperator" name="landlineOperator" class="w-full p-2 border rounded">
+                                <option value="" disabled selected>Select Operator</option>
+                                <option value="bsnl">BSNL</option>
+                                <option value="airtel">Airtel</option>
+                                <option value="jio">Jio</option>
+                                <option value="hathway">Hathway</option>
+                                <option value="act">ACT Broadband</option>
+                                <option value="excitel">Excitel Broadband</option>
+                                <option value="tataPlay">Tata Play Fiber</option>
+                                <option value="railWire">RailWire</option>
+                                <option value="netplus">Netplus Broadband</option>
+                                <option value="youBroadband">YOU Broadband</option>
+                            </select>
+                        </div>
+                        <div id="stdCodeField" class="mb-4 hidden">
+                            <label class="block text-gray-700 font-medium mb-2">Number with STD Code</label>
+                            <input type="text" name="landlineStd" class="w-full p-2 border rounded" placeholder="Enter number with STD code">
+                        </div>
+                        <button type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                            Get Bill
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            
+
+
         </div>
     </div>
     </div>
     </div>
 
+    <script>
+        // Get the dropdown and the input field container
+        const landlineOperator = document.getElementById('landlineOperator');
+        const stdCodeField = document.getElementById('stdCodeField');
+    
+        // Add event listener for changes in the dropdown
+        landlineOperator.addEventListener('change', function () {
+            if (this.value) {
+                // Show the STD Code field if an operator is selected
+                stdCodeField.classList.remove('hidden');
+            } else {
+                // Hide the STD Code field if no operator is selected
+                stdCodeField.classList.add('hidden');
+            }
+        });
+    </script>
+
     <!-- JavaScript to handle tab switching -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dynamicFields = document.getElementById('gasDynamicFields');
+            const form = document.getElementById('gasForm');
+
+            form.addEventListener('change', (event) => {
+                if (event.target.name === 'recharge') {
+                    dynamicFields.innerHTML = ''; // Clear existing fields
+
+                    if (event.target.value === 'gasBill') {
+                        // Add fields for Electricity Boards
+                        dynamicFields.innerHTML = `
+                            <div class="mb-4">
+    <label class="block text-gray-700 font-medium mb-2">Piped Gas Provider</label>
+    <select name="gasProvider" class="w-full p-2 border rounded">
+        <option value="" disabled selected>Select your gas provider</option>
+        <option value="gail">GAIL (Gas Authority of India Limited)</option>
+        <option value="adaniGas">Adani Gas</option>
+        <option value="mgl">Mahanagar Gas Limited (MGL)</option>
+        <option value="igl">Indraprastha Gas Limited (IGL)</option>
+        <option value="hpcl">Hindustan Petroleum Corporation Limited (HPCL)</option>
+        <option value="bpcl">Bharat Petroleum Corporation Limited (BPCL)</option>
+        <option value="gujaratGas">Gujarat Gas</option>
+        <option value="sundaramFinance">Sundaram Finance Gas</option>
+        <option value="thinkGas">Think Gas</option>
+    </select>
+</div>
+<div class="mb-4">
+    <label class="block text-gray-700 font-medium mb-2">Customer ID</label>
+    <input type="text" name="customerId" class="w-full p-2 border rounded" placeholder="Enter your Customer ID">
+</div>
+
+                        `;
+                    } else if (event.target.value === 'cylinderBill') {
+                        // Add fields for Apartments
+                        dynamicFields.innerHTML = `
+                            <div class="mb-4">
+    <label class="block text-gray-700 font-medium mb-2">Gas Provider</label>
+    <select name="gasProvider" class="w-full p-2 border rounded">
+        <option value="" disabled selected>Select your gas provider</option>
+        <option value="gail">GAIL (Gas Authority of India Limited)</option>
+        <option value="adaniGas">Adani Gas</option>
+        <option value="mgl">Mahanagar Gas Limited (MGL)</option>
+        <option value="igl">Indraprastha Gas Limited (IGL)</option>
+        <option value="hpcl">Hindustan Petroleum Corporation Limited (HPCL)</option>
+        <option value="bpcl">Bharat Petroleum Corporation Limited (BPCL)</option>
+        <option value="gujaratGas">Gujarat Gas</option>
+        <option value="sundaramFinance">Sundaram Finance Gas</option>
+        <option value="thinkGas">Think Gas</option>
+    </select>
+</div>
+<div class="mb-4">
+    <label class="block text-gray-700 font-medium mb-2">Customer ID/Mobile Number</label>
+    <input type="text" name="customerId" class="w-full p-2 border rounded" placeholder="Enter Customer ID or Mobile Number">
+</div>
+<div class="mb-4">
+    <label class="block text-gray-700 font-medium mb-2">Gas Agency</label>
+    <select name="gasAgency" class="w-full p-2 border rounded">
+        <option value="" disabled selected>Select your gas agency</option>
+        <option value="indane">Indane Gas</option>
+        <option value="bharatGas">Bharat Gas</option>
+        <option value="hpGas">HP Gas</option>
+        <option value="superGas">SUPERGAS</option>
+        <option value="shivGas">Shiv Gas</option>
+        <option value="jyotiGas">Jyoti Gas</option>
+        <option value="flameGas">Flame Gas</option>
+    </select>
+</div>
+
+                        `;
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dynamicFields = document.getElementById('dynamicFields');
+            const form = document.getElementById('electricityForm');
+
+            form.addEventListener('change', (event) => {
+                if (event.target.name === 'recharge') {
+                    dynamicFields.innerHTML = ''; // Clear existing fields
+
+                    if (event.target.value === 'electricityBoard') {
+                        // Add fields for Electricity Boards
+                        dynamicFields.innerHTML = `
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">State</label>
+                                <input type="text" name="state" class="w-full p-2 border rounded" placeholder="Enter your state">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Electricity Board</label>
+                                <input type="text" name="electricityBoard" class="w-full p-2 border rounded" placeholder="Enter electricity board">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Consumer Number</label>
+                                <input type="text" name="consumerNumber" class="w-full p-2 border rounded" placeholder="Enter consumer number">
+                            </div>
+                        `;
+                    } else if (event.target.value === 'apartments') {
+                        // Add fields for Apartments
+                        dynamicFields.innerHTML = `
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">City</label>
+                                <input type="text" name="city" class="w-full p-2 border rounded" placeholder="Enter your city">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Apartment</label>
+                                <input type="text" name="apartment" class="w-full p-2 border rounded" placeholder="Enter apartment name">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Utility Type</label>
+                                <select name="utilityType" class="w-full p-2 border rounded">
+                                    <option value="electricity">Electricity</option>
+                                    <option value="water">Water</option>
+                                </select>
+                            </div>
+                        `;
+                    }
+                }
+            });
+        });
+    </script>
+
     <script>
         function showContent(tabName) {
             // Hide all tab contents
