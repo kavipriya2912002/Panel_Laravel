@@ -1,3 +1,6 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -63,7 +66,7 @@
                 <form id="editBusForm" onsubmit="updateBusDetail(event)" method="POST">
                     @csrf
                     @method('PUT') <!-- Used for PUT request in Laravel -->
-                    
+
                     <input type="hidden" id="busId">
 
                     <div class="mb-5">
@@ -130,46 +133,100 @@
 
 
 
-        <!-- Modal for managing routes -->
-<div id="routeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Manage Routes for Bus <span id="busIdLabel"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="routeForm">
-                    <input type="hidden" id="busId" name="bus_id">
-                    <div class="form-group">
-                        <label for="source">Source</label>
-                        <input type="text" class="form-control" id="source" name="source" required>
+        <div id="manageRoutesModal"
+            class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-lg">
+                <div class="border-b border-gray-200 p-4 flex justify-between items-center">
+                    <h5 class="text-lg font-semibold text-gray-700">Manage Routes</h5>
+                    <button class="text-gray-400 hover:text-gray-600"
+                        onclick="document.getElementById('manageRoutesModal').classList.add('hidden')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <form id="routeForm" class="space-y-4">
+                        <div>
+                            <label for="source" class="block text-sm font-medium text-gray-700">Source</label>
+                            <input type="text" id="source"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5"
+                                placeholder="Enter source" />
+                        </div>
+                        <div>
+                            <label for="destination"
+                                class="block text-sm font-medium text-gray-700">Destination</label>
+                            <input type="text" id="destination"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5"
+                                placeholder="Enter destination" />
+                        </div>
+                        <div>
+                            <label for="departure_time" class="block text-sm font-medium text-gray-700">Departure
+                                Time</label>
+                            <input type="time" id="departure_time"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
+                        </div>
+                        <div>
+                            <label for="arrival_time" class="block text-sm font-medium text-gray-700">Arrival
+                                Time</label>
+                            <input type="time" id="arrival_time"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
+                        </div>
+                        <div>
+                            <label for="fare" class="block text-sm font-medium text-gray-700">Fare</label>
+                            <input type="number" id="fare"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5"
+                                placeholder="Enter fare" />
+                        </div>
+                        <button type="button"
+                            class="w-full bg-indigo-600 text-white font-medium rounded-lg px-4 py-2 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            onclick="saveRoute()">
+                            Save Route
+                        </button>
+                        <button type="button"
+                            class="w-full bg-indigo-600 text-white font-medium rounded-lg px-4 py-2 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            onclick="updateRoute()">
+                            Update Route
+                        </button>
+                    </form>
+                    <div id="routeList" class="mt-6">
+                        <!-- Dynamic content -->
                     </div>
-                    <div class="form-group">
-                        <label for="destination">Destination</label>
-                        <input type="text" class="form-control" id="destination" name="destination" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="departure_time">Departure Time</label>
-                        <input type="time" class="form-control" id="departure_time" name="departure_time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="arrival_time">Arrival Time</label>
-                        <input type="time" class="form-control" id="arrival_time" name="arrival_time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="fare">Fare</label>
-                        <input type="number" class="form-control" id="fare" name="fare" step="0.01" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Route</button>
-                </form>
-                <div id="route-message" class="mt-2"></div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+
+        <div class="card shadow-lg mt-4 bg-white rounded-lg overflow-hidden">
+            <div class="card-header bg-indigo-600 text-white py-3 px-4">
+                <span class="font-semibold text-lg">Routes List</span>
+            </div>
+            <div class="card-body p-6">
+                <table class="table w-full table-auto text-left">
+                    <thead class="text-gray-700">
+                        <tr>
+                            <th class="py-3 px-4 border-b font-medium">Route ID</th>
+                            <th class="py-3 px-4 border-b font-medium">Bus ID</th>
+                            <th class="py-3 px-4 border-b font-medium">Source</th>
+                            <th class="py-3 px-4 border-b font-medium">Destination</th>
+                            <th class="py-3 px-4 border-b font-medium">Departure Time</th>
+                            <th class="py-3 px-4 border-b font-medium">Arrival Time</th>
+                            <th class="py-3 px-4 border-b font-medium">Fare</th>
+                            <th class="py-3 px-4 border-b font-medium">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="routesList" class="text-gray-600">
+                        <!-- Routes will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
 
     </div>
 
@@ -198,13 +255,15 @@
                     buses.forEach(bus => {
                         busList.innerHTML += `
             <tr>
-                <td>${bus.id}</td>
-                <td>${bus.operator_name}</td>
-                <td>${bus.bus_type}</td>
-                <td>${bus.total_seats}</td>
-                <td>
-                     <button class="btn btn-sm btn-warning" onclick="editBus(${bus.id})">Edit</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteBus(${bus.id})">Delete</button>
+                <td class="py-3 px-4">${bus.id}</td>
+                <td class="py-3 px-4">${bus.operator_name}</td>
+                <td class="py-3 px-4">${bus.bus_type}</td>
+                <td class="py-3 px-4">${bus.total_seats}</td>
+                <td class="py-3 px-4">
+                     <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg" onclick="editBus(${bus.id})">Edit</button>
+                    <button class="bg-red-600 text-white px-4 py-2 rounded-lg" onclick="deleteBus(${bus.id})">Delete</button>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg" onclick="manageRoutes(${bus.id})">Manage Routes</button>
+
                     
                 </td>
             </tr>
@@ -263,84 +322,74 @@
         }
 
 
+        // Edit bus
+        // Edit bus
+        function editBus(id) {
+            document.getElementById('editBusCard').style.display = 'block';
+            document.getElementById('busForm').style.display = 'none';
+
+            axios.get(`/admin/buses/${id}`)
+                .then(response => {
+                    const bus = response.data.data;
+                    console.log(bus);
+
+                    if (bus) {
+                        document.getElementById('editOperatorName').value = bus.operator_name;
+                        document.getElementById('editBusType').value = bus.bus_type;
+                        document.getElementById('editTotalSeats').value = bus.total_seats;
+
+                        // Correctly set the hidden bus ID
+                        document.getElementById('busId').value = bus.id;
+
+                        // Set form action to include bus ID
+                        document.getElementById('editBusForm').action = `/admin/buses/${bus.id}`;
+                    } else {
+                        alert('Bus not found');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching bus details:', error);
+                    alert('Failed to load bus details. Please try again later.');
+                });
+        }
+
 
 
         function updateBusDetail(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+            event.preventDefault();
 
-            // Get the form values
-            const busId = document.getElementById('busId').value; // Bus ID from the hidden input field
-            const operatorName = document.getElementById('operatorName').value;
-            const busType = document.getElementById('busType').value;
-            const totalSeats = document.getElementById('totalSeats').value;
+            const busId = document.getElementById('busId').value;
+            const operatorName = document.getElementById('editOperatorName').value;
+            const busType = document.getElementById('editBusType').value;
+            const totalSeats = document.getElementById('editTotalSeats').value;
 
-            // Validate input values (optional, but recommended)
             if (!busId || !operatorName || !busType || !totalSeats) {
                 alert('All fields are required!');
                 return;
             }
 
-            // Prepare data for the API request
             const data = {
                 operator_name: operatorName,
                 bus_type: busType,
                 total_seats: totalSeats,
             };
 
-            // Send the PUT request to update the bus details
-            axios.put(`admin/buses/${busId}`, data, {
+            axios.put(`/admin/buses/${busId}`, data, {
                     headers: {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                     }
                 })
                 .then(response => {
-                    // Handle success
                     alert('Bus details updated successfully!');
-                    fetchBuses(); // Refresh the bus list (this function needs to be defined to refresh your bus list)
-                    // Optionally, close the form or reset it
-                    document.getElementById('busForm').reset();
+                    fetchBuses();
+                    document.getElementById('editBusCard').style.display = 'none';
                 })
                 .catch(error => {
-                    // Handle error
                     console.error('Error updating bus:', error);
                     alert('Failed to update bus details. Please try again.');
                 });
         }
 
-
-        // Edit bus
-       // Edit bus
-function editBus(id) {
-    // Show the edit form and hide the create form
-    document.getElementById('editBusCard').style.display = 'block';
-    document.getElementById('busForm').style.display = 'none';
-
-    // Use AJAX to get the bus data
-    axios.get(`/admin/buses/${id}`)
-        .then(response => {
-            const bus = response.data.data; // Adjust this depending on your response structure
-            console.log(bus);
-
-            if (bus) {
-                // Populate the form with bus data
-                document.getElementById('editOperatorName').value = bus.operator_name;
-                document.getElementById('editBusType').value = bus.bus_type;
-                document.getElementById('editTotalSeats').value = bus.total_seats;
-
-                // Update the hidden bus ID field
-                document.getElementById('busId').value = bus.id; // This will set the correct bus ID
-
-                // Update the form action to include the bus ID for PUT request
-                document.getElementById('editBusForm').action = `/admin/buses/${bus.id}`;
-            } else {
-                alert('Bus not found');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching bus details:', error);
-            alert('Failed to load bus details. Please try again later.');
-        });
-}
 
 
 
@@ -364,6 +413,172 @@ function editBus(id) {
             }
         }
 
+
+
+
+        let currentBusId;
+
+        function manageRoutes(busId) {
+            currentBusId = busId; // Assign the clicked bus ID
+            const modal = document.getElementById('manageRoutesModal');
+            modal.classList.remove('hidden');
+        }
+
+        async function saveRoute() {
+            const source = document.getElementById('source').value;
+            const destination = document.getElementById('destination').value;
+            const departure_time = document.getElementById('departure_time').value;
+            const arrival_time = document.getElementById('arrival_time').value;
+            const fare = document.getElementById('fare').value;
+
+            // Validate form data
+            if (!source || !destination || !departure_time || !arrival_time || !fare) {
+                alert('All fields are required.');
+                return;
+            }
+
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+            const response = await fetch('/admin/routes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                body: JSON.stringify({
+                    source,
+                    destination,
+                    departure_time,
+                    arrival_time,
+                    fare,
+                    bus_id: currentBusId,
+                }),
+            });
+
+            if (response.ok) {
+                alert('Route added successfully!');
+                manageRoutes(currentBusId); // Refresh the routes list
+                document.getElementById('routeForm').reset();
+            } else {
+                const errorDetails = await response.json();
+                console.error('Error:', errorDetails);
+                alert(`Failed to save route. ${errorDetails.message || 'Please check your input and try again.'}`);
+            }
+
+        }
+
+        async function deleteRoute(routeId) {
+            try {
+                const response = await fetch(`/admin/routes/${routeId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content'),
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Route deleted successfully!');
+                    fetchRoutes(); // Reload the routes after deletion
+                } else {
+                    alert('Failed to delete route.');
+                }
+            } catch (error) {
+                console.error('Error deleting route:', error);
+            }
+        }
+
+        function editRoute(routeId) {
+            console.log('Editing route with ID:', routeId);
+
+            // Fetch route details
+            fetch(`/admin/routes/${routeId}`)
+                .then(response => response.json())
+                .then(route => {
+                    // Populate form fields
+                    document.getElementById('source').value = route.source || '';
+                    document.getElementById('destination').value = route.destination || '';
+                    document.getElementById('departure_time').value = route.departure_time || '';
+                    document.getElementById('arrival_time').value = route.arrival_time || '';
+                    document.getElementById('fare').value = route.fare || '';
+
+                    // Store routeId in the save button
+                    const saveButton = document.querySelector('#routeForm button');
+                    saveButton.setAttribute('data-route-id', routeId);
+
+                    // Show the modal
+                    document.getElementById('manageRoutesModal').classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Failed to fetch route details:', error);
+                });
+        }
+
+
+        async function updateRoute() {
+            // Retrieve the routeId from the save button
+            const saveButton = document.querySelector('#routeForm button');
+            const routeId = saveButton.getAttribute('data-route-id');
+
+            console.log('Updating route with ID:', routeId); // Debugging to verify routeId
+
+            if (!routeId) {
+                alert('Route ID is missing. Cannot update.');
+                return;
+            }
+
+            try {
+                const source = document.getElementById('source').value;
+                const destination = document.getElementById('destination').value;
+                const departure_time = document.getElementById('departure_time').value;
+                const arrival_time = document.getElementById('arrival_time').value;
+                const fare = document.getElementById('fare').value;
+
+                if (!source || !destination || !fare) {
+                    alert('Source, destination, and fare are required.');
+                    return;
+                }
+
+                const response = await fetch(`/admin/routes/${routeId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content'),
+                    },
+                    body: JSON.stringify({
+                        source,
+                        destination,
+                        departure_time,
+                        arrival_time,
+                        fare,
+                    }),
+                });
+
+                if (response.ok) {
+                    alert('Route updated successfully!');
+                    document.getElementById('manageRoutesModal').classList.add('hidden');
+                    fetchRoutes(); // Reload the routes list
+                } else {
+                    const errorData = await response.json();
+                    console.error('Update failed:', errorData);
+                    alert(`Failed to update the route: ${errorData.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Error updating route:', error);
+                alert('An error occurred while updating the route.');
+            }
+        }
+
+
+
+
+
+
+
+
+
         function resetForm() {
             document.getElementById('operatorName').value = '';
             document.getElementById('busType').value = '';
@@ -378,48 +593,41 @@ function editBus(id) {
             document.getElementById('editTotalSeats').value = '';
         }
 
+        async function fetchRoutes() {
+            try {
+                const response = await fetch(`/admin/routes`);
+                const routes = await response.json();
 
+                const routesList = document.getElementById('routesList');
+                routesList.innerHTML = ''; // Clear existing content
 
-        // Show modal to manage routes
-function manageRoutes(busId) {
-    // Set the bus ID in the form
-    document.getElementById('busId').value = busId;
-    document.getElementById('busIdLabel').textContent = busId;
-    // Clear any previous messages
-    document.getElementById('route-message').innerHTML = '';
-    // Show the modal
-    $('#routeModal').modal('show');
-}
+                routes.forEach(route => {
+                    const row = document.createElement('tr');
+                    row.classList.add('border-b');
 
-// Submit the route form
-document.getElementById('routeForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+                    row.innerHTML = `
+                <td class="py-3 px-4">${route.id}</td>
+                <td class="py-3 px-4">${route.bus_id}</td>
+                <td class="py-3 px-4">${route.source}</td>
+                <td class="py-3 px-4">${route.destination}</td>
+                <td class="py-3 px-4">${route.departure_time}</td>
+                <td class="py-3 px-4">${route.arrival_time}</td>
+                <td class="py-3 px-4">${route.fare}</td>
+                <td class="py-3 px-4">
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg" onclick="editRoute(${route.id})">Edit</button>
+                    <button class="bg-red-600 text-white px-4 py-2 rounded-lg ml-2" onclick="deleteRoute(${route.id})">Delete</button>
+                </td>
+            `;
 
-    const busId = document.getElementById('busId').value;
-    const source = document.getElementById('source').value;
-    const destination = document.getElementById('destination').value;
-    const departureTime = document.getElementById('departure_time').value;
-    const arrivalTime = document.getElementById('arrival_time').value;
-    const fare = document.getElementById('fare').value;
+                    routesList.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching routes:', error);
+            }
+        }
 
-    axios.post(`/routes`, {
-        bus_id: busId,
-        source: source,
-        destination: destination,
-        departure_time: departureTime,
-        arrival_time: arrivalTime,
-        fare: fare
-    })
-    .then(response => {
-        document.getElementById('route-message').innerHTML = 'Route added successfully!';
-        $('#routeModal').modal('hide');
-        fetchRoutesForBus(busId);  // Reload routes for that bus
-    })
-    .catch(error => {
-        document.getElementById('route-message').innerHTML = 'Error adding route.';
-        console.error(error);
-    });
-});
+        // Call this function with the specific bus ID when you want to load routes for that bus
+        fetchRoutes(currentBusId);
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Route;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -16,6 +17,8 @@ class RouteController extends Controller
     // Store a new route
     public function store(Request $request)
     {
+        Log::info('Request data:', $request->all()); // Log incoming request data
+
         $validated = $request->validate([
             'source' => 'required|string|max:255',
             'destination' => 'required|string|max:255',
@@ -26,12 +29,23 @@ class RouteController extends Controller
         ]);
 
         $route = Route::create($validated);
+
+        Log::info('Route created:', $route->toArray()); // Log created route data
         return response()->json(['message' => 'Route added successfully', 'route' => $route]);
     }
 
+
+    public function edit($id)
+{
+    $route = Route::findOrFail($id);
+    return response()->json(['data' => $route], 200);
+}
+
+
     // Update an existing route
     public function update(Request $request, $id)
-    {
+{
+    try {
         $validated = $request->validate([
             'source' => 'string|max:255',
             'destination' => 'string|max:255',
@@ -45,7 +59,12 @@ class RouteController extends Controller
         $route->update($validated);
 
         return response()->json(['message' => 'Route updated successfully', 'route' => $route]);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
+
+    
 
     // Delete a route
     public function destroy($id)
