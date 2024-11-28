@@ -693,11 +693,11 @@
 
 
             <!-- Recharge Content -->
-            <div id="recharge" class="tab-content hidden px-4">
-                <div class="flex flex-wrap gap-4 ">
+            <div id="recharge" class="tab-content lg:flex hidden px-4">
+                <div class="flex flex-wrap gap-2 ">
                     {{-- first table --}}
                     <div
-                        class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
+                        class="max-w-sm w-full p-6 bg-white rounded-lg shadow-md mx-auto h-96 sm:max-w-md md:max-w-lg">
                         <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
                         </h2>
                         <form>
@@ -762,7 +762,8 @@
                 </div>
                 {{-- second table --}}
 
-                <div class="sm:w-[400px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mx-auto my-6 bg-white p-5 rounded-lg shadow-md max-w-full">
+                <div class="max-w-sm h-auto p-8 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg mt-4">
+
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
 
