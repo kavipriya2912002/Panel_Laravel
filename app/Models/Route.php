@@ -9,7 +9,7 @@ class Route extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['source', 'destination', 'departure_time', 'arrival_time', 'bus_id', 'fare'];
+    protected $fillable = ['source', 'destination', 'departure_time', 'arrival_time', 'departure_date', 'bus_id', 'fare'];
 
     public function bus()
     {
@@ -19,5 +19,10 @@ class Route extends Model
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function seats()
+    {
+        return $this->hasMany(Seat::class);
     }
 }

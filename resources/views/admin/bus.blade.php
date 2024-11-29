@@ -175,6 +175,12 @@
                                 class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
                         </div>
                         <div>
+                            <label for="departure_date" class="block text-sm font-medium text-gray-700">Departure
+                                Date</label>
+                            <input type="date" id="departure_date"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
+                        </div>
+                        <div>
                             <label for="fare" class="block text-sm font-medium text-gray-700">Fare</label>
                             <input type="number" id="fare"
                                 class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5"
@@ -226,6 +232,18 @@
 
 
 
+        <!-- Popup Modal -->
+        <div id="seatModal"
+            class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-bold">Seat Layout</h2>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800">&times;</button>
+                </div>
+                <div id="seatTableContainer" class="mt-4"></div>
+                <button onclick="closeModal()" class="bg-pink-600 text-white px-4 py-2 rounded-lg mt-4">Close</button>
+            </div>
+        </div>
 
 
     </div>
@@ -428,11 +446,12 @@
             const source = document.getElementById('source').value;
             const destination = document.getElementById('destination').value;
             const departure_time = document.getElementById('departure_time').value;
+            const departure_date= document.getElementById('departure_date').value;
             const arrival_time = document.getElementById('arrival_time').value;
             const fare = document.getElementById('fare').value;
 
             // Validate form data
-            if (!source || !destination || !departure_time || !arrival_time || !fare) {
+            if (!source || !destination || !departure_time|| !departure_date || !arrival_time || !fare) {
                 alert('All fields are required.');
                 return;
             }
@@ -450,6 +469,7 @@
                     destination,
                     departure_time,
                     arrival_time,
+                    departure_date,
                     fare,
                     bus_id: currentBusId,
                 }),
@@ -500,6 +520,7 @@
                     document.getElementById('source').value = route.source || '';
                     document.getElementById('destination').value = route.destination || '';
                     document.getElementById('departure_time').value = route.departure_time || '';
+                    document.getElementById('departure_date').value = route.departure_date || '';
                     document.getElementById('arrival_time').value = route.arrival_time || '';
                     document.getElementById('fare').value = route.fare || '';
 
@@ -533,6 +554,7 @@
                 const destination = document.getElementById('destination').value;
                 const departure_time = document.getElementById('departure_time').value;
                 const arrival_time = document.getElementById('arrival_time').value;
+                const departure_date = document.getElementById('departure_date').value;
                 const fare = document.getElementById('fare').value;
 
                 if (!source || !destination || !fare) {
@@ -552,6 +574,7 @@
                         destination,
                         departure_time,
                         arrival_time,
+                        departure_date,
                         fare,
                     }),
                 });
@@ -611,11 +634,13 @@
                 <td class="py-3 px-4">${route.source}</td>
                 <td class="py-3 px-4">${route.destination}</td>
                 <td class="py-3 px-4">${route.departure_time}</td>
+                <td class="py-3 px-4">${route.departure_date}</td>
                 <td class="py-3 px-4">${route.arrival_time}</td>
                 <td class="py-3 px-4">${route.fare}</td>
                 <td class="py-3 px-4">
                     <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg" onclick="editRoute(${route.id})">Edit</button>
                     <button class="bg-red-600 text-white px-4 py-2 rounded-lg ml-2" onclick="deleteRoute(${route.id})">Delete</button>
+                    <button class="bg-pink-600 text-white px-4 py-2 rounded-lg ml-2" onclick="viewSeats(${route.id})">View Seats</button>
                 </td>
             `;
 
@@ -633,5 +658,110 @@
 
         // Initialize
         fetchBuses(); // Fetch buses when the page loads
+
+
+
+        function viewSeats(routeId) {
+            // Insert CSS dynamically
+            const existingStyle = document.getElementById("dynamicSeatStyles");
+            if (!existingStyle) {
+                const style = document.createElement("style");
+                style.id = "dynamicSeatStyles";
+                style.textContent = `
+            .seat {
+                width: 40px;
+                height: 40px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin: 5px;
+                border-radius: 4px;
+                color: white;
+                font-weight: bold;
+            }
+            .seat.available {
+                background-color: green;
+            }
+            .seat.unavailable {
+                background-color: red;
+            }
+        `;
+                document.head.appendChild(style);
+            }
+
+            // Show the modal
+            const modal = document.getElementById("seatModal");
+            modal.classList.remove("hidden");
+
+            // Fetch seat data
+            fetch(`/admin/seats/${routeId}`)
+                .then(response => response.json())
+                .then(seats => {
+                    const container = document.getElementById("seatTableContainer");
+                    container.innerHTML = "";
+
+                    const rows = ["A", "B", "C", "D"];
+                    rows.forEach(row => {
+                        const rowDiv = document.createElement("div");
+                        rowDiv.style.display = "flex"; // Ensure row alignment
+                        seats
+                            .filter(seat => seat.seat_number.startsWith(row))
+                            .forEach(seat => {
+                                const seatDiv = document.createElement("div");
+                                seatDiv.classList.add("seat", seat.status === "available" ? "available" :
+                                    "unavailable");
+                                seatDiv.textContent = seat.seat_number;
+
+                                // Add event listener for click
+                                seatDiv.addEventListener("click", function() {
+                                    if (seat.status === "available") {
+                                        const confirmBooking = confirm(
+                                            `Do you want to mark seat ${seat.seat_number} as booked?`
+                                            );
+                                        if (confirmBooking) {
+                                            // Send the update request to the backend
+                                            fetch(`/admin/seats/book/${seat.id}`, {
+                                                    method: 'PUT',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'X-CSRF-TOKEN': document.querySelector(
+                                                                'meta[name="csrf-token"]')
+                                                            .getAttribute('content')
+                                                    }
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    if (data.success) {
+                                                        // Update the UI
+                                                        seatDiv.classList.remove("available");
+                                                        seatDiv.classList.add("unavailable");
+                                                        alert('Seat marked as booked!');
+                                                    } else {
+                                                        alert(
+                                                            'Failed to book seat. Please try again.');
+                                                    }
+                                                })
+                                                .catch(error => console.error("Error booking seat:",
+                                                    error));
+                                        }
+                                    } else {
+                                        alert('This seat is already booked.');
+                                    }
+                                });
+
+                                rowDiv.appendChild(seatDiv);
+                            });
+                        container.appendChild(rowDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching seats:", error);
+                    alert('Failed to load seats. Please try again later.');
+                });
+        }
+
+        function closeModal() {
+            document.getElementById("seatModal").classList.add("hidden");
+        }
     </script>
 </x-app-layout>

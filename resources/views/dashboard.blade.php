@@ -1,4 +1,3 @@
-{{-- <link rel="stylesheet" href="css/style.css"> --}}
 <script src="https://cdn.tailwindcss.com"></script>
 <x-app-layout>
     <x-slot name="header">
@@ -449,15 +448,15 @@
 
                                 </div>
                             </div>
-                            <div class="text-3xl font-bold mb-6">$ 8,453.00</div>
+                            <div class="text-3xl font-bold mb-6">₹ 8,453.00</div>
                             <div class="flex justify-between">
                                 <div class="flex items-center space-x-2 text-green-500">
                                     <img src="{{ asset('assets/uparrow.svg') }}" class="h-5 w-5">
-                                    <span>+$ 2,431.00</span>
+                                    <span>+₹ 2,431.00</span>
                                 </div>
                                 <div class="flex items-center space-x-2 text-red-500">
                                     <img src="{{ asset('assets/downarrow.svg') }}" class="h-5 w-5">
-                                    <span>-$ 526.00</span>
+                                    <span>-₹ 526.00</span>
                                 </div>
                             </div>
                         </div>
@@ -479,7 +478,7 @@
                             </div><br>
 
                             <div class="flex items-center space-x-2">
-                                <img src="{{ asset('assets/wallet.svg') }}">
+                                <img src="{{ asset('assets/wallet (1).svg') }}">
                                 <p class="ml-2">Wallet ID: 6HE46URR677wSR446Ic</p>
                             </div>
                         </div>
@@ -693,7 +692,7 @@
 
 
             <!-- Recharge Content -->
-            <div id="recharge" class="tab-content lg:flex hidden px-4">
+            <div id="recharge" class="tab-content hidden px-4">
                 <div class="flex flex-wrap gap-2 ">
                     {{-- first table --}}
                     <div
@@ -762,12 +761,12 @@
                 </div>
                 {{-- second table --}}
 
-                <div class="max-w-sm h-auto p-8 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg mt-4">
+                <div class="max-w-sm h-auto p-8 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg lg:w-full xl:max-w-[1600px] mt-4">
 
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
 
-                    <div class="flex flex-col lg:flex-row flex-wrap justify-center lg:justify-start gap-4 mb-6">
+                    <div class="flex flex-col lg:flex-row flex-wrap justify-center lg:justify-start gap-4 mt-2 mb-6">
                         <button onclick="showTable('recommended')"
                             class="py-2 px-4 bg-black text-white rounded-lg border border-black cursor-pointer active:bg-black active:text-white">
                             Recommended
@@ -1301,105 +1300,85 @@
 
 
             <!-- Recharge DTH -->
+            <!-- Recharge DTH -->
             <div id="dth" class="tab-content">
                 <div class="main flex flex-wrap mt-0">
                     <!-- Box for DTH Recharge -->
-                    <div
-                        class="box bg-white p-6 rounded-lg shadow-md w-full sm:w-96 md:w-[350px] lg:w-[400px] xl:w-[500px] h-auto mb-6">
+                    <div class="box bg-white p-6 rounded-lg shadow-md w-full sm:w-96 md:w-[350px] lg:w-[400px] xl:w-[500px] h-96 ml-4 mb-6">
                         <h2 class="text-center text-lg sm:text-xl font-medium mb-5">Recharge DTH or TV</h2>
                         <div class="dropdown-container relative mb-5">
-                            <div
-                                class="dropdown-btn flex justify-between items-center px-4 py-2 text-lg border rounded-md border-gray-300 bg-gray-50 cursor-pointer">
+                            <div class="dropdown-btn flex justify-between items-center px-4 py-2 text-lg border rounded-md border-gray-300 bg-gray-50 cursor-pointer">
                                 <span id="selectedOption">DTH Operator</span>
                                 <span>▼</span>
                             </div>
-                            <div
-                                class="dropdown-content absolute w-full bg-white shadow-lg rounded-md mt-1 z-10 max-w-full overflow-y-auto hidden">
+                            <div class="dropdown-content absolute w-full bg-white shadow-lg rounded-md mt-1 z-10 max-w-full overflow-y-auto hidden">
                                 <div class="option px-4 py-2 cursor-pointer flex items-center">DTH Operator</div>
-                                <div class="option px-4 py-2 cursor-pointer flex items-center"
-                                    data-value="tataPlay">
-                                    <img src="{{ asset('assets/Tata.png') }}" alt="Tata Play" class="w-5 mr-2">
-                                    Tata Play (Formerly Tata Sky)
+                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="tataPlay">
+                                        <img src="{{ asset('assets/Tata.png') }}" alt="Tata Play" class="w-5 mr-2"> Tata Play (Formerly Tata Sky)
+                                    </div>
+                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="airtel">
+                                        <img src="{{ asset('assets/airtel1.webp') }}" alt="Airtel Digital TV" class="w-5 mr-2"> Airtel Digital TV
+                                    </div>
+                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="sunDirect">
+                                        <img src="{{ asset('assets/sun.png') }}" alt="Sun Direct" class="w-5 mr-2"> Sun Direct
+                                    </div>
+                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="dishTV">
+                                        <img src="{{ asset('assets/dish.webp') }}" alt="Dish TV" class="w-5 mr-2"> Dish TV
+                                    </div>
+                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="d2h">
+                                        <img src="{{ asset('assets/d2h.webp') }}" alt="d2h" class="w-5 mr-2"> d2h
+                                    </div>
                                 </div>
-                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="airtel">
-                                    <img src="{{ asset('assets/airtel1.webp') }}" alt="Airtel Digital TV"
-                                        class="w-5 mr-2"> Airtel Digital TV
-                                </div>
-                                <div class="option px-4 py-2 cursor-pointer flex items-center"
-                                    data-value="sunDirect">
-                                    <img src="{{ asset('assets/sun.png') }}" alt="Sun Direct" class="w-5 mr-2">
-                                    Sun Direct
-                                </div>
-                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="dishTV">
-                                    <img src="{{ asset('assets/dish.webp') }}" alt="Dish TV" class="w-5 mr-2">
-                                    Dish TV
-                                </div>
-                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="d2h">
-                                    <img src="{{ asset('assets/d2h.webp') }}" alt="d2h" class="w-5 mr-2">
-                                    d2h
-                                </div>
-                            </div>
-                            <button id="clearSelection"
-                                class="clear-btn absolute top-1/2 right-2 transform -translate-y-1/2 text-xl text-gray-400 hover:text-gray-700 bg-transparent border-none cursor-pointer hidden">×</button>
+                            <button id="clearSelection" class="clear-btn absolute top-1/2 right-2 transform -translate-y-1/2 text-xl text-gray-400 hover:text-gray-700 bg-transparent border-none cursor-pointer hidden">×</button>
                         </div>
 
                         <!-- Mobile input field for Tata Play -->
                         <div id="mobileInputContainer" class="mobile-input hidden mt-4 w-full">
-                            <input type="text" id="mobileNumber" placeholder="Mobile No/Subscriber ID"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="mobileNumber" placeholder="Mobile No/Subscriber ID" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Customer Id and Amount input fields for Airtel -->
                         <div id="subscriberAmountContainer" class="subscriber-amount hidden mt-4 w-full">
-                            <input type="text" id="subscriberNumber" placeholder="Customer Id"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
-                            <input type="text" id="amount" placeholder="Amount"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="subscriberNumber" placeholder="Customer Id" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="amount" placeholder="Amount" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Subscriber number and Amount input fields for Sun Direct -->
                         <div id="subscriberNameAmountContainer" class="subscriber-name-amount hidden mt-4 w-full">
-                            <input type="text" id="subscriberName" placeholder="Subscriber Number"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
-                            <input type="text" id="sunAmount" placeholder="Amount"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="subscriberName" placeholder="Subscriber Number" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="sunAmount" placeholder="Amount" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Registered Mobile input field for Dish TV and d2h -->
                         <div id="registeredMobileContainer" class="registered-mobile hidden mt-4 w-full">
-                            <input type="text" id="registeredMobile"
-                                placeholder="Registered Mobile No/Viewing Card No"
-                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="registeredMobile" placeholder="Registered Mobile No/Viewing Card No" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
-                        <button class="rechargebtn bg-black text-white mt-4 rounded-md text-lg w-full h-12">Proceed to
-                            Recharge</button>
+                        <button class="rechargebtn bg-black text-white mt-4 rounded-md text-lg w-full h-12">Proceed to Recharge</button>
                     </div>
 
                     <!-- Airtel Browse Plan Section -->
-                    <div id="airtelbrowsePlanContainer"
-                        class="container mx-auto p-6 bg-white rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
+                    <div id="airtelbrowsePlanContainer" class="container mx-auto p-6 bg-white rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
                         <h2 class="text-center text-xl font-semibold text-gray-700">Browse Plan</h2>
                         <h3 class="text-center text-lg text-gray-600">Browse Plans of Airtel Digital TV</h3>
-                        <div class="tabs flex justify-around mt-6 flex-wrap">
-                            <button onclick="updateAirtelTable('Hindi')" class="tab-button">Hindi</button>
-                            <button onclick="updateAirtelTable('Telugu')" class="tab-button">Telugu</button>
-                            <button onclick="updateAirtelTable('Tamil')" class="tab-button">Tamil</button>
-                            <button onclick="updateAirtelTable('Kannada')" class="tab-button">Kannada</button>
-                            <button onclick="updateAirtelTable('Malayalam')" class="tab-button">Malayalam</button>
-                            <button onclick="updateAirtelTable('AllSouth')" class="tab-button">All in one
-                                South</button>
-                            <button onclick="updateAirtelTable('Marathi')" class="tab-button">Marathi</button>
-                            <button onclick="updateAirtelTable('Gujarati')" class="tab-button">Gujarati</button>
-                            <button onclick="updateAirtelTable('Odia')" class="tab-button">ODIA</button>
-                            <button onclick="updateAirtelTable('Bengali')" class="tab-button">Bengali</button>
+                        <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                            <button onclick="updateAirtelTable('Hindi')" class="tab-button bg-black text-white px-4 py-2 rounded">Hindi</button>
+                            <button onclick="updateAirtelTable('Telugu')" class="tab-button bg-black text-white px-4 py-2 rounded">Telugu</button>
+                            <button onclick="updateAirtelTable('Tamil')" class="tab-button bg-black text-white px-4 py-2 rounded">Tamil</button>
+                            <button onclick="updateAirtelTable('Kannada')" class="tab-button bg-black text-white px-4 py-2 rounded">Kannada</button>
+                            <button onclick="updateAirtelTable('Malayalam')" class="tab-button bg-black text-white px-4 py-2 rounded">Malayalam</button>
+                            <button onclick="updateAirtelTable('AllSouth')" class="tab-button bg-black text-white px-4 py-2 rounded">All in one South</button>
+                            <button onclick="updateAirtelTable('Marathi')" class="tab-button bg-black text-white px-4 py-2 rounded">Marathi</button>
+                            <button onclick="updateAirtelTable('Gujarati')" class="tab-button bg-black text-white px-4 py-2 rounded">Gujarati</button>
+                            <button onclick="updateAirtelTable('Odia')" class="tab-button bg-black text-white px-4 py-2 rounded">ODIA</button>
+                            <button onclick="updateAirtelTable('Bengali')" class="tab-button bg-black text-white px-4 py-2 rounded">Bengali</button>
                         </div>
                         <table class="w-full table-auto mt-6">
                             <thead class="bg-gray-100 text-gray-700 text-left">
                                 <tr>
                                     <th class="p-3 text-sm">Circle</th>
                                     <th class="p-3 text-sm">Plan Type</th>
-                                    <th class="p-3 text-sm">Data</th>
+                                    <!-- <th class="p-3 text-sm">Data</th> -->
                                     <th class="p-3 text-sm">Validity</th>
                                     <th class="p-3 text-sm">Description</th>
                                     <th class="p-3 text-sm">Price</th>
@@ -1410,33 +1389,30 @@
                             </tbody>
                         </table>
                         <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
-                            </p>
+                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
                         </div>
-                        <button
-                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                        <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
                             Next
                         </button>
                     </div>
 
                     <!-- Sun Direct Browse Plan -->
-                    <div id="sunbrowsePlanContainer"
-                        class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
+                    <div id="sunbrowsePlanContainer" class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
                         <h2 class="text-center text-xl font-semibold">Browse Plan</h2>
                         <h3 class="text-center text-lg text-gray-600">Browse Plans of Sun Direct</h3>
-                        <div class="tabs flex justify-around mt-6 flex-wrap">
-                            <button onclick="updateSunTable('Monthly')" class="tab-button">Monthly</button>
-                            <button onclick="updateSunTable('TopUp')" class="tab-button">TopUp</button>
-                            <button onclick="updateSunTable('ThreeMonths')" class="tab-button">ThreeMonths</button>
-                            <button onclick="updateSunTable('SixMonths')" class="tab-button">SixMonths</button>
-                            <button onclick="updateSunTable('Yearly')" class="tab-button">Yearly</button>
+                        <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                            <button onclick="updateSunTable('Monthly')" class="tab-button bg-black text-white px-4 py-2 rounded">Monthly</button>
+                            <button onclick="updateSunTable('TopUp')" class="tab-button bg-black text-white px-4 py-2 rounded">TopUp</button>
+                            <button onclick="updateSunTable('ThreeMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">ThreeMonths</button>
+                            <button onclick="updateSunTable('SixMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">SixMonths</button>
+                            <button onclick="updateSunTable('Yearly')" class="tab-button bg-black text-white px-4 py-2 rounded">Yearly</button>
                         </div>
                         <table class="w-full table-auto mt-6">
                             <thead class="bg-gray-100 text-gray-700 text-left">
                                 <tr>
                                     <th class="p-3 text-sm">Circle</th>
                                     <th class="p-3 text-sm">Plan Type</th>
-                                    <th class="p-3 text-sm">Data</th>
+                                    <!-- <th class="p-3 text-sm">Data</th> -->
                                     <th class="p-3 text-sm">Validity</th>
                                     <th class="p-3 text-sm">Description</th>
                                     <th class="p-3 text-sm">Price</th>
@@ -1447,47 +1423,43 @@
                             </tbody>
                         </table>
                         <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
-                            </p>
+                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
                         </div>
-                        <button
-                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                        <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
                             Next
                         </button>
                     </div>
                 </div>
 
-                <div class="operator bg-white rounded-lg shadow-lg p-5 w-11/12 mt-5 ml-3">
+                <!-- DTH Operator -->
+                <div class="operator cursor-pointer m-2 inline-block bg-white rounded-lg shadow-lg p-5 w-11/12 mt-5 ml-3">
                     <div class="title text-xl font-bold mb-5">DTH Operator</div>
-                    <div class="operator-list flex justify-around items-center flex-wrap">
-                        <div class="operator-item text-center w-36 m-2">
-                            <img src="assets/Tata.png" alt="Tata Play"
-                                class="w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                            <p class="text-sm text-gray-800">Tata Play (Formerly Tata Sky)</p>
-                        </div>
-                        <div class="operator-item text-center w-36 m-2">
-                            <img src="assets/airtel1.webp" alt="Airtel Digital TV"
-                                class="w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                            <p class="text-sm text-gray-800">Airtel Digital TV Recharge</p>
-                        </div>
-                        <div class="operator-item text-center w-36 m-2">
-                            <img src="assets/sun.png" alt="Sun Direct"
-                                class="w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                            <p class="text-sm text-gray-800">Sun Direct Recharge</p>
-                        </div>
-                        <div class="operator-item text-center w-36 m-2">
-                            <img src="assets/dish.webp" alt="Dish TV"
-                                class="w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                            <p class="text-sm text-gray-800">Dish TV Recharge</p>
-                        </div>
-                        <div class="operator-item text-center w-36 m-2">
-                            <img src="assets/d2h.webp" alt="d2h"
-                                class="w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                            <p class="text-sm text-gray-800">d2h Recharge</p>
+                        <div class="operator-list flex justify-around items-center flex-wrap">
+                            <div class="operator-item text-center w-36 m-2">
+                                <img src="assets/Tata.png" alt="Tata Play" data-operator="tataPlay" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                                <p class="text-sm text-gray-800">Tata Play (Formerly Tata Sky)</p>
+                            </div>
+                            <div class="operator-item text-center w-36 m-2">
+                                <img src="assets/airtel1.webp" alt="Airtel Digital TV" data-operator="airtel" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                                <p class="text-sm text-gray-800">Airtel Digital TV Recharge</p>
+                            </div>
+                            <div class="operator-item text-center w-36 m-2">
+                                <img src="assets/sun.png" alt="Sun Direct" data-operator="sunDirect" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                                <p class="text-sm text-gray-800">Sun Direct Recharge</p>
+                            </div>
+                            <div class="operator-item text-center w-36 m-2">
+                                <img src="assets/dish.webp" alt="Dish TV" data-operator="dishTV" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                                <p class="text-sm text-gray-800">Dish TV Recharge</p>
+                            </div>
+                            <div class="operator-item text-center w-36 m-2">
+                                <img src="assets/d2h.webp" alt="d2h" data-operator="d2h" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                                <p class="text-sm text-gray-800">d2h Recharge</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+            
 
 
 
@@ -1611,10 +1583,10 @@
                                 </div>
 
 
-                                <div class="flex w-full mt-5">
+                                <div class="flex flex-wrap mt-5">
 
                                     <!-- Filters Section -->
-                                    <div class="bg-white rounded-lg p-5 shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                                    <div class="bg-white rounded-lg p-5 shadow-md w-full md:w-1/2 lg:w-1/4 sm:max-h-[60vh] overflow-y-auto p-4">
                                         <h2 class="text-base mb-4">Filters</h2>
                                         <ul class="list-none">
                                             <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Live Tracking</li>
@@ -1647,71 +1619,35 @@
                                     </div>
 
 
-                                    <!-- Results Section -->
-                                    <div class="flex flex-wrap w-full">
-                                        <div class="flex gap-5 w-full sm:w-1/2 lg:w-1/3 xl:w-1/5">
-                                            <div class="rounded-lg overflow-hidden h-36">
-                                                <img src="{{ asset('assets/pic1.webp') }}" alt="Ad 1" class="w-full h-full object-cover">
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-5 w-full sm:w-1/2 lg:w-1/3 xl:w-1/5">
-                                            <div class="rounded-lg overflow-hidden h-36">
-                                                <img src="{{ asset('assets/pic2.webp') }}" alt="Ad 2" class="w-full h-full object-cover">
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-5 w-full sm:w-1/2 lg:w-1/3 xl:w-1/5">
-                                            <div class="rounded-lg overflow-hidden h-36">
-                                                <img src="{{ asset('assets/pic3].webp') }}" alt="Ad 3" class="w-full h-full object-cover">
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-5 w-full sm:w-1/2 lg:w-1/3 xl:w-1/5">
-                                            <div class="rounded-lg overflow-hidden h-36">
-                                                <img src="{{ asset('assets/pic4.webp') }}" alt="Ad 4" class="w-full h-full object-cover">
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-5 w-full sm:w-1/2 lg:w-1/3 xl:w-1/5">
-                                            <div class="rounded-lg overflow-hidden h-36">
-                                                <img src="{{ asset('assets/pic5.webp') }}" alt="Ad 5" class="w-full h-full object-cover">
-                                            </div>
-                                        </div>
-                                    
-
-
-                                        <div class="w-full bg-white rounded-lg shadow-md p-5 mt-0">
+                                   <!-- bus found -->
+                                        <div class="w-full sm-w-full bg-white rounded-lg shadow-md p-5 flex flex-col md:w-3/4 p-4">
                                             <h2 class="text-lg mb-2">164 Buses Found</h2>
                                             <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-                                                <div class="flex-1">
+                                                <div class="w-full sm:w-auto flex flex-col sm:flex-1">
                                                     <h3 class="text-lg mb-4 text-blue-500">KMRL Kalaimakal</h3>
                                                     <p class="text-sm text-gray-600">A/C Seater / Sleeper (2+1)</p>
                                                 </div>
-                                                <div class="flex-1 text-center">
+                                                <div class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
                                                     <p class="text-xl font-bold text-gray-800 mb-1">22:45</p>
                                                     <div class="text-gray-500">
                                                         <p>06h 45m</p>
                                                     </div>
                                                     <p class="text-xl font-bold text-gray-800 mb-1">05:30</p>
                                                 </div>
-                                                <div class="flex-1 text-center">
+                                                <div class="flex-1 text-center w-full sm:w-auto">
                                                     <p class="text-lg font-bold text-gray-800">Starts from INR 740</p>
                                                 </div>
-                                                <div class="flex-1 text-right mr-10">
+                                                <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
                                                     <p class="text-sm text-gray-600">22 Seats available</p>
                                                     <p class="text-sm text-gray-600">10 Single</p>
                                                 </div>
-                                                <button id="view-seats-btn" class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md">
+                                                <button id="view-seats-btn" class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto">
                                                     View Seats
                                                 </button>
                                             </div>
                                         
 
-                                            <div class="flex flex-col items-center py-5 hidden" id="seatLayout">
-                                                <div class="flex gap-4 mb-5 flex-wrap justify-center">
-                                                    <button class="py-2 px-5 bg-gray-300 rounded-md hover:bg-gray-400">ALL</button>
-                                                    <button class="py-2 px-5 bg-gray-300 rounded-md hover:bg-gray-400">740</button>
-                                                    <button class="py-2 px-5 bg-gray-300 rounded-md hover:bg-gray-400">900</button>
-                                                    <button class="py-2 px-5 bg-gray-300 rounded-md hover:bg-gray-400">950</button>
-                                                    <button class="py-2 px-5 bg-gray-300 rounded-md hover:bg-gray-400">1000</button>
-                                                </div>
+                                            <div class="flex flex-col items-center py-5 hidden" id="seatLayout">                                   
 
                                                     <div class="bg-blue-100 p-4 rounded-md w-full text-center mb-5">
                                                         Click on an Available seat to proceed with your transaction.
@@ -1720,48 +1656,88 @@
                                                         <div class="flex flex-col gap-8 mt-5 w-full">
                                                             <!-- Lower Deck -->
                                                             <div class="flex flex-col gap-2 items-center w-full">
-                                                                <div class="font-bold text-center mt-4 mb-2">Lower Deck</div>
+                                                                <div class="font-bold text-center mt-4 mb-2">Bus Seat</div>
                                                                 <div class="flex gap-2 w-full justify-center flex-wrap">
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="flex gap-2 w-full justify-center flex-wrap">
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
+                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
+                                                                    </div>
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                 </div><br><br>
@@ -1787,57 +1763,48 @@
                                                                         <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- Upper Deck -->
-                                                            <div class="flex flex-col gap-2 items-center w-ful">
-                                                                <div class="font-bold text-center mt-4 mb-2">Upper Deck</div>
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat2.svg') }}" alt="Seat" class="mr-5">
+                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
                                                                     </div>
-                                                                </div><br><br>
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
                                                                     <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
                                                                         <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
                                                                         <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
@@ -1860,18 +1827,16 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                
+                                                        </div><!-- 9 -->
+                                            </div><!-- 8 -->
+                                        </div><!-- 7 -->
+                                </div> <!-- 6 -->
+                            </div><!-- 5 -->
+                        </div><!-- 4 -->
+                    </div><!-- 3 -->
+                </div><!-- 2 -->
+            </div><!-- 1 -->
             <!-- bus booking -->
             <!-- bus booking -->
 
@@ -2153,16 +2118,29 @@
         });
     </script>
 
-    <script>
-        function showTable(tableId) {
-            // Hide all tables
-            const tables = document.querySelectorAll('.table-container');
-            tables.forEach(table => table.style.display = 'none');
+<script>
+    // Function to show only the specified table
+    function showTable(tableId) {
+        // Hide all tables
+        const tables = document.querySelectorAll('.table-container');
+        tables.forEach(table => table.style.display = 'none');
 
-            // Show the selected table
-            document.getElementById(tableId).style.display = 'block';
-        }
-    </script>
+        // Show the selected table
+        document.getElementById(tableId).style.display = 'block';
+
+        // Save the currently displayed table in localStorage
+        localStorage.setItem('activeTable', tableId);
+    }
+
+    // Function to initialize the view on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the last active table from localStorage
+        const activeTable = localStorage.getItem('activeTable') || 'recommended-table'; // Default to 'recommended-table'
+
+        // Show only the active table
+        showTable(activeTable);
+    });
+</script>
 
 
     <script>
@@ -2192,7 +2170,6 @@
             }
         }
     </script>
-
 
 
 <script>
@@ -2246,19 +2223,19 @@
             const tbody = document.getElementById('planTableBody');
             tbody.innerHTML = ''; // Clear existing rows
   
-            const tabs = document.querySelectorAll('.tabs button');
-            tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
-            const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
-            if (selectedTab) {
-                selectedTab.classList.add('bg-gray-200', 'text-black');
-            }
+          //   const tabs = document.querySelectorAll('.tabs button');
+          //   tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
+          //   const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
+          //   if (selectedTab) {
+          //       selectedTab.classList.add('bg-gray-200', 'text-white'); <td class="p-3">${plan.data}</td>
+          //   }
   
             if (plans[language]) {
                 plans[language].forEach(plan => {
                     const row = `<tr class="hover:bg-gray-100">
                         <td class="p-3">${plan.circle}</td>
                         <td class="p-3">${plan.type}</td>
-                        <td class="p-3">${plan.data}</td>
+                        
                         <td class="p-3">${plan.validity}</td>
                         <td class="p-3">${plan.description}</td>
                         <td class="p-3">
@@ -2273,16 +2250,13 @@
                 tbody.innerHTML = '<tr><td colspan="6" class="p-3 text-center">No plans available for the selected language.</td></tr>';
             }
           }
-  
-  
-          // Initialize with default language (Hindi)
-          // updateTable('Hindi');
-   
       
   const dropdownBtn = document.querySelector('.dropdown-btn');
   const dropdownContent = document.querySelector('.dropdown-content');
   const selectedOption = document.getElementById('selectedOption');
   const clearSelectionBtn = document.getElementById('clearSelection');
+  const operatorItems = document.querySelectorAll('.operator-item');
+  
   const mobileInputContainer = document.getElementById('mobileInputContainer');
   const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
   const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
@@ -2290,6 +2264,7 @@
   const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
   const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
   const rechargeBtn = document.querySelector('.rechargebtn');
+  
   
   
   window.onload = function() {
@@ -2351,14 +2326,79 @@
     });
   });
   
+  
+  //for dth images
+  document.addEventListener('DOMContentLoaded', function () {
+      const operatorImages = document.querySelectorAll('.operator-image');
+      const selectedOption = document.getElementById('selectedOption');
+      const clearSelectionBtn = document.getElementById('clearSelection');
+      const mobileInputContainer = document.getElementById('mobileInputContainer');
+      const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
+      const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
+      const registeredMobileContainer = document.getElementById('registeredMobileContainer');
+      const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
+      const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
+  
+      // Initial state
+      clearContainers();
+  
+      operatorImages.forEach(image => {
+          image.addEventListener('click', () => {
+              handleOperatorSelection(image.dataset.operator, image);
+          });
+      });
+  
+      clearSelectionBtn.addEventListener('click', () => {
+          clearContainers();
+          selectedOption.textContent = 'Select an Operator';
+          clearSelectionBtn.style.display = 'none';
+  
+          operatorImages.forEach(image => {
+              image.classList.remove('selected');
+          });
+      });
+  
+      function handleOperatorSelection(operator, selectedImage) {
+          clearContainers();
+          selectedOption.textContent = operator.charAt(0).toUpperCase() + operator.slice(1);
+          clearSelectionBtn.style.display = 'block';
+  
+          operatorImages.forEach(image => {
+              image.classList.remove('selected');
+          });
+          selectedImage.classList.add('selected');
+  
+          if (operator === 'tataPlay') {
+              mobileInputContainer.style.display = 'block';
+          } else if (operator === 'airtel') {
+              subscriberAmountContainer.style.display = 'block';
+              airtelBrowsePlanContainer.style.display = 'block';
+          } else if (operator === 'sunDirect') {
+              subscriberNameAmountContainer.style.display = 'block';
+              sunBrowsePlanContainer.style.display = 'block';
+          } else if (operator === 'dishTV' || operator === 'd2h') {
+              registeredMobileContainer.style.display = 'block';
+          }
+      }
+  
+      function clearContainers() {
+          mobileInputContainer.style.display = 'none';
+          subscriberAmountContainer.style.display = 'none';
+          subscriberNameAmountContainer.style.display = 'none';
+          registeredMobileContainer.style.display = 'none';
+          airtelBrowsePlanContainer.style.display = 'none';
+          sunBrowsePlanContainer.style.display = 'none';
+      }
+  });
+  
+  
+  
   // Handle recharge button click
   rechargeBtn.addEventListener('click', function() {
     alert('Proceeding with recharge...');
   
   
   });
-  
-  
   
           // Plan data
           const sunplans = {
@@ -2387,7 +2427,7 @@
           // Function to update the table
           function updateSunTable(packType) {
               const tbody = document.getElementById('sunplanTableBody');
-              tbody.innerHTML = ''; // Clear existing table content
+              tbody.innerHTML = ''; // Clear existing table content <td class="p-3">${plan.data}</td>
   
               if (sunplans[packType]) {
                 sunplans[packType].forEach(plan => {
@@ -2395,7 +2435,7 @@
                           <tr>
                               <td class="p-3">${plan.circle}</td>
                               <td class="p-3">${plan.type}</td>
-                              <td class="p-3">${plan.data}</td>
+                              
                               <td class="p-3">${plan.validity}</td>
                               <td class="p-3">${plan.description}</td>
                               <td class="p-3"><button class="price-button">${plan.price}</button></td>
@@ -2408,9 +2448,34 @@
               }
           }
   
-          // Load default pack (Monthly) on page load
-          //updateTable('Monthly');
-      </script>
+  
+  
+  
+          document.querySelectorAll('.operator-item').forEach(operator => {
+              operator.addEventListener('click', () => {
+                  const selectedOperator = operator.getAttribute('data-value');
+                  handleOperatorSelection(selectedOperator);
+              });
+          });
+  
+          function handleOperatorSelection(operator) {
+              document.getElementById("selectedOption").innerText = operator.charAt(0).toUpperCase() + operator.slice(1);
+              document.querySelectorAll('.mobile-input, .subscriber-amount, .subscriber-name-amount, .registered-mobile').forEach(container => {
+                  container.classList.add('hidden');
+              });
+  
+              if (operator === 'tataPlay') {
+                  document.getElementById('mobileInputContainer').classList.remove('hidden');
+              } else if (operator === 'airtel') {
+                  document.getElementById('subscriberAmountContainer').classList.remove('hidden');
+              } else if (operator === 'sunDirect') {
+                  document.getElementById('subscriberNameAmountContainer').classList.remove('hidden');
+              } else if (operator === 'dishTV' || operator === 'd2h') {
+                  document.getElementById('registeredMobileContainer').classList.remove('hidden');
+              }
+          }
+  
+  </script>
 
 
 <script>
@@ -2440,17 +2505,27 @@
 </script>
 
 <script>
-    document.getElementById('view-seats-btn').addEventListener('click', function() {
-        // Get the seat layout container
-        var seatLayout = document.getElementById('seatLayout');
-        
-        // Toggle the visibility of the seat layout container
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var viewSeatsButton = document.getElementById('view-seats-btn');
+    var seatLayout = document.getElementById('seatLayout');
+
+    // Add click event listener to toggle the visibility of the seat layout
+    viewSeatsButton.addEventListener('click', function() {
         if (seatLayout.classList.contains('hidden')) {
-            seatLayout.classList.remove('hidden'); // Show the seat layout
+            // Show seat layout and change button text to 'Hide Seats'
+            seatLayout.classList.remove('hidden');
+            seatLayout.classList.add('block');
+            viewSeatsButton.textContent = 'Hide Seats'; // Change button text to 'Hide Seats'
         } else {
-            seatLayout.classList.add('hidden'); // Hide the seat layout
+            // Hide seat layout and change button text back to 'View Seats'
+            seatLayout.classList.remove('block');
+            seatLayout.classList.add('hidden');
+            viewSeatsButton.textContent = 'View Seats'; // Change button text back to 'View Seats'
         }
     });
+});
+
 </script>
 
 

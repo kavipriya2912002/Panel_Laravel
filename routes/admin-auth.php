@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\SeatController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->middleware('guest:admin')->group(function () {
@@ -23,6 +24,16 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::post('/buses', [BusController::class, 'store'])->name('bus.store'); // Add bus
     Route::put('/buses/{id}', [BusController::class, 'update'])->name('bus.update'); // Update bus
     Route::get('/buses/{id}', [BusController::class, 'edit'])->name('bus.edit');
+
+
+    Route::post('/seats/book', [SeatController::class, 'bookSeat']);
+    Route::post('/seats/unbook', [SeatController::class, 'unbookSeat']);
+    Route::get('/seats/{routeId}', [SeatController::class, 'getSeats']);
+    // routes/api.php
+
+    Route::put('/seats/book/{seatId}', [SeatController::class, 'bookSeatadmin']);
+
+
 
     Route::get('/routes', [RouteController::class, 'index']); // Fetch all routes
     Route::get('/routes/{id}', [RouteController::class, 'edit']);

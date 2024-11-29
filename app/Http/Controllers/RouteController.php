@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Route;
+use App\Models\Seat;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -17,6 +19,7 @@ class RouteController extends Controller
     // Store a new route
     public function store(Request $request)
     {
+        try {
         Log::info('Request data:', $request->all()); // Log incoming request data
 
         $validated = $request->validate([
@@ -24,6 +27,7 @@ class RouteController extends Controller
             'destination' => 'required|string|max:255',
             'departure_time' => 'required',
             'arrival_time' => 'required',
+            'departure_date' => 'required|date',
             'bus_id' => 'required|exists:buses,id',
             'fare' => 'required|numeric|min:0',
         ]);
@@ -31,7 +35,30 @@ class RouteController extends Controller
         $route = Route::create($validated);
 
         Log::info('Route created:', $route->toArray()); // Log created route data
-        return response()->json(['message' => 'Route added successfully', 'route' => $route]);
+        $rows = ['A', 'B', 'C', 'D'];
+        $columns = range(1, 10);
+    
+        foreach ($rows as $row) {
+            foreach ($columns as $column) {
+                Seat::create([
+                    'seat_number' => $row . $column,
+                    'status' => 'available',
+                    'route_id' => $route->id,
+                ]);
+            }
+        }
+        
+        return response()->json(['message' => 'Route and seats created successfully', 'route' => $route]);
+
+
+    } catch (QueryException $e) {
+        Log::error("Database error: " . $e->getMessage());
+        return response()->json(['error' => 'Database error occurred', 'message' => $e->getMessage()], 500);
+    } catch (\Exception $e) {
+        Log::error("General error: " . $e->getMessage());
+        return response()->json(['error' => 'An unexpected error occurred', 'message' => $e->getMessage()], 500);
+    }
+
     }
 
 

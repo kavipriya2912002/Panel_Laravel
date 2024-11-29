@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('destination');
             $table->time('departure_time');
             $table->time('arrival_time');
+            $table->date('departure_date')->nullable(false);
             $table->unsignedBigInteger('bus_id');
             $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
             $table->decimal('fare', 8, 2);
