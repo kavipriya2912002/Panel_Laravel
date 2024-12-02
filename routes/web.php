@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RouteController;
+use App\Http\Controllers\SeatController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +25,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
   
 Route::post('/dashboard', [WalletController::class, 'addMoney']);
+Route::post('/search-routes', [RouteController::class, 'search']);
+Route::get('/all-routes', [RouteController::class, 'getAllRoutes']);
 
+Route::get('/seats/{routeId}', [SeatController::class, 'getSeats']);
+Route::post('/seats/book', [SeatController::class, 'bookSeat']);
 
 });
 

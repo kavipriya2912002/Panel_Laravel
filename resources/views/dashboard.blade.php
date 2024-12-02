@@ -165,22 +165,23 @@
                                         </a>
                                     </li>
                                     <li
-                                    class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
-                                    <a href="javascript:void(0)"
-                                        class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-puzzle" width="18"
-                                            height="18" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <path
-                                                d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
-                                            </path>
-                                        </svg>
-                                        <span class="text-sm ml-2" onclick="showContent('busbooking')">Bus Booking</span>
-                                    </a>
-                                </li>
+                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)"
+                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-puzzle" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <path
+                                                    d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
+                                                </path>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('busbooking')">Bus
+                                                Booking</span>
+                                        </a>
+                                    </li>
                                     <li
                                         class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
@@ -396,7 +397,8 @@
                                                     d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
                                                 </path>
                                             </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('busbooking')">Bus Booking</span>
+                                            <span class="text-sm ml-2" onclick="showContent('busbooking')">Bus
+                                                Booking</span>
                                         </a>
                                     </li>
                                     <li
@@ -761,7 +763,8 @@
                 </div>
                 {{-- second table --}}
 
-                <div class="max-w-sm h-auto p-8 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg lg:w-full xl:max-w-[1600px] mt-4">
+                <div
+                    class="max-w-sm h-auto p-8 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg lg:w-full xl:max-w-[1600px] mt-4">
 
                     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center lg:text-left">Browse Plans</h1>
                     <hr>
@@ -1159,8 +1162,8 @@
             </div>
             <!-- recharge end -->
 
-            
-         <div id="electricity" class="tab-content hidden">
+
+            <div id="electricity" class="tab-content hidden">
                 <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
                     <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Electricity Bill</h2>
                     <form id="electricityForm">
@@ -1304,74 +1307,105 @@
             <div id="dth" class="tab-content">
                 <div class="main flex flex-wrap mt-0">
                     <!-- Box for DTH Recharge -->
-                    <div class="box bg-white p-6 rounded-lg shadow-md w-full sm:w-96 md:w-[350px] lg:w-[400px] xl:w-[500px] h-96 ml-4 mb-6">
+                    <div
+                        class="box bg-white p-6 rounded-lg shadow-md w-full sm:w-96 md:w-[350px] lg:w-[400px] xl:w-[500px] h-96 ml-4 mb-6">
                         <h2 class="text-center text-lg sm:text-xl font-medium mb-5">Recharge DTH or TV</h2>
                         <div class="dropdown-container relative mb-5">
-                            <div class="dropdown-btn flex justify-between items-center px-4 py-2 text-lg border rounded-md border-gray-300 bg-gray-50 cursor-pointer">
+                            <div
+                                class="dropdown-btn flex justify-between items-center px-4 py-2 text-lg border rounded-md border-gray-300 bg-gray-50 cursor-pointer">
                                 <span id="selectedOption">DTH Operator</span>
                                 <span>▼</span>
                             </div>
-                            <div class="dropdown-content absolute w-full bg-white shadow-lg rounded-md mt-1 z-10 max-w-full overflow-y-auto hidden">
+                            <div
+                                class="dropdown-content absolute w-full bg-white shadow-lg rounded-md mt-1 z-10 max-w-full overflow-y-auto hidden">
                                 <div class="option px-4 py-2 cursor-pointer flex items-center">DTH Operator</div>
-                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="tataPlay">
-                                        <img src="{{ asset('assets/Tata.png') }}" alt="Tata Play" class="w-5 mr-2"> Tata Play (Formerly Tata Sky)
-                                    </div>
-                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="airtel">
-                                        <img src="{{ asset('assets/airtel1.webp') }}" alt="Airtel Digital TV" class="w-5 mr-2"> Airtel Digital TV
-                                    </div>
-                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="sunDirect">
-                                        <img src="{{ asset('assets/sun.png') }}" alt="Sun Direct" class="w-5 mr-2"> Sun Direct
-                                    </div>
-                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="dishTV">
-                                        <img src="{{ asset('assets/dish.webp') }}" alt="Dish TV" class="w-5 mr-2"> Dish TV
-                                    </div>
-                                    <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="d2h">
-                                        <img src="{{ asset('assets/d2h.webp') }}" alt="d2h" class="w-5 mr-2"> d2h
-                                    </div>
+                                <div class="option px-4 py-2 cursor-pointer flex items-center"
+                                    data-value="tataPlay">
+                                    <img src="{{ asset('assets/Tata.png') }}" alt="Tata Play" class="w-5 mr-2">
+                                    Tata Play (Formerly Tata Sky)
                                 </div>
-                            <button id="clearSelection" class="clear-btn absolute top-1/2 right-2 transform -translate-y-1/2 text-xl text-gray-400 hover:text-gray-700 bg-transparent border-none cursor-pointer hidden">×</button>
+                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="airtel">
+                                    <img src="{{ asset('assets/airtel1.webp') }}" alt="Airtel Digital TV"
+                                        class="w-5 mr-2"> Airtel Digital TV
+                                </div>
+                                <div class="option px-4 py-2 cursor-pointer flex items-center"
+                                    data-value="sunDirect">
+                                    <img src="{{ asset('assets/sun.png') }}" alt="Sun Direct" class="w-5 mr-2">
+                                    Sun Direct
+                                </div>
+                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="dishTV">
+                                    <img src="{{ asset('assets/dish.webp') }}" alt="Dish TV" class="w-5 mr-2">
+                                    Dish TV
+                                </div>
+                                <div class="option px-4 py-2 cursor-pointer flex items-center" data-value="d2h">
+                                    <img src="{{ asset('assets/d2h.webp') }}" alt="d2h" class="w-5 mr-2">
+                                    d2h
+                                </div>
+                            </div>
+                            <button id="clearSelection"
+                                class="clear-btn absolute top-1/2 right-2 transform -translate-y-1/2 text-xl text-gray-400 hover:text-gray-700 bg-transparent border-none cursor-pointer hidden">×</button>
                         </div>
 
                         <!-- Mobile input field for Tata Play -->
                         <div id="mobileInputContainer" class="mobile-input hidden mt-4 w-full">
-                            <input type="text" id="mobileNumber" placeholder="Mobile No/Subscriber ID" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="mobileNumber" placeholder="Mobile No/Subscriber ID"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Customer Id and Amount input fields for Airtel -->
                         <div id="subscriberAmountContainer" class="subscriber-amount hidden mt-4 w-full">
-                            <input type="text" id="subscriberNumber" placeholder="Customer Id" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
-                            <input type="text" id="amount" placeholder="Amount" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="subscriberNumber" placeholder="Customer Id"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="amount" placeholder="Amount"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Subscriber number and Amount input fields for Sun Direct -->
                         <div id="subscriberNameAmountContainer" class="subscriber-name-amount hidden mt-4 w-full">
-                            <input type="text" id="subscriberName" placeholder="Subscriber Number" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
-                            <input type="text" id="sunAmount" placeholder="Amount" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="subscriberName" placeholder="Subscriber Number"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="sunAmount" placeholder="Amount"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
                         <!-- Registered Mobile input field for Dish TV and d2h -->
                         <div id="registeredMobileContainer" class="registered-mobile hidden mt-4 w-full">
-                            <input type="text" id="registeredMobile" placeholder="Registered Mobile No/Viewing Card No" class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
+                            <input type="text" id="registeredMobile"
+                                placeholder="Registered Mobile No/Viewing Card No"
+                                class="w-full h-8 p-2 rounded-md border border-gray-300 mb-2">
                         </div>
 
-                        <button class="rechargebtn bg-black text-white mt-4 rounded-md text-lg w-full h-12">Proceed to Recharge</button>
+                        <button class="rechargebtn bg-black text-white mt-4 rounded-md text-lg w-full h-12">Proceed to
+                            Recharge</button>
                     </div>
 
                     <!-- Airtel Browse Plan Section -->
-                    <div id="airtelbrowsePlanContainer" class="container mx-auto p-6 bg-white rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
+                    <div id="airtelbrowsePlanContainer"
+                        class="container mx-auto p-6 bg-white rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
                         <h2 class="text-center text-xl font-semibold text-gray-700">Browse Plan</h2>
                         <h3 class="text-center text-lg text-gray-600">Browse Plans of Airtel Digital TV</h3>
-                        <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
-                            <button onclick="updateAirtelTable('Hindi')" class="tab-button bg-black text-white px-4 py-2 rounded">Hindi</button>
-                            <button onclick="updateAirtelTable('Telugu')" class="tab-button bg-black text-white px-4 py-2 rounded">Telugu</button>
-                            <button onclick="updateAirtelTable('Tamil')" class="tab-button bg-black text-white px-4 py-2 rounded">Tamil</button>
-                            <button onclick="updateAirtelTable('Kannada')" class="tab-button bg-black text-white px-4 py-2 rounded">Kannada</button>
-                            <button onclick="updateAirtelTable('Malayalam')" class="tab-button bg-black text-white px-4 py-2 rounded">Malayalam</button>
-                            <button onclick="updateAirtelTable('AllSouth')" class="tab-button bg-black text-white px-4 py-2 rounded">All in one South</button>
-                            <button onclick="updateAirtelTable('Marathi')" class="tab-button bg-black text-white px-4 py-2 rounded">Marathi</button>
-                            <button onclick="updateAirtelTable('Gujarati')" class="tab-button bg-black text-white px-4 py-2 rounded">Gujarati</button>
-                            <button onclick="updateAirtelTable('Odia')" class="tab-button bg-black text-white px-4 py-2 rounded">ODIA</button>
-                            <button onclick="updateAirtelTable('Bengali')" class="tab-button bg-black text-white px-4 py-2 rounded">Bengali</button>
+                        <div
+                            class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                            <button onclick="updateAirtelTable('Hindi')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Hindi</button>
+                            <button onclick="updateAirtelTable('Telugu')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Telugu</button>
+                            <button onclick="updateAirtelTable('Tamil')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Tamil</button>
+                            <button onclick="updateAirtelTable('Kannada')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Kannada</button>
+                            <button onclick="updateAirtelTable('Malayalam')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Malayalam</button>
+                            <button onclick="updateAirtelTable('AllSouth')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">All in one South</button>
+                            <button onclick="updateAirtelTable('Marathi')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Marathi</button>
+                            <button onclick="updateAirtelTable('Gujarati')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Gujarati</button>
+                            <button onclick="updateAirtelTable('Odia')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">ODIA</button>
+                            <button onclick="updateAirtelTable('Bengali')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Bengali</button>
                         </div>
                         <table class="w-full table-auto mt-6">
                             <thead class="bg-gray-100 text-gray-700 text-left">
@@ -1389,23 +1423,32 @@
                             </tbody>
                         </table>
                         <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
+                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
+                            </p>
                         </div>
-                        <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                        <button
+                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
                             Next
                         </button>
                     </div>
 
                     <!-- Sun Direct Browse Plan -->
-                    <div id="sunbrowsePlanContainer" class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
+                    <div id="sunbrowsePlanContainer"
+                        class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
                         <h2 class="text-center text-xl font-semibold">Browse Plan</h2>
                         <h3 class="text-center text-lg text-gray-600">Browse Plans of Sun Direct</h3>
-                        <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
-                            <button onclick="updateSunTable('Monthly')" class="tab-button bg-black text-white px-4 py-2 rounded">Monthly</button>
-                            <button onclick="updateSunTable('TopUp')" class="tab-button bg-black text-white px-4 py-2 rounded">TopUp</button>
-                            <button onclick="updateSunTable('ThreeMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">ThreeMonths</button>
-                            <button onclick="updateSunTable('SixMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">SixMonths</button>
-                            <button onclick="updateSunTable('Yearly')" class="tab-button bg-black text-white px-4 py-2 rounded">Yearly</button>
+                        <div
+                            class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                            <button onclick="updateSunTable('Monthly')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Monthly</button>
+                            <button onclick="updateSunTable('TopUp')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">TopUp</button>
+                            <button onclick="updateSunTable('ThreeMonths')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">ThreeMonths</button>
+                            <button onclick="updateSunTable('SixMonths')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">SixMonths</button>
+                            <button onclick="updateSunTable('Yearly')"
+                                class="tab-button bg-black text-white px-4 py-2 rounded">Yearly</button>
                         </div>
                         <table class="w-full table-auto mt-6">
                             <thead class="bg-gray-100 text-gray-700 text-left">
@@ -1423,43 +1466,51 @@
                             </tbody>
                         </table>
                         <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
+                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
+                            </p>
                         </div>
-                        <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                        <button
+                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
                             Next
                         </button>
                     </div>
                 </div>
 
                 <!-- DTH Operator -->
-                <div class="operator cursor-pointer m-2 inline-block bg-white rounded-lg shadow-lg p-5 w-11/12 mt-5 ml-3">
+                <div
+                    class="operator cursor-pointer m-2 inline-block bg-white rounded-lg shadow-lg p-5 w-11/12 mt-5 ml-3">
                     <div class="title text-xl font-bold mb-5">DTH Operator</div>
-                        <div class="operator-list flex justify-around items-center flex-wrap">
-                            <div class="operator-item text-center w-36 m-2">
-                                <img src="assets/Tata.png" alt="Tata Play" data-operator="tataPlay" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                                <p class="text-sm text-gray-800">Tata Play (Formerly Tata Sky)</p>
-                            </div>
-                            <div class="operator-item text-center w-36 m-2">
-                                <img src="assets/airtel1.webp" alt="Airtel Digital TV" data-operator="airtel" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                                <p class="text-sm text-gray-800">Airtel Digital TV Recharge</p>
-                            </div>
-                            <div class="operator-item text-center w-36 m-2">
-                                <img src="assets/sun.png" alt="Sun Direct" data-operator="sunDirect" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                                <p class="text-sm text-gray-800">Sun Direct Recharge</p>
-                            </div>
-                            <div class="operator-item text-center w-36 m-2">
-                                <img src="assets/dish.webp" alt="Dish TV" data-operator="dishTV" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                                <p class="text-sm text-gray-800">Dish TV Recharge</p>
-                            </div>
-                            <div class="operator-item text-center w-36 m-2">
-                                <img src="assets/d2h.webp" alt="d2h" data-operator="d2h" class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
-                                <p class="text-sm text-gray-800">d2h Recharge</p>
-                            </div>
+                    <div class="operator-list flex justify-around items-center flex-wrap">
+                        <div class="operator-item text-center w-36 m-2">
+                            <img src="assets/Tata.png" alt="Tata Play" data-operator="tataPlay"
+                                class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                            <p class="text-sm text-gray-800">Tata Play (Formerly Tata Sky)</p>
+                        </div>
+                        <div class="operator-item text-center w-36 m-2">
+                            <img src="assets/airtel1.webp" alt="Airtel Digital TV" data-operator="airtel"
+                                class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                            <p class="text-sm text-gray-800">Airtel Digital TV Recharge</p>
+                        </div>
+                        <div class="operator-item text-center w-36 m-2">
+                            <img src="assets/sun.png" alt="Sun Direct" data-operator="sunDirect"
+                                class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                            <p class="text-sm text-gray-800">Sun Direct Recharge</p>
+                        </div>
+                        <div class="operator-item text-center w-36 m-2">
+                            <img src="assets/dish.webp" alt="Dish TV" data-operator="dishTV"
+                                class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                            <p class="text-sm text-gray-800">Dish TV Recharge</p>
+                        </div>
+                        <div class="operator-item text-center w-36 m-2">
+                            <img src="assets/d2h.webp" alt="d2h" data-operator="d2h"
+                                class="operator-image w-20 h-20 rounded-full mb-2 border-2 border-gray-300">
+                            <p class="text-sm text-gray-800">d2h Recharge</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            
+
 
 
 
@@ -1471,17 +1522,15 @@
                     <div class="w-full bg-white shadow-lg rounded-lg">
                         <!-- Tabs -->
                         <div class="flex flex-wrap justify-around border-b border-gray-300">
-                            <button
-                            id="homeTab"
-                            class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
-                            onclick="showTab('home')">
-                            Home
+                            <button id="homeTab"
+                                class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
+                                onclick="showTab('home')">
+                                Home
                             </button>
-                            <button
-                            id="profileTab"
-                            class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
-                            onclick="showTab('profile')">
-                            Profile
+                            <button id="profileTab"
+                                class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
+                                onclick="showTab('profile')">
+                                Profile
                             </button>
                         </div>
 
@@ -1489,63 +1538,90 @@
                         <div class="p-6">
                             <!-- Home Content -->
                             <div id="homeContent">
-                                <header class="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-12 py-4 bg-gray-100 border-b border-gray-300">
+                                <header
+                                    class="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-12 py-4 bg-gray-100 border-b border-gray-300">
                                     <div class="logo mb-4 lg:mb-0">
-                                    <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo" class="h-16 sm:h-20 lg:h-24 w-auto">
+                                        <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
+                                            class="h-16 sm:h-20 lg:h-24 w-auto">
                                     </div>
                                     <nav class="nav mb-4 lg:mb-0">
-                                    <a href="#" class="text-base sm:text-lg lg:text-xl text-black mr-4">Bus Tickets</a>
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black mr-4">Bus Tickets</a>
                                     </nav>
-                                    <div class="account flex flex-col sm:flex-row items-center justify-center sm:justify-end">
-                                    <a href="#" class="text-base sm:text-lg lg:text-xl text-black mb-2 sm:mb-0 sm:mr-4">Help</a>
-                                    <select id="language-select" name="language" class="text-base sm:text-lg p-2 border rounded-lg mb-2 sm:mb-0 sm:mr-4">
-                                        <option value="en">English</option>
-                                        <option value="hi">Hindi</option>
-                                        <option value="ta">Tamil</option>
-                                    </select>
-                                    <a href="#" class="text-base sm:text-lg lg:text-xl text-black">Account</a>
+                                    <div
+                                        class="account flex flex-col sm:flex-row items-center justify-center sm:justify-end">
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black mb-2 sm:mb-0 sm:mr-4">Help</a>
+                                        <select id="language-select" name="language"
+                                            class="text-base sm:text-lg p-2 border rounded-lg mb-2 sm:mb-0 sm:mr-4">
+                                            <option value="en">English</option>
+                                            <option value="hi">Hindi</option>
+                                            <option value="ta">Tamil</option>
+                                        </select>
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black">Account</a>
                                     </div>
                                 </header>
 
                                 <section class="hero bg-black text-white text-center py-8 lg:py-12">
                                     <h1 class="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-8">
-                                    India's No. 1 Online Bus Ticket Booking Site
+                                        India's No. 1 Online Bus Ticket Booking Site
                                     </h1>
-                                    <div class="search-box flex flex-col sm:flex-row justify-center gap-4 mb-6 sm:mb-12">
-                                    <input type="text" placeholder="From" class="p-2 sm:p-3 border border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                    <input type="text" placeholder="To" class="p-2 sm:p-3 border border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                    <input type="date" class="p-2 sm:p-3 border border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                    <button class="p-2 sm:p-3 px-4 sm:px-6 bg-white text-black rounded-lg text-sm sm:text-base">
-                                        Search Buses
-                                    </button>
+                                    <div
+                                        class="search-box flex flex-col sm:flex-row justify-center gap-4 mb-6 sm:mb-12">
+                                        <input id="fromInput" type="text" placeholder="From"
+                                            class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <input id="toInput" type="text" placeholder="To"
+                                            class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <input id="dateInput" type="date"
+                                            class="p-2 sm:p-3 border border-gray-300 text-black rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <button id="searchButton"
+                                            class="p-2 sm:p-3 px-4 sm:px-6 bg-white text-black rounded-lg text-sm sm:text-base">
+                                            Search Buses
+                                        </button>
                                     </div>
                                     <p class="text-base sm:text-lg lg:text-xl mb-4 sm:mb-8">
-                                    Apno ko, Sapno ko Kareeb Laaye.
+                                        Apno ko, Sapno ko Kareeb Laaye.
                                     </p>
                                 </section>
 
                                 <section class="offers py-6 sm:py-8 bg-gray-100 shadow-lg w-full">
                                     <h2 class="text-lg sm:text-xl lg:text-2xl text-center mb-6">Trending Offers</h2>
-                                    <div class="offer-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-12">
-                                        <div class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                    <div
+                                        class="offer-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-12">
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
                                             <h3 class="text-base sm:text-lg mb-2">Save up to ₹250 on bus tickets</h3>
                                             <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                            <button class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use Code: FIRST</button>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: FIRST</button>
                                         </div>
-                                        <div class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on Karnataka, Tamil</h3>
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on Karnataka, Tamil
+                                            </h3>
                                             <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                            <button class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use Code: CASH300</button>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: CASH300</button>
                                         </div>
-                                        <div class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on AP, TS routes</h3>
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on AP, TS routes
+                                            </h3>
                                             <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                            <button class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use Code: SUPERHIT</button>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: SUPERHIT</button>
                                         </div>
-                                        <div class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
                                             <h3 class="text-base sm:text-lg mb-2">Save up to ₹500 with ICICI Bank</h3>
                                             <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                            <button class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use Code: ICICI500</button>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: ICICI500</button>
                                         </div>
                                     </div>
                                 </section>
@@ -1555,16 +1631,19 @@
                             <!-- profile content -->
                             <div id="profileContent" class="hidden">
                                 <!-- profile content -->
-                                <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-24 py-4 bg-gray-100 border-b border-gray-300">
+                                <header
+                                    class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-24 py-4 bg-gray-100 border-b border-gray-300">
                                     <div class="logo mb-4 sm:mb-0">
-                                        <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo" class="h-32 w-48">
+                                        <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
+                                            class="h-32 w-48">
                                     </div>
                                     <nav class="nav flex flex-row sm:flex-col sm:items-start mb-4 sm:mb-0">
                                         <a href="#" class="text-xl text-black mx-4">Bus Tickets</a>
                                     </nav>
                                     <div class="account flex sm:flex-row sm:items-center">
                                         <a href="#" class="text-xl text-black mx-4">Help</a>
-                                        <select id="language-select" name="language" class="text-lg p-2 border border-gray-300 rounded-md mx-4 mb-4 sm:mb-0">
+                                        <select id="language-select" name="language"
+                                            class="text-lg p-2 border border-gray-300 rounded-md mx-4 mb-4 sm:mb-0">
                                             <option value="en">English</option>
                                             <option value="es">Hindi</option>
                                             <option value="fr">Tamil</option>
@@ -1577,260 +1656,104 @@
 
 
                                 <div class="bg-white p-5 sm:p-6 md:p-8 lg:p-10 border-b border-gray-300">
-                                    <p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500">Bus Ticket > Chennai to Bangalore Bus</p>
-                                    <h1 class="mt-1 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">Chennai to Bangalore Bus</h1>
-                                    <button class="inline-block py-2 px-4 border border-gray-300 rounded text-xs sm:text-sm md:text-base lg:text-lg bg-white cursor-pointer mt-3 sm:mt-4 md:mt-5 lg:mt-6">Modify</button>
+                                    <p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500">Bus Ticket >
+                                        Chennai to Bangalore Bus</p>
+                                    <h1 class="mt-1 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">Chennai
+                                        to Bangalore Bus</h1>
+                                    <button
+                                        class="inline-block py-2 px-4 border border-gray-300 rounded text-xs sm:text-sm md:text-base lg:text-lg bg-white cursor-pointer mt-3 sm:mt-4 md:mt-5 lg:mt-6">Modify</button>
                                 </div>
 
 
                                 <div class="flex flex-wrap mt-5">
 
                                     <!-- Filters Section -->
-                                    <div class="bg-white rounded-lg p-5 shadow-md w-full md:w-1/2 lg:w-1/4 sm:max-h-[60vh] overflow-y-auto p-4">
+                                    <div
+                                        class="bg-white rounded-lg p-5 shadow-md w-full md:w-1/2 lg:w-1/4 sm:max-h-[60vh] overflow-y-auto p-4">
                                         <h2 class="text-base mb-4">Filters</h2>
                                         <ul class="list-none">
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Live Tracking</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Primo Bus</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Live
+                                                Tracking</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Primo
+                                                Bus</li>
                                         </ul>
-                                        
+
                                         <h2 class="text-base mb-4">Departure Time</h2>
                                         <ul class="list-none">
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Before 6 am</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6 am to 12 pm</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12 pm to 6 pm</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> After 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Before
+                                                6 am</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6 am
+                                                to 12 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12 pm
+                                                to 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> After
+                                                6 pm</li>
                                         </ul>
-                                        
+
                                         <h2 class="text-base mb-4">Bus Type</h2>
                                         <ul class="list-none">
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Seater</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Sleeper</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> AC</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Non AC</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Seater
+                                            </li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Sleeper</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> AC
+                                            </li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Non AC
+                                            </li>
                                         </ul>
 
                                         <h2 class="text-base mb-4">Arrival Time</h2>
                                         <ul class="list-none">
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Before 6 am</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6 am to 12 pm</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12 pm to 6 pm</li>
-                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> After 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> Before
+                                                6 am</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6 am
+                                                to 12 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12 pm
+                                                to 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> After
+                                                6 pm</li>
                                         </ul>
                                     </div>
 
 
-                                   <!-- bus found -->
-                                        <div class="w-full sm-w-full bg-white rounded-lg shadow-md p-5 flex flex-col md:w-3/4 p-4">
-                                            <h2 class="text-lg mb-2">164 Buses Found</h2>
-                                            <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-                                                <div class="w-full sm:w-auto flex flex-col sm:flex-1">
-                                                    <h3 class="text-lg mb-4 text-blue-500">KMRL Kalaimakal</h3>
-                                                    <p class="text-sm text-gray-600">A/C Seater / Sleeper (2+1)</p>
-                                                </div>
-                                                <div class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
-                                                    <p class="text-xl font-bold text-gray-800 mb-1">22:45</p>
-                                                    <div class="text-gray-500">
-                                                        <p>06h 45m</p>
-                                                    </div>
-                                                    <p class="text-xl font-bold text-gray-800 mb-1">05:30</p>
-                                                </div>
-                                                <div class="flex-1 text-center w-full sm:w-auto">
-                                                    <p class="text-lg font-bold text-gray-800">Starts from INR 740</p>
-                                                </div>
-                                                <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
-                                                    <p class="text-sm text-gray-600">22 Seats available</p>
-                                                    <p class="text-sm text-gray-600">10 Single</p>
-                                                </div>
-                                                <button id="view-seats-btn" class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto">
-                                                    View Seats
-                                                </button>
+                                    <!-- bus found -->
+                                    <div
+                                        class="w-full sm-w-full bg-white rounded-lg shadow-md p-5 flex flex-col md:w-3/4 p-4">
+                                        <h2 class="text-lg mb-2">164 Buses Found</h2>
+                                        <div
+                                            class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                                            <div class="w-full sm:w-auto flex flex-col sm:flex-1">
+                                                <h3 class="text-lg mb-4 text-blue-500">KMRL Kalaimakal</h3>
+                                                <p class="text-sm text-gray-600">A/C Seater / Sleeper (2+1)</p>
                                             </div>
-                                        
+                                            <div
+                                                class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
+                                                <p class="text-xl font-bold text-gray-800 mb-1">22:45</p>
+                                                <div class="text-gray-500">
+                                                    <p>06h 45m</p>
+                                                </div>
+                                                <p class="text-xl font-bold text-gray-800 mb-1">05:30</p>
+                                            </div>
+                                            <div class="flex-1 text-center w-full sm:w-auto">
+                                                <p class="text-lg font-bold text-gray-800">Starts from INR 740</p>
+                                            </div>
+                                            <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
+                                                <p class="text-sm text-gray-600">22 Seats available</p>
+                                                <p class="text-sm text-gray-600">10 Single</p>
+                                            </div>
+                                            <button id="view-seats-btn"
+                                                class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto">
+                                                View Seats
+                                            </button>
+                                        </div>
 
-                                            <div class="flex flex-col items-center py-5 hidden" id="seatLayout">                                   
 
-                                                    <div class="bg-blue-100 p-4 rounded-md w-full text-center mb-5">
-                                                        Click on an Available seat to proceed with your transaction.
-                                                    </div>
-                                                    
-                                                        <div class="flex flex-col gap-8 mt-5 w-full">
-                                                            <!-- Lower Deck -->
-                                                            <div class="flex flex-col gap-2 items-center w-full">
-                                                                <div class="font-bold text-center mt-4 mb-2">Bus Seat</div>
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                </div><br><br>
 
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex gap-2 w-full justify-center flex-wrap">
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                    <div class="seat w-12 h-8 bg-white rounded-md cursor-pointer relative" data-seat-no="1">
-                                                                        <img src="{{ asset('assets/seat1.svg') }}" alt="Seat" class="mr-5">
-                                                                        <div class="popup hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-black p-1 text-xs border border-gray-400 shadow-md">Seat 1</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                
-                                                        </div><!-- 9 -->
-                                            </div><!-- 8 -->
-                                        </div><!-- 7 -->
+
+                                        <!-- Seat Selection Wrapper -->
+
+
+                                    </div><!-- 7 -->
                                 </div> <!-- 6 -->
                             </div><!-- 5 -->
                         </div><!-- 4 -->
@@ -1839,6 +1762,34 @@
             </div><!-- 1 -->
             <!-- bus booking -->
             <!-- bus booking -->
+
+
+
+
+           <!-- Seat Selection Popup (Initially Hidden) -->
+           <div id="seatLayout" class="seatWrapper hidden fixed top-0 left-0 w-full h-full bg-gray-700 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-4 rounded-lg w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
+                <div class="font-bold text-center mt-4 mb-2 text-xl">Bus Seat Selection</div>
+        
+                <!-- Seat container for dynamic seats -->
+                <div id="seatContainer" class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-1 justify-center">
+                    <!-- Seats will be dynamically inserted here -->
+                </div>
+        
+                <div class="text-center mt-4">
+                    <!-- Close Button -->
+                    <button id="close-seat-modal" class="px-4 py-2 bg-red-500 text-white rounded-md">Close</button>
+        
+                    <!-- Book Seat Button -->
+                    <button id="book-seat-btn" class="px-4 py-2 bg-blue-500 text-white rounded-md ml-4 hidden" >
+                        Book Seat
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+            
+            
 
 
 
@@ -2007,6 +1958,8 @@
             activeContent.classList.remove('hidden');
         }
     </script>
+
+
     <script>
         var sideBar = document.getElementById("mobile-nav");
         var openSidebar = document.getElementById("openSideBar");
@@ -2118,29 +2071,30 @@
         });
     </script>
 
-<script>
-    // Function to show only the specified table
-    function showTable(tableId) {
-        // Hide all tables
-        const tables = document.querySelectorAll('.table-container');
-        tables.forEach(table => table.style.display = 'none');
+    <script>
+        // Function to show only the specified table
+        function showTable(tableId) {
+            // Hide all tables
+            const tables = document.querySelectorAll('.table-container');
+            tables.forEach(table => table.style.display = 'none');
 
-        // Show the selected table
-        document.getElementById(tableId).style.display = 'block';
+            // Show the selected table
+            document.getElementById(tableId).style.display = 'block';
 
-        // Save the currently displayed table in localStorage
-        localStorage.setItem('activeTable', tableId);
-    }
+            // Save the currently displayed table in localStorage
+            localStorage.setItem('activeTable', tableId);
+        }
 
-    // Function to initialize the view on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        // Get the last active table from localStorage
-        const activeTable = localStorage.getItem('activeTable') || 'recommended-table'; // Default to 'recommended-table'
+        // Function to initialize the view on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the last active table from localStorage
+            const activeTable = localStorage.getItem('activeTable') ||
+                'recommended-table'; // Default to 'recommended-table'
 
-        // Show only the active table
-        showTable(activeTable);
-    });
-</script>
+            // Show only the active table
+            showTable(activeTable);
+        });
+    </script>
 
 
     <script>
@@ -2172,64 +2126,200 @@
     </script>
 
 
-<script>
-    
-    const plans = {
-              Hindi: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Hindi Entertainment - SD Pack', price: 'Rs. 289' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Hindi Entertainment - HD Pack', price: 'Rs. 362' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Hindi Ultimate - SD Pack', price: 'Rs. 364' }
-              ],
-              Tamil: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Tamil Lite - SD Pack', price: 'Rs. 199' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Month', description: 'Tamil Full - HD Pack', price: 'Rs. 299' }
-              ],
-              Telugu: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Month', description: 'Telugu Entertainment - SD Pack', price: 'Rs. 499' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Telugu Premium - HD Pack', price: 'Rs. 355' }
-              ],
-              Kannada: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '2 Month', description: 'Kannada Entertainment - SD Pack', price: 'Rs. 750' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '5 Month', description: 'Kannada Premium - HD Pack', price: 'Rs. 650' }
-              ],
-              Malayalam: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '4 Month', description: 'Malayalam Entertainment - SD Pack', price: 'Rs. 250' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Month', description: 'Malayalam Premium - HD Pack', price: 'Rs. 599' }
-              ],
-              AllSouth: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '2 Month', description: 'AllSouth Entertainment - SD Pack', price: 'Rs. 480' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '4 Month', description: 'AllSouth Premium - HD Pack', price: 'Rs. 699' }
-              ],
-              Marathi: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Month', description: 'Marathi Entertainment - SD Pack', price: 'Rs. 550' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Marathi Premium - HD Pack', price: 'Rs. 300' }
-              ],
-              Gujarati: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '3 Month', description: 'Gujarati Entertainment - SD Pack', price: 'Rs. 350' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Gujarati Premium - HD Pack', price: 'Rs. 550' }
-              ],
-              Odia: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Odia Entertainment - SD Pack', price: 'Rs. 499' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Month', description: 'Odia Premium - HD Pack', price: 'Rs. 350' }
-              ],
-              Bengali: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '4 Month', description: 'Bengali Entertainment - SD Pack', price: 'Rs. 650' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '3 Month', description: 'Bengali Premium - HD Pack', price: 'Rs. 399' }
-              ]
-              
-          };
-  
-          function updateAirtelTable(language) {
+    <script>
+        const plans = {
+            Hindi: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Entertainment - SD Pack',
+                    price: 'Rs. 289'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Entertainment - HD Pack',
+                    price: 'Rs. 362'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Ultimate - SD Pack',
+                    price: 'Rs. 364'
+                }
+            ],
+            Tamil: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Tamil Lite - SD Pack',
+                    price: 'Rs. 199'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Tamil Full - HD Pack',
+                    price: 'Rs. 299'
+                }
+            ],
+            Telugu: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Telugu Entertainment - SD Pack',
+                    price: 'Rs. 499'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Telugu Premium - HD Pack',
+                    price: 'Rs. 355'
+                }
+            ],
+            Kannada: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '2 Month',
+                    description: 'Kannada Entertainment - SD Pack',
+                    price: 'Rs. 750'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '5 Month',
+                    description: 'Kannada Premium - HD Pack',
+                    price: 'Rs. 650'
+                }
+            ],
+            Malayalam: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'Malayalam Entertainment - SD Pack',
+                    price: 'Rs. 250'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Malayalam Premium - HD Pack',
+                    price: 'Rs. 599'
+                }
+            ],
+            AllSouth: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '2 Month',
+                    description: 'AllSouth Entertainment - SD Pack',
+                    price: 'Rs. 480'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'AllSouth Premium - HD Pack',
+                    price: 'Rs. 699'
+                }
+            ],
+            Marathi: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Marathi Entertainment - SD Pack',
+                    price: 'Rs. 550'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Marathi Premium - HD Pack',
+                    price: 'Rs. 300'
+                }
+            ],
+            Gujarati: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Month',
+                    description: 'Gujarati Entertainment - SD Pack',
+                    price: 'Rs. 350'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Gujarati Premium - HD Pack',
+                    price: 'Rs. 550'
+                }
+            ],
+            Odia: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Odia Entertainment - SD Pack',
+                    price: 'Rs. 499'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Odia Premium - HD Pack',
+                    price: 'Rs. 350'
+                }
+            ],
+            Bengali: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'Bengali Entertainment - SD Pack',
+                    price: 'Rs. 650'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Month',
+                    description: 'Bengali Premium - HD Pack',
+                    price: 'Rs. 399'
+                }
+            ]
+
+        };
+
+        function updateAirtelTable(language) {
             const tbody = document.getElementById('planTableBody');
             tbody.innerHTML = ''; // Clear existing rows
-  
-          //   const tabs = document.querySelectorAll('.tabs button');
-          //   tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
-          //   const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
-          //   if (selectedTab) {
-          //       selectedTab.classList.add('bg-gray-200', 'text-white'); <td class="p-3">${plan.data}</td>
-          //   }
-  
+
+            //   const tabs = document.querySelectorAll('.tabs button');
+            //   tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
+            //   const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
+            //   if (selectedTab) {
+            //       selectedTab.classList.add('bg-gray-200', 'text-white'); <td class="p-3">${plan.data}</td>
+            //   }
+
             if (plans[language]) {
                 plans[language].forEach(plan => {
                     const row = `<tr class="hover:bg-gray-100">
@@ -2247,191 +2337,257 @@
                     tbody.innerHTML += row;
                 });
             } else {
-                tbody.innerHTML = '<tr><td colspan="6" class="p-3 text-center">No plans available for the selected language.</td></tr>';
+                tbody.innerHTML =
+                    '<tr><td colspan="6" class="p-3 text-center">No plans available for the selected language.</td></tr>';
             }
-          }
-      
-  const dropdownBtn = document.querySelector('.dropdown-btn');
-  const dropdownContent = document.querySelector('.dropdown-content');
-  const selectedOption = document.getElementById('selectedOption');
-  const clearSelectionBtn = document.getElementById('clearSelection');
-  const operatorItems = document.querySelectorAll('.operator-item');
-  
-  const mobileInputContainer = document.getElementById('mobileInputContainer');
-  const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
-  const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
-  const registeredMobileContainer = document.getElementById('registeredMobileContainer');
-  const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
-  const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
-  const rechargeBtn = document.querySelector('.rechargebtn');
-  
-  
-  
-  window.onload = function() {
-      document.getElementById('airtelbrowsePlanContainer').style.display = 'none';
-      document.getElementById('sunbrowsePlanContainer').style.display = 'none';
-      document.getElementById('mobileInputContainer').style.display = 'none';
-      document.getElementById('subscriberAmountContainer').style.display = 'none';
-      document.getElementById('subscriberNameAmountContainer').style.display = 'none';
-      document.getElementById('registeredMobileContainer').style.display = 'none';
-      clearSelectionBtn.style.display = 'none';
-  };
-  
-  
-  dropdownBtn.addEventListener('click', function() {
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-  });
-  
-  clearSelectionBtn.addEventListener('click', function() {
-    selectedOption.textContent = 'DTH Operator';
-    dropdownContent.style.display = 'none';
-    mobileInputContainer.style.display = 'none';
-    subscriberAmountContainer.style.display = 'none';
-    subscriberNameAmountContainer.style.display = 'none';
-    registeredMobileContainer.style.display = 'none';
-    airtelBrowsePlanContainer.style.display = 'none';
-    sunBrowsePlanContainer.style.display = 'none';
-    clearSelectionBtn.style.display = 'none';
-  });
-  
-  const options = document.querySelectorAll('.dropdown-content .option');
-  options.forEach(function(option) {
-    option.addEventListener('click', function() {
-      selectedOption.textContent = option.textContent;
-      dropdownContent.style.display = 'none';
-      clearSelectionBtn.style.display = 'block';
-  
-      const operator = option.dataset.value;
-  
-      // Hide all inputs initially
-      mobileInputContainer.style.display = 'none';
-      subscriberAmountContainer.style.display = 'none';
-      subscriberNameAmountContainer.style.display = 'none';
-      registeredMobileContainer.style.display = 'none';
-      airtelBrowsePlanContainer.style.display = 'none';
-      sunBrowsePlanContainer.style.display = 'none';
-  
-      // Show specific input based on selected operator
-      if (operator === 'tataPlay') {
-        mobileInputContainer.style.display = 'block';
-      } else if (operator === 'airtel') {
-        subscriberAmountContainer.style.display = 'block';
-        airtelBrowsePlanContainer.style.display = 'block';
-      } else if (operator === 'sunDirect') {
-        subscriberNameAmountContainer.style.display = 'block';
-        sunBrowsePlanContainer.style.display = 'block';
-      } else if (operator === 'dishTV' || operator === 'd2h') {
-        registeredMobileContainer.style.display = 'block';
-      }
-    });
-  });
-  
-  
-  //for dth images
-  document.addEventListener('DOMContentLoaded', function () {
-      const operatorImages = document.querySelectorAll('.operator-image');
-      const selectedOption = document.getElementById('selectedOption');
-      const clearSelectionBtn = document.getElementById('clearSelection');
-      const mobileInputContainer = document.getElementById('mobileInputContainer');
-      const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
-      const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
-      const registeredMobileContainer = document.getElementById('registeredMobileContainer');
-      const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
-      const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
-  
-      // Initial state
-      clearContainers();
-  
-      operatorImages.forEach(image => {
-          image.addEventListener('click', () => {
-              handleOperatorSelection(image.dataset.operator, image);
-          });
-      });
-  
-      clearSelectionBtn.addEventListener('click', () => {
-          clearContainers();
-          selectedOption.textContent = 'Select an Operator';
-          clearSelectionBtn.style.display = 'none';
-  
-          operatorImages.forEach(image => {
-              image.classList.remove('selected');
-          });
-      });
-  
-      function handleOperatorSelection(operator, selectedImage) {
-          clearContainers();
-          selectedOption.textContent = operator.charAt(0).toUpperCase() + operator.slice(1);
-          clearSelectionBtn.style.display = 'block';
-  
-          operatorImages.forEach(image => {
-              image.classList.remove('selected');
-          });
-          selectedImage.classList.add('selected');
-  
-          if (operator === 'tataPlay') {
-              mobileInputContainer.style.display = 'block';
-          } else if (operator === 'airtel') {
-              subscriberAmountContainer.style.display = 'block';
-              airtelBrowsePlanContainer.style.display = 'block';
-          } else if (operator === 'sunDirect') {
-              subscriberNameAmountContainer.style.display = 'block';
-              sunBrowsePlanContainer.style.display = 'block';
-          } else if (operator === 'dishTV' || operator === 'd2h') {
-              registeredMobileContainer.style.display = 'block';
-          }
-      }
-  
-      function clearContainers() {
-          mobileInputContainer.style.display = 'none';
-          subscriberAmountContainer.style.display = 'none';
-          subscriberNameAmountContainer.style.display = 'none';
-          registeredMobileContainer.style.display = 'none';
-          airtelBrowsePlanContainer.style.display = 'none';
-          sunBrowsePlanContainer.style.display = 'none';
-      }
-  });
-  
-  
-  
-  // Handle recharge button click
-  rechargeBtn.addEventListener('click', function() {
-    alert('Proceeding with recharge...');
-  
-  
-  });
-  
-          // Plan data
-          const sunplans = {
-              Monthly: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Monthly SD Pack', price: 'Rs. 150' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '1 Month', description: 'Monthly HD Pack', price: 'Rs. 200' }
-              ],
-              TopUp: [
-                  { circle: 'All', type: 'Top Up', data: 'NA', validity: 'NA', description: 'Top Up Pack A', price: 'Rs. 100' },
-                  { circle: 'All', type: 'Top Up', data: 'NA', validity: 'NA', description: 'Top Up Pack B', price: 'Rs. 200' }
-              ],
-              ThreeMonths: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '3 Months', description: '3-Month SD Pack', price: 'Rs. 400' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '3 Months', description: '3-Month HD Pack', price: 'Rs. 600' }
-              ],
-              SixMonths: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Months', description: '6-Month ROI Joy SD Pack', price: 'Rs. 745' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '6 Months', description: '6-Month Bengali Joy SD Pack', price: 'Rs. 945' }
-              ],
-              Yearly: [
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '12 Months', description: 'Yearly SD Pack', price: 'Rs. 1200' },
-                  { circle: 'All', type: 'Recharge', data: 'NA', validity: '12 Months', description: 'Yearly HD Pack', price: 'Rs. 2000' }
-              ]
-          };
-  
-          // Function to update the table
-          function updateSunTable(packType) {
-              const tbody = document.getElementById('sunplanTableBody');
-              tbody.innerHTML = ''; // Clear existing table content <td class="p-3">${plan.data}</td>
-  
-              if (sunplans[packType]) {
+        }
+
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const selectedOption = document.getElementById('selectedOption');
+        const clearSelectionBtn = document.getElementById('clearSelection');
+        const operatorItems = document.querySelectorAll('.operator-item');
+
+        const mobileInputContainer = document.getElementById('mobileInputContainer');
+        const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
+        const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
+        const registeredMobileContainer = document.getElementById('registeredMobileContainer');
+        const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
+        const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
+        const rechargeBtn = document.querySelector('.rechargebtn');
+
+
+
+        window.onload = function() {
+            document.getElementById('airtelbrowsePlanContainer').style.display = 'none';
+            document.getElementById('sunbrowsePlanContainer').style.display = 'none';
+            document.getElementById('mobileInputContainer').style.display = 'none';
+            document.getElementById('subscriberAmountContainer').style.display = 'none';
+            document.getElementById('subscriberNameAmountContainer').style.display = 'none';
+            document.getElementById('registeredMobileContainer').style.display = 'none';
+            clearSelectionBtn.style.display = 'none';
+        };
+
+
+        dropdownBtn.addEventListener('click', function() {
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        clearSelectionBtn.addEventListener('click', function() {
+            selectedOption.textContent = 'DTH Operator';
+            dropdownContent.style.display = 'none';
+            mobileInputContainer.style.display = 'none';
+            subscriberAmountContainer.style.display = 'none';
+            subscriberNameAmountContainer.style.display = 'none';
+            registeredMobileContainer.style.display = 'none';
+            airtelBrowsePlanContainer.style.display = 'none';
+            sunBrowsePlanContainer.style.display = 'none';
+            clearSelectionBtn.style.display = 'none';
+        });
+
+        const options = document.querySelectorAll('.dropdown-content .option');
+        options.forEach(function(option) {
+            option.addEventListener('click', function() {
+                selectedOption.textContent = option.textContent;
+                dropdownContent.style.display = 'none';
+                clearSelectionBtn.style.display = 'block';
+
+                const operator = option.dataset.value;
+
+                // Hide all inputs initially
+                mobileInputContainer.style.display = 'none';
+                subscriberAmountContainer.style.display = 'none';
+                subscriberNameAmountContainer.style.display = 'none';
+                registeredMobileContainer.style.display = 'none';
+                airtelBrowsePlanContainer.style.display = 'none';
+                sunBrowsePlanContainer.style.display = 'none';
+
+                // Show specific input based on selected operator
+                if (operator === 'tataPlay') {
+                    mobileInputContainer.style.display = 'block';
+                } else if (operator === 'airtel') {
+                    subscriberAmountContainer.style.display = 'block';
+                    airtelBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'sunDirect') {
+                    subscriberNameAmountContainer.style.display = 'block';
+                    sunBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'dishTV' || operator === 'd2h') {
+                    registeredMobileContainer.style.display = 'block';
+                }
+            });
+        });
+
+
+        //for dth images
+        document.addEventListener('DOMContentLoaded', function() {
+            const operatorImages = document.querySelectorAll('.operator-image');
+            const selectedOption = document.getElementById('selectedOption');
+            const clearSelectionBtn = document.getElementById('clearSelection');
+            const mobileInputContainer = document.getElementById('mobileInputContainer');
+            const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
+            const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
+            const registeredMobileContainer = document.getElementById('registeredMobileContainer');
+            const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
+            const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
+
+            // Initial state
+            clearContainers();
+
+            operatorImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    handleOperatorSelection(image.dataset.operator, image);
+                });
+            });
+
+            clearSelectionBtn.addEventListener('click', () => {
+                clearContainers();
+                selectedOption.textContent = 'Select an Operator';
+                clearSelectionBtn.style.display = 'none';
+
+                operatorImages.forEach(image => {
+                    image.classList.remove('selected');
+                });
+            });
+
+            function handleOperatorSelection(operator, selectedImage) {
+                clearContainers();
+                selectedOption.textContent = operator.charAt(0).toUpperCase() + operator.slice(1);
+                clearSelectionBtn.style.display = 'block';
+
+                operatorImages.forEach(image => {
+                    image.classList.remove('selected');
+                });
+                selectedImage.classList.add('selected');
+
+                if (operator === 'tataPlay') {
+                    mobileInputContainer.style.display = 'block';
+                } else if (operator === 'airtel') {
+                    subscriberAmountContainer.style.display = 'block';
+                    airtelBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'sunDirect') {
+                    subscriberNameAmountContainer.style.display = 'block';
+                    sunBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'dishTV' || operator === 'd2h') {
+                    registeredMobileContainer.style.display = 'block';
+                }
+            }
+
+            function clearContainers() {
+                mobileInputContainer.style.display = 'none';
+                subscriberAmountContainer.style.display = 'none';
+                subscriberNameAmountContainer.style.display = 'none';
+                registeredMobileContainer.style.display = 'none';
+                airtelBrowsePlanContainer.style.display = 'none';
+                sunBrowsePlanContainer.style.display = 'none';
+            }
+        });
+
+
+
+        // Handle recharge button click
+        rechargeBtn.addEventListener('click', function() {
+            alert('Proceeding with recharge...');
+
+
+        });
+
+        // Plan data
+        const sunplans = {
+            Monthly: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Monthly SD Pack',
+                    price: 'Rs. 150'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Monthly HD Pack',
+                    price: 'Rs. 200'
+                }
+            ],
+            TopUp: [{
+                    circle: 'All',
+                    type: 'Top Up',
+                    data: 'NA',
+                    validity: 'NA',
+                    description: 'Top Up Pack A',
+                    price: 'Rs. 100'
+                },
+                {
+                    circle: 'All',
+                    type: 'Top Up',
+                    data: 'NA',
+                    validity: 'NA',
+                    description: 'Top Up Pack B',
+                    price: 'Rs. 200'
+                }
+            ],
+            ThreeMonths: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Months',
+                    description: '3-Month SD Pack',
+                    price: 'Rs. 400'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Months',
+                    description: '3-Month HD Pack',
+                    price: 'Rs. 600'
+                }
+            ],
+            SixMonths: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Months',
+                    description: '6-Month ROI Joy SD Pack',
+                    price: 'Rs. 745'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Months',
+                    description: '6-Month Bengali Joy SD Pack',
+                    price: 'Rs. 945'
+                }
+            ],
+            Yearly: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '12 Months',
+                    description: 'Yearly SD Pack',
+                    price: 'Rs. 1200'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '12 Months',
+                    description: 'Yearly HD Pack',
+                    price: 'Rs. 2000'
+                }
+            ]
+        };
+
+        // Function to update the table
+        function updateSunTable(packType) {
+            const tbody = document.getElementById('sunplanTableBody');
+            tbody.innerHTML = ''; // Clear existing table content <td class="p-3">${plan.data}</td>
+
+            if (sunplans[packType]) {
                 sunplans[packType].forEach(plan => {
-                      const row = `
+                    const row = `
                           <tr>
                               <td class="p-3">${plan.circle}</td>
                               <td class="p-3">${plan.type}</td>
@@ -2441,113 +2597,347 @@
                               <td class="p-3"><button class="price-button">${plan.price}</button></td>
                           </tr>
                       `;
-                      tbody.innerHTML += row; // Add new rows
-                  });
-              } else {
-                  tbody.innerHTML = '<tr><td colspan="6">No data available</td></tr>';
-              }
-          }
-  
-  
-  
-  
-          document.querySelectorAll('.operator-item').forEach(operator => {
-              operator.addEventListener('click', () => {
-                  const selectedOperator = operator.getAttribute('data-value');
-                  handleOperatorSelection(selectedOperator);
-              });
-          });
-  
-          function handleOperatorSelection(operator) {
-              document.getElementById("selectedOption").innerText = operator.charAt(0).toUpperCase() + operator.slice(1);
-              document.querySelectorAll('.mobile-input, .subscriber-amount, .subscriber-name-amount, .registered-mobile').forEach(container => {
-                  container.classList.add('hidden');
-              });
-  
-              if (operator === 'tataPlay') {
-                  document.getElementById('mobileInputContainer').classList.remove('hidden');
-              } else if (operator === 'airtel') {
-                  document.getElementById('subscriberAmountContainer').classList.remove('hidden');
-              } else if (operator === 'sunDirect') {
-                  document.getElementById('subscriberNameAmountContainer').classList.remove('hidden');
-              } else if (operator === 'dishTV' || operator === 'd2h') {
-                  document.getElementById('registeredMobileContainer').classList.remove('hidden');
-              }
-          }
-  
-  </script>
-
-
-<script>
-    function showTab(tab) {
-        const homeContent = document.getElementById('homeContent');
-        const profileContent = document.getElementById('profileContent');
-        const homeTab = document.getElementById('homeTab');
-        const profileTab = document.getElementById('profileTab');
-
-        if (tab === 'home') {
-            homeContent.classList.remove('hidden');
-            profileContent.classList.add('hidden');
-            homeTab.classList.add('text-blue-500', 'border-blue-500');
-            profileTab.classList.remove('text-blue-500', 'border-blue-500');
-        } else if (tab === 'profile') {
-            profileContent.classList.remove('hidden');
-            homeContent.classList.add('hidden');
-            profileTab.classList.add('text-blue-500', 'border-blue-500');
-            homeTab.classList.remove('text-blue-500', 'border-blue-500');
+                    tbody.innerHTML += row; // Add new rows
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6">No data available</td></tr>';
+            }
         }
-    }
 
-    // Default to the Home tab after the page is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        showTab('home');
-    });
-</script>
 
-<script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    var viewSeatsButton = document.getElementById('view-seats-btn');
-    var seatLayout = document.getElementById('seatLayout');
 
-    // Add click event listener to toggle the visibility of the seat layout
-    viewSeatsButton.addEventListener('click', function() {
-        if (seatLayout.classList.contains('hidden')) {
-            // Show seat layout and change button text to 'Hide Seats'
-            seatLayout.classList.remove('hidden');
-            seatLayout.classList.add('block');
-            viewSeatsButton.textContent = 'Hide Seats'; // Change button text to 'Hide Seats'
+        document.querySelectorAll('.operator-item').forEach(operator => {
+            operator.addEventListener('click', () => {
+                const selectedOperator = operator.getAttribute('data-value');
+                handleOperatorSelection(selectedOperator);
+            });
+        });
+
+        function handleOperatorSelection(operator) {
+            document.getElementById("selectedOption").innerText = operator.charAt(0).toUpperCase() + operator.slice(1);
+            document.querySelectorAll('.mobile-input, .subscriber-amount, .subscriber-name-amount, .registered-mobile')
+                .forEach(container => {
+                    container.classList.add('hidden');
+                });
+
+            if (operator === 'tataPlay') {
+                document.getElementById('mobileInputContainer').classList.remove('hidden');
+            } else if (operator === 'airtel') {
+                document.getElementById('subscriberAmountContainer').classList.remove('hidden');
+            } else if (operator === 'sunDirect') {
+                document.getElementById('subscriberNameAmountContainer').classList.remove('hidden');
+            } else if (operator === 'dishTV' || operator === 'd2h') {
+                document.getElementById('registeredMobileContainer').classList.remove('hidden');
+            }
+        }
+    </script>
+
+
+    <script>
+        function showTab(tab) {
+            const homeContent = document.getElementById('homeContent');
+            const profileContent = document.getElementById('profileContent');
+            const homeTab = document.getElementById('homeTab');
+            const profileTab = document.getElementById('profileTab');
+
+            if (tab === 'home') {
+                homeContent.classList.remove('hidden');
+                profileContent.classList.add('hidden');
+                homeTab.classList.add('text-blue-500', 'border-blue-500');
+                profileTab.classList.remove('text-blue-500', 'border-blue-500');
+            } else if (tab === 'profile') {
+                profileContent.classList.remove('hidden');
+                homeContent.classList.add('hidden');
+                profileTab.classList.add('text-blue-500', 'border-blue-500');
+                homeTab.classList.remove('text-blue-500', 'border-blue-500');
+            }
+        }
+
+        // Default to the Home tab after the page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('home');
+        });
+    </script>
+
+
+
+    <script>
+        const selectedSeats = new Set(); // To store selected seat IDs
+const bookSeatBtn = document.getElementById('book-seat-btn');
+
+function viewSeats(routeId) {
+    window.currentRouteId = routeId;
+    const seatModal = document.getElementById('seatLayout');
+    const seatContainer = document.getElementById('seatContainer');
+
+    // Show the modal
+    seatModal.classList.remove('hidden');
+
+    // Fetching seats using routeId
+    fetch(`/seats/${routeId}`)
+        .then(response => response.json())
+        .then(seats => {
+            console.log(seats); // Log the seats data for inspection
+
+            seatContainer.innerHTML = ''; // Clear any existing seats
+
+            // Create seat rows dynamically
+            let rows = [];
+            let row = [];
+            seats.forEach((seat, index) => {
+                const seatId = seat.seat_number; // Seat ID like A1, A2, ...
+                const seatStatus = seat.status; // Seat status like 'available', 'booked', etc.
+
+                const seatDiv = document.createElement("div");
+                seatDiv.classList.add("seat", "w-10", "h-10", "rounded-lg", "cursor-pointer", "flex", 
+                    "items-center", "justify-center", "relative", "border");
+
+                // Check the seat status and apply appropriate styling
+                if (seatStatus === 'booked') {
+                    seatDiv.classList.add("bg-red-500", "text-white");
+                    seatDiv.textContent = "B";
+                } else if (seatStatus === 'available') {
+                    seatDiv.classList.add("bg-green-300", "text-black");
+                    seatDiv.textContent = seatId; // Show the seatId (A1, A2, ...)
+                } else {
+                    seatDiv.classList.add("bg-gray-200", "text-black");
+                    seatDiv.textContent = "N/A";
+                }
+
+                seatDiv.dataset.seatNo = seatId;
+
+                seatDiv.addEventListener('click', () => {
+                    if (seatStatus === 'available') {
+                        // Toggle seat selection
+                        if (selectedSeats.has(seatId)) {
+                            selectedSeats.delete(seatId);
+                            seatDiv.classList.remove("bg-blue-500", "text-white");
+                            seatDiv.classList.add("bg-green-300", "text-black");
+                        } else {
+                            selectedSeats.add(seatId);
+                            seatDiv.classList.add("bg-blue-500", "text-white");
+                            seatDiv.classList.remove("bg-green-300", "text-black");
+                        }
+
+                        // Show or hide the Book Seat button based on selection
+                        bookSeatBtn.classList.toggle('hidden', selectedSeats.size === 0);
+                    } else if (seatStatus === 'booked') {
+                        alert(`Seat ${seatId} is already booked.`);
+                    } else {
+                        alert(`Seat ${seatId} is unavailable.`);
+                    }
+                });
+
+                row.push(seatDiv); // Add each seat to the current row
+
+                // If the row has 10 seats, push the row into the rows array and reset the row
+                if (row.length === 10) {
+                    rows.push(row);
+                    row = [];
+                }
+            });
+
+            // Add all rows of seats
+            rows.forEach(row => {
+                row.forEach(seat => {
+                    seatContainer.appendChild(seat);
+                });
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching seats:", error);
+        });
+}
+
+// Close the seat modal
+document.getElementById('close-seat-modal').addEventListener('click', () => {
+    const seatModal = document.getElementById('seatLayout');
+    seatModal.classList.add('hidden');
+});
+
+// Book Seat functionality
+document.getElementById('book-seat-btn').addEventListener('click', () => {
+    const seatIds = Array.from(selectedSeats); // Convert Set to Array
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const currentRouteId = window.currentRouteId;
+    console.log(currentRouteId);
+    
+    console.log(JSON.stringify({ seat_ids: Array.from(selectedSeats) }));
+    fetch('/seats/book', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken, // Include CSRF token
+        },
+        body: JSON.stringify({ seat_ids: Array.from(selectedSeats) }), // Send seat numbers as a JSON array
+    })
+    .then((response) => {
+        console.log('Response status:', response.status); // Debugging
+        if (response.ok) {
+            return response.json();
         } else {
-            // Hide seat layout and change button text back to 'View Seats'
-            seatLayout.classList.remove('block');
-            seatLayout.classList.add('hidden');
-            viewSeatsButton.textContent = 'View Seats'; // Change button text back to 'View Seats'
+            return response.json().then((data) => {
+                throw new Error(data.message || 'Failed to book seats.');
+            });
         }
+    })
+    .then((data) => {
+        alert(data.message);
+        selectedSeats.clear(); // Clear seat selection
+        document.getElementById('book-seat-btn').classList.add('hidden'); // Hide the button
+       
+    })
+    .catch((error) => {
+        console.error('Error booking seats:', error);
+        alert(error.message || 'An unexpected error occurred.');
     });
 });
 
-</script>
 
 
+        // Function to fetch and display all buses
+        function fetchAllBuses() {
+            fetch('/all-routes', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    console.log("All Buses Response:", responseData); // Log the response for debugging
+
+                    // Ensure data is in the expected format
+                    const data = responseData.data;
+
+                    const container = document.querySelector(".w-full.sm-w-full");
+                    container.innerHTML = ""; // Clear any existing content
+
+                    if (!Array.isArray(data)) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
+                        console.error("Unexpected data format:", responseData);
+                        return;
+                    }
+
+                    if (data.length === 0) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
+                        return;
+                    }
+
+                    container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
+
+                    data.forEach((route) => {
+                        const routeHTML = `
+                    <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                        <div class="w-full sm:w-auto flex flex-col sm:flex-1">
+                            <h3 class="text-lg mb-4 text-blue-500">${route.bus.operator_name || 'Unknown'}</h3>
+                            <p class="text-sm text-gray-600">${route.bus.bus_type}</p>
+                        </div>
+                        <div class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
+                            <p class="text-xl font-bold text-gray-800 mb-1">${route.departure_time}</p>
+                            <div class="text-gray-500">
+                                <p>${route.duration || 'Unknown'}</p>
+                            </div>
+                            <p class="text-xl font-bold text-gray-800 mb-1">${route.arrival_time}</p>
+                        </div>
+                        <div class="flex-1 text-center w-full sm:w-auto">
+                            <p class="text-lg font-bold text-gray-800">INR ${route.fare}</p>
+                        </div>
+                        <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
+                            <p class="text-sm text-gray-600">${route.bus.total_seats || 'N/A'} Seats available</p>
+                        </div>
+                        <button id="view-seats-btn" class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto" onclick="viewSeats(${route.id})">
+                            View Seats
+                        </button>
+                    </div>
+                `;
+                        container.insertAdjacentHTML("beforeend", routeHTML);
+                    });
+                })
+                .catch((error) => console.error("Error fetching all routes:", error));
+        }
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const viewSeatsButton = document.querySelector('.bg-black'); // View Seats Button
-        const seatLayout = document.getElementById('seatLayout'); // Seat Layout Container
+        // Function to handle search
+        document.getElementById("searchButton").addEventListener("click", function() {
+            const source = document.getElementById("fromInput").value;
+            const destination = document.getElementById("toInput").value;
+            const departure_date = document.getElementById("dateInput").value;
 
-        // Toggle the visibility of the seat layout on button click
-        viewSeatsButton.addEventListener('click', () => {
-            if (seatLayout.classList.contains('hidden')) {
-                seatLayout.classList.remove('hidden');
-                seatLayout.classList.add('block');
-            } else {
-                seatLayout.classList.remove('block');
-                seatLayout.classList.add('hidden');
+            if (!source || !destination || !departure_date) {
+                alert("Please fill in all fields!");
+                return;
             }
+
+            fetch('/search-routes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content'),
+                    },
+                    body: JSON.stringify({
+                        source,
+                        destination,
+                        departure_date
+                    }),
+                })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    console.log("Search Response:", responseData); // Log the response
+                    const data = responseData.data;
+                    const container = document.querySelector(".w-full.sm-w-full");
+                    container.innerHTML = ""; // Clear previous results
+
+                    if (!Array.isArray(data)) {
+                        container.innerHTML =
+                            `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
+                        console.error("Unexpected data format:", data);
+                        return;
+                    }
+
+                    if (data.length === 0) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
+                        return;
+                    }
+
+                    container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
+
+                    data.forEach((route) => {
+                        const routeHTML = `
+                            <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                                <div class="w-full sm:w-auto flex flex-col sm:flex-1">
+                                    <h3 class="text-lg mb-4 text-blue-500"> ${route.bus.operator_name || 'Unknown'}</h3>
+                                    <p class="text-sm text-gray-600">${route.bus.bus_type} </p>
+                                </div>
+                                <div class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
+                                    <p class="text-xl font-bold text-gray-800 mb-1">${route.departure_time}</p>
+                                    <div class="text-gray-500">
+                                        <p> ${(route.duration || 'Unknown')}</p>
+                                    </div>
+                                    <p class="text-xl font-bold text-gray-800 mb-1">${route.arrival_time}</p>
+                                </div>
+                                <div class="flex-1 text-center w-full sm:w-auto">
+                                    <p class="text-lg font-bold text-gray-800"> INR ${route.fare}</p>
+                                </div>
+                                <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
+                                    <p class="text-sm text-gray-600">${route.bus.total_seats || 'N/A'} Seats available</p>
+                                </div>
+                                <button id="view-seats-btn" class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto" onclick="viewSeats(${route.id})">
+                                    View Seats
+                                </button>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML("beforeend", routeHTML);
+                    });
+                })
+                .catch((error) => console.error("Error fetching routes:", error));
         });
-    });
-</script>
+
+        // Fetch all buses on page load
+        document.addEventListener("DOMContentLoaded", fetchAllBuses);
+    </script>
 
 
 

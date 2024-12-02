@@ -32,6 +32,8 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     // routes/api.php
 
     Route::put('/seats/book/{seatId}', [SeatController::class, 'bookSeatadmin']);
+    Route::put('/seats/unbook/{seatId}', [SeatController::class, 'unbookSeatadmin']);
+
 
 
 

@@ -21,7 +21,7 @@
                 <form id="busForm" onsubmit="storeBusDetail(event)" method="POST" action="{{ route('bus.store') }}">
                     @csrf
                     <div class="mb-5">
-                        <label for="operatorName" class="form-label text-sm font-medium text-gray-700">Operator
+                        <label for="operatorName" class="form-label text-sm font-medium text-gray-700">Bus
                             Name</label>
                         <input type="text" id="operatorName"
                             class="form-control w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600"
@@ -165,13 +165,13 @@
                         <div>
                             <label for="departure_time" class="block text-sm font-medium text-gray-700">Departure
                                 Time</label>
-                            <input type="time" id="departure_time"
+                            <input type="datetime-local" id="departure_time"
                                 class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
                         </div>
                         <div>
                             <label for="arrival_time" class="block text-sm font-medium text-gray-700">Arrival
                                 Time</label>
-                            <input type="time" id="arrival_time"
+                            <input type="datetime-local" id="arrival_time"
                                 class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2.5" />
                         </div>
                         <div>
@@ -446,12 +446,12 @@
             const source = document.getElementById('source').value;
             const destination = document.getElementById('destination').value;
             const departure_time = document.getElementById('departure_time').value;
-            const departure_date= document.getElementById('departure_date').value;
+            const departure_date = document.getElementById('departure_date').value;
             const arrival_time = document.getElementById('arrival_time').value;
             const fare = document.getElementById('fare').value;
 
             // Validate form data
-            if (!source || !destination || !departure_time|| !departure_date || !arrival_time || !fare) {
+            if (!source || !destination || !departure_time || !departure_date || !arrival_time || !fare) {
                 alert('All fields are required.');
                 return;
             }
@@ -717,7 +717,7 @@
                                     if (seat.status === "available") {
                                         const confirmBooking = confirm(
                                             `Do you want to mark seat ${seat.seat_number} as booked?`
-                                            );
+                                        );
                                         if (confirmBooking) {
                                             // Send the update request to the backend
                                             fetch(`/admin/seats/book/${seat.id}`, {
@@ -727,7 +727,10 @@
                                                         'X-CSRF-TOKEN': document.querySelector(
                                                                 'meta[name="csrf-token"]')
                                                             .getAttribute('content')
-                                                    }
+                                                    },
+                                                    body: JSON.stringify({
+                                                        status: 'unavailable'
+                                                    }) // Book the seat
                                                 })
                                                 .then(response => response.json())
                                                 .then(data => {
@@ -745,7 +748,38 @@
                                                     error));
                                         }
                                     } else {
-                                        alert('This seat is already booked.');
+                                        const confirmUnbooking = confirm(
+                                            `Do you want to mark seat ${seat.seat_number} as available again?`
+                                        );
+                                        if (confirmUnbooking) {
+                                            // Send the update request to the backend
+                                            fetch(`/admin/seats/unbook/${seat.id}`, {
+                                                    method: 'PUT',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'X-CSRF-TOKEN': document.querySelector(
+                                                                'meta[name="csrf-token"]')
+                                                            .getAttribute('content')
+                                                    },
+                                                    body: JSON.stringify({
+                                                        status: 'available'
+                                                    }) // Unbook the seat
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    if (data.success) {
+                                                        // Update the UI
+                                                        seatDiv.classList.remove("unavailable");
+                                                        seatDiv.classList.add("available");
+                                                        alert('Seat marked as available!');
+                                                    } else {
+                                                        alert(
+                                                            'Failed to unbook seat. Please try again.');
+                                                    }
+                                                })
+                                                .catch(error => console.error(
+                                                    "Error unbooking seat:", error));
+                                        }
                                     }
                                 });
 
