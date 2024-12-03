@@ -7,6 +7,7 @@ use App\Models\Bus;
 use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -64,6 +65,46 @@ class BookingController extends Controller
     }
 
 
+
+    public function getOneUserBookings(){
+        try {
+            $userId = Auth::id(); // Get the authenticated user ID
+            $userBooking = Booking::where('user_id', $userId)->get(); // Fetch all bookings for this user
+    
+            $combinedData = [];
+    
+            // Loop through each booking to fetch related route and bus details
+            foreach ($userBooking as $booking) {
+                // Fetch the route details based on route_id, avoiding unnecessary queries if it doesn't exist
+                $routeDetails = Route::find($booking->route_id);
+    
+                if ($routeDetails) {
+                    // Fetch the bus details for the route if route exists
+                    $busDetails = Bus::find($routeDetails->bus_id);
+    
+                    if ($busDetails) {
+                        // Combine booking, route, and bus details
+                        $combinedData[] = [
+                            'booking' => $booking,
+                            'route' => $routeDetails,
+                            'bus' => $busDetails
+                        ];
+                    }
+                }
+            }
+    
+            // Return the combined data as JSON
+            return response()->json($combinedData, 200);
+    
+        } catch (\Exception $e) {
+            // Log the exception for debugging purposes
+            Log::error('Error fetching user bookings: ' . $e->getMessage());
+            
+            // Return the error message as JSON
+            return response()->json(['error' => 'Unable to fetch user bookings. Please try again later.'], 500);
+        }
+    }
+    
     
     public function getAllBookings()
 {
@@ -99,6 +140,34 @@ class BookingController extends Controller
         return response()->json(['error' => $e->getMessage()], 500); // Handle exceptions
     }
 }
+
+
+public function deleteBooking($id)
+{
+    try {
+        // Find the booking by ID
+        $booking = Booking::find($id);
+
+        // Check if the booking exists
+        if (!$booking) {
+            return response()->json(['error' => 'Booking not found'], 404);
+        }
+
+        // Delete the booking
+        $booking->delete();
+
+        // Return a success response
+        return response()->json(['message' => 'Booking deleted successfully'], 200);
+
+    } catch (\Exception $e) {
+        // Log the error
+        Log::error('Error deleting booking: ' . $e->getMessage());
+
+        // Return an error response
+        return response()->json(['error' => 'Unable to delete booking. Please try again later.'], 500);
+    }
+}
+
 
     
     

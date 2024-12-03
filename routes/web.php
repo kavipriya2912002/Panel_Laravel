@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
 
 Route::post('/user-booking',[BookingController::class,'store']);
+Route::get('/get-one-bookings', [BookingController::class, 'getOneUserBookings']);
+Route::delete('/delete-booking/{id}', [BookingController::class, 'deleteBooking']);
+
 
 });
 
