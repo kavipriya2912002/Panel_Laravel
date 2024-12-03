@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SeatController;
@@ -28,13 +29,13 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::post('/seats/book', [SeatController::class, 'bookSeat']);
     Route::post('/seats/unbook', [SeatController::class, 'unbookSeat']);
-    Route::get('/seats/{routeId}', [SeatController::class, 'getSeats']);
+    Route::get('/seats/{routeId}', [SeatController::class, 'getAdminSeats']);
     // routes/api.php
 
     Route::put('/seats/book/{seatId}', [SeatController::class, 'bookSeatadmin']);
     Route::put('/seats/unbook/{seatId}', [SeatController::class, 'unbookSeatadmin']);
 
-
+    Route::get('/get-all-bookings', [BookingController::class, 'getAllBookings']);
 
 
     Route::get('/routes', [RouteController::class, 'index']); // Fetch all routes

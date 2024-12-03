@@ -183,6 +183,22 @@
                                         </a>
                                     </li>
                                     <li
+                                    class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                    <a href="javascript:void(0)"
+                                        class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-compass" width="18"
+                                            height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z"></path>
+                                            <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                        </svg>
+                                        <span class="text-sm ml-2" onclick="showContent('mybookings')">My Bookings</span>
+                                    </a>
+                                </li>
+                                    <li
                                         class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
                                         <a href="javascript:void(0)"
                                             class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
@@ -399,6 +415,21 @@
                                             </svg>
                                             <span class="text-sm ml-2" onclick="showContent('busbooking')">Bus
                                                 Booking</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-compass" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('mybookings')">My Bookings</span>
                                         </a>
                                     </li>
                                     <li
@@ -1512,6 +1543,50 @@
 
 
 
+            <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden" id="mybookings">
+                <div class="card-header bg-black text-white py-3 px-4">
+                    <span class="font-semibold text-lg">All Bookings</span>
+                </div>
+                <div class="card-body p-4 sm:p-6 lg:p-8 overflow-x-auto">
+                    <table class="w-full table-auto text-left border-collapse border border-gray-300">
+                        <thead class="bg-gray-100 text-gray-700">
+                            <tr>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">User ID</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Route ID</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Seat Number</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Fare</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Source</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Destination</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Date</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Bus Name</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Depature Time</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Bus Type</th>
+                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Actions</th>
+                            </tr>                                
+                        </thead>
+                        <tbody id="mybookings" class="text-gray-600">
+                            <!-- Routes will be dynamically populated here -->
+                            <tr>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">1</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">11</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">a4</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">4000</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">Chennai</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">Pune</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">08-12-2024</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">redbus</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">12.30</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">AC</td>
+                                <td class="py-2 px-3 md:py-3 md:px-4 font-medium flex">
+                                <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-5 mt-1.5"/>
+                                <img src="{{ asset('assets/delete.png') }}" alt="Delete" class="cursor-pointer ml-2 w-6 h-6 mr-5 mt-2"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
 
 
 
@@ -1778,7 +1853,7 @@
         
                 <div class="text-center mt-4">
                     <!-- Close Button -->
-                    <button id="close-seat-modal" class="px-4 py-2 bg-red-500 text-white rounded-md">Close</button>
+                    <button id="close-seat-modal" class="px-4 py-2 bg-gray-500 text-white rounded-md">Close</button>
         
                     <!-- Book Seat Button -->
                     <button id="book-seat-btn" class="px-4 py-2 bg-blue-500 text-white rounded-md ml-4 hidden" >
@@ -2665,7 +2740,7 @@
     <script>
         const selectedSeats = new Set(); // To store selected seat IDs
 const bookSeatBtn = document.getElementById('book-seat-btn');
-
+let fare;
 function viewSeats(routeId) {
     window.currentRouteId = routeId;
     const seatModal = document.getElementById('seatLayout');
@@ -2677,29 +2752,32 @@ function viewSeats(routeId) {
     // Fetching seats using routeId
     fetch(`/seats/${routeId}`)
         .then(response => response.json())
-        .then(seats => {
-            console.log(seats); // Log the seats data for inspection
+        .then(data => {
+            const { seats, routeFare } = data; // Assuming the API returns { seats, routeFare }
+
+            // Set the fare dynamically
+            fare = routeFare;
+            console.log('Route Fare:', fare); // Log the fare for debugging
 
             seatContainer.innerHTML = ''; // Clear any existing seats
 
-            // Create seat rows dynamically
+            // Create seat rows dynamically (same as your original logic)
             let rows = [];
             let row = [];
             seats.forEach((seat, index) => {
-                const seatId = seat.seat_number; // Seat ID like A1, A2, ...
-                const seatStatus = seat.status; // Seat status like 'available', 'booked', etc.
+                const seatId = seat.seat_number;
+                const seatStatus = seat.status;
 
                 const seatDiv = document.createElement("div");
                 seatDiv.classList.add("seat", "w-10", "h-10", "rounded-lg", "cursor-pointer", "flex", 
                     "items-center", "justify-center", "relative", "border");
 
-                // Check the seat status and apply appropriate styling
                 if (seatStatus === 'booked') {
                     seatDiv.classList.add("bg-red-500", "text-white");
                     seatDiv.textContent = "B";
                 } else if (seatStatus === 'available') {
                     seatDiv.classList.add("bg-green-300", "text-black");
-                    seatDiv.textContent = seatId; // Show the seatId (A1, A2, ...)
+                    seatDiv.textContent = seatId;
                 } else {
                     seatDiv.classList.add("bg-gray-200", "text-black");
                     seatDiv.textContent = "N/A";
@@ -2709,7 +2787,6 @@ function viewSeats(routeId) {
 
                 seatDiv.addEventListener('click', () => {
                     if (seatStatus === 'available') {
-                        // Toggle seat selection
                         if (selectedSeats.has(seatId)) {
                             selectedSeats.delete(seatId);
                             seatDiv.classList.remove("bg-blue-500", "text-white");
@@ -2720,7 +2797,6 @@ function viewSeats(routeId) {
                             seatDiv.classList.remove("bg-green-300", "text-black");
                         }
 
-                        // Show or hide the Book Seat button based on selection
                         bookSeatBtn.classList.toggle('hidden', selectedSeats.size === 0);
                     } else if (seatStatus === 'booked') {
                         alert(`Seat ${seatId} is already booked.`);
@@ -2729,16 +2805,14 @@ function viewSeats(routeId) {
                     }
                 });
 
-                row.push(seatDiv); // Add each seat to the current row
+                row.push(seatDiv);
 
-                // If the row has 10 seats, push the row into the rows array and reset the row
                 if (row.length === 10) {
                     rows.push(row);
                     row = [];
                 }
             });
 
-            // Add all rows of seats
             rows.forEach(row => {
                 row.forEach(seat => {
                     seatContainer.appendChild(seat);
@@ -2750,27 +2824,56 @@ function viewSeats(routeId) {
         });
 }
 
+
 // Close the seat modal
 document.getElementById('close-seat-modal').addEventListener('click', () => {
     const seatModal = document.getElementById('seatLayout');
     seatModal.classList.add('hidden');
 });
 
-// Book Seat functionality
+
+
+// Usage Example
 document.getElementById('book-seat-btn').addEventListener('click', () => {
-    const seatIds = Array.from(selectedSeats); // Convert Set to Array
+    // Pass the dynamically updated selectedSeats set
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    const currentRouteId = window.currentRouteId;
-    console.log(currentRouteId);
-    
-    console.log(JSON.stringify({ seat_ids: Array.from(selectedSeats) }));
-    fetch('/seats/book', {
+    const currentRouteId = window.currentRouteId || 'some-route-id'; // Use the currently selected route
+    const bookSeatUrl = '/seats/book'; // Replace with your actual endpoint
+    const userBookingURL = '/user-booking';
+
+    if (selectedSeats.size === 0) {
+        alert('No seats selected!');
+        return;
+    }
+
+    userBooking(selectedSeats,currentRouteId,csrfToken,userBookingURL, fare);
+    bookSeat(selectedSeats, currentRouteId, csrfToken, bookSeatUrl);
+});
+
+ 
+
+function bookSeat(selectedSeats, routeId, csrfToken, bookSeatUrl) {
+    // Convert selectedSeats to an array
+    const seatIds = Array.from(selectedSeats);
+
+    // Prepare the payload including the routeId
+    const payload = JSON.stringify({ 
+        seat_ids: seatIds, 
+        route_id: routeId // Include route ID
+    });
+
+    // Log for debugging
+    console.log('Route ID:', routeId);
+    console.log('Payload:', payload);
+
+    // Make the POST request
+    fetch(bookSeatUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrfToken, // Include CSRF token
         },
-        body: JSON.stringify({ seat_ids: Array.from(selectedSeats) }), // Send seat numbers as a JSON array
+        body: payload, // Send seat numbers and route ID as a JSON object
     })
     .then((response) => {
         console.log('Response status:', response.status); // Debugging
@@ -2786,13 +2889,48 @@ document.getElementById('book-seat-btn').addEventListener('click', () => {
         alert(data.message);
         selectedSeats.clear(); // Clear seat selection
         document.getElementById('book-seat-btn').classList.add('hidden'); // Hide the button
-       
     })
     .catch((error) => {
         console.error('Error booking seats:', error);
         alert(error.message || 'An unexpected error occurred.');
     });
-});
+}
+
+function userBooking(selectedSeats, routeId, csrfToken, userBookingURL, fare) {
+    const seatNumbers = Array.from(selectedSeats).join(','); // Convert seat IDs to comma-separated string
+
+    const payload = JSON.stringify({
+        seat_numbers: seatNumbers, // Send as string
+        route_id: routeId,
+        fare, // Include fare
+    });
+
+    fetch(userBookingURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken,
+        },
+        body: payload,
+    })
+        .then((response) => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to create booking');
+                });
+            }
+            return response.json();
+        })
+        .then((data) => {
+            alert(data.message || 'Booking successful!');
+        })
+        .catch((error) => {
+            console.error('Error creating user booking:', error);
+            alert(error.message || 'An error occurred during user booking.');
+        });
+}
+
+
 
 
 

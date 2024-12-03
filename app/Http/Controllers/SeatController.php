@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Route;
 use App\Models\Seat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -11,50 +12,56 @@ class SeatController extends Controller
     public function bookSeat(Request $request)
     {
         try {
-            // Validate input
+            // Validate the basic structure
             $validated = $request->validate([
                 'seat_ids' => 'required|array',
-                'seat_ids.*' => 'exists:seats,seat_number', // Validate against seat_number
+                'seat_ids.*' => 'required|string',
+                'route_id' => 'required|integer|exists:routes,id', // Validate route_id
             ]);
-    
-            Log::info("Booking request received", ['seat_ids' => $validated['seat_ids']]);
-    
+
+            $routeId = $validated['route_id'];
+            $seatIds = $validated['seat_ids'];
+
+            Log::info("Booking request received", ['route_id' => $routeId, 'seat_ids' => $seatIds]);
+
+            // Query the database to ensure all seats exist for the given route
+            $validSeats = Seat::where('route_id', $routeId)
+                ->whereIn('seat_number', $seatIds)
+                ->pluck('seat_number')
+                ->toArray();
+
+            // Check for invalid seats
+            $invalidSeats = array_diff($seatIds, $validSeats);
+            if (!empty($invalidSeats)) {
+                return response()->json([
+                    'message' => 'Some seats are invalid for the selected route.',
+                    'invalid_seats' => $invalidSeats,
+                ], 400);
+            }
+
             $responseMessages = [];
-    
-            foreach ($validated['seat_ids'] as $seatNumber) {
-                // Find the seat by its seat_number
-                $seat = Seat::where('seat_number', $seatNumber)->first();
-    
-                if (!$seat) {
-                    // Handle case where the seat is not found
-                    $responseMessages[] = "Seat number {$seatNumber} does not exist.";
-                    continue; // Skip to the next seat
-                }
-    
+
+            foreach ($seatIds as $seatNumber) {
+                $seat = Seat::where('route_id', $routeId)
+                    ->where('seat_number', $seatNumber)
+                    ->first();
+
                 if ($seat->status === 'booked') {
-                    // Seat is already booked
-                    $responseMessages[] = "Seat number {$seatNumber} is already booked.";
-                    continue; // Skip to the next seat
+                    $responseMessages[] = "Seat number {$seatNumber} is already booked for route ID {$routeId}.";
+                    continue;
                 }
-    
+
                 // Book the seat
                 $seat->status = 'booked';
                 $seat->save();
-    
-                $responseMessages[] = "Seat number {$seatNumber} has been booked successfully.";
+
+                $responseMessages[] = "Seat number {$seatNumber} has been booked successfully for route ID {$routeId}.";
             }
-    
-            if (count($responseMessages) === count($validated['seat_ids'])) {
-                return response()->json([
-                    'message' => 'All seats booked successfully!',
-                    'details' => $responseMessages,
-                ], 200);
-            }
-    
+
             return response()->json([
-                'message' => 'Some seats could not be booked.',
+                'message' => 'Seat booking completed.',
                 'details' => $responseMessages,
-            ], 400);
+            ], 200);
         } catch (\Exception $e) {
             Log::error('Error booking seats', [
                 'exception' => $e->getMessage(),
@@ -63,7 +70,9 @@ class SeatController extends Controller
             return response()->json(['error' => 'Something went wrong while booking seats.'], 500);
         }
     }
-    
+
+
+
 
 
 
@@ -86,11 +95,34 @@ class SeatController extends Controller
     }
 
     public function getSeats($routeId)
+{
+    // Fetch seats for the given route
+    $seats = Seat::where('route_id', $routeId)->get();
+
+    // Fetch the fare for the route
+    $route = Route::find($routeId);
+
+    if (!$route) {
+        return response()->json(['error' => 'Route not found'], 404);
+    }
+
+    // Include the route fare in the response
+    return response()->json([
+        'seats' => $seats,
+        'routeFare' => $route->fare, // Assuming the 'fare' column exists in the 'routes' table
+    ]);
+}
+
+
+public function getAdminSeats($routeId)
     {
         $seats = Seat::where('route_id', $routeId)->get();
 
         return response()->json($seats);
     }
+
+
+
 
     public function bookSeatadmin($seatId)
     {
@@ -111,7 +143,7 @@ class SeatController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Seat booked successfully']);
     }
-    
+
     public function unbookSeatadmin($seatId)
     {
         $seat = Seat::find($seatId);

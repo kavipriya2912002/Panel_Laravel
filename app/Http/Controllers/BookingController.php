@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Bus;
 use App\Models\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -26,19 +28,19 @@ class BookingController extends Controller
         $validated = $request->validate([
             'route_id' => 'required|exists:routes,id',
             'seat_numbers' => 'required|string',
+            'fare' => 'required|numeric',
+            
         ]);
-
-        $route = Route::findOrFail($validated['route_id']);
-        $totalFare = $route->fare * count(explode(',', $validated['seat_numbers']));
-
+        $userId = Auth::id();
         $booking = Booking::create([
-            'user_id' => $request->user()->id,
+            'user_id' => $userId,
             'route_id' => $validated['route_id'],
             'seat_numbers' => $validated['seat_numbers'],
-            'total_fare' => $totalFare,
+            'total_fare' => $validated['fare'],
+            'status' => 'booked',
         ]);
-
-        return response()->json(['message' => 'Booking created successfully', 'booking' => $booking]);
+    
+        return response()->json(['message' => 'Booking successful!', 'booking' => $booking], 201);
     }
 
     // Cancel a booking
@@ -60,4 +62,44 @@ class BookingController extends Controller
         $booking = Booking::with(['route.bus', 'user'])->findOrFail($id);
         return response()->json($booking);
     }
+
+
+    
+    public function getAllBookings()
+{
+    try {
+        // Fetch all bookings with their related route details
+        $bookings = Booking::all();
+
+        // Create an empty array to hold the combined data
+        $combinedData = [];
+
+        // Loop through each booking to fetch its related route and bus details
+        foreach ($bookings as $booking) {
+            // Fetch the route details based on route_id
+            $routeDetails = Route::where('id', $booking->route_id)->first();
+
+            // If route details exist, fetch the bus details
+            if ($routeDetails) {
+                $busDetails = Bus::where('id', $routeDetails->bus_id)->first();
+
+                // Combine booking, route, and bus details
+                $combinedData[] = [
+                    'booking' => $booking,
+                    'route' => $routeDetails,
+                    'bus' => $busDetails
+                ];
+            }
+        }
+
+        // Return the combined data as JSON
+        return response()->json($combinedData, 200);
+
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500); // Handle exceptions
+    }
+}
+
+    
+    
 }
