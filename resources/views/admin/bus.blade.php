@@ -1152,8 +1152,10 @@
             <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${route.departure_time || '-'}</td>
             <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${bus.bus_type || '-'}</td>
             <td class="py-2 px-6 md:py-3 md:px-4 border font-medium flex items-center">
-    <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-2" />
-    <img src="{{ asset('/assets/delete.png') }}" alt="Delete" class="cursor-pointer w-6 h-6" />
+    <button class="py-2 px-4 bg-red-300 text-black rounded-md sm:py-3 sm:px-4 border" onclick="deleteBooking(${booking.id}, '${booking.seat_numbers}',${booking.route_id})">
+                   
+                                    Cancel Booking
+                                </button>
 </td>
 
         `;
@@ -1170,6 +1172,42 @@
             // Call the function to populate the table
             getAllBookingsOfUser();
 
+
+            function deleteBooking(id, seatNumbers, routeId) {
+            // Convert the comma-separated seat numbers string into an array
+            const seatArray = seatNumbers.split(',');
+
+            // Prepare the data to be sent in the request
+            const data = {
+                seat_numbers: seatArray, // Seat numbers as an array
+                route_id: routeId // Route ID
+            };
+
+            console.log('Sending data to the server:', data); // Log the data to verify it's correct
+
+            // Send the DELETE request with seat numbers and route ID
+            fetch(`/admin/delete-booking/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content') // CSRF token
+                    },
+                    body: JSON.stringify(data) // Send both seat numbers and route ID in the body
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Booking Cancelled Successfully');
+                        location.reload();
+                    } else {
+                        alert(data.error || 'Error deleting booking');
+                    }
+                })
+                .catch(error => {
+                    alert('An error occurred: ' + error.message);
+                });
+        }
 
 
             function showContent(tabName) {

@@ -44,6 +44,8 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::put('/routes/{id}', [RouteController::class, 'update']); // Update a route
     Route::delete('/routes/{id}', [RouteController::class, 'destroy']); // Delete a route
 
+    Route::delete('/delete-booking/{id}', [BookingController::class, 'deleteBooking']);
+
     // In routes/web.php or routes/api.php
     Route::delete('/buses/{id}', [BusController::class, 'destroy'])->name('buses.destroy');
 
