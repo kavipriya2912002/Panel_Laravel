@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Bus;
 use App\Models\Route;
+use App\Models\Seat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -30,7 +31,7 @@ class BookingController extends Controller
             'route_id' => 'required|exists:routes,id',
             'seat_numbers' => 'required|string',
             'fare' => 'required|numeric',
-            
+
         ]);
         $userId = Auth::id();
         $booking = Booking::create([
@@ -40,7 +41,7 @@ class BookingController extends Controller
             'total_fare' => $validated['fare'],
             'status' => 'booked',
         ]);
-    
+
         return response()->json(['message' => 'Booking successful!', 'booking' => $booking], 201);
     }
 
@@ -66,22 +67,23 @@ class BookingController extends Controller
 
 
 
-    public function getOneUserBookings(){
+    public function getOneUserBookings()
+    {
         try {
             $userId = Auth::id(); // Get the authenticated user ID
             $userBooking = Booking::where('user_id', $userId)->get(); // Fetch all bookings for this user
-    
+
             $combinedData = [];
-    
+
             // Loop through each booking to fetch related route and bus details
             foreach ($userBooking as $booking) {
                 // Fetch the route details based on route_id, avoiding unnecessary queries if it doesn't exist
                 $routeDetails = Route::find($booking->route_id);
-    
+
                 if ($routeDetails) {
                     // Fetch the bus details for the route if route exists
                     $busDetails = Bus::find($routeDetails->bus_id);
-    
+
                     if ($busDetails) {
                         // Combine booking, route, and bus details
                         $combinedData[] = [
@@ -92,83 +94,110 @@ class BookingController extends Controller
                     }
                 }
             }
-    
+
             // Return the combined data as JSON
             return response()->json($combinedData, 200);
-    
         } catch (\Exception $e) {
             // Log the exception for debugging purposes
             Log::error('Error fetching user bookings: ' . $e->getMessage());
-            
+
             // Return the error message as JSON
             return response()->json(['error' => 'Unable to fetch user bookings. Please try again later.'], 500);
         }
     }
-    
-    
+
+
     public function getAllBookings()
-{
-    try {
-        // Fetch all bookings with their related route details
-        $bookings = Booking::all();
+    {
+        try {
+            // Fetch all bookings with their related route details
+            $bookings = Booking::all();
 
-        // Create an empty array to hold the combined data
-        $combinedData = [];
+            // Create an empty array to hold the combined data
+            $combinedData = [];
 
-        // Loop through each booking to fetch its related route and bus details
-        foreach ($bookings as $booking) {
-            // Fetch the route details based on route_id
-            $routeDetails = Route::where('id', $booking->route_id)->first();
+            // Loop through each booking to fetch its related route and bus details
+            foreach ($bookings as $booking) {
+                // Fetch the route details based on route_id
+                $routeDetails = Route::where('id', $booking->route_id)->first();
 
-            // If route details exist, fetch the bus details
-            if ($routeDetails) {
-                $busDetails = Bus::where('id', $routeDetails->bus_id)->first();
+                // If route details exist, fetch the bus details
+                if ($routeDetails) {
+                    $busDetails = Bus::where('id', $routeDetails->bus_id)->first();
 
-                // Combine booking, route, and bus details
-                $combinedData[] = [
-                    'booking' => $booking,
-                    'route' => $routeDetails,
-                    'bus' => $busDetails
-                ];
+                    // Combine booking, route, and bus details
+                    $combinedData[] = [
+                        'booking' => $booking,
+                        'route' => $routeDetails,
+                        'bus' => $busDetails
+                    ];
+                }
             }
+
+            // Return the combined data as JSON
+            return response()->json($combinedData, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500); // Handle exceptions
         }
-
-        // Return the combined data as JSON
-        return response()->json($combinedData, 200);
-
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500); // Handle exceptions
     }
-}
 
 
-public function deleteBooking($id)
-{
-    try {
-        // Find the booking by ID
-        $booking = Booking::find($id);
-
-        // Check if the booking exists
-        if (!$booking) {
-            return response()->json(['error' => 'Booking not found'], 404);
+    public function deleteBooking(Request $request, $id)
+    {
+        try {
+            // Find the booking by ID
+            $booking = Booking::find($id);
+    
+            // Check if the booking exists
+            if (!$booking) {
+                Log::error("Booking with ID $id not found");
+                return response()->json(['error' => 'Booking not found'], 404);
+            }
+    
+            $seatNumbers = $request->input('seat_numbers'); // seat_numbers is already an array
+            $routeId = $request->input('route_id');
+    
+            // Log the received data
+            Log::info('Seats to delete:', ['seat_numbers' => $seatNumbers]);
+            Log::info('Route ID:', ['route_id' => $routeId]);
+    
+            // Check if the seats exist in the database for the given route
+            $seats = Seat::whereIn('seat_number', $seatNumbers)
+                ->where('route_id', $routeId)
+                ->get();
+    
+            // If no seats are found
+            if ($seats->isEmpty()) {
+                Log::error("Seats not found for route ID $routeId and seat numbers: " . implode(',', $seatNumbers));
+                return response()->json(['error' => 'Seats not found for the specified route'], 404);
+            }
+    
+            // Update the status of the seats to 'available'
+            foreach ($seats as $seat) {
+                $seat->status = 'available';
+                $seat->save();
+            }
+    
+            // Log successful seat status update
+            Log::info("Seats updated successfully for route ID $routeId");
+    
+            // Delete the booking
+            $deleted = $booking->delete();
+    
+            // Log booking deletion status
+            Log::info('Booking deletion status: ' . ($deleted ? 'Success' : 'Failed'));
+    
+            // Return a success response
+            return response()->json(['message' => 'Booking deleted and seats updated successfully'], 200);
+    
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            Log::error('Error deleting booking: ' . $e->getMessage(), ['exception' => $e]);
+    
+            // Return an error response
+            return response()->json(['error' => 'Unable to delete booking. Please try again later.'], 500);
         }
-
-        // Delete the booking
-        $booking->delete();
-
-        // Return a success response
-        return response()->json(['message' => 'Booking deleted successfully'], 200);
-
-    } catch (\Exception $e) {
-        // Log the error
-        Log::error('Error deleting booking: ' . $e->getMessage());
-
-        // Return an error response
-        return response()->json(['error' => 'Unable to delete booking. Please try again later.'], 500);
     }
-}
-
-
     
-    
+
 }

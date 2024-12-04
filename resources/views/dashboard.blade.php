@@ -1293,9 +1293,6 @@
 
 
 
-
-
-
             <div id="landline" class="tab-content hidden">
                 <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
                     <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Pay Broadband / Landline Bill
@@ -1330,7 +1327,6 @@
                     </form>
                 </div>
             </div>
-
 
 
 
@@ -1544,33 +1540,6 @@
             </div>
 
 
-
-            <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden" id="mybookings">
-                <div class="card-header bg-black text-white py-3 px-4">
-                    <span class="font-semibold text-lg">My Bookings</span>
-                </div>
-                <div class="card-body p-4 sm:p-6 lg:p-8 overflow-x-auto">
-                    <table class="w-full table-auto text-left border-collapse border border-gray-300">
-                        <thead class="bg-gray-100 text-gray-700">
-                            <tr>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">User ID</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Seat Number</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Bus Name</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Fare</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Source</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Destination</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Date</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Depature Time</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Bus Type</th>
-                                <th class="py-2 px-3 md:py-3 md:px-4 border font-medium">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="userbookings" class="text-gray-600">
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
 
 
@@ -1826,6 +1795,11 @@
 
 
 
+           
+
+
+
+
             <!-- Seat Selection Popup (Initially Hidden) -->
             <div id="seatLayout"
                 class="seatWrapper hidden fixed top-0 left-0 w-full h-full bg-gray-700 bg-opacity-50 flex justify-center items-center z-50">
@@ -1857,10 +1831,47 @@
 
 
 
+
+
+
+
+
         </div>
+
+        
+        
+        
+        {{-- all bookings --}}
+                <div class="tab-content block p-4 w-full max-w-full mx-auto" id="mybookings">
+                    <!-- Header -->
+                    <div class="bg-black text-white py-3 px-4">
+                        <span class="font-semibold text-lg">My Bookings</span>
+                    </div>
+                    <!-- Table Container -->
+                    <div class="w-full overflow-x-auto">
+                        <table class="min-w-full border-collapse border border-gray-300 text-left">
+                            <thead class="bg-gray-100 text-gray-700">
+                                <tr>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Route ID</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Bus ID</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Source</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Destination</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Departure Time</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Departure Date</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Arrival Time</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Fare</th>
+                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userbookings" class="text-gray-600">
+                                <!-- Booking Rows will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
     </div>
-    </div>
-    </div>
+
 
     <script>
         // Get the dropdown and the input field container
@@ -3089,30 +3100,32 @@
                         const booking = item.booking; // Extract booking data
                         const route = item.route; // Extract route data
                         const bus = item.bus;
+                        console.log(booking.seat_numbers);
 
                         const row = document.createElement('tr');
                         row.innerHTML = `
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${booking.user_id}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${booking.user_id}</td>
 
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${booking.seat_numbers}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${bus.operator_name || '-'}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${booking.total_fare}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${route.source || '-'}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${route.destination || '-'}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${route.arrival_time || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${booking.seat_numbers}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${bus.operator_name || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${booking.total_fare}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${route.source || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${route.destination || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${route.arrival_time || '-'}</td>
 
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${route.departure_time || '-'}</td>
-            <td class="py-2 px-3 md:py-3 md:px-4 border font-medium">${bus.bus_type || '-'}</td>
-            <td class="py-2 px-6 md:py-3 md:px-4 border font-medium flex items-center">
-    <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-2" />
-    <img src="{{ asset('/assets/delete.png') }}" alt="Delete" class="cursor-pointer w-6 h-6" onclick="deleteBooking(${booking.id})" />
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${route.departure_time || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">${bus.bus_type || '-'}</td>
+            <td class="py-2 px-3 sm:py-3 sm:px-4 border">
+                <button class="py-2 px-5 bg-red-300 text-black rounded-md sm:py-3 sm:px-4 border" onclick="deleteBooking(${booking.id}, '${booking.seat_numbers}',${booking.route_id})">
+                   
+                                    Cancel Booking
+                                </button>
+    
 </td>
 
         `;
                         tbody.appendChild(row);
                     });
-
-
                 })
                 .catch((error) => {
                     console.error('Error fetching bookings:', error);
@@ -3122,20 +3135,32 @@
         // Call the function to populate the table
         getMyBookings();
 
-        function deleteBooking(id) {
+        function deleteBooking(id, seatNumbers, routeId) {
+            // Convert the comma-separated seat numbers string into an array
+            const seatArray = seatNumbers.split(',');
+
+            // Prepare the data to be sent in the request
+            const data = {
+                seat_numbers: seatArray, // Seat numbers as an array
+                route_id: routeId // Route ID
+            };
+
+            console.log('Sending data to the server:', data); // Log the data to verify it's correct
+
+            // Send the DELETE request with seat numbers and route ID
             fetch(`/delete-booking/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                            'content') // CSRF token if you're using Laravel
+                            'content') // CSRF token
                     },
+                    body: JSON.stringify(data) // Send both seat numbers and route ID in the body
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.message) {
-                        alert('Booking deleted successfully');
-                        // Optionally, you can refresh the list or remove the row from the table dynamically
+                        alert('Booking Cancelled Successfully');
                         location.reload();
                     } else {
                         alert(data.error || 'Error deleting booking');

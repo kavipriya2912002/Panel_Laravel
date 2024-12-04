@@ -601,14 +601,14 @@
                         buses.forEach(bus => {
                             busList.innerHTML += `
                             <tr>
-                                <td class="py-3 px-4">${bus.id}</td>
-                                <td class="py-3 px-4">${bus.operator_name}</td>
-                                <td class="py-3 px-4">${bus.bus_type}</td>
-                                <td class="py-3 px-4">${bus.total_seats}</td>
-                                <td class="py-3 px-4 flex">
+                                <td class="py-3 px-4 border">${bus.id}</td>
+                                <td class="py-3 px-4 border">${bus.operator_name}</td>
+                                <td class="py-3 px-4 border">${bus.bus_type}</td>
+                                <td class="py-3 px-4 border">${bus.total_seats}</td>
+                                <td class="py-3 px-4 flex border">
                                     <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-5 mt-1" onclick="editBus(${bus.id})" />
                                     <img src="{{ asset('assets/delete.png') }}" alt="Delete" class="cursor-pointer ml-2 w-6 h-6 mr-5 mt-1.5" onclick="deleteBus(${bus.id})" />
-                                    <button class="bg-blue-400 text-white px-4 py-2 rounded-lg mr-9" onclick="manageRoutes(${bus.id})">Manage Routes</button>
+                                    <button class="bg-blue-400 text-white px-4 py-2 rounded-lg" onclick="manageRoutes(${bus.id})">Manage Routes</button>
                                 </td>
                             </tr>
                         `;
