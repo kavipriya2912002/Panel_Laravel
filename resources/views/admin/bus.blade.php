@@ -608,7 +608,7 @@
                                 <td class="py-3 px-4 flex border">
                                     <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-5 mt-1" onclick="editBus(${bus.id})" />
                                     <img src="{{ asset('assets/delete.png') }}" alt="Delete" class="cursor-pointer ml-2 w-6 h-6 mr-5 mt-1.5" onclick="deleteBus(${bus.id})" />
-                                    <button class="bg-blue-400 text-white px-4 py-2 rounded-lg" onclick="manageRoutes(${bus.id})">Manage Routes</button>
+                                    <button class="bg-blue-400 text-white px-4 py-2 rounded-lg mr-9" onclick="manageRoutes(${bus.id})">Manage Routes</button>
                                 </td>
                             </tr>
                         `;
@@ -974,7 +974,7 @@
                 <td class="py-3 px-4 flex">
                     <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="cursor-pointer w-6 h-6 mr-5" onclick="editRoute(${route.id})" />
                     <img src="{{ asset('assets/delete.png') }}" alt="Delete" class="cursor-pointer ml-2 w-6 h-6 mr-5 mt-0.5" onclick="deleteRoute(${route.id})" />
-                    <button class="text-white bg-blue-400 px-4 py-1 rounded-lg ml-2 mr-7" onclick="viewSeats(${route.id})">View Seats</button>
+                    <button class="text-white bg-blue-400 px-4 py-1 rounded-lg ml-2 mr-9" onclick="viewSeats(${route.id})">View Seats</button>
                 </td>
             `;
 
