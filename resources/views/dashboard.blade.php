@@ -1838,38 +1838,36 @@
 
         </div>
 
-        
-        
-        
-        {{-- all bookings --}}
-                <div class="tab-content block p-4 w-full max-w-full mx-auto" id="mybookings">
-                    <!-- Header -->
-                    <div class="bg-black text-white py-3 px-4">
-                        <span class="font-semibold text-lg">My Bookings</span>
-                    </div>
-                    <!-- Table Container -->
-                    <div class="w-full overflow-x-auto">
-                        <table class="min-w-full border-collapse border border-gray-300 text-left">
-                            <thead class="bg-gray-100 text-gray-700">
-                                <tr>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Route ID</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Bus ID</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Source</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Destination</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Departure Time</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Departure Date</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Arrival Time</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Fare</th>
-                                    <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="userbookings" class="text-gray-600">
-                                <!-- Booking Rows will be inserted here -->
-                            </tbody>
-                        </table>
-                    </div>
+
+         {{-- all bookings --}}
+            <div class="tab-content block p-4 w-full max-w-full mx-auto" id="mybookings">
+                <!-- Header -->
+                <div class="bg-black text-white py-3 px-4">
+                    <span class="font-semibold text-lg">My Bookings</span>
                 </div>
-                
+                <!-- Table Container -->
+                <div class="w-full overflow-x-auto">
+                    <table class="min-w-full border-collapse border border-gray-300 text-left">
+                        <thead class="bg-gray-100 text-gray-700">
+                            <tr>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">User ID</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Seat Numbers</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Bus Name</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Fare</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Source</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Destination</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Arrival Time</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Departure Time</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Bus Type</th>
+                                <th class="py-2 px-3 border font-medium text-xs sm:text-sm">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userbookings" class="text-gray-600">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
     </div>
 
 

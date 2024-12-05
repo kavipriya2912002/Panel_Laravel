@@ -45,5 +45,25 @@ class WalletController extends Controller
             'wallet' => $wallet->balance,
         ]);
     }
+
+    public function getWalletAmount()
+{
+    // Get the authenticated user's ID
+    $userId = Auth::id();
+
+    // Retrieve the user's wallet
+    $wallet = Wallet::where('user_id', $userId)->first();
+
+    // Check if the wallet exists
+    if (!$wallet) {
+        return response()->json(['error' => 'Wallet not found'], 404);
+    }
+
+    // Return the wallet balance
+    return response()->json([
+        'balance' => $wallet->balance,
+    ], 200);
+}
+
     
 }

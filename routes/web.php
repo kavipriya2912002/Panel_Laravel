@@ -35,6 +35,7 @@ Route::delete('/delete-booking/{id}', [BookingController::class, 'deleteBooking'
 Route::middleware('auth')->group(function () {
   
 Route::post('/dashboard', [WalletController::class, 'addMoney']);
+Route::get('get-wallet-amount',[WalletController::class,'getWalletAmount']);
 Route::post('/search-routes', [RouteController::class, 'search']);
 Route::get('/all-routes', [RouteController::class, 'getAllRoutes']);
 

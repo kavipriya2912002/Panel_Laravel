@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Bus;
 use App\Models\Route;
 use App\Models\Seat;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -27,13 +28,33 @@ class BookingController extends Controller
     // Create a new booking
     public function store(Request $request)
     {
+        // Validate the request
         $validated = $request->validate([
             'route_id' => 'required|exists:routes,id',
             'seat_numbers' => 'required|string',
             'fare' => 'required|numeric',
-
         ]);
+
+        // Get the authenticated user's ID
         $userId = Auth::id();
+
+        // Retrieve the user's wallet
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        if (!$wallet) {
+            return response()->json(['error' => 'Wallet not found'], 404);
+        }
+
+        // Check if the wallet has sufficient balance
+        if ($wallet->balance < $validated['fare']) {
+            return response()->json(['error' => 'Insufficient wallet balance'], 400);
+        }
+
+        // Deduct the fare from the wallet balance
+        $wallet->balance -= $validated['fare'];
+        $wallet->save();
+
+        // Create the booking record
         $booking = Booking::create([
             'user_id' => $userId,
             'route_id' => $validated['route_id'],
@@ -44,6 +65,7 @@ class BookingController extends Controller
 
         return response()->json(['message' => 'Booking successful!', 'booking' => $booking], 201);
     }
+
 
     // Cancel a booking
     public function cancel($id)
@@ -143,61 +165,68 @@ class BookingController extends Controller
 
 
     public function deleteBooking(Request $request, $id)
-    {
-        try {
-            // Find the booking by ID
-            $booking = Booking::find($id);
-    
-            // Check if the booking exists
-            if (!$booking) {
-                Log::error("Booking with ID $id not found");
-                return response()->json(['error' => 'Booking not found'], 404);
-            }
-    
-            $seatNumbers = $request->input('seat_numbers'); // seat_numbers is already an array
-            $routeId = $request->input('route_id');
-    
-            // Log the received data
-            Log::info('Seats to delete:', ['seat_numbers' => $seatNumbers]);
-            Log::info('Route ID:', ['route_id' => $routeId]);
-    
-            // Check if the seats exist in the database for the given route
-            $seats = Seat::whereIn('seat_number', $seatNumbers)
-                ->where('route_id', $routeId)
-                ->get();
-    
-            // If no seats are found
-            if ($seats->isEmpty()) {
-                Log::error("Seats not found for route ID $routeId and seat numbers: " . implode(',', $seatNumbers));
-                return response()->json(['error' => 'Seats not found for the specified route'], 404);
-            }
-    
-            // Update the status of the seats to 'available'
-            foreach ($seats as $seat) {
-                $seat->status = 'available';
-                $seat->save();
-            }
-    
-            // Log successful seat status update
-            Log::info("Seats updated successfully for route ID $routeId");
-    
-            // Delete the booking
-            $deleted = $booking->delete();
-    
-            // Log booking deletion status
-            Log::info('Booking deletion status: ' . ($deleted ? 'Success' : 'Failed'));
-    
-            // Return a success response
-            return response()->json(['message' => 'Booking deleted and seats updated successfully'], 200);
-    
-        } catch (\Exception $e) {
-            // Log the error for debugging
-            Log::error('Error deleting booking: ' . $e->getMessage(), ['exception' => $e]);
-    
-            // Return an error response
-            return response()->json(['error' => 'Unable to delete booking. Please try again later.'], 500);
+{
+    try {
+        // Find the booking by ID
+        $booking = Booking::find($id);
+
+        if (!$booking) {
+            Log::error("Booking with ID $id not found");
+            return response()->json(['error' => 'Booking not found'], 404);
         }
+
+        // Retrieve the total fare
+        $fare = $booking->total_fare;
+
+        // Get the authenticated user ID
+        $userId = Auth::id();
+
+        // Retrieve the user's wallet
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        if (!$wallet) {
+            return response()->json(['error' => 'Wallet not found'], 404);
+        }
+
+        // Add the fare back to the wallet balance
+        $wallet->balance += $fare;
+        $wallet->save();
+
+        // Retrieve seat numbers and route ID from the booking
+        $seatNumbers = explode(',', $booking->seat_numbers);
+        $routeId = $booking->route_id;
+
+        // Check if the seats exist in the database for the given route
+        $seats = Seat::whereIn('seat_number', $seatNumbers)
+            ->where('route_id', $routeId)
+            ->get();
+
+        if ($seats->isEmpty()) {
+            Log::error("Seats not found for route ID $routeId and seat numbers: " . implode(',', $seatNumbers));
+            return response()->json(['error' => 'Seats not found for the specified route'], 404);
+        }
+
+        // Update the status of the seats to 'available'
+        foreach ($seats as $seat) {
+            $seat->status = 'available';
+            $seat->save();
+        }
+
+        // Log successful seat status update
+        Log::info("Seats updated successfully for route ID $routeId");
+
+        // Delete the booking
+        $booking->delete();
+
+        // Return a success response
+        return response()->json(['message' => 'Booking deleted and seats updated successfully'], 200);
+    } catch (\Exception $e) {
+        // Log the error for debugging
+        Log::error('Error deleting booking: ' . $e->getMessage(), ['exception' => $e]);
+
+        // Return an error response
+        return response()->json(['error' => 'Unable to delete booking. Please try again later.'], 500);
     }
-    
+}
 
 }
