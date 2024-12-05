@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
     public function store(UserLoginRequest $request): RedirectResponse
     {
         // Retrieve the user by email
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email);
 
         // Check if user exists
         if (!$user) {
@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
 
         // Handle login logic for pending or disallowed accounts
         if (!$user->is_allowed) {
-            $existingRequest = ModelsLoginRequest::where('user_id', $user->id)->first();
+            $existingRequest = ModelsLoginRequest::where('user_id', $user->id);
 
             if (!$existingRequest) {
                 ModelsLoginRequest::create([
