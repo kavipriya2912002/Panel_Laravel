@@ -315,7 +315,7 @@
 
 
                     <!-- Bus List -->
-                    <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
+                    <div class="tab-content hidden card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
                         id="buslist">
                         <div class="card-header bg-blue-400 text-white py-3 px-4">
                             <span class="font-semibold text-lg sm:text-xl md:text-2xl">Bus List</span>
@@ -428,7 +428,7 @@
 
 
                     <!-- route list -->
-                    <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
+                    <div class="tab-content hidden card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
                         id="routeslist">
                         <div class="card-header bg-blue-400 text-white py-3 px-4">
                             <span class="font-semibold text-lg">Routes List</span>
@@ -457,7 +457,7 @@
 
 
                     <!-- All bookings -->
-                    <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
+                    <div class="tab-content hidden card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
                         id="allbookings">
                         <div class="card-header bg-blue-400 text-white py-3 px-4">
                             <span class="font-semibold text-lg">All Bookings</span>
@@ -489,7 +489,7 @@
 
 
                     <!-- Edit Bus Form -->
-                    <div class="tab-content card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
+                    <div class="tab-content hidden card shadow-lg mb-6 bg-transparent rounded-lg overflow-hidden"
                         id="editBusCard" style="display: none;">
 
                         <div class="card-header bg-gray-400 text-white py-3 px-4">

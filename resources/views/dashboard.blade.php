@@ -468,7 +468,7 @@
         <!-- Content Area -->
         <div class="flex-1 p-6">
             <!-- Home Content -->
-            <div id="home" class="tab-content">
+            <div id="home" class="tab-content hidden">
                 <div class="flex flex-wrap justify-center lg:justify-start">
 
 
@@ -1333,7 +1333,7 @@
 
             <!-- Recharge DTH -->
             <!-- Recharge DTH -->
-            <div id="dth" class="tab-content">
+            <div id="dth" class="tab-content hidden">
                 <div class="main flex flex-wrap mt-0">
                     <!-- Box for DTH Recharge -->
                     <div
@@ -1546,7 +1546,7 @@
 
             <!-- Bus Booking -->
             <!-- Bus Booking -->
-            <div id="busbooking" class="tab-content block p-4 w-full max-w-none mx-0">
+            <div id="busbooking" class="tab-content block hidden p-4 w-full max-w-none mx-0">
                 <div class="bg-gray-100 min-h-screen flex justify-center">
                     <div class="w-full bg-white shadow-lg rounded-lg">
                         <!-- Tabs -->
@@ -1840,7 +1840,7 @@
 
 
          {{-- all bookings --}}
-            <div class="tab-content block p-4 w-full max-w-full mx-auto" id="mybookings">
+            <div class="tab-content hidden block p-4 w-full max-w-full mx-auto" id="mybookings">
                 <!-- Header -->
                 <div class="bg-black text-white py-3 px-4">
                     <span class="font-semibold text-lg">My Bookings</span>
