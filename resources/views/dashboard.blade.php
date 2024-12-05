@@ -466,7 +466,7 @@
         </div>
 
         <!-- Content Area -->
-        <div class="flex-1 p-6">
+        <div class="flex-1 p-6 overflow-hidden">
             <!-- Home Content -->
             <div id="home" class="tab-content hidden">
                 <div class="flex flex-wrap justify-center lg:justify-start">
@@ -1410,100 +1410,86 @@
 
                     <!-- Airtel Browse Plan Section -->
                     <div id="airtelbrowsePlanContainer"
-                        class="container mx-auto p-6 bg-white rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
-                        <h2 class="text-center text-xl font-semibold text-gray-700">Browse Plan</h2>
-                        <h3 class="text-center text-lg text-gray-600">Browse Plans of Airtel Digital TV</h3>
-                        <div
-                            class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
-                            <button onclick="updateAirtelTable('Hindi')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Hindi</button>
-                            <button onclick="updateAirtelTable('Telugu')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Telugu</button>
-                            <button onclick="updateAirtelTable('Tamil')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Tamil</button>
-                            <button onclick="updateAirtelTable('Kannada')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Kannada</button>
-                            <button onclick="updateAirtelTable('Malayalam')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Malayalam</button>
-                            <button onclick="updateAirtelTable('AllSouth')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">All in one South</button>
-                            <button onclick="updateAirtelTable('Marathi')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Marathi</button>
-                            <button onclick="updateAirtelTable('Gujarati')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Gujarati</button>
-                            <button onclick="updateAirtelTable('Odia')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">ODIA</button>
-                            <button onclick="updateAirtelTable('Bengali')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Bengali</button>
+                            class="container mx-auto p-6 bg-white rounded-lg shadow-lg lg:w-[700px] xl:w-[1000px] mb-6">
+                            <h2 class="text-center text-xl font-semibold text-gray-700">Browse Plan</h2>
+                            <h3 class="text-center text-lg text-gray-600">Browse Plans of Airtel Digital TV</h3>
+                            <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                                <button onclick="updateAirtelTable('Hindi')" class="tab-button bg-black text-white px-4 py-2 rounded">Hindi</button>
+                                <button onclick="updateAirtelTable('Telugu')" class="tab-button bg-black text-white px-4 py-2 rounded">Telugu</button>
+                                <button onclick="updateAirtelTable('Tamil')" class="tab-button bg-black text-white px-4 py-2 rounded">Tamil</button>
+                                <button onclick="updateAirtelTable('Kannada')" class="tab-button bg-black text-white px-4 py-2 rounded">Kannada</button>
+                                <button onclick="updateAirtelTable('Malayalam')" class="tab-button bg-black text-white px-4 py-2 rounded">Malayalam</button>
+                                <button onclick="updateAirtelTable('AllSouth')" class="tab-button bg-black text-white px-4 py-2 rounded">All in one South</button>
+                                <button onclick="updateAirtelTable('Marathi')" class="tab-button bg-black text-white px-4 py-2 rounded">Marathi</button>
+                                <button onclick="updateAirtelTable('Gujarati')" class="tab-button bg-black text-white px-4 py-2 rounded">Gujarati</button>
+                                <button onclick="updateAirtelTable('Odia')" class="tab-button bg-black text-white px-4 py-2 rounded">ODIA</button>
+                                <button onclick="updateAirtelTable('Bengali')" class="tab-button bg-black text-white px-4 py-2 rounded">Bengali</button>
+                            </div>
+                            <div class="overflow-x-auto mt-6">
+                                <table class="w-full table-auto">
+                                    <thead class="bg-gray-100 text-gray-700 text-left">
+                                        <tr>
+                                            <th class="p-3 text-sm">Circle</th>
+                                            <th class="p-3 text-sm">Plan Type</th>
+                                            <!-- <th class="p-3 text-sm">Data</th> -->
+                                            <th class="p-3 text-sm">Validity</th>
+                                            <th class="p-3 text-sm">Description</th>
+                                            <th class="p-3 text-sm">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="planTableBody" class="text-sm text-gray-700">
+                                        <!-- Content will be dynamically added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
+                                <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
+                            </div>
+                            <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                                Next
+                            </button>
                         </div>
-                        <table class="w-full table-auto mt-6">
-                            <thead class="bg-gray-100 text-gray-700 text-left">
-                                <tr>
-                                    <th class="p-3 text-sm">Circle</th>
-                                    <th class="p-3 text-sm">Plan Type</th>
-                                    <!-- <th class="p-3 text-sm">Data</th> -->
-                                    <th class="p-3 text-sm">Validity</th>
-                                    <th class="p-3 text-sm">Description</th>
-                                    <th class="p-3 text-sm">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="planTableBody" class="text-sm text-gray-700">
-                                <!-- Content will be dynamically added here -->
-                            </tbody>
-                        </table>
-                        <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
-                            </p>
-                        </div>
-                        <button
-                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
-                            Next
-                        </button>
-                    </div>
 
-                    <!-- Sun Direct Browse Plan -->
-                    <div id="sunbrowsePlanContainer"
-                        class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
-                        <h2 class="text-center text-xl font-semibold">Browse Plan</h2>
-                        <h3 class="text-center text-lg text-gray-600">Browse Plans of Sun Direct</h3>
-                        <div
-                            class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
-                            <button onclick="updateSunTable('Monthly')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Monthly</button>
-                            <button onclick="updateSunTable('TopUp')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">TopUp</button>
-                            <button onclick="updateSunTable('ThreeMonths')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">ThreeMonths</button>
-                            <button onclick="updateSunTable('SixMonths')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">SixMonths</button>
-                            <button onclick="updateSunTable('Yearly')"
-                                class="tab-button bg-black text-white px-4 py-2 rounded">Yearly</button>
+
+                        <!-- Sun Direct Browse Plan -->
+                        <div id="sunbrowsePlanContainer"
+                            class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[1000px] mb-6">
+                            <h2 class="text-center text-xl font-semibold">Browse Plan</h2>
+                            <h3 class="text-center text-lg text-gray-600">Browse Plans of Sun Direct</h3>
+                            <div class="tabs flex flex-col sm:flex-row justify-around mt-6 flex-wrap space-y-4 sm:space-y-0">
+                                <button onclick="updateSunTable('Monthly')" class="tab-button bg-black text-white px-4 py-2 rounded">Monthly</button>
+                                <button onclick="updateSunTable('TopUp')" class="tab-button bg-black text-white px-4 py-2 rounded">TopUp</button>
+                                <button onclick="updateSunTable('ThreeMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">ThreeMonths</button>
+                                <button onclick="updateSunTable('SixMonths')" class="tab-button bg-black text-white px-4 py-2 rounded">SixMonths</button>
+                                <button onclick="updateSunTable('Yearly')" class="tab-button bg-black text-white px-4 py-2 rounded">Yearly</button>
+                            </div>
+                            
+                            <!-- Added Overflow-x Auto for Responsiveness -->
+                            <div class="overflow-x-auto mt-6">
+                                <table class="w-full table-auto">
+                                    <thead class="bg-gray-100 text-gray-700 text-left">
+                                        <tr>
+                                            <th class="p-3 text-sm">Circle</th>
+                                            <th class="p-3 text-sm">Plan Type</th>
+                                            <!-- <th class="p-3 text-sm">Data</th> -->
+                                            <th class="p-3 text-sm">Validity</th>
+                                            <th class="p-3 text-sm">Description</th>
+                                            <th class="p-3 text-sm">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sunplanTableBody" class="text-sm text-gray-700">
+                                        <!-- Content will be dynamically added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
+                                <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.</p>
+                            </div>
+                            <button class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
+                                Next
+                            </button>
                         </div>
-                        <table class="w-full table-auto mt-6">
-                            <thead class="bg-gray-100 text-gray-700 text-left">
-                                <tr>
-                                    <th class="p-3 text-sm">Circle</th>
-                                    <th class="p-3 text-sm">Plan Type</th>
-                                    <!-- <th class="p-3 text-sm">Data</th> -->
-                                    <th class="p-3 text-sm">Validity</th>
-                                    <th class="p-3 text-sm">Description</th>
-                                    <th class="p-3 text-sm">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="sunplanTableBody" class="text-sm text-gray-700">
-                                <!-- Content will be dynamically added here -->
-                            </tbody>
-                        </table>
-                        <div class="disclaimer bg-gray-100 p-3 mt-6 rounded-md text-xs text-gray-600">
-                            <p><strong>Disclaimer: </strong> Verify with the operator before proceeding with recharge.
-                            </p>
-                        </div>
-                        <button
-                            class="next-button mt-6 w-full py-2 bg-black text-white rounded-md text-lg hover:bg-black">
-                            Next
-                        </button>
-                    </div>
-                </div>
 
                 <!-- DTH Operator -->
                 <div
