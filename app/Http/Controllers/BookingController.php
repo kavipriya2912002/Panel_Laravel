@@ -27,44 +27,57 @@ class BookingController extends Controller
 
     // Create a new booking
     public function store(Request $request)
-    {
-        // Validate the request
-        $validated = $request->validate([
-            'route_id' => 'required|exists:routes,id',
-            'seat_numbers' => 'required|string',
-            'fare' => 'required|numeric',
-        ]);
+{
+    // Validate the request
+    $validated = $request->validate([
+        'route_id' => 'required|exists:routes,id',
+        'seat_numbers' => 'required|string',
+        'fare' => 'required|numeric',
+    ]);
 
-        // Get the authenticated user's ID
-        $userId = Auth::id();
+    // Get the authenticated user's ID
+    $userId = Auth::id();
 
-        // Retrieve the user's wallet
-        $wallet = Wallet::where('user_id', $userId)->first();
+    // Retrieve the user's wallet
+    $wallet = Wallet::where('user_id', $userId)->first();
 
-        if (!$wallet) {
-            return response()->json(['error' => 'Wallet not found'], 404);
-        }
-
-        // Check if the wallet has sufficient balance
-        if ($wallet->balance < $validated['fare']) {
-            return response()->json(['error' => 'Insufficient wallet balance'], 400);
-        }
-
-        // Deduct the fare from the wallet balance
-        $wallet->balance -= $validated['fare'];
-        $wallet->save();
-
-        // Create the booking record
-        $booking = Booking::create([
-            'user_id' => $userId,
-            'route_id' => $validated['route_id'],
-            'seat_numbers' => $validated['seat_numbers'],
-            'total_fare' => $validated['fare'],
-            'status' => 'booked',
-        ]);
-
-        return response()->json(['message' => 'Booking successful!', 'booking' => $booking], 201);
+    // Check if the wallet exists
+    if (!$wallet) {
+        return response()->json([
+            'error' => 'Wallet not found',
+            'message' => 'Please add funds to your wallet and try booking again.'
+        ], 404);
     }
+
+    // Check if the wallet has sufficient balance
+    if ($wallet->balance < $validated['fare']) {
+        return response()->json([
+            'error' => 'Insufficient wallet balance',
+            'message' => 'Please add funds to your wallet and try booking again.'
+        ], 400);
+    }
+
+    // Deduct the fare from the wallet balance
+    $wallet->balance -= $validated['fare'];
+    $wallet->save();
+
+    // Create the booking record
+    $booking = Booking::create([
+        'user_id' => $userId,
+        'route_id' => $validated['route_id'],
+        'seat_numbers' => $validated['seat_numbers'],
+        'total_fare' => $validated['fare'],
+        'status' => 'booked',
+    ]);
+
+    // Return success response
+    return response()->json([
+        'message' => 'Booking successful!',
+        'booking' => $booking
+    ], 201);
+}
+
+    
 
 
     // Cancel a booking
