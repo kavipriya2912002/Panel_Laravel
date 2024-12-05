@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
     public function store(UserLoginRequest $request): RedirectResponse
     {
         // Retrieve the user by email
-        $user = User::where('email', $request->email);
+        $user = User::where('email', $request->email)->first();
 
         // Check if user exists
         if (!$user) {
@@ -37,14 +37,9 @@ class AuthenticatedSessionController extends Controller
             ]);
         }
 
-        if ($user->last_login && now()->diffInHours($user->last_login) > 24) {
-            $user->is_allowed = false; // Disallow login after 24 hours
-            $user->save();
-        }
-
         // Handle login logic for pending or disallowed accounts
         if (!$user->is_allowed) {
-            $existingRequest = ModelsLoginRequest::where('user_id', $user->id);
+            $existingRequest = ModelsLoginRequest::where('user_id', $user->id)->first();
 
             if (!$existingRequest) {
                 ModelsLoginRequest::create([
