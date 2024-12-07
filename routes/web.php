@@ -22,6 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/text',function(){
+return view('text');
+})->middleware(['auth', 'verified'])->name('text');
+
 
 Route::middleware('auth')->group(function () {
 

@@ -46,6 +46,13 @@ class WalletController extends Controller
         ]);
     }
 
+
+
+    public function AddMoneyToUser($id){
+        
+
+    }
+
     public function getWalletAmount()
 {
     // Get the authenticated user's ID

@@ -1574,272 +1574,272 @@
 
 
 
-                <!-- Bus Booking -->
-                <!-- Bus Booking -->
-                <div id="busbooking" class="tab-content hidden block p-4 w-full max-w-none mx-0">
-                    <div class="bg-gray-100 min-h-screen flex justify-center">
-                        <div class="w-full bg-white shadow-lg rounded-lg">
-                            <!-- Tabs -->
-                            <div class="flex flex-wrap justify-around border-b border-gray-300">
-                                <button id="homeTab"
-                                    class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
-                                    onclick="showTab('home')">
-                                    Home
-                                </button>
-                                <button id="profileTab"
-                                    class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
-                                    onclick="showTab('profile')">
-                                    Profile
-                                </button>
+            <!-- Bus Booking -->
+            <!-- Bus Booking -->
+            <div id="busbooking" class="tab-content hidden block p-4 w-full max-w-none mx-0">
+                <div class="bg-gray-100 min-h-screen flex justify-center">
+                    <div class="w-full bg-white shadow-lg rounded-lg">
+                        <!-- Tabs -->
+                        <div class="flex flex-wrap justify-around border-b border-gray-300">
+                            <button id="homeTab"
+                                class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
+                                onclick="showTab('home')">
+                                Home
+                            </button>
+                            <button id="profileTab"
+                                class="w-full sm:w-1/2 py-2 text-gray-600 hover:text-blue-500 border-b-2 border-transparent transition sm:text-lg md:text-xl"
+                                onclick="showTab('profile')">
+                                Profile
+                            </button>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6">
+                            <!-- Home Content -->
+                            <div id="homeContent">
+                                <header
+                                    class="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-12 py-4 bg-gray-100 border-b border-gray-300">
+                                    <div class="logo mb-4 lg:mb-0">
+                                        <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
+                                            class="h-16 sm:h-20 lg:h-24 w-auto">
+                                    </div>
+                                    <nav class="nav mb-4 lg:mb-0">
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black mr-4">Bus
+                                            Tickets</a>
+                                    </nav>
+                                    <div
+                                        class="account flex flex-col sm:flex-row items-center justify-center sm:justify-end">
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black mb-2 sm:mb-0 sm:mr-4">Help</a>
+                                        <select id="language-select" name="language"
+                                            class="text-base sm:text-lg p-2 border rounded-lg mb-2 sm:mb-0 sm:mr-4">
+                                            <option value="en">English</option>
+                                            <option value="hi">Hindi</option>
+                                            <option value="ta">Tamil</option>
+                                        </select>
+                                        <a href="#"
+                                            class="text-base sm:text-lg lg:text-xl text-black">Account</a>
+                                    </div>
+                                </header>
+
+                                <section class="hero bg-black text-white text-center py-8 lg:py-12">
+                                    <h1 class="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-8">
+                                        India's No. 1 Online Bus Ticket Booking Site
+                                    </h1>
+                                    <div
+                                        class="search-box flex flex-col sm:flex-row justify-center gap-4 mb-6 sm:mb-12">
+                                        <input id="fromInput" type="text" placeholder="From"
+                                            class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <input id="toInput" type="text" placeholder="To"
+                                            class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <input id="dateInput" type="date"
+                                            class="p-2 sm:p-3 border border-gray-300 text-black rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
+                                        <button id="searchButton"
+                                            class="p-2 sm:p-3 px-4 sm:px-6 bg-white text-black rounded-lg text-sm sm:text-base">
+                                            Search Buses
+                                        </button>
+                                    </div>
+                                    <p class="text-base sm:text-lg lg:text-xl mb-4 sm:mb-8">
+                                        Apno ko, Sapno ko Kareeb Laaye.
+                                    </p>
+                                </section>
+
+                                <section class="offers py-6 sm:py-8 bg-gray-100 shadow-lg w-full">
+                                    <h2 class="text-lg sm:text-xl lg:text-2xl text-center mb-6">Trending Offers
+                                    </h2>
+                                    <div
+                                        class="offer-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-12">
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹250 on bus tickets
+                                            </h3>
+                                            <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: FIRST</button>
+                                        </div>
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on Karnataka,
+                                                Tamil
+                                            </h3>
+                                            <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: CASH300</button>
+                                        </div>
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on AP, TS routes
+                                            </h3>
+                                            <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: SUPERHIT</button>
+                                        </div>
+                                        <div
+                                            class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
+                                            <h3 class="text-base sm:text-lg mb-2">Save up to ₹500 with ICICI Bank
+                                            </h3>
+                                            <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
+                                            <button
+                                                class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
+                                                Code: ICICI500</button>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
 
-                            <!-- Content -->
-                            <div class="p-6">
-                                <!-- Home Content -->
-                                <div id="homeContent">
-                                    <header
-                                        class="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-12 py-4 bg-gray-100 border-b border-gray-300">
-                                        <div class="logo mb-4 lg:mb-0">
-                                            <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
-                                                class="h-16 sm:h-20 lg:h-24 w-auto">
-                                        </div>
-                                        <nav class="nav mb-4 lg:mb-0">
-                                            <a href="#"
-                                                class="text-base sm:text-lg lg:text-xl text-black mr-4">Bus
-                                                Tickets</a>
-                                        </nav>
-                                        <div
-                                            class="account flex flex-col sm:flex-row items-center justify-center sm:justify-end">
-                                            <a href="#"
-                                                class="text-base sm:text-lg lg:text-xl text-black mb-2 sm:mb-0 sm:mr-4">Help</a>
-                                            <select id="language-select" name="language"
-                                                class="text-base sm:text-lg p-2 border rounded-lg mb-2 sm:mb-0 sm:mr-4">
-                                                <option value="en">English</option>
-                                                <option value="hi">Hindi</option>
-                                                <option value="ta">Tamil</option>
-                                            </select>
-                                            <a href="#"
-                                                class="text-base sm:text-lg lg:text-xl text-black">Account</a>
-                                        </div>
-                                    </header>
 
-                                    <section class="hero bg-black text-white text-center py-8 lg:py-12">
-                                        <h1 class="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-8">
-                                            India's No. 1 Online Bus Ticket Booking Site
-                                        </h1>
-                                        <div
-                                            class="search-box flex flex-col sm:flex-row justify-center gap-4 mb-6 sm:mb-12">
-                                            <input id="fromInput" type="text" placeholder="From"
-                                                class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                            <input id="toInput" type="text" placeholder="To"
-                                                class="p-2 sm:p-3 border text-black border-gray-300 rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                            <input id="dateInput" type="date"
-                                                class="p-2 sm:p-3 border border-gray-300 text-black rounded-lg w-full sm:w-60 md:w-72 text-sm sm:text-base">
-                                            <button id="searchButton"
-                                                class="p-2 sm:p-3 px-4 sm:px-6 bg-white text-black rounded-lg text-sm sm:text-base">
-                                                Search Buses
-                                            </button>
-                                        </div>
-                                        <p class="text-base sm:text-lg lg:text-xl mb-4 sm:mb-8">
-                                            Apno ko, Sapno ko Kareeb Laaye.
-                                        </p>
-                                    </section>
+                            <!-- profile content -->
+                            <div id="profileContent" class="hidden">
+                                <!-- profile content -->
+                                <header
+                                    class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-24 py-4 bg-gray-100 border-b border-gray-300">
+                                    <div class="logo mb-4 sm:mb-0">
+                                        <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
+                                            class="h-32 w-48">
+                                    </div>
+                                    <nav class="nav flex flex-row sm:flex-col sm:items-start mb-4 sm:mb-0">
+                                        <a href="#" class="text-xl text-black mx-4">Bus Tickets</a>
+                                    </nav>
+                                    <div class="account flex sm:flex-row sm:items-center">
+                                        <a href="#" class="text-xl text-black mx-4">Help</a>
+                                        <select id="language-select" name="language"
+                                            class="text-lg p-2 border border-gray-300 rounded-md mx-4 mb-4 sm:mb-0">
+                                            <option value="en">English</option>
+                                            <option value="es">Hindi</option>
+                                            <option value="fr">Tamil</option>
+                                        </select>
+                                        <a href="#" class="text-xl text-black">Account</a>
+                                    </div>
 
-                                    <section class="offers py-6 sm:py-8 bg-gray-100 shadow-lg w-full">
-                                        <h2 class="text-lg sm:text-xl lg:text-2xl text-center mb-6">Trending Offers
-                                        </h2>
-                                        <div
-                                            class="offer-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-12">
-                                            <div
-                                                class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                                <h3 class="text-base sm:text-lg mb-2">Save up to ₹250 on bus tickets
-                                                </h3>
-                                                <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                                <button
-                                                    class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
-                                                    Code: FIRST</button>
-                                            </div>
-                                            <div
-                                                class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                                <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on Karnataka,
-                                                    Tamil
-                                                </h3>
-                                                <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                                <button
-                                                    class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
-                                                    Code: CASH300</button>
-                                            </div>
-                                            <div
-                                                class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                                <h3 class="text-base sm:text-lg mb-2">Save up to ₹300 on AP, TS routes
-                                                </h3>
-                                                <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                                <button
-                                                    class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
-                                                    Code: SUPERHIT</button>
-                                            </div>
-                                            <div
-                                                class="card bg-white border border-gray-300 p-4 sm:p-6 rounded-lg shadow-md text-center">
-                                                <h3 class="text-base sm:text-lg mb-2">Save up to ₹500 with ICICI Bank
-                                                </h3>
-                                                <p class="text-xs sm:text-sm mb-4">Valid till 30 Nov</p>
-                                                <button
-                                                    class="p-2 px-4 bg-black text-white rounded-md text-xs sm:text-sm">Use
-                                                    Code: ICICI500</button>
-                                            </div>
-                                        </div>
-                                    </section>
+                                </header>
+
+
+
+                                <div class="bg-white p-5 sm:p-6 md:p-8 lg:p-10 border-b border-gray-300">
+                                    <p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500">Bus Ticket
+                                        >
+                                        Chennai to Bangalore Bus</p>
+                                    <h1 class="mt-1 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">
+                                        Chennai
+                                        to Bangalore Bus</h1>
+                                    <button
+                                        class="inline-block py-2 px-4 border border-gray-300 rounded text-xs sm:text-sm md:text-base lg:text-lg bg-white cursor-pointer mt-3 sm:mt-4 md:mt-5 lg:mt-6">Modify</button>
                                 </div>
 
 
-                                <!-- profile content -->
-                                <div id="profileContent" class="hidden">
-                                    <!-- profile content -->
-                                    <header
-                                        class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-24 py-4 bg-gray-100 border-b border-gray-300">
-                                        <div class="logo mb-4 sm:mb-0">
-                                            <img src="{{ asset('assets/buslogo.png') }}" alt="Bus Logo"
-                                                class="h-32 w-48">
-                                        </div>
-                                        <nav class="nav flex flex-row sm:flex-col sm:items-start mb-4 sm:mb-0">
-                                            <a href="#" class="text-xl text-black mx-4">Bus Tickets</a>
-                                        </nav>
-                                        <div class="account flex sm:flex-row sm:items-center">
-                                            <a href="#" class="text-xl text-black mx-4">Help</a>
-                                            <select id="language-select" name="language"
-                                                class="text-lg p-2 border border-gray-300 rounded-md mx-4 mb-4 sm:mb-0">
-                                                <option value="en">English</option>
-                                                <option value="es">Hindi</option>
-                                                <option value="fr">Tamil</option>
-                                            </select>
-                                            <a href="#" class="text-xl text-black">Account</a>
-                                        </div>
+                                <div class="flex flex-wrap mt-5">
 
-                                    </header>
+                                    <!-- Filters Section -->
+                                    <div
+                                        class="bg-white rounded-lg p-5 shadow-md w-full md:w-1/2 lg:w-1/4 sm:max-h-[60vh] overflow-y-auto p-4">
+                                        <h2 class="text-base mb-4">Filters</h2>
+                                        <ul class="list-none">
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Live
+                                                Tracking</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Primo
+                                                Bus</li>
+                                        </ul>
 
+                                        <h2 class="text-base mb-4">Departure Time</h2>
+                                        <ul class="list-none">
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Before
+                                                6 am</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6
+                                                am
+                                                to 12 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12
+                                                pm
+                                                to 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                After
+                                                6 pm</li>
+                                        </ul>
 
+                                        <h2 class="text-base mb-4">Bus Type</h2>
+                                        <ul class="list-none">
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Seater
+                                            </li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Sleeper</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> AC
+                                            </li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Non AC
+                                            </li>
+                                        </ul>
 
-                                    <div class="bg-white p-5 sm:p-6 md:p-8 lg:p-10 border-b border-gray-300">
-                                        <p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500">Bus Ticket
-                                            >
-                                            Chennai to Bangalore Bus</p>
-                                        <h1 class="mt-1 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">
-                                            Chennai
-                                            to Bangalore Bus</h1>
-                                        <button
-                                            class="inline-block py-2 px-4 border border-gray-300 rounded text-xs sm:text-sm md:text-base lg:text-lg bg-white cursor-pointer mt-3 sm:mt-4 md:mt-5 lg:mt-6">Modify</button>
+                                        <h2 class="text-base mb-4">Arrival Time</h2>
+                                        <ul class="list-none">
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                Before
+                                                6 am</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6
+                                                am
+                                                to 12 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12
+                                                pm
+                                                to 6 pm</li>
+                                            <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
+                                                After
+                                                6 pm</li>
+                                        </ul>
                                     </div>
 
 
-                                    <div class="flex flex-wrap mt-5">
-
-                                        <!-- Filters Section -->
+                                    <!-- bus found -->
+                                    <div
+                                        class="w-full sm-w-full bg-white rounded-lg shadow-md p-5 flex flex-col md:w-3/4 p-4">
+                                        <h2 class="text-lg mb-2">164 Buses Found</h2>
                                         <div
-                                            class="bg-white rounded-lg p-5 shadow-md w-full md:w-1/2 lg:w-1/4 sm:max-h-[60vh] overflow-y-auto p-4">
-                                            <h2 class="text-base mb-4">Filters</h2>
-                                            <ul class="list-none">
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Live
-                                                    Tracking</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Primo
-                                                    Bus</li>
-                                            </ul>
-
-                                            <h2 class="text-base mb-4">Departure Time</h2>
-                                            <ul class="list-none">
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Before
-                                                    6 am</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6
-                                                    am
-                                                    to 12 pm</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12
-                                                    pm
-                                                    to 6 pm</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    After
-                                                    6 pm</li>
-                                            </ul>
-
-                                            <h2 class="text-base mb-4">Bus Type</h2>
-                                            <ul class="list-none">
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Seater
-                                                </li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Sleeper</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> AC
-                                                </li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Non AC
-                                                </li>
-                                            </ul>
-
-                                            <h2 class="text-base mb-4">Arrival Time</h2>
-                                            <ul class="list-none">
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    Before
-                                                    6 am</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 6
-                                                    am
-                                                    to 12 pm</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2"> 12
-                                                    pm
-                                                    to 6 pm</li>
-                                                <li class="mb-2 text-sm"><input type="checkbox" class="mr-2">
-                                                    After
-                                                    6 pm</li>
-                                            </ul>
+                                            class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                                            <div class="w-full sm:w-auto flex flex-col sm:flex-1">
+                                                <h3 class="text-lg mb-4 text-blue-500">KMRL Kalaimakal</h3>
+                                                <p class="text-sm text-gray-600">A/C Seater / Sleeper (2+1)</p>
+                                            </div>
+                                            <div
+                                                class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
+                                                <p class="text-xl font-bold text-gray-800 mb-1">22:45</p>
+                                                <div class="text-gray-500">
+                                                    <p>06h 45m</p>
+                                                </div>
+                                                <p class="text-xl font-bold text-gray-800 mb-1">05:30</p>
+                                            </div>
+                                            <div class="flex-1 text-center w-full sm:w-auto">
+                                                <p class="text-lg font-bold text-gray-800">Starts from INR 740</p>
+                                            </div>
+                                            <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
+                                                <p class="text-sm text-gray-600">22 Seats available</p>
+                                                <p class="text-sm text-gray-600">10 Single</p>
+                                            </div>
+                                            <button id="view-seats-btn"
+                                                class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto">
+                                                View Seats
+                                            </button>
                                         </div>
 
 
-                                        <!-- bus found -->
-                                        <div
-                                            class="w-full sm-w-full bg-white rounded-lg shadow-md p-5 flex flex-col md:w-3/4 p-4">
-                                            <h2 class="text-lg mb-2">164 Buses Found</h2>
-                                            <div
-                                                class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-                                                <div class="w-full sm:w-auto flex flex-col sm:flex-1">
-                                                    <h3 class="text-lg mb-4 text-blue-500">KMRL Kalaimakal</h3>
-                                                    <p class="text-sm text-gray-600">A/C Seater / Sleeper (2+1)</p>
-                                                </div>
-                                                <div
-                                                    class="w-full sm:w-auto flex flex-col sm:flex-1 items-center sm:text-center">
-                                                    <p class="text-xl font-bold text-gray-800 mb-1">22:45</p>
-                                                    <div class="text-gray-500">
-                                                        <p>06h 45m</p>
-                                                    </div>
-                                                    <p class="text-xl font-bold text-gray-800 mb-1">05:30</p>
-                                                </div>
-                                                <div class="flex-1 text-center w-full sm:w-auto">
-                                                    <p class="text-lg font-bold text-gray-800">Starts from INR 740</p>
-                                                </div>
-                                                <div class="flex-1 text-right w-full sm:w-auto sm:mr-10">
-                                                    <p class="text-sm text-gray-600">22 Seats available</p>
-                                                    <p class="text-sm text-gray-600">10 Single</p>
-                                                </div>
-                                                <button id="view-seats-btn"
-                                                    class="mt-4 sm:mt-0 sm:ml-4 px-4 py-2 bg-black text-white rounded-md w-full sm:w-auto">
-                                                    View Seats
-                                                </button>
-                                            </div>
 
 
+                                        <!-- Seat Selection Wrapper -->
 
 
-                                            <!-- Seat Selection Wrapper -->
-
-
-                                        </div><!-- 7 -->
-                                    </div> <!-- 6 -->
-                                </div><!-- 5 -->
-                            </div><!-- 4 -->
-                        </div><!-- 3 -->
-                    </div><!-- 2 -->
-                </div><!-- 1 -->
-                <!-- bus booking -->
-                <!-- bus booking -->
+                                    </div><!-- 7 -->
+                                </div> <!-- 6 -->
+                            </div><!-- 5 -->
+                        </div><!-- 4 -->
+                    </div><!-- 3 -->
+                </div><!-- 2 -->
+            </div><!-- 1 -->
+            <!-- bus booking -->
+            <!-- bus booking -->
 
 
 
@@ -1849,80 +1849,79 @@
 
 
 
-                <!-- Seat Selection Popup (Initially Hidden) -->
-                <div id="seatLayout"
-                    class="seatWrapper hidden fixed top-0 left-0 w-full h-full bg-gray-700 bg-opacity-50 flex justify-center items-center z-50">
-                    <div class="bg-white p-4 rounded-lg w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-                        <div class="font-bold text-center mt-4 mb-2 text-xl">Bus Seat Selection</div>
+            <!-- Seat Selection Popup (Initially Hidden) -->
+            <div id="seatLayout"
+                class="seatWrapper hidden fixed top-0 left-0 w-full h-full bg-gray-700 bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white p-4 rounded-lg w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
+                    <div class="font-bold text-center mt-4 mb-2 text-xl">Bus Seat Selection</div>
 
-                        <!-- Seat container for dynamic seats -->
-                        <div id="seatContainer"
-                            class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-1 justify-center">
-                            <!-- Seats will be dynamically inserted here -->
-                        </div>
+                    <!-- Seat container for dynamic seats -->
+                    <div id="seatContainer"
+                        class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-1 justify-center">
+                        <!-- Seats will be dynamically inserted here -->
+                    </div>
 
-                        <div class="text-center mt-4">
-                            <!-- Close Button -->
-                            <button id="close-seat-modal"
-                                class="px-4 py-2 bg-gray-500 text-white rounded-md">Close</button>
+                    <div class="text-center mt-4">
+                        <!-- Close Button -->
+                        <button id="close-seat-modal"
+                            class="px-4 py-2 bg-gray-500 text-white rounded-md">Close</button>
 
-                            <!-- Book Seat Button -->
-                            <button id="book-seat-btn"
-                                class="px-4 py-2 bg-blue-500 text-white rounded-md ml-4 hidden">
-                                Book Seat
-                            </button>
-                        </div>
+                        <!-- Book Seat Button -->
+                        <button id="book-seat-btn" class="px-4 py-2 bg-blue-500 text-white rounded-md ml-4 hidden">
+                            Book Seat
+                        </button>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
 
 
-            
+
+
+
+
+
+
+
+
+
+
         </div>
 
 
-        <script>
-            // Get the dropdown and the input field container
-            const landlineOperator = document.getElementById('landlineOperator');
-            const stdCodeField = document.getElementById('stdCodeField');
 
-            // Add event listener for changes in the dropdown
-            landlineOperator.addEventListener('change', function() {
-                if (this.value) {
-                    // Show the STD Code field if an operator is selected
-                    stdCodeField.classList.remove('hidden');
-                } else {
-                    // Hide the STD Code field if no operator is selected
-                    stdCodeField.classList.add('hidden');
-                }
-            });
-        </script>
+    </div>
 
-        <!-- JavaScript to handle tab switching -->
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const dynamicFields = document.getElementById('gasDynamicFields');
-                const form = document.getElementById('gasForm');
 
-                form.addEventListener('change', (event) => {
-                    if (event.target.name === 'recharge') {
-                        dynamicFields.innerHTML = ''; // Clear existing fields
+    <script>
+        // Get the dropdown and the input field container
+        const landlineOperator = document.getElementById('landlineOperator');
+        const stdCodeField = document.getElementById('stdCodeField');
 
-                        if (event.target.value === 'gasBill') {
-                            // Add fields for Electricity Boards
-                            dynamicFields.innerHTML = `
+        // Add event listener for changes in the dropdown
+        landlineOperator.addEventListener('change', function() {
+            if (this.value) {
+                // Show the STD Code field if an operator is selected
+                stdCodeField.classList.remove('hidden');
+            } else {
+                // Hide the STD Code field if no operator is selected
+                stdCodeField.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- JavaScript to handle tab switching -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dynamicFields = document.getElementById('gasDynamicFields');
+            const form = document.getElementById('gasForm');
+
+            form.addEventListener('change', (event) => {
+                if (event.target.name === 'recharge') {
+                    dynamicFields.innerHTML = ''; // Clear existing fields
+
+                    if (event.target.value === 'gasBill') {
+                        // Add fields for Electricity Boards
+                        dynamicFields.innerHTML = `
                             <div class="mb-4">
     <label class="block text-gray-700 font-medium mb-2">Piped Gas Provider</label>
     <select name="gasProvider" class="w-full p-2 border rounded">
@@ -1944,9 +1943,9 @@
 </div>
 
                         `;
-                        } else if (event.target.value === 'cylinderBill') {
-                            // Add fields for Apartments
-                            dynamicFields.innerHTML = `
+                    } else if (event.target.value === 'cylinderBill') {
+                        // Add fields for Apartments
+                        dynamicFields.innerHTML = `
                             <div class="mb-4">
     <label class="block text-gray-700 font-medium mb-2">Gas Provider</label>
     <select name="gasProvider" class="w-full p-2 border rounded">
@@ -1981,26 +1980,26 @@
 </div>
 
                         `;
-                        }
                     }
-                });
+                }
             });
-        </script>
+        });
+    </script>
 
 
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const dynamicFields = document.getElementById('dynamicFields');
-                const form = document.getElementById('electricityForm');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dynamicFields = document.getElementById('dynamicFields');
+            const form = document.getElementById('electricityForm');
 
-                form.addEventListener('change', (event) => {
-                    if (event.target.name === 'recharge') {
-                        dynamicFields.innerHTML = ''; // Clear existing fields
+            form.addEventListener('change', (event) => {
+                if (event.target.name === 'recharge') {
+                    dynamicFields.innerHTML = ''; // Clear existing fields
 
-                        if (event.target.value === 'electricityBoard') {
-                            // Add fields for Electricity Boards
-                            dynamicFields.innerHTML = `
+                    if (event.target.value === 'electricityBoard') {
+                        // Add fields for Electricity Boards
+                        dynamicFields.innerHTML = `
                             <div class="mb-4">
                                 <label class="block text-gray-700 font-medium mb-2">State</label>
                                 <input type="text" name="state" class="w-full p-2 border rounded" placeholder="Enter your state">
@@ -2014,9 +2013,9 @@
                                 <input type="text" name="consumerNumber" class="w-full p-2 border rounded" placeholder="Enter consumer number">
                             </div>
                         `;
-                        } else if (event.target.value === 'apartments') {
-                            // Add fields for Apartments
-                            dynamicFields.innerHTML = `
+                    } else if (event.target.value === 'apartments') {
+                        // Add fields for Apartments
+                        dynamicFields.innerHTML = `
                             <div class="mb-4">
                                 <label class="block text-gray-700 font-medium mb-2">City</label>
                                 <input type="text" name="city" class="w-full p-2 border rounded" placeholder="Enter your city">
@@ -2033,390 +2032,390 @@
                                 </select>
                             </div>
                         `;
-                        }
                     }
-                });
+                }
             });
-        </script>
+        });
+    </script>
 
-        <script>
-            function showContent(tabName) {
-                // Hide all tab contents
-                const contents = document.querySelectorAll('.tab-content');
-                contents.forEach(content => {
-                    content.classList.add('hidden');
-                });
+    <script>
+        function showContent(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
 
-                // Show the clicked tab content
-                const activeContent = document.getElementById(tabName);
-                activeContent.classList.remove('hidden');
+            // Show the clicked tab content
+            const activeContent = document.getElementById(tabName);
+            activeContent.classList.remove('hidden');
+        }
+    </script>
+
+
+    <script>
+        var sideBar = document.getElementById("mobile-nav");
+        var openSidebar = document.getElementById("openSideBar");
+        var closeSidebar = document.getElementById("closeSideBar");
+        sideBar.style.transform = "translateX(-260px)";
+
+        function sidebarHandler(flag) {
+            if (flag) {
+                sideBar.style.transform = "translateX(0px)";
+                openSidebar.classList.add("hidden");
+                closeSidebar.classList.remove("hidden");
+            } else {
+                sideBar.style.transform = "translateX(-260px)";
+                closeSidebar.classList.add("hidden");
+                openSidebar.classList.remove("hidden");
             }
-        </script>
+        }
 
 
-        <script>
-            var sideBar = document.getElementById("mobile-nav");
-            var openSidebar = document.getElementById("openSideBar");
-            var closeSidebar = document.getElementById("closeSideBar");
-            sideBar.style.transform = "translateX(-260px)";
+        function toggleDropdownMenu(event) {
+            const dropdownMenu = this.querySelector('.dropdown-menu');
 
-            function sidebarHandler(flag) {
-                if (flag) {
-                    sideBar.style.transform = "translateX(0px)";
-                    openSidebar.classList.add("hidden");
-                    closeSidebar.classList.remove("hidden");
-                } else {
-                    sideBar.style.transform = "translateX(-260px)";
-                    closeSidebar.classList.add("hidden");
-                    openSidebar.classList.remove("hidden");
-                }
+            // Close other open menus
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdownMenu) menu.style.display = 'none';
+            });
+
+            // Toggle current menu
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+
+            event.stopPropagation();
+        }
+
+        function selectDropdownItem(event) {
+            const selectedOperator = this.querySelector('span').textContent.trim();
+            const operatorInput = document.getElementById('operator');
+            const selectedDiv = document.querySelector('.selected-operator');
+
+            // Update the selected operator and hidden input value
+            if (selectedDiv) selectedDiv.textContent = selectedOperator;
+            if (operatorInput) operatorInput.value = this.dataset.value;
+
+            // Hide dropdown menu
+            const dropdownMenu = this.closest('.dropdown-menu');
+            if (dropdownMenu) dropdownMenu.style.display = 'none';
+
+            event.stopPropagation();
+        }
+
+
+        function addMoneyToWallet() {
+            const amountInput = document.getElementById('amount');
+            const amount = amountInput.value;
+            const messageElement = document.getElementById('wallet-message');
+
+            // Clear previous messages
+            messageElement.textContent = '';
+
+            // Validate the input
+            if (!amount || isNaN(amount) || amount <= 0) {
+                messageElement.textContent = 'Please enter a valid amount.';
+                messageElement.style.color = 'red';
+                return;
             }
 
-
-            function toggleDropdownMenu(event) {
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-
-                // Close other open menus
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    if (menu !== dropdownMenu) menu.style.display = 'none';
-                });
-
-                // Toggle current menu
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-
-                event.stopPropagation();
-            }
-
-            function selectDropdownItem(event) {
-                const selectedOperator = this.querySelector('span').textContent.trim();
-                const operatorInput = document.getElementById('operator');
-                const selectedDiv = document.querySelector('.selected-operator');
-
-                // Update the selected operator and hidden input value
-                if (selectedDiv) selectedDiv.textContent = selectedOperator;
-                if (operatorInput) operatorInput.value = this.dataset.value;
-
-                // Hide dropdown menu
-                const dropdownMenu = this.closest('.dropdown-menu');
-                if (dropdownMenu) dropdownMenu.style.display = 'none';
-
-                event.stopPropagation();
-            }
-
-
-            function addMoneyToWallet() {
-                const amountInput = document.getElementById('amount');
-                const amount = amountInput.value;
-                const messageElement = document.getElementById('wallet-message');
-
-                // Clear previous messages
-                messageElement.textContent = '';
-
-                // Validate the input
-                if (!amount || isNaN(amount) || amount <= 0) {
-                    messageElement.textContent = 'Please enter a valid amount.';
-                    messageElement.style.color = 'red';
-                    return;
-                }
-
-                // Send the request to the backend
-                axios.post('/dashboard', {
-                        amount: amount,
-                    }, {
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        }
-                    })
-                    .then(response => {
-                        // Display the success message and the updated wallet balance
-                        messageElement.innerHTML = `
+            // Send the request to the backend
+            axios.post('/dashboard', {
+                    amount: amount,
+                }, {
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    }
+                })
+                .then(response => {
+                    // Display the success message and the updated wallet balance
+                    messageElement.innerHTML = `
             <p style="color: green;">${response.data.message}</p>
             <p>Your current wallet balance is: ₹ ${response.data.wallet}</p>
         `;
-                        amountInput.value = ''; // Reset the input field
-                    })
-                    .catch(error => {
-                        console.error(error); // Log the error
-                        messageElement.textContent = 'Failed to add money. Please try again.';
-                        messageElement.style.color = 'red';
-                    });
-            }
-
-
-            document.addEventListener('DOMContentLoaded', function() {
-                // Toggle dropdown menu on click
-                const dropdownWrappers = document.querySelectorAll('.custom-dropdown');
-                dropdownWrappers.forEach(wrapper => {
-                    wrapper.addEventListener('click', toggleDropdownMenu);
+                    amountInput.value = ''; // Reset the input field
+                })
+                .catch(error => {
+                    console.error(error); // Log the error
+                    messageElement.textContent = 'Failed to add money. Please try again.';
+                    messageElement.style.color = 'red';
                 });
+        }
 
-                // Handle dropdown item selection
-                const dropdownItems = document.querySelectorAll('.dropdown-item');
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', selectDropdownItem);
-                });
 
-                // Close dropdown if clicked outside
-                document.addEventListener('click', function() {
-                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                        menu.style.display = 'none';
-                    });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle dropdown menu on click
+            const dropdownWrappers = document.querySelectorAll('.custom-dropdown');
+            dropdownWrappers.forEach(wrapper => {
+                wrapper.addEventListener('click', toggleDropdownMenu);
+            });
+
+            // Handle dropdown item selection
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', selectDropdownItem);
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.style.display = 'none';
                 });
             });
-        </script>
+        });
+    </script>
 
-        <script>
-            // Function to show only the specified table
-            function showTable(tableId) {
-                // Hide all tables
-                const tables = document.querySelectorAll('.table-container');
-                tables.forEach(table => table.style.display = 'none');
+    <script>
+        // Function to show only the specified table
+        function showTable(tableId) {
+            // Hide all tables
+            const tables = document.querySelectorAll('.table-container');
+            tables.forEach(table => table.style.display = 'none');
 
-                // Show the selected table
-                document.getElementById(tableId).style.display = 'block';
+            // Show the selected table
+            document.getElementById(tableId).style.display = 'block';
 
-                // Save the currently displayed table in localStorage
-                localStorage.setItem('activeTable', tableId);
+            // Save the currently displayed table in localStorage
+            localStorage.setItem('activeTable', tableId);
+        }
+
+        // Function to initialize the view on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the last active table from localStorage
+            const activeTable = localStorage.getItem('activeTable') ||
+                'recommended-table'; // Default to 'recommended-table'
+
+            // Show only the active table
+            showTable(activeTable);
+        });
+    </script>
+
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('hidden'); // Toggle sidebar visibility
+            mainContent.classList.toggle('lg:ml-64'); // Adjust main content position
+        }
+    </script>
+
+    <script>
+        var sideBar = document.getElementById("mobile-nav");
+        var openSidebar = document.getElementById("openSideBar");
+        var closeSidebar = document.getElementById("closeSideBar");
+        sideBar.style.transform = "translateX(-260px)";
+
+        function sidebarHandler(flag) {
+            if (flag) {
+                sideBar.style.transform = "translateX(0px)";
+                openSidebar.classList.add("hidden");
+                closeSidebar.classList.remove("hidden");
+            } else {
+                sideBar.style.transform = "translateX(-260px)";
+                closeSidebar.classList.add("hidden");
+                openSidebar.classList.remove("hidden");
             }
-
-            // Function to initialize the view on page load
-            document.addEventListener('DOMContentLoaded', () => {
-                // Get the last active table from localStorage
-                const activeTable = localStorage.getItem('activeTable') ||
-                    'recommended-table'; // Default to 'recommended-table'
-
-                // Show only the active table
-                showTable(activeTable);
-            });
-        </script>
+        }
+    </script>
 
 
-        <script>
-            function toggleSidebar() {
-                const sidebar = document.getElementById('sidebar');
-                const mainContent = document.getElementById('main-content');
-                sidebar.classList.toggle('hidden'); // Toggle sidebar visibility
-                mainContent.classList.toggle('lg:ml-64'); // Adjust main content position
-            }
-        </script>
-
-        <script>
-            var sideBar = document.getElementById("mobile-nav");
-            var openSidebar = document.getElementById("openSideBar");
-            var closeSidebar = document.getElementById("closeSideBar");
-            sideBar.style.transform = "translateX(-260px)";
-
-            function sidebarHandler(flag) {
-                if (flag) {
-                    sideBar.style.transform = "translateX(0px)";
-                    openSidebar.classList.add("hidden");
-                    closeSidebar.classList.remove("hidden");
-                } else {
-                    sideBar.style.transform = "translateX(-260px)";
-                    closeSidebar.classList.add("hidden");
-                    openSidebar.classList.remove("hidden");
+    <script>
+        const plans = {
+            Hindi: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Entertainment - SD Pack',
+                    price: 'Rs. 289'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Entertainment - HD Pack',
+                    price: 'Rs. 362'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Hindi Ultimate - SD Pack',
+                    price: 'Rs. 364'
                 }
-            }
-        </script>
+            ],
+            Tamil: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Tamil Lite - SD Pack',
+                    price: 'Rs. 199'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Tamil Full - HD Pack',
+                    price: 'Rs. 299'
+                }
+            ],
+            Telugu: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Telugu Entertainment - SD Pack',
+                    price: 'Rs. 499'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Telugu Premium - HD Pack',
+                    price: 'Rs. 355'
+                }
+            ],
+            Kannada: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '2 Month',
+                    description: 'Kannada Entertainment - SD Pack',
+                    price: 'Rs. 750'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '5 Month',
+                    description: 'Kannada Premium - HD Pack',
+                    price: 'Rs. 650'
+                }
+            ],
+            Malayalam: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'Malayalam Entertainment - SD Pack',
+                    price: 'Rs. 250'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Malayalam Premium - HD Pack',
+                    price: 'Rs. 599'
+                }
+            ],
+            AllSouth: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '2 Month',
+                    description: 'AllSouth Entertainment - SD Pack',
+                    price: 'Rs. 480'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'AllSouth Premium - HD Pack',
+                    price: 'Rs. 699'
+                }
+            ],
+            Marathi: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Marathi Entertainment - SD Pack',
+                    price: 'Rs. 550'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Marathi Premium - HD Pack',
+                    price: 'Rs. 300'
+                }
+            ],
+            Gujarati: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Month',
+                    description: 'Gujarati Entertainment - SD Pack',
+                    price: 'Rs. 350'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Gujarati Premium - HD Pack',
+                    price: 'Rs. 550'
+                }
+            ],
+            Odia: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Odia Entertainment - SD Pack',
+                    price: 'Rs. 499'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Month',
+                    description: 'Odia Premium - HD Pack',
+                    price: 'Rs. 350'
+                }
+            ],
+            Bengali: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '4 Month',
+                    description: 'Bengali Entertainment - SD Pack',
+                    price: 'Rs. 650'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Month',
+                    description: 'Bengali Premium - HD Pack',
+                    price: 'Rs. 399'
+                }
+            ]
 
+        };
 
-        <script>
-            const plans = {
-                Hindi: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Hindi Entertainment - SD Pack',
-                        price: 'Rs. 289'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Hindi Entertainment - HD Pack',
-                        price: 'Rs. 362'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Hindi Ultimate - SD Pack',
-                        price: 'Rs. 364'
-                    }
-                ],
-                Tamil: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Tamil Lite - SD Pack',
-                        price: 'Rs. 199'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Month',
-                        description: 'Tamil Full - HD Pack',
-                        price: 'Rs. 299'
-                    }
-                ],
-                Telugu: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Month',
-                        description: 'Telugu Entertainment - SD Pack',
-                        price: 'Rs. 499'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Telugu Premium - HD Pack',
-                        price: 'Rs. 355'
-                    }
-                ],
-                Kannada: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '2 Month',
-                        description: 'Kannada Entertainment - SD Pack',
-                        price: 'Rs. 750'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '5 Month',
-                        description: 'Kannada Premium - HD Pack',
-                        price: 'Rs. 650'
-                    }
-                ],
-                Malayalam: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '4 Month',
-                        description: 'Malayalam Entertainment - SD Pack',
-                        price: 'Rs. 250'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Month',
-                        description: 'Malayalam Premium - HD Pack',
-                        price: 'Rs. 599'
-                    }
-                ],
-                AllSouth: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '2 Month',
-                        description: 'AllSouth Entertainment - SD Pack',
-                        price: 'Rs. 480'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '4 Month',
-                        description: 'AllSouth Premium - HD Pack',
-                        price: 'Rs. 699'
-                    }
-                ],
-                Marathi: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Month',
-                        description: 'Marathi Entertainment - SD Pack',
-                        price: 'Rs. 550'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Marathi Premium - HD Pack',
-                        price: 'Rs. 300'
-                    }
-                ],
-                Gujarati: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '3 Month',
-                        description: 'Gujarati Entertainment - SD Pack',
-                        price: 'Rs. 350'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Gujarati Premium - HD Pack',
-                        price: 'Rs. 550'
-                    }
-                ],
-                Odia: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Odia Entertainment - SD Pack',
-                        price: 'Rs. 499'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Month',
-                        description: 'Odia Premium - HD Pack',
-                        price: 'Rs. 350'
-                    }
-                ],
-                Bengali: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '4 Month',
-                        description: 'Bengali Entertainment - SD Pack',
-                        price: 'Rs. 650'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '3 Month',
-                        description: 'Bengali Premium - HD Pack',
-                        price: 'Rs. 399'
-                    }
-                ]
+        function updateAirtelTable(language) {
+            const tbody = document.getElementById('planTableBody');
+            tbody.innerHTML = ''; // Clear existing rows
 
-            };
+            //   const tabs = document.querySelectorAll('.tabs button');
+            //   tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
+            //   const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
+            //   if (selectedTab) {
+            //       selectedTab.classList.add('bg-gray-200', 'text-white'); <td class="p-3">${plan.data}</td>
+            //   }
 
-            function updateAirtelTable(language) {
-                const tbody = document.getElementById('planTableBody');
-                tbody.innerHTML = ''; // Clear existing rows
-
-                //   const tabs = document.querySelectorAll('.tabs button');
-                //   tabs.forEach(tab => tab.classList.remove('bg-gray-200', 'text-white'));
-                //   const selectedTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === language.toLowerCase());
-                //   if (selectedTab) {
-                //       selectedTab.classList.add('bg-gray-200', 'text-white'); <td class="p-3">${plan.data}</td>
-                //   }
-
-                if (plans[language]) {
-                    plans[language].forEach(plan => {
-                        const row = `<tr class="hover:bg-gray-100">
+            if (plans[language]) {
+                plans[language].forEach(plan => {
+                    const row = `<tr class="hover:bg-gray-100">
                         <td class="p-3">${plan.circle}</td>
                         <td class="p-3">${plan.type}</td>
                         
@@ -2428,260 +2427,260 @@
                             </button>
                         </td>
                     </tr>`;
-                        tbody.innerHTML += row;
-                    });
-                } else {
-                    tbody.innerHTML =
-                        '<tr><td colspan="6" class="p-3 text-center">No plans available for the selected language.</td></tr>';
-                }
+                    tbody.innerHTML += row;
+                });
+            } else {
+                tbody.innerHTML =
+                    '<tr><td colspan="6" class="p-3 text-center">No plans available for the selected language.</td></tr>';
             }
+        }
 
-            const dropdownBtn = document.querySelector('.dropdown-btn');
-            const dropdownContent = document.querySelector('.dropdown-content');
-            const selectedOption = document.getElementById('selectedOption');
-            const clearSelectionBtn = document.getElementById('clearSelection');
-            const operatorItems = document.querySelectorAll('.operator-item');
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const selectedOption = document.getElementById('selectedOption');
+        const clearSelectionBtn = document.getElementById('clearSelection');
+        const operatorItems = document.querySelectorAll('.operator-item');
 
-            const mobileInputContainer = document.getElementById('mobileInputContainer');
-            const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
-            const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
-            const registeredMobileContainer = document.getElementById('registeredMobileContainer');
-            const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
-            const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
-            const rechargeBtn = document.querySelector('.rechargebtn');
-
-
-
-            window.onload = function() {
-                document.getElementById('airtelbrowsePlanContainer').style.display = 'none';
-                document.getElementById('sunbrowsePlanContainer').style.display = 'none';
-                document.getElementById('mobileInputContainer').style.display = 'none';
-                document.getElementById('subscriberAmountContainer').style.display = 'none';
-                document.getElementById('subscriberNameAmountContainer').style.display = 'none';
-                document.getElementById('registeredMobileContainer').style.display = 'none';
-                clearSelectionBtn.style.display = 'none';
-            };
+        const mobileInputContainer = document.getElementById('mobileInputContainer');
+        const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
+        const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
+        const registeredMobileContainer = document.getElementById('registeredMobileContainer');
+        const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
+        const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
+        const rechargeBtn = document.querySelector('.rechargebtn');
 
 
-            dropdownBtn.addEventListener('click', function() {
-                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-            });
 
-            clearSelectionBtn.addEventListener('click', function() {
-                selectedOption.textContent = 'DTH Operator';
+        window.onload = function() {
+            document.getElementById('airtelbrowsePlanContainer').style.display = 'none';
+            document.getElementById('sunbrowsePlanContainer').style.display = 'none';
+            document.getElementById('mobileInputContainer').style.display = 'none';
+            document.getElementById('subscriberAmountContainer').style.display = 'none';
+            document.getElementById('subscriberNameAmountContainer').style.display = 'none';
+            document.getElementById('registeredMobileContainer').style.display = 'none';
+            clearSelectionBtn.style.display = 'none';
+        };
+
+
+        dropdownBtn.addEventListener('click', function() {
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        clearSelectionBtn.addEventListener('click', function() {
+            selectedOption.textContent = 'DTH Operator';
+            dropdownContent.style.display = 'none';
+            mobileInputContainer.style.display = 'none';
+            subscriberAmountContainer.style.display = 'none';
+            subscriberNameAmountContainer.style.display = 'none';
+            registeredMobileContainer.style.display = 'none';
+            airtelBrowsePlanContainer.style.display = 'none';
+            sunBrowsePlanContainer.style.display = 'none';
+            clearSelectionBtn.style.display = 'none';
+        });
+
+        const options = document.querySelectorAll('.dropdown-content .option');
+        options.forEach(function(option) {
+            option.addEventListener('click', function() {
+                selectedOption.textContent = option.textContent;
                 dropdownContent.style.display = 'none';
+                clearSelectionBtn.style.display = 'block';
+
+                const operator = option.dataset.value;
+
+                // Hide all inputs initially
                 mobileInputContainer.style.display = 'none';
                 subscriberAmountContainer.style.display = 'none';
                 subscriberNameAmountContainer.style.display = 'none';
                 registeredMobileContainer.style.display = 'none';
                 airtelBrowsePlanContainer.style.display = 'none';
                 sunBrowsePlanContainer.style.display = 'none';
-                clearSelectionBtn.style.display = 'none';
+
+                // Show specific input based on selected operator
+                if (operator === 'tataPlay') {
+                    mobileInputContainer.style.display = 'block';
+                } else if (operator === 'airtel') {
+                    subscriberAmountContainer.style.display = 'block';
+                    airtelBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'sunDirect') {
+                    subscriberNameAmountContainer.style.display = 'block';
+                    sunBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'dishTV' || operator === 'd2h') {
+                    registeredMobileContainer.style.display = 'block';
+                }
             });
+        });
 
-            const options = document.querySelectorAll('.dropdown-content .option');
-            options.forEach(function(option) {
-                option.addEventListener('click', function() {
-                    selectedOption.textContent = option.textContent;
-                    dropdownContent.style.display = 'none';
-                    clearSelectionBtn.style.display = 'block';
 
-                    const operator = option.dataset.value;
+        //for dth images
+        document.addEventListener('DOMContentLoaded', function() {
+            const operatorImages = document.querySelectorAll('.operator-image');
+            const selectedOption = document.getElementById('selectedOption');
+            const clearSelectionBtn = document.getElementById('clearSelection');
+            const mobileInputContainer = document.getElementById('mobileInputContainer');
+            const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
+            const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
+            const registeredMobileContainer = document.getElementById('registeredMobileContainer');
+            const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
+            const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
 
-                    // Hide all inputs initially
-                    mobileInputContainer.style.display = 'none';
-                    subscriberAmountContainer.style.display = 'none';
-                    subscriberNameAmountContainer.style.display = 'none';
-                    registeredMobileContainer.style.display = 'none';
-                    airtelBrowsePlanContainer.style.display = 'none';
-                    sunBrowsePlanContainer.style.display = 'none';
+            // Initial state
+            clearContainers();
 
-                    // Show specific input based on selected operator
-                    if (operator === 'tataPlay') {
-                        mobileInputContainer.style.display = 'block';
-                    } else if (operator === 'airtel') {
-                        subscriberAmountContainer.style.display = 'block';
-                        airtelBrowsePlanContainer.style.display = 'block';
-                    } else if (operator === 'sunDirect') {
-                        subscriberNameAmountContainer.style.display = 'block';
-                        sunBrowsePlanContainer.style.display = 'block';
-                    } else if (operator === 'dishTV' || operator === 'd2h') {
-                        registeredMobileContainer.style.display = 'block';
-                    }
+            operatorImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    handleOperatorSelection(image.dataset.operator, image);
                 });
             });
 
-
-            //for dth images
-            document.addEventListener('DOMContentLoaded', function() {
-                const operatorImages = document.querySelectorAll('.operator-image');
-                const selectedOption = document.getElementById('selectedOption');
-                const clearSelectionBtn = document.getElementById('clearSelection');
-                const mobileInputContainer = document.getElementById('mobileInputContainer');
-                const subscriberAmountContainer = document.getElementById('subscriberAmountContainer');
-                const subscriberNameAmountContainer = document.getElementById('subscriberNameAmountContainer');
-                const registeredMobileContainer = document.getElementById('registeredMobileContainer');
-                const airtelBrowsePlanContainer = document.getElementById('airtelbrowsePlanContainer');
-                const sunBrowsePlanContainer = document.getElementById('sunbrowsePlanContainer');
-
-                // Initial state
+            clearSelectionBtn.addEventListener('click', () => {
                 clearContainers();
+                selectedOption.textContent = 'Select an Operator';
+                clearSelectionBtn.style.display = 'none';
 
                 operatorImages.forEach(image => {
-                    image.addEventListener('click', () => {
-                        handleOperatorSelection(image.dataset.operator, image);
-                    });
+                    image.classList.remove('selected');
                 });
-
-                clearSelectionBtn.addEventListener('click', () => {
-                    clearContainers();
-                    selectedOption.textContent = 'Select an Operator';
-                    clearSelectionBtn.style.display = 'none';
-
-                    operatorImages.forEach(image => {
-                        image.classList.remove('selected');
-                    });
-                });
-
-                function handleOperatorSelection(operator, selectedImage) {
-                    clearContainers();
-                    selectedOption.textContent = operator.charAt(0).toUpperCase() + operator.slice(1);
-                    clearSelectionBtn.style.display = 'block';
-
-                    operatorImages.forEach(image => {
-                        image.classList.remove('selected');
-                    });
-                    selectedImage.classList.add('selected');
-
-                    if (operator === 'tataPlay') {
-                        mobileInputContainer.style.display = 'block';
-                    } else if (operator === 'airtel') {
-                        subscriberAmountContainer.style.display = 'block';
-                        airtelBrowsePlanContainer.style.display = 'block';
-                    } else if (operator === 'sunDirect') {
-                        subscriberNameAmountContainer.style.display = 'block';
-                        sunBrowsePlanContainer.style.display = 'block';
-                    } else if (operator === 'dishTV' || operator === 'd2h') {
-                        registeredMobileContainer.style.display = 'block';
-                    }
-                }
-
-                function clearContainers() {
-                    mobileInputContainer.style.display = 'none';
-                    subscriberAmountContainer.style.display = 'none';
-                    subscriberNameAmountContainer.style.display = 'none';
-                    registeredMobileContainer.style.display = 'none';
-                    airtelBrowsePlanContainer.style.display = 'none';
-                    sunBrowsePlanContainer.style.display = 'none';
-                }
             });
 
+            function handleOperatorSelection(operator, selectedImage) {
+                clearContainers();
+                selectedOption.textContent = operator.charAt(0).toUpperCase() + operator.slice(1);
+                clearSelectionBtn.style.display = 'block';
+
+                operatorImages.forEach(image => {
+                    image.classList.remove('selected');
+                });
+                selectedImage.classList.add('selected');
+
+                if (operator === 'tataPlay') {
+                    mobileInputContainer.style.display = 'block';
+                } else if (operator === 'airtel') {
+                    subscriberAmountContainer.style.display = 'block';
+                    airtelBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'sunDirect') {
+                    subscriberNameAmountContainer.style.display = 'block';
+                    sunBrowsePlanContainer.style.display = 'block';
+                } else if (operator === 'dishTV' || operator === 'd2h') {
+                    registeredMobileContainer.style.display = 'block';
+                }
+            }
+
+            function clearContainers() {
+                mobileInputContainer.style.display = 'none';
+                subscriberAmountContainer.style.display = 'none';
+                subscriberNameAmountContainer.style.display = 'none';
+                registeredMobileContainer.style.display = 'none';
+                airtelBrowsePlanContainer.style.display = 'none';
+                sunBrowsePlanContainer.style.display = 'none';
+            }
+        });
 
 
-            // Handle recharge button click
-            rechargeBtn.addEventListener('click', function() {
-                alert('Proceeding with recharge...');
+
+        // Handle recharge button click
+        rechargeBtn.addEventListener('click', function() {
+            alert('Proceeding with recharge...');
 
 
-            });
+        });
 
-            // Plan data
-            const sunplans = {
-                Monthly: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Monthly SD Pack',
-                        price: 'Rs. 150'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '1 Month',
-                        description: 'Monthly HD Pack',
-                        price: 'Rs. 200'
-                    }
-                ],
-                TopUp: [{
-                        circle: 'All',
-                        type: 'Top Up',
-                        data: 'NA',
-                        validity: 'NA',
-                        description: 'Top Up Pack A',
-                        price: 'Rs. 100'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Top Up',
-                        data: 'NA',
-                        validity: 'NA',
-                        description: 'Top Up Pack B',
-                        price: 'Rs. 200'
-                    }
-                ],
-                ThreeMonths: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '3 Months',
-                        description: '3-Month SD Pack',
-                        price: 'Rs. 400'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '3 Months',
-                        description: '3-Month HD Pack',
-                        price: 'Rs. 600'
-                    }
-                ],
-                SixMonths: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Months',
-                        description: '6-Month ROI Joy SD Pack',
-                        price: 'Rs. 745'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '6 Months',
-                        description: '6-Month Bengali Joy SD Pack',
-                        price: 'Rs. 945'
-                    }
-                ],
-                Yearly: [{
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '12 Months',
-                        description: 'Yearly SD Pack',
-                        price: 'Rs. 1200'
-                    },
-                    {
-                        circle: 'All',
-                        type: 'Recharge',
-                        data: 'NA',
-                        validity: '12 Months',
-                        description: 'Yearly HD Pack',
-                        price: 'Rs. 2000'
-                    }
-                ]
-            };
+        // Plan data
+        const sunplans = {
+            Monthly: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Monthly SD Pack',
+                    price: 'Rs. 150'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '1 Month',
+                    description: 'Monthly HD Pack',
+                    price: 'Rs. 200'
+                }
+            ],
+            TopUp: [{
+                    circle: 'All',
+                    type: 'Top Up',
+                    data: 'NA',
+                    validity: 'NA',
+                    description: 'Top Up Pack A',
+                    price: 'Rs. 100'
+                },
+                {
+                    circle: 'All',
+                    type: 'Top Up',
+                    data: 'NA',
+                    validity: 'NA',
+                    description: 'Top Up Pack B',
+                    price: 'Rs. 200'
+                }
+            ],
+            ThreeMonths: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Months',
+                    description: '3-Month SD Pack',
+                    price: 'Rs. 400'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '3 Months',
+                    description: '3-Month HD Pack',
+                    price: 'Rs. 600'
+                }
+            ],
+            SixMonths: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Months',
+                    description: '6-Month ROI Joy SD Pack',
+                    price: 'Rs. 745'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '6 Months',
+                    description: '6-Month Bengali Joy SD Pack',
+                    price: 'Rs. 945'
+                }
+            ],
+            Yearly: [{
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '12 Months',
+                    description: 'Yearly SD Pack',
+                    price: 'Rs. 1200'
+                },
+                {
+                    circle: 'All',
+                    type: 'Recharge',
+                    data: 'NA',
+                    validity: '12 Months',
+                    description: 'Yearly HD Pack',
+                    price: 'Rs. 2000'
+                }
+            ]
+        };
 
-            // Function to update the table
-            function updateSunTable(packType) {
-                const tbody = document.getElementById('sunplanTableBody');
-                tbody.innerHTML = ''; // Clear existing table content <td class="p-3">${plan.data}</td>
+        // Function to update the table
+        function updateSunTable(packType) {
+            const tbody = document.getElementById('sunplanTableBody');
+            tbody.innerHTML = ''; // Clear existing table content <td class="p-3">${plan.data}</td>
 
-                if (sunplans[packType]) {
-                    sunplans[packType].forEach(plan => {
-                        const row = `
+            if (sunplans[packType]) {
+                sunplans[packType].forEach(plan => {
+                    const row = `
                           <tr>
                               <td class="p-3">${plan.circle}</td>
                               <td class="p-3">${plan.type}</td>
@@ -2691,306 +2690,306 @@
                               <td class="p-3"><button class="price-button">${plan.price}</button></td>
                           </tr>
                       `;
-                        tbody.innerHTML += row; // Add new rows
-                    });
-                } else {
-                    tbody.innerHTML = '<tr><td colspan="6">No data available</td></tr>';
-                }
-            }
-
-
-
-
-            document.querySelectorAll('.operator-item').forEach(operator => {
-                operator.addEventListener('click', () => {
-                    const selectedOperator = operator.getAttribute('data-value');
-                    handleOperatorSelection(selectedOperator);
+                    tbody.innerHTML += row; // Add new rows
                 });
-            });
-
-            function handleOperatorSelection(operator) {
-                document.getElementById("selectedOption").innerText = operator.charAt(0).toUpperCase() + operator.slice(1);
-                document.querySelectorAll('.mobile-input, .subscriber-amount, .subscriber-name-amount, .registered-mobile')
-                    .forEach(container => {
-                        container.classList.add('hidden');
-                    });
-
-                if (operator === 'tataPlay') {
-                    document.getElementById('mobileInputContainer').classList.remove('hidden');
-                } else if (operator === 'airtel') {
-                    document.getElementById('subscriberAmountContainer').classList.remove('hidden');
-                } else if (operator === 'sunDirect') {
-                    document.getElementById('subscriberNameAmountContainer').classList.remove('hidden');
-                } else if (operator === 'dishTV' || operator === 'd2h') {
-                    document.getElementById('registeredMobileContainer').classList.remove('hidden');
-                }
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6">No data available</td></tr>';
             }
-        </script>
+        }
 
 
-        <script>
-            function showTab(tab) {
-                const homeContent = document.getElementById('homeContent');
-                const profileContent = document.getElementById('profileContent');
-                const homeTab = document.getElementById('homeTab');
-                const profileTab = document.getElementById('profileTab');
 
-                if (tab === 'home') {
-                    homeContent.classList.remove('hidden');
-                    profileContent.classList.add('hidden');
-                    homeTab.classList.add('text-blue-500', 'border-blue-500');
-                    profileTab.classList.remove('text-blue-500', 'border-blue-500');
-                } else if (tab === 'profile') {
-                    profileContent.classList.remove('hidden');
-                    homeContent.classList.add('hidden');
-                    profileTab.classList.add('text-blue-500', 'border-blue-500');
-                    homeTab.classList.remove('text-blue-500', 'border-blue-500');
-                }
-            }
 
-            // Default to the Home tab after the page is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                showTab('home');
+        document.querySelectorAll('.operator-item').forEach(operator => {
+            operator.addEventListener('click', () => {
+                const selectedOperator = operator.getAttribute('data-value');
+                handleOperatorSelection(selectedOperator);
             });
-        </script>
+        });
 
-
-
-        <script>
-            const selectedSeats = new Set(); // To store selected seat IDs
-            const bookSeatBtn = document.getElementById('book-seat-btn');
-            let fare;
-
-            function viewSeats(routeId) {
-                window.currentRouteId = routeId;
-                const seatModal = document.getElementById('seatLayout');
-                const seatContainer = document.getElementById('seatContainer');
-                
-
-                // Show the modal
-                seatModal.classList.remove('hidden');
-
-                // Fetching seats using routeId
-                fetch(`/seats/${routeId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const {
-                            seats,
-                            routeFare
-                        } = data; // Assuming the API returns { seats, routeFare }
-
-                        // Set the fare dynamically
-                        fare = routeFare;
-                        console.log('Route Fare:', fare); // Log the fare for debugging
-
-                        seatContainer.innerHTML = ''; // Clear any existing seats
-
-                        // Create seat rows dynamically (same as your original logic)
-                        let rows = [];
-                        let row = [];
-                        seats.forEach((seat, index) => {
-                            const seatId = seat.seat_number;
-                            const seatStatus = seat.status;
-
-                            const seatDiv = document.createElement("div");
-                            seatDiv.classList.add("seat", "w-10", "h-10", "rounded-lg", "cursor-pointer", "flex",
-                                "items-center", "justify-center", "relative", "border");
-
-                            if (seatStatus === 'booked') {
-                                seatDiv.classList.add("bg-red-500", "text-white");
-                                seatDiv.textContent = "B";
-                            } else if (seatStatus === 'available') {
-                                seatDiv.classList.add("bg-green-300", "text-black");
-                                seatDiv.textContent = seatId;
-                            } else {
-                                seatDiv.classList.add("bg-gray-200", "text-black");
-                                seatDiv.textContent = "N/A";
-                            }
-
-                            seatDiv.dataset.seatNo = seatId;
-
-                            seatDiv.addEventListener('click', () => {
-                                if (seatStatus === 'available') {
-                                    if (selectedSeats.has(seatId)) {
-                                        selectedSeats.delete(seatId);
-                                        seatDiv.classList.remove("bg-blue-500", "text-white");
-                                        seatDiv.classList.add("bg-green-300", "text-black");
-                                    } else {
-                                        selectedSeats.add(seatId);
-                                        seatDiv.classList.add("bg-blue-500", "text-white");
-                                        seatDiv.classList.remove("bg-green-300", "text-black");
-                                    }
-
-                                    bookSeatBtn.classList.toggle('hidden', selectedSeats.size === 0);
-                                } else if (seatStatus === 'booked') {
-                                    alert(`Seat ${seatId} is already booked.`);
-                                } else {
-                                    alert(`Seat ${seatId} is unavailable.`);
-                                }
-                            });
-
-                            row.push(seatDiv);
-
-                            if (row.length === 10) {
-                                rows.push(row);
-                                row = [];
-                            }
-                        });
-
-                        rows.forEach(row => {
-                            row.forEach(seat => {
-                                seatContainer.appendChild(seat);
-                            });
-                        });
-                    })
-                    .catch(error => {
-                        console.error("Error fetching seats:", error);
-                    });
-            }
-
-
-            // Close the seat modal
-            document.getElementById('close-seat-modal').addEventListener('click', () => {
-                const seatModal = document.getElementById('seatLayout');
-                seatModal.classList.add('hidden');
-            });
-
-
-
-            // Usage Example
-            document.getElementById('book-seat-btn').addEventListener('click', () => {
-                // Pass the dynamically updated selectedSeats set
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                const currentRouteId = window.currentRouteId || 'some-route-id'; // Use the currently selected route
-                const bookSeatUrl = '/seats/book'; // Replace with your actual endpoint
-                const userBookingURL = '/user-booking';
-
-                if (selectedSeats.size === 0) {
-                    alert('No seats selected!');
-                    return;
-                }
-
-                userBooking(selectedSeats, currentRouteId, csrfToken, userBookingURL, fare);
-                bookSeat(selectedSeats, currentRouteId, csrfToken, bookSeatUrl);
-            });
-
-
-
-            function bookSeat(selectedSeats, routeId, csrfToken, bookSeatUrl) {
-                // Convert selectedSeats to an array
-                const seatIds = Array.from(selectedSeats);
-
-                // Prepare the payload including the routeId
-                const payload = JSON.stringify({
-                    seat_ids: seatIds,
-                    route_id: routeId // Include route ID
+        function handleOperatorSelection(operator) {
+            document.getElementById("selectedOption").innerText = operator.charAt(0).toUpperCase() + operator.slice(1);
+            document.querySelectorAll('.mobile-input, .subscriber-amount, .subscriber-name-amount, .registered-mobile')
+                .forEach(container => {
+                    container.classList.add('hidden');
                 });
 
-                // Log for debugging
-                console.log('Route ID:', routeId);
-                console.log('Payload:', payload);
+            if (operator === 'tataPlay') {
+                document.getElementById('mobileInputContainer').classList.remove('hidden');
+            } else if (operator === 'airtel') {
+                document.getElementById('subscriberAmountContainer').classList.remove('hidden');
+            } else if (operator === 'sunDirect') {
+                document.getElementById('subscriberNameAmountContainer').classList.remove('hidden');
+            } else if (operator === 'dishTV' || operator === 'd2h') {
+                document.getElementById('registeredMobileContainer').classList.remove('hidden');
+            }
+        }
+    </script>
 
-                // Make the POST request
-                fetch(bookSeatUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken, // Include CSRF token
-                        },
-                        body: payload, // Send seat numbers and route ID as a JSON object
-                    })
-                    .then((response) => {
-                        console.log('Response status:', response.status); // Debugging
-                        if (response.ok) {
-                            return response.json();
+
+    <script>
+        function showTab(tab) {
+            const homeContent = document.getElementById('homeContent');
+            const profileContent = document.getElementById('profileContent');
+            const homeTab = document.getElementById('homeTab');
+            const profileTab = document.getElementById('profileTab');
+
+            if (tab === 'home') {
+                homeContent.classList.remove('hidden');
+                profileContent.classList.add('hidden');
+                homeTab.classList.add('text-blue-500', 'border-blue-500');
+                profileTab.classList.remove('text-blue-500', 'border-blue-500');
+            } else if (tab === 'profile') {
+                profileContent.classList.remove('hidden');
+                homeContent.classList.add('hidden');
+                profileTab.classList.add('text-blue-500', 'border-blue-500');
+                homeTab.classList.remove('text-blue-500', 'border-blue-500');
+            }
+        }
+
+        // Default to the Home tab after the page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('home');
+        });
+    </script>
+
+
+
+    <script>
+        const selectedSeats = new Set(); // To store selected seat IDs
+        const bookSeatBtn = document.getElementById('book-seat-btn');
+        let fare;
+
+        function viewSeats(routeId) {
+            window.currentRouteId = routeId;
+            const seatModal = document.getElementById('seatLayout');
+            const seatContainer = document.getElementById('seatContainer');
+
+
+            // Show the modal
+            seatModal.classList.remove('hidden');
+
+            // Fetching seats using routeId
+            fetch(`/seats/${routeId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const {
+                        seats,
+                        routeFare
+                    } = data; // Assuming the API returns { seats, routeFare }
+
+                    // Set the fare dynamically
+                    fare = routeFare;
+                    console.log('Route Fare:', fare); // Log the fare for debugging
+
+                    seatContainer.innerHTML = ''; // Clear any existing seats
+
+                    // Create seat rows dynamically (same as your original logic)
+                    let rows = [];
+                    let row = [];
+                    seats.forEach((seat, index) => {
+                        const seatId = seat.seat_number;
+                        const seatStatus = seat.status;
+
+                        const seatDiv = document.createElement("div");
+                        seatDiv.classList.add("seat", "w-10", "h-10", "rounded-lg", "cursor-pointer", "flex",
+                            "items-center", "justify-center", "relative", "border");
+
+                        if (seatStatus === 'booked') {
+                            seatDiv.classList.add("bg-red-500", "text-white");
+                            seatDiv.textContent = "B";
+                        } else if (seatStatus === 'available') {
+                            seatDiv.classList.add("bg-green-300", "text-black");
+                            seatDiv.textContent = seatId;
                         } else {
-                            return response.json().then((data) => {
-                                throw new Error(data.message || 'Failed to book seats.');
-                            });
+                            seatDiv.classList.add("bg-gray-200", "text-black");
+                            seatDiv.textContent = "N/A";
                         }
-                    })
-                    .then((data) => {
-                        alert(data.message);
-                        selectedSeats.clear(); // Clear seat selection
-                        document.getElementById('book-seat-btn').classList.add('hidden'); // Hide the button
-                    })
-                    .catch((error) => {
-                        console.error('Error booking seats:', error);
-                        alert(error.message || 'An unexpected error occurred.');
+
+                        seatDiv.dataset.seatNo = seatId;
+
+                        seatDiv.addEventListener('click', () => {
+                            if (seatStatus === 'available') {
+                                if (selectedSeats.has(seatId)) {
+                                    selectedSeats.delete(seatId);
+                                    seatDiv.classList.remove("bg-blue-500", "text-white");
+                                    seatDiv.classList.add("bg-green-300", "text-black");
+                                } else {
+                                    selectedSeats.add(seatId);
+                                    seatDiv.classList.add("bg-blue-500", "text-white");
+                                    seatDiv.classList.remove("bg-green-300", "text-black");
+                                }
+
+                                bookSeatBtn.classList.toggle('hidden', selectedSeats.size === 0);
+                            } else if (seatStatus === 'booked') {
+                                alert(`Seat ${seatId} is already booked.`);
+                            } else {
+                                alert(`Seat ${seatId} is unavailable.`);
+                            }
+                        });
+
+                        row.push(seatDiv);
+
+                        if (row.length === 10) {
+                            rows.push(row);
+                            row = [];
+                        }
                     });
-            }
 
-            function userBooking(selectedSeats, routeId, csrfToken, userBookingURL, fare) {
-                const seatNumbers = Array.from(selectedSeats).join(','); // Convert seat IDs to comma-separated string
-
-                const payload = JSON.stringify({
-                    seat_numbers: seatNumbers, // Send as string
-                    route_id: routeId,
-                    fare, // Include fare
+                    rows.forEach(row => {
+                        row.forEach(seat => {
+                            seatContainer.appendChild(seat);
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching seats:", error);
                 });
+        }
 
-                fetch(userBookingURL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken,
-                        },
-                        body: payload,
-                    })
-                    .then((response) => {
-                        if (!response.ok) {
-                            return response.json().then(data => {
-                                throw new Error(data.error || 'Failed to create booking');
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then((data) => {
-                        alert(data.message || 'Booking successful!');
-                    })
-                    .catch((error) => {
-                        console.error('Error creating user booking:', error);
-                        alert(error.message || 'An error occurred during user booking.');
-                    });
+
+        // Close the seat modal
+        document.getElementById('close-seat-modal').addEventListener('click', () => {
+            const seatModal = document.getElementById('seatLayout');
+            seatModal.classList.add('hidden');
+        });
+
+
+
+        // Usage Example
+        document.getElementById('book-seat-btn').addEventListener('click', () => {
+            // Pass the dynamically updated selectedSeats set
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const currentRouteId = window.currentRouteId || 'some-route-id'; // Use the currently selected route
+            const bookSeatUrl = '/seats/book'; // Replace with your actual endpoint
+            const userBookingURL = '/user-booking';
+
+            if (selectedSeats.size === 0) {
+                alert('No seats selected!');
+                return;
             }
 
+            userBooking(selectedSeats, currentRouteId, csrfToken, userBookingURL, fare);
+            bookSeat(selectedSeats, currentRouteId, csrfToken, bookSeatUrl);
+        });
+
+
+
+        function bookSeat(selectedSeats, routeId, csrfToken, bookSeatUrl) {
+            // Convert selectedSeats to an array
+            const seatIds = Array.from(selectedSeats);
+
+            // Prepare the payload including the routeId
+            const payload = JSON.stringify({
+                seat_ids: seatIds,
+                route_id: routeId // Include route ID
+            });
+
+            // Log for debugging
+            console.log('Route ID:', routeId);
+            console.log('Payload:', payload);
+
+            // Make the POST request
+            fetch(bookSeatUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken, // Include CSRF token
+                    },
+                    body: payload, // Send seat numbers and route ID as a JSON object
+                })
+                .then((response) => {
+                    console.log('Response status:', response.status); // Debugging
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then((data) => {
+                            throw new Error(data.message || 'Failed to book seats.');
+                        });
+                    }
+                })
+                .then((data) => {
+                    alert(data.message);
+                    selectedSeats.clear(); // Clear seat selection
+                    document.getElementById('book-seat-btn').classList.add('hidden'); // Hide the button
+                })
+                .catch((error) => {
+                    console.error('Error booking seats:', error);
+                    alert(error.message || 'An unexpected error occurred.');
+                });
+        }
+
+        function userBooking(selectedSeats, routeId, csrfToken, userBookingURL, fare) {
+            const seatNumbers = Array.from(selectedSeats).join(','); // Convert seat IDs to comma-separated string
+
+            const payload = JSON.stringify({
+                seat_numbers: seatNumbers, // Send as string
+                route_id: routeId,
+                fare, // Include fare
+            });
+
+            fetch(userBookingURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                    },
+                    body: payload,
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Failed to create booking');
+                        });
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    alert(data.message || 'Booking successful!');
+                })
+                .catch((error) => {
+                    console.error('Error creating user booking:', error);
+                    alert(error.message || 'An error occurred during user booking.');
+                });
+        }
 
 
 
 
-            // Function to fetch and display all buses
-            function fetchAllBuses() {
-                fetch('/all-routes', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    })
-                    .then((response) => response.json())
-                    .then((responseData) => {
-                        console.log("All Buses Response:", responseData); // Log the response for debugging
 
-                        // Ensure data is in the expected format
-                        const data = responseData.data;
+        // Function to fetch and display all buses
+        function fetchAllBuses() {
+            fetch('/all-routes', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    console.log("All Buses Response:", responseData); // Log the response for debugging
 
-                        const container = document.querySelector(".w-full.sm-w-full");
-                        container.innerHTML = ""; // Clear any existing content
+                    // Ensure data is in the expected format
+                    const data = responseData.data;
 
-                        if (!Array.isArray(data)) {
-                            container.innerHTML = `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
-                            console.error("Unexpected data format:", responseData);
-                            return;
-                        }
+                    const container = document.querySelector(".w-full.sm-w-full");
+                    container.innerHTML = ""; // Clear any existing content
 
-                        if (data.length === 0) {
-                            container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
-                            return;
-                        }
+                    if (!Array.isArray(data)) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
+                        console.error("Unexpected data format:", responseData);
+                        return;
+                    }
 
-                        container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
+                    if (data.length === 0) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
+                        return;
+                    }
 
-                        data.forEach((route) => {
-                            const routeHTML = `
+                    container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
+
+                    data.forEach((route) => {
+                        const routeHTML = `
                     <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
                         <div class="w-full sm:w-auto flex flex-col sm:flex-1">
                             <h3 class="text-lg mb-4 text-blue-500">${route.bus.operator_name || 'Unknown'}</h3>
@@ -3014,60 +3013,60 @@
                         </button>
                     </div>
                 `;
-                            container.insertAdjacentHTML("beforeend", routeHTML);
-                        });
-                    })
-                    .catch((error) => console.error("Error fetching all routes:", error));
+                        container.insertAdjacentHTML("beforeend", routeHTML);
+                    });
+                })
+                .catch((error) => console.error("Error fetching all routes:", error));
+        }
+
+
+        // Function to handle search
+        document.getElementById("searchButton").addEventListener("click", function() {
+            const source = document.getElementById("fromInput").value;
+            const destination = document.getElementById("toInput").value;
+            const departure_date = document.getElementById("dateInput").value;
+
+            if (!source || !destination || !departure_date) {
+                alert("Please fill in all fields!");
+                return;
             }
 
+            fetch('/search-routes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content'),
+                    },
+                    body: JSON.stringify({
+                        source,
+                        destination,
+                        departure_date
+                    }),
+                })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    console.log("Search Response:", responseData); // Log the response
+                    const data = responseData.data;
+                    const container = document.querySelector(".w-full.sm-w-full");
+                    container.innerHTML = ""; // Clear previous results
 
-            // Function to handle search
-            document.getElementById("searchButton").addEventListener("click", function() {
-                const source = document.getElementById("fromInput").value;
-                const destination = document.getElementById("toInput").value;
-                const departure_date = document.getElementById("dateInput").value;
+                    if (!Array.isArray(data)) {
+                        container.innerHTML =
+                            `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
+                        console.error("Unexpected data format:", data);
+                        return;
+                    }
 
-                if (!source || !destination || !departure_date) {
-                    alert("Please fill in all fields!");
-                    return;
-                }
+                    if (data.length === 0) {
+                        container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
+                        return;
+                    }
 
-                fetch('/search-routes', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                                'content'),
-                        },
-                        body: JSON.stringify({
-                            source,
-                            destination,
-                            departure_date
-                        }),
-                    })
-                    .then((response) => response.json())
-                    .then((responseData) => {
-                        console.log("Search Response:", responseData); // Log the response
-                        const data = responseData.data;
-                        const container = document.querySelector(".w-full.sm-w-full");
-                        container.innerHTML = ""; // Clear previous results
+                    container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
 
-                        if (!Array.isArray(data)) {
-                            container.innerHTML =
-                                `<h2 class="text-lg mb-2">No buses found or invalid response</h2>`;
-                            console.error("Unexpected data format:", data);
-                            return;
-                        }
-
-                        if (data.length === 0) {
-                            container.innerHTML = `<h2 class="text-lg mb-2">No buses found</h2>`;
-                            return;
-                        }
-
-                        container.innerHTML = `<h2 class="text-lg mb-2">${data.length} Buses Found</h2>`;
-
-                        data.forEach((route) => {
-                            const routeHTML = `
+                    data.forEach((route) => {
+                        const routeHTML = `
                             <div class="border-b py-5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
                                 <div class="w-full sm:w-auto flex flex-col sm:flex-1">
                                     <h3 class="text-lg mb-4 text-blue-500"> ${route.bus.operator_name || 'Unknown'}</h3>
@@ -3091,40 +3090,40 @@
                                 </button>
                             </div>
                         `;
-                            container.insertAdjacentHTML("beforeend", routeHTML);
-                        });
-                    })
-                    .catch((error) => console.error("Error fetching routes:", error));
-            });
+                        container.insertAdjacentHTML("beforeend", routeHTML);
+                    });
+                })
+                .catch((error) => console.error("Error fetching routes:", error));
+        });
 
-            // Fetch all buses on page load
-            document.addEventListener("DOMContentLoaded", fetchAllBuses);
-
-
+        // Fetch all buses on page load
+        document.addEventListener("DOMContentLoaded", fetchAllBuses);
 
 
-            function getMyBookings() {
-                fetch('/get-one-bookings')
-                    .then((response) => {
 
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! Status: ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then((data) => {
-                        console.log('Booking Data:', data);
-                        const tbody = document.getElementById('userbookings');
-                        tbody.innerHTML = '';
 
-                        data.forEach((item) => {
-                            const booking = item.booking; // Extract booking data
-                            const route = item.route; // Extract route data
-                            const bus = item.bus;
-                            console.log(booking.seat_numbers);
+        function getMyBookings() {
+            fetch('/get-one-bookings')
+                .then((response) => {
 
-                            const row = document.createElement('tr');
-                            row.innerHTML = `
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log('Booking Data:', data);
+                    const tbody = document.getElementById('userbookings');
+                    tbody.innerHTML = '';
+
+                    data.forEach((item) => {
+                        const booking = item.booking; // Extract booking data
+                        const route = item.route; // Extract route data
+                        const bus = item.bus;
+                        console.log(booking.seat_numbers);
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
             <td class="py-2 px-3 sm:py-3 sm:px-4 border">${booking.user_id}</td>
 
             <td class="py-2 px-3 sm:py-3 sm:px-4 border">${booking.seat_numbers}</td>
@@ -3145,53 +3144,53 @@
 </td>
 
         `;
-                            tbody.appendChild(row);
-                        });
-                    })
-                    .catch((error) => {
-                        console.error('Error fetching bookings:', error);
+                        tbody.appendChild(row);
                     });
-            }
+                })
+                .catch((error) => {
+                    console.error('Error fetching bookings:', error);
+                });
+        }
 
-            // Call the function to populate the table
-            getMyBookings();
+        // Call the function to populate the table
+        getMyBookings();
 
-            function deleteBooking(id, seatNumbers, routeId) {
-                // Convert the comma-separated seat numbers string into an array
-                const seatArray = seatNumbers.split(',');
+        function deleteBooking(id, seatNumbers, routeId) {
+            // Convert the comma-separated seat numbers string into an array
+            const seatArray = seatNumbers.split(',');
 
-                // Prepare the data to be sent in the request
-                const data = {
-                    seat_numbers: seatArray, // Seat numbers as an array
-                    route_id: routeId // Route ID
-                };
+            // Prepare the data to be sent in the request
+            const data = {
+                seat_numbers: seatArray, // Seat numbers as an array
+                route_id: routeId // Route ID
+            };
 
-                console.log('Sending data to the server:', data); // Log the data to verify it's correct
+            console.log('Sending data to the server:', data); // Log the data to verify it's correct
 
-                // Send the DELETE request with seat numbers and route ID
-                fetch(`/delete-booking/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                                'content') // CSRF token
-                        },
-                        body: JSON.stringify(data) // Send both seat numbers and route ID in the body
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.message) {
-                            alert('Booking Cancelled Successfully');
-                            location.reload();
-                        } else {
-                            alert(data.error || 'Error deleting booking');
-                        }
-                    })
-                    .catch(error => {
-                        alert('An error occurred: ' + error.message);
-                    });
-            }
-        </script>
+            // Send the DELETE request with seat numbers and route ID
+            fetch(`/delete-booking/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content') // CSRF token
+                    },
+                    body: JSON.stringify(data) // Send both seat numbers and route ID in the body
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Booking Cancelled Successfully');
+                        location.reload();
+                    } else {
+                        alert(data.error || 'Error deleting booking');
+                    }
+                })
+                .catch(error => {
+                    alert('An error occurred: ' + error.message);
+                });
+        }
+    </script>
 
 
 
