@@ -2253,95 +2253,120 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
-    const operatorDropdown = document.getElementById('operator');
+            const operatorDropdown = document.getElementById('operator');
 
-    // Fetch operator list from backend
-    const apiUrl = "/operators";
+            // Fetch operator list from backend
+            const apiUrl = "/operators";
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(responseData => {
-            console.log(responseData); // Log the response to verify
-            if (responseData.success && Array.isArray(responseData.data)) {
-                operatorDropdown.innerHTML =
-                    '<option value="" disabled selected>Select your operator</option>';
-                responseData.data.forEach(operator => {
-                    const option = document.createElement('option');
-                    option.value = operator.id; // operator.id is stored as value
-                    option.textContent = operator.operator_name; // Display operator name
-                    operatorDropdown.appendChild(option);
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log(responseData); // Log the response to verify
+                    if (responseData.success && Array.isArray(responseData.data)) {
+                        operatorDropdown.innerHTML =
+                            '<option value="" disabled selected>Select your operator</option>';
+                        responseData.data.forEach(operator => {
+                            const option = document.createElement('option');
+                            option.value = operator.id; // operator.id is stored as value
+                            option.textContent = operator.operator_name; // Display operator name
+                            operatorDropdown.appendChild(option);
+                        });
+                    } else {
+                        operatorDropdown.innerHTML =
+                            '<option value="" disabled>Error loading operators</option>';
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching operators:", error);
+                    operatorDropdown.innerHTML = '<option value="" disabled>Error loading operators</option>';
                 });
-            } else {
-                operatorDropdown.innerHTML =
-                    '<option value="" disabled>Error loading operators</option>';
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching operators:", error);
-            operatorDropdown.innerHTML = '<option value="" disabled>Error loading operators</option>';
         });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const rechargeForm = document.getElementById('rechargeForm');
+        document.addEventListener('DOMContentLoaded', () => {
+            const rechargeForm = document.getElementById('rechargeForm');
 
-    rechargeForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+            rechargeForm.addEventListener('submit', (event) => {
+                event.preventDefault();
 
-        // Retrieve values from the form
-        const phone = document.getElementById('phone').value.trim();
-        const operatorID = document.getElementById('operator').value; // Get selected operator ID
-        const operatorName = document.getElementById('operator').selectedOptions[0].text; // Get selected operator name
-        const amountElement = document.getElementById('rechargeamount');
-        const amount = amountElement ? amountElement.value.trim() : '';
+                // Retrieve values from the form
+                const phone = document.getElementById('phone').value.trim();
+                const operatorID = document.getElementById('operator').value; // Get selected operator ID
+                const operatorName = document.getElementById('operator').selectedOptions[0]
+                    .text; // Get selected operator name
+                const amountElement = document.getElementById('rechargeamount');
+                const amount = amountElement ? amountElement.value.trim() : '';
 
-        // Debugging: Log retrieved values
-        console.log('Phone:', phone);
-        console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
-        console.log('Selected Operator Name:', operatorName); // Log the selected operator name
-        console.log('Amount Element:', amountElement);
-        console.log('Amount Value:', amount);
+                // Debugging: Log retrieved values
+                console.log('Phone:', phone);
+                console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
+                console.log('Selected Operator Name:', operatorName); // Log the selected operator name
+                console.log('Amount Element:', amountElement);
+                console.log('Amount Value:', amount);
 
-        // Check if all fields are filled
-        if (!phone || !operatorID || !amount) {
-            alert('Please fill out all fields before submitting!');
-            return;
-        }
+                // Check if all fields are filled
+                if (!phone || !operatorID || !amount) {
+                    alert('Please fill out all fields before submitting!');
+                    return;
+                }
 
-        // Prepare data payload
-        const payload = {
-            mobile_number: phone,
-            amount: amount,
-            provider: operatorName, // Send operator name as provider
-            operator_id: operatorID, // Send selected operator ID
-        };
-        console.log(payload);
+                // Prepare data payload
+                const payload = {
+                    mobile_number: phone,
+                    amount: amount,
+                    provider: operatorName, // Send operator name as provider
+                    operator_id: operatorID, // Send selected operator ID
+                };
+                console.log(payload);
 
-        // Send data to backend
-        fetch('/recharge', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            body: JSON.stringify(payload),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Response:', data);
-            if (data.success) {
-                alert('Recharge successful!');
-            } else {
-                alert('Recharge failed! Please try again.');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('An error occurred while processing your request.');
+                // Send data to backend
+                fetch('/recharge', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log('Recharge Response:', data);
+
+                        if (data.status === 'success') {
+                            // Successful recharge
+                            alert('Recharge successful!');
+                        } else if (data.status === 'pending') {
+                            // Call the status check API if recharge is pending
+                            const refTxnId = data.refTxnId; // Assuming the backend provides this in the response
+                            fetch('/recharge/status')
+                                .then((statusResponse) => statusResponse.json())
+                                .then((statusData) => {
+                                    console.log('Status Check Response:', statusData);
+                                    if (statusData.STATUS === 1) {
+                                        alert('Recharge successful!');
+                                    } else {
+                                        alert(`Recharge failed: ${statusData.MESSAGE}`);
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error in status check:', error);
+                                    alert(
+                                        'Unable to check recharge status. Please try again later.');
+                                });
+                        } else {
+                            // Handle immediate error
+                            alert(data.error || data.ERROR_MESSAGE ||
+                                'Recharge failed. Please try again.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error in recharge request:', error);
+                        alert('Unable to process recharge. Please try again later.');
+                    });
+
+
+            });
         });
-    });
-});
-
     </script>
 
 

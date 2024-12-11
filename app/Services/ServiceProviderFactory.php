@@ -3,6 +3,8 @@
 // app/Services/ServiceProviderFactory.php
 namespace App\Services;
 
+use App\Models\Wallet;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -44,16 +46,53 @@ class AirtelServiceProvider
 {
     public function recharge($details)
     {
+        $userId = Auth::id();
+
         return $this->sendRechargeRequest($details);
+    }
+
+    //     public function checkBalanceAndRecharge($details)
+    // {
+    //     // Step 1: Check balance before initiating recharge
+    //     $balanceResponse = $this->getBalance();
+
+    //     // Step 2: Check if the balance is sufficient
+    //     if ($balanceResponse['STATUS'] !== 1 || $balanceResponse['AMOUNT'] < $details['amount']) {
+    //         return response()->json(['error' => 'Insufficient balance to proceed with recharge.'], 400);
+    //     }
+
+    //     // Step 3: Proceed with the recharge request
+    //     $rechargeResponse = $this->sendRechargeRequest($details);
+
+    //     return $rechargeResponse;
+    // }
+
+    private function getBalance()
+    {
+        // Set the API URL for balance check
+        $apiUrl = "https://Apibox.co.in/Api/service/Balance";
+        $apiToken = env('API_TOKEN'); // Replace with your actual token
+
+        // Make the GET request to check the balance
+        $response = Http::get($apiUrl, [
+            'at' => $apiToken,
+        ]);
+
+        // Handle any errors from the balance API
+        if ($response->failed()) {
+            throw new \Exception('Failed to check balance: ' . $response->body());
+        }
+
+        // Return the balance response as an array (assuming JSON response)
+        return $response->json();
     }
 
     private function sendRechargeRequest($details)
     {
         $apiUrl = "https://Apibox.co.in/Api/Service/Recharge2";
-        $apiToken = "xxxxxxxx-xxx-xxx"; // Replace with your actual token
-
+        // Replace with your actual token
         $queryParams = http_build_query([
-            'ApiToken' => $apiToken,
+            'ApiToken' => env('API_TOKEN'),
             'MobileNo' => $details['mobile_number'],
             'Amount' => $details['amount'],
             'OpId' => $details['operator_code'],
@@ -62,7 +101,7 @@ class AirtelServiceProvider
 
         Log::info($queryParams);
 
-        $response = Http::get($apiUrl . '?' . $queryParams);
+        $response = Http::withoutVerifying()->get($apiUrl . '?' . $queryParams);
 
         if ($response->failed()) {
             throw new \Exception('API request failed: ' . $response->body());
@@ -86,7 +125,7 @@ class VodafoneServiceProvider
         $apiToken = "xxxxxxxx-xxx-xxx"; // Replace with your actual token
 
         $queryParams = http_build_query([
-            'ApiToken' => $apiToken,
+            'ApiToken' => env('API_TOKEN'),
             'MobileNo' => $details['mobile_number'],
             'Amount' => $details['amount'],
             'OpId' => $details['operator_code'],
