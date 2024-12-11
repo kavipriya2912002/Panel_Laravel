@@ -16,7 +16,7 @@
                 <li class="mb-4 mt-2">
                     <button onclick="showSection('login-status')" class="w-full text-center">Login Status</button>
                 </li>
-                
+
             </ul>
         </div>
 
@@ -35,18 +35,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach ($users as $user)
                             <tr>
                                 <td class="border border-gray-300 px-4 py-2">{{ $user->id }}</td>
                                 <td class="border border-gray-300 px-4 py-2">{{ $user->name }}</td>
                                 <td class="border border-gray-300 px-4 py-2">{{ $user->email }}</td>
-                                <td class="border border-gray-300 px-4 py-2">{{ $user->created_at->format('d M Y, h:i A') }}</td>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    {{ $user->created_at->format('d M Y, h:i A') }}</td>
                                 <td class="border border-gray-300 px-4 py-2">
                                     <!-- Add user_id as a data attribute -->
-                                    <button class="bg-black p-2 rounded-lg text-white" 
-                                            type="button" 
-                                            onclick="showWalletPopup({{ $user->id }})">
+                                    <button class="bg-black p-2 rounded-lg text-white" type="button"
+                                        onclick="showWalletPopup({{ $user->id }})">
                                         Add amount to wallet
+                                    </button>
+                                    <button class="bg-black p-2 rounded-lg text-white" type="button"
+                                        onclick="showHistoryPopup({{ $user->id }})">
+                                     Wallet History
                                     </button>
                                 </td>
                             </tr>
@@ -55,11 +59,12 @@
                 </table>
             </div>
         </div>
-        
+
 
 
         <!-- Add this outside the user list table -->
-        <div id="wallet-popup" class="hidden fixed inset-0 flex items-center justify-center backdrop-blur-md bg-gray-100 bg-opacity-50 z-50">
+        <div id="wallet-popup"
+            class="hidden fixed inset-0 flex items-center justify-center backdrop-blur-md bg-gray-100 bg-opacity-50 z-50">
             <div id="wallet" class="relative tab-content block p-4 max-w-sm bg-white rounded-lg shadow-lg">
                 <h3 class="text-xl font-semibold mb-4 text-center">Wallet</h3>
                 <div class="mt-5 w-full max-w-md p-5 bg-white rounded-2xl shadow-md mx-auto">
@@ -74,7 +79,7 @@
                         <div>
                             <button
                                 class="w-full bg-black text-white font-medium py-2 rounded-md hover:bg-gray-100 hover:text-black focus:outline-black focus:ring-2 focus:bg-gray-600 focus:ring-offset-2"
-                                onclick="submitWalletAmount()"> 
+                                onclick="submitWalletAmount()">
                                 Add Money to Wallet
                             </button>
                         </div>
@@ -85,9 +90,10 @@
                 </div>
             </div>
         </div>
-        
-        
-        
+
+
+
+
 
 
         <div id="login-status" class="w-full lg:w-3/4 p-6 hidden">
@@ -101,18 +107,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($requests as $request)
+                    @foreach ($requests as $request)
                         <tr>
                             <td class="border border-gray-300 px-4 py-2">{{ $request->user->name }}</td>
-                            <td class="border border-gray-300 px-4 py-2">{{ $request->created_at->format('d M Y, h:i A') }}</td>
                             <td class="border border-gray-300 px-4 py-2">
-                                <form method="POST" action="{{ route('admin.updateStatus', $request->id) }}" class="inline-block">
+                                {{ $request->created_at->format('d M Y, h:i A') }}</td>
+                            <td class="border border-gray-300 px-4 py-2">
+                                <form method="POST" action="{{ route('admin.updateStatus', $request->id) }}"
+                                    class="inline-block">
                                     @csrf
                                     <input type="hidden" name="action" value="allow">
                                     <button type="submit" class="px-4 py-2 bg-green-500 text-white">Allow</button>
                                 </form>
-                                
-                                <form method="POST" action="{{ route('admin.updateStatus', $request->id) }}" class="inline-block">
+
+                                <form method="POST" action="{{ route('admin.updateStatus', $request->id) }}"
+                                    class="inline-block">
                                     @csrf
                                     <input type="hidden" name="action" value="reject">
                                     <button type="submit" class="px-4 py-2 bg-red-500 text-white">Reject</button>
@@ -125,10 +134,10 @@
         </div>
     </div>
 
-    @if(session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
     @endif
 
     <form method="POST" action="{{ route('admin.logout') }}">
@@ -143,60 +152,89 @@
 
     <style>
         #wallet {
-    position: relative;
-    z-index: 10; /* Ensure it’s above the backdrop */
-}
+            position: relative;
+            z-index: 10;
+            /* Ensure it’s above the backdrop */
+        }
 
-#wallet-popup {
-    z-index: 50; /* Ensure this is higher than other elements */
-}
+        #wallet-popup {
+            z-index: 50;
+            /* Ensure this is higher than other elements */
+        }
 
         #wallet-popup.show {
             display: flex;
         }
     </style>
-    
+
     <script>
+        let selectedUserId = null;
 
-let selectedUserId = null;
 
+        // Show the wallet popup
+        function showWalletPopup(userId) {
+            selectedUserId = userId; // Store the user ID
+            const walletPopup = document.getElementById('wallet-popup');
+            walletPopup.classList.remove('hidden'); // Show the popup
+            console.log("Selected User ID:", selectedUserId); // For debugging
+        }
 
-// Show the wallet popup
-function showWalletPopup(userId) {
-    selectedUserId = userId; // Store the user ID
-    const walletPopup = document.getElementById('wallet-popup');
-    walletPopup.classList.remove('hidden'); // Show the popup
-    console.log("Selected User ID:", selectedUserId); // For debugging
-}
+        // Close the wallet popup
+        function closeWalletPopup() {
+            const walletPopup = document.getElementById('wallet-popup');
+            walletPopup.classList.add('hidden'); // Hide the popup
+            selectedUserId = null; // Reset the selected user ID
+        }
 
-    // Close the wallet popup
-    function closeWalletPopup() {
-    const walletPopup = document.getElementById('wallet-popup');
-    walletPopup.classList.add('hidden'); // Hide the popup
-    selectedUserId = null; // Reset the selected user ID
-}
+        // Add money to wallet function
+        function submitWalletAmount() {
+            const amountInput = document.getElementById('amount');
+            const amount = amountInput.value;
+            const messageElement = document.getElementById('wallet-message');
 
-    // Add money to wallet function
-    function submitWalletAmount() {
-    const amountInput = document.getElementById('amount');
-    const amount = amountInput.value;
+            // Clear previous messages
+            messageElement.textContent = '';
 
-    if (!amount || isNaN(amount) || amount <= 0) {
-        alert('Please enter a valid amount.');
-        return;
-    }
+            // Validate the input
+            if (!amount || isNaN(amount) || amount <= 0) {
+                messageElement.textContent = 'Please enter a valid amount.';
+                messageElement.style.color = 'red';
+                return;
+            }
 
-    if (!selectedUserId) {
-        alert('User ID is not selected.');
-        return;
-    }
+            if (!selectedUserId) {
+                alert('User ID is not selected.');
+                return;
+            }
 
-    // Replace this with your API call or backend logic
-    console.log(`Adding ${amount} to wallet for User ID: ${selectedUserId}`);
+            axios.post('/admin/add-amount', {
+                    amount: amount,
+                    userId: selectedUserId
+                }, {
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    }
+                })
+                .then(response => {
+                    // Display the success message and the updated wallet balance
+                    messageElement.innerHTML = `
+            <p style="color: green;">${response.data.message}</p>
+            <p>Your current wallet balance is: ₹ ${response.data.wallet}</p>
+        `;
+                    amountInput.value = ''; // Reset the input field
+                })
+                .catch(error => {
+                    console.error(error); // Log the error
+                    messageElement.textContent = 'Failed to add money. Please try again.';
+                    messageElement.style.color = 'red';
+                });
 
-    // Hide popup after submitting
-    closeWalletPopup();
-}
+            // Replace this with your API call or backend logic
+            console.log(`Adding ${amount} to wallet for User ID: ${selectedUserId}`);
+
+            // Hide popup after submitting
+        }
+
 
 
         function showSection(section) {

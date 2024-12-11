@@ -719,67 +719,41 @@
 
             <!-- Recharge Content -->
             <div id="recharge" class="tab-content hidden px-4">
-                <div class="flex flex-wrap gap-2 ">
+                <div class="flex flex-wrap gap-2">
                     {{-- first table --}}
                     <div
                         class="max-w-sm w-full p-6 bg-white rounded-lg shadow-md mx-auto h-96 sm:max-w-md md:max-w-lg">
                         <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
                         </h2>
-                        <form>
-                            <div class="flex gap-4 mb-4">
-                                <label class="flex items-center">
-                                    <input type="radio" name="recharge" class="mr-2">
-                                    Prepaid
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="radio" name="recharge" class="mr-2">
-                                    Postpaid
-                                </label>
-                            </div>
+                        <form id="rechargeForm">
                             <label for="phone" class="block text-sm text-gray-600 mb-1">Phone Number:</label>
                             <input type="tel" id="phone" name="phone"
                                 placeholder="Enter your phone number" required
                                 class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-black focus:ring-1 focus:ring-gray-500">
 
-                            <div class="custom-dropdown mb-4">
-                                <div class="selected-operator mb-2 text-sm text-gray-600">Select your operator</div>
-                                <div class="dropdown-menu space-y-2">
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="airtel">
-                                        <img src="assets/airtel.png" alt="Airtel Logo" class="w-6 h-6">
-                                        <span>Airtel</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="jio">
-                                        <img src="assets/jio.png" alt="Jio Logo" class="w-6 h-6">
-                                        <span>Jio</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="vodafone">
-                                        <img src="assets/vadofone.jpg" alt="Vodafone Logo" class="w-6 h-6">
-                                        <span>Vodafone</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="bsnl">
-                                        <img src="assets/bsnl.png" alt="BSNL Logo" class="w-6 h-6">
-                                        <span>BSNL</span>
-                                    </div>
-                                    <div class="dropdown-item flex items-center space-x-2" data-value="mtnl">
-                                        <img src="assets/mtnl.png" alt="MTNL Logo" class="w-6 h-6">
-                                        <span>MTNL</span>
-                                    </div>
-                                </div>
+                            <div class="operator-dropdown mb-4">
+                                <label for="operator" class="block text-sm text-gray-600 mb-1">Select your
+                                    operator:</label>
+                                <select id="operator" name="operator"
+                                    class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-gray-500">
+                                    <option value="" disabled selected>Loading operators...</option>
+                                </select>
                             </div>
-                            <div class="amount flex justify-between items-center mb-4">
-                                <div class="a1 w-2/3">
-                                    <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
-                                    <input type="text"
-                                        class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-gray-500">
-                                </div>
-                                <div class="a2 text-right">
-                                    <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Browse
-                                        Plans</a>
-                                    <p class="text-xs text-gray-500">of all operators</p>
-                                </div>
-                            </div>
+
+
+
+
+                            <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
+                            <input id="rechargeamount" type="number" name="amount" placeholder="Enter amount"
+                                required
+                                class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+
+
+
+
+
                             <button type="submit"
-                                class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                                class="w-full p-3 bg-black mt-3 text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
                                 Proceed To Recharge
                             </button>
                         </form>
@@ -1891,6 +1865,15 @@
 
     </div>
 
+    <style>
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: #333;
+            background-color: white;
+        }
+    </style>
 
     <script>
         // Get the dropdown and the input field container
@@ -1908,6 +1891,7 @@
             }
         });
     </script>
+
 
     <!-- JavaScript to handle tab switching -->
     <script>
@@ -2072,35 +2056,35 @@
         }
 
 
-        function toggleDropdownMenu(event) {
-            const dropdownMenu = this.querySelector('.dropdown-menu');
+        // function toggleDropdownMenu(event) {
+        //     const dropdownMenu = this.querySelector('.dropdown-menu');
 
-            // Close other open menus
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                if (menu !== dropdownMenu) menu.style.display = 'none';
-            });
+        //     // Close other open menus
+        //     document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        //         if (menu !== dropdownMenu) menu.style.display = 'none';
+        //     });
 
-            // Toggle current menu
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        //     // Toggle current menu
+        //     dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-            event.stopPropagation();
-        }
+        //     event.stopPropagation();
+        // }
 
-        function selectDropdownItem(event) {
-            const selectedOperator = this.querySelector('span').textContent.trim();
-            const operatorInput = document.getElementById('operator');
-            const selectedDiv = document.querySelector('.selected-operator');
+        // function selectDropdownItem(event) {
+        //     const selectedOperator = this.querySelector('span').textContent.trim();
+        //     const operatorInput = document.getElementById('operator');
+        //     const selectedDiv = document.querySelector('.selected-operator');
 
-            // Update the selected operator and hidden input value
-            if (selectedDiv) selectedDiv.textContent = selectedOperator;
-            if (operatorInput) operatorInput.value = this.dataset.value;
+        //     // Update the selected operator and hidden input value
+        //     if (selectedDiv) selectedDiv.textContent = selectedOperator;
+        //     if (operatorInput) operatorInput.value = this.dataset.value;
 
-            // Hide dropdown menu
-            const dropdownMenu = this.closest('.dropdown-menu');
-            if (dropdownMenu) dropdownMenu.style.display = 'none';
+        //     // Hide dropdown menu
+        //     const dropdownMenu = this.closest('.dropdown-menu');
+        //     if (dropdownMenu) dropdownMenu.style.display = 'none';
 
-            event.stopPropagation();
-        }
+        //     event.stopPropagation();
+        // }
 
 
         function addMoneyToWallet() {
@@ -2216,6 +2200,148 @@
                 openSidebar.classList.remove("hidden");
             }
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach event listener for toggling dropdown menu
+            document.querySelectorAll('.operator-dropdown').forEach(dropdown => {
+                dropdown.addEventListener('click', function(event) {
+                    const dropdownMenu = this.querySelector('.dropdown-menu');
+
+                    if (dropdownMenu) {
+                        // Close other open menus
+                        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                            if (menu !== dropdownMenu) menu.style.display = 'none';
+                        });
+
+                        // Toggle current menu
+                        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ?
+                            'none' : 'block';
+                    }
+
+                    event.stopPropagation(); // Prevent event from bubbling
+                });
+            });
+
+            // Attach event listener for selecting an operator
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    const selectedOperator = this.querySelector('span').textContent.trim();
+                    const operatorInput = document.getElementById('operator');
+                    const selectedDiv = document.querySelector('.selected-operator');
+
+                    // Update the selected operator and hidden input value
+                    if (selectedDiv) selectedDiv.textContent = selectedOperator;
+                    if (operatorInput) operatorInput.value = this.dataset.value;
+
+                    // Hide dropdown menu
+                    const dropdownMenu = this.closest('.dropdown-menu');
+                    if (dropdownMenu) dropdownMenu.style.display = 'none';
+
+                    event.stopPropagation(); // Prevent event from bubbling
+                });
+            });
+
+            // Close all dropdown menus when clicking outside
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const operatorDropdown = document.getElementById('operator');
+
+    // Fetch operator list from backend
+    const apiUrl = "/operators";
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(responseData => {
+            console.log(responseData); // Log the response to verify
+            if (responseData.success && Array.isArray(responseData.data)) {
+                operatorDropdown.innerHTML =
+                    '<option value="" disabled selected>Select your operator</option>';
+                responseData.data.forEach(operator => {
+                    const option = document.createElement('option');
+                    option.value = operator.id; // operator.id is stored as value
+                    option.textContent = operator.operator_name; // Display operator name
+                    operatorDropdown.appendChild(option);
+                });
+            } else {
+                operatorDropdown.innerHTML =
+                    '<option value="" disabled>Error loading operators</option>';
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching operators:", error);
+            operatorDropdown.innerHTML = '<option value="" disabled>Error loading operators</option>';
+        });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const rechargeForm = document.getElementById('rechargeForm');
+
+    rechargeForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        // Retrieve values from the form
+        const phone = document.getElementById('phone').value.trim();
+        const operatorID = document.getElementById('operator').value; // Get selected operator ID
+        const operatorName = document.getElementById('operator').selectedOptions[0].text; // Get selected operator name
+        const amountElement = document.getElementById('rechargeamount');
+        const amount = amountElement ? amountElement.value.trim() : '';
+
+        // Debugging: Log retrieved values
+        console.log('Phone:', phone);
+        console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
+        console.log('Selected Operator Name:', operatorName); // Log the selected operator name
+        console.log('Amount Element:', amountElement);
+        console.log('Amount Value:', amount);
+
+        // Check if all fields are filled
+        if (!phone || !operatorID || !amount) {
+            alert('Please fill out all fields before submitting!');
+            return;
+        }
+
+        // Prepare data payload
+        const payload = {
+            mobile_number: phone,
+            amount: amount,
+            provider: operatorName, // Send operator name as provider
+            operator_id: operatorID, // Send selected operator ID
+        };
+        console.log(payload);
+
+        // Send data to backend
+        fetch('/recharge', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify(payload),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Response:', data);
+            if (data.success) {
+                alert('Recharge successful!');
+            } else {
+                alert('Recharge failed! Please try again.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred while processing your request.');
+        });
+    });
+});
+
     </script>
 
 

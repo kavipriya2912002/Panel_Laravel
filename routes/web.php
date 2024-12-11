@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MobileOperatorsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RechargesController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\WalletController;
@@ -45,6 +47,11 @@ Route::get('/all-routes', [RouteController::class, 'getAllRoutes']);
 
 Route::get('/seats/{routeId}', [SeatController::class, 'getSeats']);
 Route::post('/seats/book', [SeatController::class, 'bookSeat']);
+
+Route::post('/recharge', [RechargesController::class, 'recharge']);
+Route::get('/recharge/status', [RechargesController::class, 'getStatus']);
+
+Route::get('/operators', [MobileOperatorsController::class, 'getAllOperators']);
 
 });
 
