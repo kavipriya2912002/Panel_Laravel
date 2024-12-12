@@ -2336,6 +2336,8 @@
                             // Successful recharge
                             rechargeForm.reset();
                             alert(data.MESSAGE);
+                            alert(`Your RequestID ${data.REQUESTTXNID}`);
+                            alert(`Your OrderID ${data.TXNNO}`);
                         } else if (data.status === 'pending') {
                             // Call the status check API if recharge is pending
                             const refTxnId = data.refTxnId; // Assuming the backend provides this in the response
@@ -2356,7 +2358,7 @@
                                 });
                         } else {
                             // Handle immediate error
-                            alert(data.error || data.ERROR_MESSAGE ||
+                            alert(data.error || data.ERROR_MASSAGE ||
                                 'Recharge failed. Please try again.');
                         }
                     })

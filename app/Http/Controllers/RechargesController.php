@@ -17,10 +17,9 @@ class RechargesController extends Controller
     $request->validate([
         'mobile_number' => 'required',
         'amount' => 'required|numeric',
-        'provider' => 'required|string', // e.g., 'airtel', 'vodafone'
+        'provider' => 'required|string',
         'operator_id' => 'required|numeric',
     ]);
-    
 
     try {
         // Step 1: Get the logged-in user's ID
@@ -31,19 +30,19 @@ class RechargesController extends Controller
         $wallet = Wallet::where('user_id', $userId)->first();
         Log::info('User Wallet Balance: ' . $wallet->balance);
 
-        $amount=$request->input('amount');
+        $amount = $request->input('amount');
+        
         // Step 3: Validate wallet balance before proceeding with recharge
-        if ($wallet->balance < $request->input('amount')) {
+        if ($wallet->balance < $amount) {
             return response()->json(['error' => 'Insufficient balance to proceed with recharge, Add AMOUNT IN WALLET'], 400);
         }
 
-
-
+        // Step 4: Deduct the amount from the wallet
         $wallet->balance -= $amount;
         $wallet->save();
-
         Log::info('Wallet balance after deduction: ' . $wallet->balance);
-        // Step 4: Fetch the operator code from the database
+
+        // Step 5: Fetch the operator code from the database
         $operatorMapping = DB::table('sp_operator_mapping')
             ->where('operator_id', $request->input('operator_id'))
             ->first();
@@ -52,38 +51,53 @@ class RechargesController extends Controller
             throw new \Exception('Invalid Operator ID.');
         }
 
-        $operatorCode = $operatorMapping->value; // Assuming column name is 'operator_code'
+        $operatorCode = $operatorMapping->value;
         Log::info("Operator code", ['operator_code' => $operatorCode]);
 
-        // Step 5: Prepare the request data
+        // Step 6: Prepare the request data
         $data = [
             'mobile_number' => $request->input('mobile_number'),
-            'amount' => $request->input('amount'),
+            'amount' => $amount,
             'operator_code' => $operatorCode,
         ];
 
-        // Step 6: Get the service provider instance
+        // Step 7: Get the service provider instance
         $service = ServiceProviderFactory::make($request->input('provider'));
+        Log::info("service", ['service' => $service]);
 
-        // Step 7: Perform the recharge using the external API
+        // Step 8: Perform the recharge using the external API
         $apiResponse = $service->recharge([
             'mobile_number' => $data['mobile_number'],
             'amount' => $data['amount'],
             'operator_code' => $data['operator_code'],
         ]);
 
-        // Step 8: Return the API response
+        Log::info("apiResponse", ['apiResponse' => $apiResponse]);
+
+        // Step 9: Check the API response status
+        if ($apiResponse['STATUS'] ==3 ) { // Assuming STATUS 1 means success
+            // Step 10: Refund the amount back to the wallet
+            $wallet->balance += $amount;
+            $wallet->save();
+            Log::info('Refunded amount to wallet. New balance: ' . $wallet->balance);
+
+            // Return the failure response
+            return response()->json(['error' => $apiResponse['ERROR_MASSAGE'] ?? 'Recharge failed'], 400);
+        }
+
+        // Step 11: Return the successful API response
         return response()->json($apiResponse);
 
     } catch (\Exception $e) {
         // Log the error for debugging
         Log::error('Recharge failed: ' . $e->getMessage());
 
-        // Handle errors and return a JSON response
+        // Handle any unexpected exceptions
         return response()->json(['error' => $e->getMessage()], 400);
     }
 }
 
+    
 public function getStatus(Request $request)
 {
     $request->validate([
