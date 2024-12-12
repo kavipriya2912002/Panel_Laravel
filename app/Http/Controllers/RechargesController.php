@@ -31,11 +31,18 @@ class RechargesController extends Controller
         $wallet = Wallet::where('user_id', $userId)->first();
         Log::info('User Wallet Balance: ' . $wallet->balance);
 
+        $amount=$request->input('amount');
         // Step 3: Validate wallet balance before proceeding with recharge
         if ($wallet->balance < $request->input('amount')) {
             return response()->json(['error' => 'Insufficient balance to proceed with recharge, Add AMOUNT IN WALLET'], 400);
         }
 
+
+
+        $wallet->balance -= $amount;
+        $wallet->save();
+
+        Log::info('Wallet balance after deduction: ' . $wallet->balance);
         // Step 4: Fetch the operator code from the database
         $operatorMapping = DB::table('sp_operator_mapping')
             ->where('operator_id', $request->input('operator_id'))

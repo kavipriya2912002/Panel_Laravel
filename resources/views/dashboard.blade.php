@@ -2332,9 +2332,10 @@
                     .then((data) => {
                         console.log('Recharge Response:', data);
 
-                        if (data.status === 'success') {
+                        if (data.STATUS === 1) {
                             // Successful recharge
-                            alert('Recharge successful!');
+                            rechargeForm.reset();
+                            alert(data.MESSAGE);
                         } else if (data.status === 'pending') {
                             // Call the status check API if recharge is pending
                             const refTxnId = data.refTxnId; // Assuming the backend provides this in the response
@@ -2363,9 +2364,7 @@
                         console.error('Error in recharge request:', error);
                         alert('Unable to process recharge. Please try again later.');
                     });
-
-
-            });
+           });
         });
     </script>
 
