@@ -1198,7 +1198,7 @@
 
                     <div
                         class="max-w-sm w-full p-6 bg-white rounded-lg shadow-md mx-auto h-96 sm:max-w-md md:max-w-lg">
-                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
+                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">DTH Recharge
                         </h2>
                         <form id="dthrechargeForm">
                             <label for="phone" class="block text-sm text-gray-600 mb-1">Registered Number / Customer ID</label>
