@@ -212,6 +212,23 @@
                                                 <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                             </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('dthrecharge')"> DTH or
+                                                TV</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)"
+                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-compass" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
                                             <span class="text-sm ml-2" onclick="showContent('dth')">Recharge DTH or
                                                 TV</span>
                                         </a>
@@ -432,6 +449,22 @@
                                             </svg>
                                             <span class="text-sm ml-2" onclick="showContent('mybookings')">My
                                                 Bookings</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-compass" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('dthrecharge')"> DTH or
+                                                TV</span>
                                         </a>
                                     </li>
                                     <li
@@ -1060,7 +1093,6 @@
                                     <td class="px-4 py-2 border">Unlimited Calls | 100 SMS/day</td>
                                     <td class="px-4 py-2 border"> <button
                                             class="bg-black text-white p-1 px-4 rounded-lg">₹ 895</button></td>
-
                                 </tr>
                             </tbody>
                         </table>
@@ -1160,6 +1192,40 @@
             </div>
             <!-- recharge end -->
 
+
+            <div id="dthrecharge" class="tab-content hidden px-4">
+                <div class="flex flex-wrap gap-2">
+
+                    <div
+                        class="max-w-sm w-full p-6 bg-white rounded-lg shadow-md mx-auto h-96 sm:max-w-md md:max-w-lg">
+                        <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Recharge or Pay Mobile Bill
+                        </h2>
+                        <form id="dthrechargeForm">
+                            <label for="phone" class="block text-sm text-gray-600 mb-1">Registered Number / Customer ID</label>
+                            <input type="tel" id="dthphone" name="phone"
+                                placeholder="Enter your phone number" required
+                                class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-black focus:ring-1 focus:ring-gray-500">
+
+                            <div class="operator-dropdown mb-4">
+                                <label for="operator" class="block text-sm text-gray-600 mb-1">Select your
+                                    operator:</label>
+                                <select id="dthoperator" name="operator"
+                                    class="w-full p-2 text-sm border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-gray-500">
+                                    <option value="" disabled selected>Loading operators...</option>
+                                </select>
+                            </div>
+                            <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
+                            <input id="dthrechargeamount" type="number" name="amount"
+                                placeholder="Enter amount" required
+                                class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                            <button type="submit"
+                                class="w-full p-3 bg-black mt-3 text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                                Proceed To Recharge
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div id="electricity" class="tab-content hidden">
                 <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
@@ -2340,7 +2406,8 @@
                             alert(`Your OrderID ${data.TXNNO}`);
                         } else if (data.status === 'pending') {
                             // Call the status check API if recharge is pending
-                            const refTxnId = data.refTxnId; // Assuming the backend provides this in the response
+                            const refTxnId = data
+                                .refTxnId; // Assuming the backend provides this in the response
                             fetch('/recharge/status')
                                 .then((statusResponse) => statusResponse.json())
                                 .then((statusData) => {
@@ -2354,7 +2421,8 @@
                                 .catch((error) => {
                                     console.error('Error in status check:', error);
                                     alert(
-                                        'Unable to check recharge status. Please try again later.');
+                                        'Unable to check recharge status. Please try again later.'
+                                    );
                                 });
                         } else {
                             // Handle immediate error
@@ -2366,10 +2434,140 @@
                         console.error('Error in recharge request:', error);
                         alert('Unable to process recharge. Please try again later.');
                     });
-           });
+            });
         });
     </script>
 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const operatorDropdown = document.getElementById('dthoperator');
+
+            // Fetch operator list from backend
+            const apiUrl = "/operators";
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log(responseData); // Log the response to verify
+                    if (responseData.success && Array.isArray(responseData.data)) {
+                        operatorDropdown.innerHTML =
+                            '<option value="" disabled selected>Select your operator</option>';
+                        responseData.data.slice(5).forEach(operator => { // Start slicing from the 5th index
+                            const option = document.createElement('option');
+                            option.value = operator.id; // operator.id is stored as value
+                            option.textContent = operator.operator_name; // Display operator name
+                            operatorDropdown.appendChild(option);
+                        });
+
+                    } else {
+                        operatorDropdown.innerHTML =
+                            '<option value="" disabled>Error loading operators</option>';
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching operators:", error);
+                    operatorDropdown.innerHTML = '<option value="" disabled>Error loading operators</option>';
+                });
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const rechargeForm = document.getElementById('dthrechargeForm');
+
+            rechargeForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                // Retrieve values from the form
+                const phone = document.getElementById('dthphone').value.trim();
+                const operatorID = document.getElementById('dthoperator').value; // Get selected operator ID
+                const operatorName = document.getElementById('dthoperator').selectedOptions[0]
+                    .text; // Get selected operator name
+                const amountElement = document.getElementById('dthrechargeamount');
+                const amount = amountElement ? amountElement.value.trim() : '';
+
+                // Debugging: Log retrieved values
+                console.log('Phone:', phone);
+                console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
+                console.log('Selected Operator Name:', operatorName); // Log the selected operator name
+                console.log('Amount Element:', amountElement);
+                console.log('Amount Value:', amount);
+
+                // Check if all fields are filled
+                if (!phone || !operatorID || !amount) {
+                    alert('Please fill out all fields before submitting!');
+                    return;
+                }
+
+                // Prepare data payload
+                const payload = {
+                    mobile_number: phone,
+                    amount: amount,
+                    provider: operatorName, // Send operator name as provider
+                    operator_id: operatorID, // Send selected operator ID
+                };
+                console.log(payload);
+
+                // Send data to backend
+                fetch('/recharge', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log('Recharge Response:', data);
+
+                        if (data.STATUS === 1) {
+                            // Successful recharge
+                            rechargeForm.reset();
+                            alert(data.MESSAGE);
+                            alert(`Your RequestID ${data.REQUESTTXNID}`);
+                            alert(`Your OrderID ${data.TXNNO}`);
+                        } else if (data.status === 'pending') {
+                            // Call the status check API if recharge is pending
+                            const refTxnId = data
+                                .refTxnId; // Assuming the backend provides this in the response
+                            fetch('/recharge/status')
+                                .then((statusResponse) => statusResponse.json())
+                                .then((statusData) => {
+                                    console.log('Status Check Response:', statusData);
+                                    if (statusData.STATUS === 1) {
+                                        alert('Recharge successful!');
+                                    } else {
+                                        alert(`Recharge failed: ${statusData.MESSAGE}`);
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error in status check:', error);
+                                    alert(
+                                        'Unable to check recharge status. Please try again later.'
+                                    );
+                                });
+                        } else {
+                            // Handle immediate error
+                            alert(data.error || data.ERROR_MASSAGE ||
+                                'Recharge failed. Please try again.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error in recharge request:', error);
+                        alert('Unable to process recharge. Please try again later.');
+                    });
+            });
+        });
+
+
+
+
+
+    </script>
 
     <script>
         const plans = {
