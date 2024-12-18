@@ -1228,30 +1228,56 @@
             </div>
 
             <div id="electricity" class="tab-content hidden">
-                <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
-                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Electricity Bill</h2>
-                    <form id="electricityForm">
-                        <div class="flex gap-4 mb-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="recharge" value="electricityBoard" class="mr-2">
-                                Electricity Boards
+                <div class="max-w-md w-full h-auto p-8 bg-white rounded-lg shadow-lg mx-auto sm:max-w-lg md:max-w-xl">
+                    <h2 class="text-3xl text-center font-extrabold text-gray-800 mb-8">
+                        Electricity Bill
+                    </h2>
+                    <form id="electricityForm" class="space-y-6">
+                        <!-- Operator Dropdown -->
+                        <div class="operator-dropdown">
+                            <label for="operator" class="block text-base font-semibold text-gray-700 mb-2">
+                                Select your operator:
                             </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="recharge" value="apartments" class="mr-2">
-                                Apartments
-                            </label>
+                            <select id="billsoperator" name="operator"
+                                class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-50 focus:ring-2 focus:ring-black focus:border-black">
+                                <option value="" disabled selected>Loading operators...</option>
+                            </select>
                         </div>
-
-                        <!-- Dynamic Input Fields -->
-                        <div id="dynamicFields"></div>
-
+            
+                        <!-- Registered Number / Consumer ID -->
+                        <div>
+                            <label for="phone" class="block text-base font-medium text-gray-700 mb-2">
+                                Registered Number / Consumer ID / Customer ID:
+                            </label>
+                            <input type="tel" id="billphone" name="phone"
+                                placeholder="Enter your registered number or ID" required
+                                class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-50 focus:ring-2 focus:ring-black focus:border-black placeholder-gray-400">
+                        </div>
+            
+                        <!-- Enter Amount -->
+                        <div>
+                            <label for="amount" class="block text-base font-medium text-gray-700 mb-2">
+                                Enter Amount:
+                            </label>
+                            <input id="billamount" type="number" name="amount"
+                                placeholder="Enter amount" required
+                                class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
+                        </div>
+            
+                        <!-- Dynamic Fields (if applicable) -->
+                        <div id="dynamicFields" class="space-y-4"></div>
+            
+                        <!-- Submit Button -->
                         <button type="submit"
-                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
+                            class="w-full py-3 text-lg font-semibold text-white bg-black rounded-md hover:bg-gray-800 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-800">
                             Proceed
                         </button>
                     </form>
                 </div>
             </div>
+            
+            
+            
 
             <div id="loan" class="tab-content hidden">
                 <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
@@ -2438,6 +2464,92 @@
         });
     </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const billsDropdown = document.getElementById('billsoperator');
+    const apiURL = "/operators"; // Ensure this route matches your backend route.
+
+    fetch(apiURL)
+        .then(response => response.json())
+        .then(responseData => {
+            console.log(responseData); // Log the response for debugging.
+
+            // Skip the first 11 entries and populate dropdown with the rest
+            responseData.data.slice(11).forEach(bill => {
+                const option = document.createElement('option');
+                option.value = bill.id; // Use the appropriate identifier for the bill.
+                option.textContent = bill.operator_name; // Replace `operator_name` with the appropriate field.
+                billsDropdown.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching bills:', error));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const billForm = document.getElementById('electricityForm');
+    billForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const phone = document.getElementById('billphone').value.trim();
+        const billID = document.getElementById('billsoperator').value;
+        const operatorName = document.getElementById('billsoperator').selectedOptions[0]?.text;
+        const amountElement = document.getElementById('billamount');
+        const amount = amountElement ? amountElement.value.trim() : '';
+
+        // Basic validation
+        if (!phone || !billID || !amount) {
+            alert('Please fill out all fields before submitting!');
+            return;
+        }
+        if (!/^[0-9]{10}$/.test(phone)) {
+            alert('Enter a valid 10-digit phone number.');
+            return;
+        }
+
+        // Prepare data payload
+        const payload = {
+            mobile_number: phone,
+            amount: amount,
+            provider: operatorName,
+            operator_id: billID,
+        };
+        console.log('Payload:', payload);
+
+        fetch('/billpay', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify(payload),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Failed to send bill payment request.');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Recharge Response:', data);
+
+                if (data.STATUS === 1) {
+                    alert(data.MESSAGE);
+                    alert(`Your RequestID: ${data.REQUESTTXNID}`);
+                    alert(`Your OrderID: ${data.TXNNO}`);
+                    billForm.reset();
+                } else {
+                    alert(data.error || data.ERROR_MASSAGE || 'Bill payment failed. Please try again.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error in Bill payment request:', error);
+                alert('Unable to process Bill Payment. Please try again later.');
+            });
+    });
+});
+
+
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

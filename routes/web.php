@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BillPaymentController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MobileOperatorsController;
 use App\Http\Controllers\ProfileController;
@@ -52,6 +53,9 @@ Route::post('/recharge', [RechargesController::class, 'recharge']);
 Route::get('/recharge/status', [RechargesController::class, 'getStatus']);
 
 Route::get('/operators', [MobileOperatorsController::class, 'getAllOperators']);
+
+Route::get('/bills',[BillPaymentController::class,'getBills']);
+Route::post('/billpay', [BillPaymentController::class, 'BillPay']);
 
 });
 
