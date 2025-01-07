@@ -157,8 +157,11 @@ class BillPaymentController extends Controller
         // Handle API errors
         Log::error('API responded with an error', [
             'status' => $response->status(),
-            'body' => $response->json(),
+            'body' => $response->body(),
+            'error_code' => $response->json('ERRORCODE'),
+            'message' => $response->json('MESSAGE'),
         ]);
+        
 
         return response()->json([
             'STATUS' => 0,
