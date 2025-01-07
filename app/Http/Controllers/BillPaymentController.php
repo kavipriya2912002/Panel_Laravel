@@ -120,37 +120,56 @@ class BillPaymentController extends Controller
     public function fetchBills(Request $request)
 {
     try {
+        // Validate input
         $validatedData = $request->validate([
-            'num' => 'required|string',
+            'num' => 'required|string|max:20', // Limit length to prevent invalid inputs
         ]);
 
         $serviceNumber = $validatedData['num'];
-        $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
-       
 
-        // Make an API call to the external service
-        $response = Http::withoutVerifying()->get($apiUrl, [
-            'at' => env('API_TOKEN'),
+        // API endpoint
+        $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
+
+        // Prepare API request parameters
+        $params = [
+            'at' => env('API_TOKEN'), // Ensure API token is stored in .env
             'num' => $serviceNumber,
             'amt' => 1,
-            'op' => 23,
-            'rq' => 12942022,
+            'op' => 23, // Operator code
+            'rq' => 12942022, // Unique request ID
             'ez1' => '',
             'ez2' => '',
             'ez3' => '',
+        ];
+
+        // Log request for debugging
+        Log::info('Sending API request to fetch bill details', $params);
+
+        // Make API call
+        $response = Http::withoutVerifying()->get($apiUrl, $params);
+
+        // Handle successful response
+        if ($response->successful() && $response->json('STATUS') == 1) {
+            Log::info('API response received', $response->json());
+            return response()->json($response->json(), 200);
+        }
+
+        // Handle API errors
+        Log::error('API responded with an error', [
+            'status' => $response->status(),
+            'body' => $response->json(),
         ]);
 
-        if ($response->successful()) {
-            return response()->json($response->json());
-        } else {
-            return response()->json([
-                'STATUS' => 0,
-                'ERROR_MESSAGE' => 'Failed to fetch bill details. Please try again later.',
-            ], 500);
-        }
+        return response()->json([
+            'STATUS' => 0,
+            'ERROR_MESSAGE' => $response->json('MESSAGE') ?? 'Failed to fetch bill details.',
+            'ERROR_CODE' => $response->json('ERRORCODE') ?? null,
+        ], 400);
     } catch (\Exception $e) {
-        // Log the error for debugging
-        Log::error('Error fetching bill details: ' . $e->getMessage());
+        // Log unexpected errors
+        Log::error('Error fetching bill details: ' . $e->getMessage(), [
+            'exception' => $e,
+        ]);
 
         return response()->json([
             'STATUS' => 0,
