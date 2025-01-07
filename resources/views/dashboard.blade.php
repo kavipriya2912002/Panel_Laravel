@@ -2554,61 +2554,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
     // Fetch all transactions when the page loads
-    window.onload = function() {
-        fetchTransactions();
-    };
+    document.addEventListener('DOMContentLoaded', () => {
+    const operatorDropdown = document.getElementById('transfer');
 
-    // Function to fetch transactions and display them
-    function fetchTransactions() {
-        fetch('/transactions') // Adjust the URL based on your route setup
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Get the table body element
-                const tableBody = document.getElementById('transaction-table-body');
+    // Fetch operator list from backend
+    const apiUrl = "/transactions";
+
+    fetch(apiUrl)
+        .then(response => {
+            // If the response is not OK, throw an error
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Get the table body element
+            const tableBody = document.getElementById('transaction-table-body');
+            
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+
+            // Loop through each transaction and create a row
+            data.forEach(transaction => {
+                const row = document.createElement('tr');
                 
-                // Clear any existing rows
-                tableBody.innerHTML = '';
+                // Create columns for each transaction attribute
+                const transactionTypeCell = document.createElement('td');
+                transactionTypeCell.classList.add('p-4');
+                transactionTypeCell.textContent = transaction.transaction_type;
 
-                // Loop through each transaction and create a row
-                data.forEach(transaction => {
-                    const row = document.createElement('tr');
-                    
-                    // Create columns for each transaction attribute
-                    const transactionTypeCell = document.createElement('td');
-                    transactionTypeCell.classList.add('p-4');
-                    transactionTypeCell.textContent = transaction.transaction_type;
+                const userIdCell = document.createElement('td');
+                userIdCell.classList.add('p-4');
+                userIdCell.textContent = transaction.user_id;
 
-                    const userIdCell = document.createElement('td');
-                    userIdCell.classList.add('p-4');
-                    userIdCell.textContent = transaction.user_id;
+                const dateCell = document.createElement('td');
+                dateCell.classList.add('p-4');
+                dateCell.textContent = new Date(transaction.datetime).toLocaleString(); // Ensure datetime is in a valid format
 
-                    const dateCell = document.createElement('td');
-                    dateCell.classList.add('p-4');
-                    dateCell.textContent = new Date(transaction.datetime).toLocaleString(); // Ensure datetime is in a valid format
+                const statusCell = document.createElement('td');
+                statusCell.classList.add('p-4');
+                statusCell.textContent = transaction.status;
 
-                    const statusCell = document.createElement('td');
-                    statusCell.classList.add('p-4');
-                    statusCell.textContent = transaction.status;
+                // Append the cells to the row
+                row.appendChild(transactionTypeCell);
+                row.appendChild(userIdCell);
+                row.appendChild(dateCell);
+                row.appendChild(statusCell);
 
-                    // Append the cells to the row
-                    row.appendChild(transactionTypeCell);
-                    row.appendChild(userIdCell);
-                    row.appendChild(dateCell);
-                    row.appendChild(statusCell);
-
-                    // Append the row to the table body
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching transactions:', error);
+                // Append the row to the table body
+                tableBody.appendChild(row);
             });
-    }
+        })
+        .catch(error => {
+            console.error('Error fetching transactions:', error);
+        });
+});
+
 </script>
 
 <script>

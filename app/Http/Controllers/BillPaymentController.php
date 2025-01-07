@@ -149,7 +149,7 @@ class BillPaymentController extends Controller
 
             // Make API call
             $response = Http::withoutVerifying()->get($apiUrl, $params);
-            
+
             // Handle successful response
             if ($response->successful() && $response->json('STATUS') == 1) {
                 Log::info('API response received', $response->json());
@@ -160,7 +160,7 @@ class BillPaymentController extends Controller
                     'user_id' => $userId,
                     'status' => 'success',
                 ]);
-    
+
                 return response()->json($response->json(), 200);
             }
 
@@ -205,12 +205,11 @@ class BillPaymentController extends Controller
 
 
     public function GetAllTransactions()
-{
-    // Fetch all transactions from the database
-    $transactions = AllTransaction::all();
-Log::info($transactions);
-    // Return the transactions as a JSON response
-    return response()->json($transactions);
-}
-
+    {
+        // Fetch all transactions from the database
+        $transactions = AllTransaction::all();
+        Log::info($transactions);
+        // Return the transactions as a JSON response
+        return response()->json($transactions);
+    }
 }
