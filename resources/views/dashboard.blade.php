@@ -2636,44 +2636,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Please fill out the service number field before submitting!');
                 return;
             }
+console.log(num);
 
             // Prepare data payload
             const payload = { num };
 
             // Send data to the backend
             fetch('/fetchbill', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify(payload),
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Bill details Response:', data);
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    },
+    body: JSON.stringify(payload),
+})
+.then((response) => response.json())
+.then((data) => {
+    console.log('Bill details Response:', data);
+})
+.catch((error) => {
+    console.error('Error in fetch request:', error);
+});
 
-                if (data.STATUS === 1) {
-                    // Display bill details
-                    const billDetailsDiv = document.getElementById('billDetails');
-                    const billContent = document.getElementById('billContent');
-
-                    billContent.innerHTML = `
-                        <strong>Service Number:</strong> ${data.num}<br>
-                        <strong>Amount:</strong> ${data.amount}<br>
-                        <strong>Status:</strong> ${data.status}<br>
-                        <strong>Message:</strong> ${data.MESSAGE}
-                    `;
-                    billDetailsDiv.classList.remove('hidden');
-                } else {
-                    // Show error message
-                    alert(data.error || data.ERROR_MESSAGE || 'Unable to fetch bill details. Please try again.');
-                }
-            })
-            .catch((error) => {
-                console.error('Error in fetch request:', error);
-                alert('Unable to fetch bill details. Please try again later.');
-            });
         });
     });
 </script>
