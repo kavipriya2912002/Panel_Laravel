@@ -2553,8 +2553,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <script>
-    // Fetch all transactions when the page loads
-    document.addEventListener('DOMContentLoaded', () => {
+   document.addEventListener('DOMContentLoaded', () => {
     const operatorDropdown = document.getElementById('transfer');
 
     // Fetch operator list from backend
@@ -2595,6 +2594,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const statusCell = document.createElement('td');
                 statusCell.classList.add('p-4');
                 statusCell.textContent = transaction.status;
+
+                // Apply green or red color based on status
+                if (transaction.status === 'success') {
+                    statusCell.style.color = 'green';
+                } else if (transaction.status === 'failed') {
+                    statusCell.style.color = 'red';
+                }
 
                 // Append the cells to the row
                 row.appendChild(transactionTypeCell);
