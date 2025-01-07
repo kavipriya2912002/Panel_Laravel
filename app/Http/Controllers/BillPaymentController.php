@@ -139,7 +139,7 @@ class BillPaymentController extends Controller
             'ez2' => '',
             'ez3' => '',
         ];
-
+        $userId = Auth::id();
         $response = Http::withoutVerifying()->get($apiUrl, $params);
 
         // Check if API response is JSON
@@ -158,9 +158,9 @@ class BillPaymentController extends Controller
 
             AllTransaction::create([
                 'transaction_type' => 'bbps',
-                'transaction_id' => $responseData['TRANSACTIONID'] ?? null,
+                'transaction_id' => $responseData['REFID'] ?? null,
                 'datetime' => now(),
-                'user_id' => auth()->id(),
+                'user_id' => $userId,
                 'status' => 'success',
             ]);
 
@@ -173,7 +173,7 @@ class BillPaymentController extends Controller
             'transaction_type' => 'bbps',
             'transaction_id' => null,
             'datetime' => now(),
-            'user_id' => auth()->id(),
+            'user_id' => $userId,
             'status' => 'failed',
         ]);
 
@@ -191,7 +191,7 @@ class BillPaymentController extends Controller
             'transaction_type' => 'bbps',
             'transaction_id' => null,
             'datetime' => now(),
-            'user_id' => auth()->id(),
+            'user_id' => $userId,
             'status' => 'failed',
         ]);
 
