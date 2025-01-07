@@ -121,13 +121,12 @@ class BillPaymentController extends Controller
     public function fetchBills(Request $request)
 {
     try {
-        // Validate input
         $validatedData = $request->validate([
             'num' => 'required|string|max:20',
         ]);
 
         $serviceNumber = $validatedData['num'];
-        Log::info($serviceNumber);
+        Log::info('Fetching bill for service number', ['num' => $serviceNumber]);
 
         $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
         $params = [
@@ -141,60 +140,60 @@ class BillPaymentController extends Controller
             'ez3' => '',
         ];
 
-        Log::info('Sending API request to fetch bill details', $params);
-
         $response = Http::withoutVerifying()->get($apiUrl, $params);
 
-        if ($response->successful() && $response->json('STATUS') == 1) {
-            $responseData = $response->json();
-            Log::info('API response received', $responseData);
+        // Check if API response is JSON
+        if (!$response->header('Content-Type') || !str_contains($response->header('Content-Type'), 'application/json')) {
+            Log::error('Unexpected API response format', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
+            throw new \Exception('Invalid response from the API.');
+        }
 
-            $transaction = new AllTransaction();
-            $transaction->transaction_type = 'bbps';
-            $transaction->transaction_id = $responseData['TRANSACTIONID'] ?? null;
-            $transaction->datetime = now();
-            $transaction->user_id = auth()->id();
-            $transaction->status = 'success'; // Mark as successful
-            $transaction->save();
+        $responseData = $response->json();
+
+        if ($response->successful() && $responseData['STATUS'] == 1) {
+            Log::info('Successful API response', $responseData);
+
+            AllTransaction::create([
+                'transaction_type' => 'bbps',
+                'transaction_id' => $responseData['TRANSACTIONID'] ?? null,
+                'datetime' => now(),
+                'user_id' => auth()->id(),
+                'status' => 'success',
+            ]);
 
             return response()->json($responseData, 200);
         }
 
-        // Handle API errors
-        Log::error('API responded with an error', [
-            'status' => $response->status(),
-            'body' => $response->body(),
-            'error_code' => $response->json('ERRORCODE'),
-            'message' => $response->json('MESSAGE'),
-        ]);
+        Log::error('API error response', $responseData);
 
-        // Log failed transaction
-        $transaction = new AllTransaction();
-        $transaction->transaction_type = 'bbps';
-        $transaction->transaction_id = null; // No transaction ID for failed attempts
-        $transaction->datetime = now();
-        $transaction->user_id = auth()->id();
-        $transaction->status = 'failed'; // Mark as failed
-        $transaction->save();
+        AllTransaction::create([
+            'transaction_type' => 'bbps',
+            'transaction_id' => null,
+            'datetime' => now(),
+            'user_id' => auth()->id(),
+            'status' => 'failed',
+        ]);
 
         return response()->json([
             'STATUS' => 0,
-            'ERROR_MESSAGE' => $response->json('MESSAGE') ?? 'Failed to fetch bill details.',
-            'ERROR_CODE' => $response->json('ERRORCODE') ?? null,
+            'ERROR_MESSAGE' => $responseData['MESSAGE'] ?? 'Failed to fetch bill details.',
+            'ERROR_CODE' => $responseData['ERRORCODE'] ?? null,
         ], 400);
     } catch (\Exception $e) {
         Log::error('Error fetching bill details: ' . $e->getMessage(), [
             'exception' => $e,
         ]);
 
-        // Log failed transaction due to exception
-        $transaction = new AllTransaction();
-        $transaction->transaction_type = 'bbps';
-        $transaction->transaction_id = null;
-        $transaction->datetime = now();
-        $transaction->user_id = auth()->id();
-        $transaction->status = 'failed';
-        $transaction->save();
+        AllTransaction::create([
+            'transaction_type' => 'bbps',
+            'transaction_id' => null,
+            'datetime' => now(),
+            'user_id' => auth()->id(),
+            'status' => 'failed',
+        ]);
 
         return response()->json([
             'STATUS' => 0,
@@ -202,5 +201,7 @@ class BillPaymentController extends Controller
         ], 500);
     }
 }
+
+
 
 }
