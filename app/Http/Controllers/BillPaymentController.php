@@ -153,6 +153,8 @@ class BillPaymentController extends Controller
 
         $responseData = $response->json();
 
+        Log::info($responseData);
+
         if ($response->successful() && $responseData['STATUS'] == 1) {
             Log::info('Successful API response', $responseData);
 
