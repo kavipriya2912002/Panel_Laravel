@@ -690,7 +690,7 @@
             <!-- Transfer Content -->
             <div id="transfer" class="tab-content hidden container">
                 <h3 class="mb-8 font-extrabold">
-                    All Transactions
+                    History
                 </h3>
             
                 <!-- Added Overflow-x-auto for responsiveness -->
