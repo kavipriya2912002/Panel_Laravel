@@ -133,7 +133,7 @@ class BillPaymentController extends Controller
             'at' => env('API_TOKEN'),
             'num' => $serviceNumber,
             'amt' => 1,
-            'op' => 23,
+            'op' => 81,
             'rq' => 12942022,
             'ez1' => '',
             'ez2' => '',
