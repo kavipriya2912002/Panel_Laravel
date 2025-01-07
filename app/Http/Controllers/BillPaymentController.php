@@ -135,7 +135,7 @@ class BillPaymentController extends Controller
                 'at' => env('API_TOKEN'), // Ensure API token is stored in .env
                 'num' => $serviceNumber,
                 'amt' => 1,
-                'op' => 23, // Operator code
+                'op' => 81, // Operator code
                 'rq' => 12942022, // Unique request ID
                 'ez1' => '',
                 'ez2' => '',
