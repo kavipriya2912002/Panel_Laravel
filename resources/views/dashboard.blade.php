@@ -233,6 +233,22 @@
                                                 TV</span>
                                         </a>
                                     </li>
+                                    <li
+                                        class="flex w-full justify-between text-black hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)"
+                                            class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-compass" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('fetch')">Fetch Bill</span>
+                                        </a>
+                                    </li>
 
                                 </ul>
 
@@ -481,6 +497,21 @@
                                             </svg>
                                             <span class="text-sm ml-2" onclick="showContent('dth')">Recharge DTH or
                                                 TV</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="flex w-full justify-between text-white hover:text-gray-300 cursor-pointer items-center mb-6">
+                                        <a href="javascript:void(0)" class="flex items-center focus:outline-none ">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-compass" width="18"
+                                                height="18" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                            </svg>
+                                            <span class="text-sm ml-2" onclick="showContent('fetch')">fetch Bills</span>
                                         </a>
                                     </li>
 
@@ -1346,6 +1377,43 @@
                 </div>
             </div>
 
+
+
+
+            <div id="fetch" class="tab-content hidden">
+                <div class="max-w-lg w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto">
+                    <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">Fetch Bill Details</h2>
+                    <form id="fetchForm">
+                        <div class="mb-4">
+                            <label for="serviceNumber" class="block text-sm font-medium text-gray-700 mb-2">
+                                Enter Service Number
+                            </label>
+                            <input 
+                                type="text" 
+                                id="serviceNumber" 
+                                name="serviceNumber" 
+                                placeholder="Enter your service number" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                required 
+                            />
+                        </div>
+                        <button 
+                            type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black focus:ring-2 focus:ring-black focus:outline-none transition-colors"
+                        >
+                            Fetch Bill
+                        </button>
+                    </form>
+                    <!-- Placeholder for Bill Details -->
+                    <div id="billDetails" class="mt-6 p-4 bg-gray-100 rounded-md hidden">
+                        <!-- Dynamically populate bill details here -->
+                        <h3 class="text-lg font-semibold text-gray-700">Bill Details</h3>
+                        <p id="billContent" class="text-sm text-gray-600 mt-2"></p>
+                    </div>
+                </div>
+            </div>
+            
+            
 
 
 
@@ -2550,6 +2618,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     </script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const fetchForm = document.getElementById('fetchForm');
+
+        fetchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Retrieve values from the form
+            const num = document.getElementById('serviceNumber').value.trim();
+
+            // Check if the field is filled
+            if (!num) {
+                alert('Please fill out the service number field before submitting!');
+                return;
+            }
+
+            // Prepare data payload
+            const payload = { num };
+
+            // Send data to the backend
+            fetch('/fetchbill', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify(payload),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Bill details Response:', data);
+
+                if (data.STATUS === 1) {
+                    // Display bill details
+                    const billDetailsDiv = document.getElementById('billDetails');
+                    const billContent = document.getElementById('billContent');
+
+                    billContent.innerHTML = `
+                        <strong>Service Number:</strong> ${data.num}<br>
+                        <strong>Amount:</strong> ${data.amount}<br>
+                        <strong>Status:</strong> ${data.status}<br>
+                        <strong>Message:</strong> ${data.MESSAGE}
+                    `;
+                    billDetailsDiv.classList.remove('hidden');
+                } else {
+                    // Show error message
+                    alert(data.error || data.ERROR_MESSAGE || 'Unable to fetch bill details. Please try again.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error in fetch request:', error);
+                alert('Unable to fetch bill details. Please try again later.');
+            });
+        });
+    });
+</script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

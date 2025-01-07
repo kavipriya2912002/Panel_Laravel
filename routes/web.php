@@ -53,6 +53,7 @@ Route::post('/recharge', [RechargesController::class, 'recharge']);
 Route::get('/recharge/status', [RechargesController::class, 'getStatus']);
 
 Route::get('/operators', [MobileOperatorsController::class, 'getAllOperators']);
+Route::post('/fetchbill', [BillPaymentController::class, 'fetchBills']);
 
 Route::get('/bills',[BillPaymentController::class,'getBills']);
 Route::post('/billpay', [BillPaymentController::class, 'BillPay']);

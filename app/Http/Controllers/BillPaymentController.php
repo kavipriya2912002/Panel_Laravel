@@ -114,4 +114,49 @@ class BillPaymentController extends Controller
         Log::info($bills);
         return response()->json($bills);
     }
+
+
+
+    public function fetchBills(Request $request)
+{
+    try {
+        $validatedData = $request->validate([
+            'num' => 'required|string',
+        ]);
+
+        $serviceNumber = $validatedData['num'];
+        $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
+       
+
+        // Make an API call to the external service
+        $response = Http::withoutVerifying()->get($apiUrl, [
+            'at' => env('API_TOKEN'),
+            'num' => $serviceNumber,
+            'amt' => 1,
+            'op' => 23,
+            'rq' => 12942022,
+            'ez1' => '',
+            'ez2' => '',
+            'ez3' => '',
+        ]);
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        } else {
+            return response()->json([
+                'STATUS' => 0,
+                'ERROR_MESSAGE' => 'Failed to fetch bill details. Please try again later.',
+            ], 500);
+        }
+    } catch (\Exception $e) {
+        // Log the error for debugging
+        Log::error('Error fetching bill details: ' . $e->getMessage());
+
+        return response()->json([
+            'STATUS' => 0,
+            'ERROR_MESSAGE' => 'An internal error occurred. Please try again later.',
+        ], 500);
+    }
+}
+
 }
