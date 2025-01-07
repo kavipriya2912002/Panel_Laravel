@@ -160,7 +160,7 @@ class BillPaymentController extends Controller
 
             AllTransaction::create([
                 'transaction_type' => 'bbps',
-                'transaction_id' => $responseData['REFID'] ?? 'null',
+                'transaction_id' => $responseData['REFID'] ?? 0,
                 'datetime' => now(),
                 'user_id' => $userId,
                 'status' => 'success',
@@ -173,7 +173,7 @@ class BillPaymentController extends Controller
 
         AllTransaction::create([
             'transaction_type' => 'bbps',
-            'transaction_id' => 'null',
+            'transaction_id' => 0,
             'datetime' => now(),
             'user_id' => $userId,
             'status' => 'failed',
@@ -191,7 +191,7 @@ class BillPaymentController extends Controller
 
         AllTransaction::create([
             'transaction_type' => 'bbps',
-            'transaction_id' => 'null',
+            'transaction_id' => 0,
             'datetime' => now(),
             'user_id' => $userId,
             'status' => 'failed',
