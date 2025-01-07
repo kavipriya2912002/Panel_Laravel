@@ -249,6 +249,7 @@
                                             <span class="text-sm ml-2" onclick="showContent('fetch')">Fetch Bill</span>
                                         </a>
                                     </li>
+                                    
 
                                 </ul>
 
@@ -691,95 +692,24 @@
                 <h3 class="mb-8 font-extrabold">
                     All Transactions
                 </h3>
-
+            
                 <!-- Added Overflow-x-auto for responsiveness -->
                 <div class="overflow-x-auto">
                     <table class="text-left w-full">
                         <thead class="bg-black text-white">
                             <tr class="w-full mb-4">
-                                <th class="p-4">Wallet ID</th>
-                                <th class="p-4">Type</th>
-                                <th class="p-4">Amount</th>
-                                <th class="p-4">Reason</th>
-                                <th class="p-4">Transaction ID</th>
+                                <th class="p-4">Transaction Type</th>
+                                <th class="p-4">User ID</th>
+                                <th class="p-4">Date</th>
+                                <th class="p-4">Status</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-grey-light">
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
-                            <tr class="w-full mb-4">
-                                <td class="p-4">W12346</td>
-                                <td class="p-4">Credit</td>
-                                <td class="p-4">$100</td>
-                                <td class="p-4">Refund</td>
-                                <td class="p-4">T987654321</td>
-                            </tr>
+                        <tbody class="bg-grey-light" id="transaction-table-body">
+                            <!-- Transaction rows will be inserted here dynamically -->
                         </tbody>
                     </table>
                 </div>
             </div>
-
 
             <!-- Recharge Content -->
             <div id="recharge" class="tab-content hidden px-4">
@@ -2620,6 +2550,66 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 
 
+
+
+<script>
+    // Fetch all transactions when the page loads
+    window.onload = function() {
+        fetchTransactions();
+    };
+
+    // Function to fetch transactions and display them
+    function fetchTransactions() {
+        fetch('/transactions') // Adjust the URL based on your route setup
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Get the table body element
+                const tableBody = document.getElementById('transaction-table-body');
+                
+                // Clear any existing rows
+                tableBody.innerHTML = '';
+
+                // Loop through each transaction and create a row
+                data.forEach(transaction => {
+                    const row = document.createElement('tr');
+                    
+                    // Create columns for each transaction attribute
+                    const transactionTypeCell = document.createElement('td');
+                    transactionTypeCell.classList.add('p-4');
+                    transactionTypeCell.textContent = transaction.transaction_type;
+
+                    const userIdCell = document.createElement('td');
+                    userIdCell.classList.add('p-4');
+                    userIdCell.textContent = transaction.user_id;
+
+                    const dateCell = document.createElement('td');
+                    dateCell.classList.add('p-4');
+                    dateCell.textContent = new Date(transaction.datetime).toLocaleString(); // Ensure datetime is in a valid format
+
+                    const statusCell = document.createElement('td');
+                    statusCell.classList.add('p-4');
+                    statusCell.textContent = transaction.status;
+
+                    // Append the cells to the row
+                    row.appendChild(transactionTypeCell);
+                    row.appendChild(userIdCell);
+                    row.appendChild(dateCell);
+                    row.appendChild(statusCell);
+
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching transactions:', error);
+            });
+    }
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {

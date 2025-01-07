@@ -202,4 +202,15 @@ class BillPaymentController extends Controller
             ], 500);
         }
     }
+
+
+    public function GetAllTransactions()
+{
+    // Fetch all transactions from the database
+    $transactions = AllTransaction::all();
+Log::info($transactions);
+    // Return the transactions as a JSON response
+    return response()->json($transactions);
+}
+
 }
