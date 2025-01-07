@@ -137,6 +137,9 @@ class BillPaymentController extends Controller
                 'amt' => 1,
                 'op' => 23, // Operator code
                 'rq' => 12942022, // Unique request ID
+                'ez1' => '',
+                'ez2' => '',
+                'ez3' => '',
             ];
 
             // Log request for debugging
