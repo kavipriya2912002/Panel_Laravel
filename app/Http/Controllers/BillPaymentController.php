@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AllTransaction;
 use App\Models\Billpayment;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -119,88 +118,66 @@ class BillPaymentController extends Controller
 
 
     public function fetchBills(Request $request)
-{
-    try {
-        // Validate input
-        $validatedData = $request->validate([
-            'num' => 'required|string|max:20',
-        ]);
+    {
+        try {
+            // Validate input
+            $validatedData = $request->validate([
+                'num' => 'required|string|max:20', // Limit length to prevent invalid inputs
+            ]);
 
-        $serviceNumber = $validatedData['num'];
-        Log::info($serviceNumber);
+            $serviceNumber = $validatedData['num'];
+            Log::info($serviceNumber);
+            // API endpoint
+            $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
 
-        $apiUrl = "https://Apibox.co.in/Api/Service/OnlineBillFetch";
-        $params = [
-            'at' => env('API_TOKEN'),
-            'num' => $serviceNumber,
-            'amt' => 1,
-            'op' => 23,
-            'rq' => 12942022,
-            'ez1' => '',
-            'ez2' => '',
-            'ez3' => '',
-        ];
+            // Prepare API request parameters
+            $params = [
+                'at' => env('API_TOKEN'), // Ensure API token is stored in .env
+                'num' => $serviceNumber,
+                'amt' => 1,
+                'op' => 23, // Operator code
+                'rq' => 12942022, // Unique request ID
+                'ez1' => '',
+                'ez2' => '',
+                'ez3' => '',
+            ];
 
-        Log::info('Sending API request to fetch bill details', $params);
+            // Log request for debugging
+            Log::info('Sending API request to fetch bill details', $params);
 
-        $response = Http::withoutVerifying()->get($apiUrl, $params);
+            // Make API call
+            $response = Http::withoutVerifying()->get($apiUrl, $params);
 
-        if ($response->successful() && $response->json('STATUS') == 1) {
-            $responseData = $response->json();
-            Log::info('API response received', $responseData);
+            // Handle successful response
+            if ($response->successful() && $response->json('STATUS') == 1) {
+                Log::info('API response received', $response->json());
+                return response()->json($response->json(), 200);
+            }
 
-            $transaction = new AllTransaction();
-            $transaction->transaction_type = 'bbps';
-            $transaction->transaction_id = $responseData['TRANSACTIONID'] ?? null;
-            $transaction->datetime = now();
-            $transaction->user_id = auth()->id();
-            $transaction->status = 'success'; // Mark as successful
-            $transaction->save();
+            // Handle API errors
+            Log::error('API responded with an error', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+                'error_code' => $response->json('ERRORCODE'),
+                'message' => $response->json('MESSAGE'),
+            ]);
 
-            return response()->json($responseData, 200);
+
+            return response()->json([
+                'STATUS' => 0,
+                'ERROR_MESSAGE' => $response->json('MESSAGE') ?? 'Failed to fetch bill details.',
+                'ERROR_CODE' => $response->json('ERRORCODE') ?? null,
+            ], 400);
+        } catch (\Exception $e) {
+            // Log unexpected errors
+            Log::error('Error fetching bill details: ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+
+            return response()->json([
+                'STATUS' => 0,
+                'ERROR_MESSAGE' => 'An internal error occurred. Please try again later.',
+            ], 500);
         }
-
-        // Handle API errors
-        Log::error('API responded with an error', [
-            'status' => $response->status(),
-            'body' => $response->body(),
-            'error_code' => $response->json('ERRORCODE'),
-            'message' => $response->json('MESSAGE'),
-        ]);
-
-        // Log failed transaction
-        $transaction = new AllTransaction();
-        $transaction->transaction_type = 'bbps';
-        $transaction->transaction_id = null; // No transaction ID for failed attempts
-        $transaction->datetime = now();
-        $transaction->user_id = auth()->id();
-        $transaction->status = 'failed'; // Mark as failed
-        $transaction->save();
-
-        return response()->json([
-            'STATUS' => 0,
-            'ERROR_MESSAGE' => $response->json('MESSAGE') ?? 'Failed to fetch bill details.',
-            'ERROR_CODE' => $response->json('ERRORCODE') ?? null,
-        ], 400);
-    } catch (\Exception $e) {
-        Log::error('Error fetching bill details: ' . $e->getMessage(), [
-            'exception' => $e,
-        ]);
-
-        // Log failed transaction due to exception
-        $transaction = new AllTransaction();
-        $transaction->transaction_type = 'bbps';
-        $transaction->transaction_id = null;
-        $transaction->datetime = now();
-        $transaction->user_id = auth()->id();
-        $transaction->status = 'failed';
-        $transaction->save();
-
-        return response()->json([
-            'STATUS' => 0,
-            'ERROR_MESSAGE' => 'An internal error occurred. Please try again later.',
-        ], 500);
     }
-}
-
 }
