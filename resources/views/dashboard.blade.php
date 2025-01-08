@@ -2796,6 +2796,8 @@
                                         alert(`Your OrderID: ${info.TXNNO}`); // Show TXNNO
                                     } else {
                                         // Handle failure
+                                        console.log(info.ERROR_MASSAGE);
+                                        
                                         alert(info.ERROR_MASSAGE || info.error ||
                                             'Recharge failed. Please try again.'); // Improved error message
                                     }
