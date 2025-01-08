@@ -2571,6 +2571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             // Get the table body element
             const tableBody = document.getElementById('transaction-table-body');
+            console.log(data);
             
             // Clear any existing rows
             tableBody.innerHTML = '';
