@@ -703,6 +703,8 @@
                                 <th class="p-4">Date</th>
                                 <th class="p-4">Status</th>
                                 <th class="p-4">Amount</th>
+                                <th class="p-4">Transaction ID</th>
+                               
                             </tr>
                         </thead>
                         <tbody class="bg-grey-light" id="transaction-table-body">
@@ -2602,6 +2604,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 amountCell.classList.add('p-4');
                 amountCell.textContent = transaction.amount;
 
+                const transactionidCell = document.createElement('td');
+                transactionidCell.classList.add('p-4');
+                transactionidCell.textContent = transaction.amount;
+
                 // Apply green or red color based on status
                 if (transaction.status === 'success') {
                     statusCell.style.color = 'green';
@@ -2615,6 +2621,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.appendChild(dateCell);
                 row.appendChild(statusCell);
                 row.appendChild(amountCell);
+                row.appendChild(transactionidCell);
 
                 // Append the row to the table body
                 tableBody.appendChild(row);
