@@ -2620,44 +2620,67 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const fetchForm = document.getElementById('fetchForm');
+   document.addEventListener('DOMContentLoaded', () => {
+    const fetchForm = document.getElementById('fetchForm');
+    const billDetails = document.getElementById('billDetails');
+    const billContent = document.getElementById('billContent');
 
-        fetchForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+    fetchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-            // Retrieve values from the form
-            const num = document.getElementById('serviceNumber').value.trim();
+        // Retrieve values from the form
+        const num = document.getElementById('serviceNumber').value.trim();
 
-            // Check if the field is filled
-            if (!num) {
-                alert('Please fill out the service number field before submitting!');
-                return;
-            }
-console.log(num);
+        // Check if the field is filled
+        if (!num) {
+            alert('Please fill out the service number field before submitting!');
+            return;
+        }
 
-            // Prepare data payload
-            const payload = { num };
+        // Prepare data payload
+        const payload = { num };
 
-            // Send data to the backend
-            fetch('/fetchbill', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-    },
-    body: JSON.stringify(payload),
-})
-.then((response) => response.json())
-.then((data) => {
-    console.log('Bill details Response:', data);
-})
-.catch((error) => {
-    console.error('Error in fetch request:', error);
+        // Send data to the backend
+        fetch('/fetchbill', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify(payload),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Bill details Response:', data);
+
+                // Display the bill details
+                if (data && Object.keys(data).length) {
+                    billContent.innerHTML = `
+                        <p><strong>Service Number:</strong> ${data.Amount || 'N/A'}</p>
+                        <p><strong>Bill Amount:</strong> ${data.Bill_No || 'N/A'}</p>
+                        <p><strong>Due Date:</strong> ${data.Customer || 'N/A'}</p>
+                        <p><strong>Status:</strong> ${data.DueDate || 'N/A'}</p>
+                        <p><strong>REF ID</strong> ${data.REFID || 'N/A'}</p>
+                    `;
+                    billDetails.classList.remove('hidden');
+                } else {
+                    billContent.innerHTML = '<p class="text-red-600">No bill details found for the provided service number.</p>';
+                    billDetails.classList.remove('hidden');
+                }
+            })
+            .catch((error) => {
+                console.error('Error in fetch request:', error);
+                billContent.innerHTML = '<p class="text-red-600">An error occurred while fetching the bill details. Please try again.</p>';
+                billDetails.classList.remove('hidden');
+            });
+    });
 });
 
-        });
-    });
 </script>
 
     <script>
