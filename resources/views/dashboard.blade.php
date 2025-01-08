@@ -2571,7 +2571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             // Get the table body element
             const tableBody = document.getElementById('transaction-table-body');
-            console.log(data);
+            
             
             // Clear any existing rows
             tableBody.innerHTML = '';
@@ -2579,6 +2579,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Loop through each transaction and create a row
             data.forEach(transaction => {
                 const row = document.createElement('tr');
+                console.log(transaction);
                 
                 // Create columns for each transaction attribute
                 const transactionTypeCell = document.createElement('td');
