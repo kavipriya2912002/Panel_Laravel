@@ -76,7 +76,7 @@ class RechargesController extends Controller
 
         // Step 9: Store the transaction in `alltransactions` table
         $transactionData = [
-            'transaction_type' => 'bbps',
+            'transaction_type' => 'recharge',
             'transaction_id' => $apiResponse['REQUESTTXNID'] ?? 0,
             'datetime' => now(),
             'user_id' => $userId,
@@ -106,7 +106,7 @@ class RechargesController extends Controller
 
         // Store the failed transaction in the `alltransactions` table
         AllTransaction::create([
-            'transaction_type' => 'bbps',
+            'transaction_type' => 'recharge',
             'transaction_id' => 0,
             'datetime' => now(),
             'user_id' => Auth::id(),
