@@ -2663,7 +2663,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     billContent.innerHTML = `
                         <p><strong>Service Number:</strong> ${data.DATA.Amount || 'N/A'}</p>
                         <p><strong>Bill Amount:</strong> ${data.DATA.Bill_No || 'N/A'}</p>
-                        <p><strong>Due Date:</strong> ${data.DATA.Customer || 'N/A'}</p>
+                        <p><strong>Customer:</strong> ${data.DATA.Customer || 'N/A'}</p>
+                         <p><strong>Due Date:</strong> ${data.DATA.DueDate || 'N/A'}</p>
                         <p><strong>Status:</strong> ${data.DATA.DueDate || 'N/A'}</p>
                         <p><strong>REF ID</strong> ${data.REFID || 'N/A'}</p>
                     `;
