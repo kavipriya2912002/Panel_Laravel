@@ -2661,10 +2661,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Display the bill details
                 if (data && Object.keys(data).length) {
                     billContent.innerHTML = `
-                        <p><strong>Service Number:</strong> ${data.Amount || 'N/A'}</p>
-                        <p><strong>Bill Amount:</strong> ${data.Bill_No || 'N/A'}</p>
-                        <p><strong>Due Date:</strong> ${data.Customer || 'N/A'}</p>
-                        <p><strong>Status:</strong> ${data.DueDate || 'N/A'}</p>
+                        <p><strong>Service Number:</strong> ${data.DATA.Amount || 'N/A'}</p>
+                        <p><strong>Bill Amount:</strong> ${data.DATA.Bill_No || 'N/A'}</p>
+                        <p><strong>Due Date:</strong> ${data.DATA.Customer || 'N/A'}</p>
+                        <p><strong>Status:</strong> ${data.DATA.DueDate || 'N/A'}</p>
                         <p><strong>REF ID</strong> ${data.REFID || 'N/A'}</p>
                     `;
                     billDetails.classList.remove('hidden');
