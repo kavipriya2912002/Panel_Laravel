@@ -2606,7 +2606,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const transactionidCell = document.createElement('td');
                 transactionidCell.classList.add('p-4');
-                transactionidCell.textContent = transaction.amount;
+                transactionidCell.textContent = transaction.transaction_id;
 
                 // Apply green or red color based on status
                 if (transaction.status === 'success') {
