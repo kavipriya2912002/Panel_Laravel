@@ -2737,83 +2737,83 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
-                    const rechargeForm = document.getElementById('dthrechargeForm');
+            const rechargeForm = document.getElementById('dthrechargeForm');
 
-                    rechargeForm.addEventListener('submit', (event) => {
-                        event.preventDefault();
+            rechargeForm.addEventListener('submit', (event) => {
+                event.preventDefault();
 
-                        // Retrieve values from the form
-                        const phone = document.getElementById('dthphone').value.trim();
-                        const operatorID = document.getElementById('dthoperator').value; // Get selected operator ID
-                        const operatorName = document.getElementById('dthoperator').selectedOptions[0]
-                            .text; // Get selected operator name
-                        const amountElement = document.getElementById('dthrechargeamount');
-                        const amount = amountElement ? amountElement.value.trim() : '';
+                // Retrieve values from the form
+                const phone = document.getElementById('dthphone').value.trim();
+                const operatorID = document.getElementById('dthoperator').value; // Get selected operator ID
+                const operatorName = document.getElementById('dthoperator').selectedOptions[0]
+                    .text; // Get selected operator name
+                const amountElement = document.getElementById('dthrechargeamount');
+                const amount = amountElement ? amountElement.value.trim() : '';
 
-                        // Debugging: Log retrieved values
-                        console.log('Phone:', phone);
-                        console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
-                        console.log('Selected Operator Name:', operatorName); // Log the selected operator name
-                        console.log('Amount Element:', amountElement);
-                        console.log('Amount Value:', amount);
+                // Debugging: Log retrieved values
+                console.log('Phone:', phone);
+                console.log('Selected Operator ID:', operatorID); // Log the selected operator ID
+                console.log('Selected Operator Name:', operatorName); // Log the selected operator name
+                console.log('Amount Element:', amountElement);
+                console.log('Amount Value:', amount);
 
-                        // Check if all fields are filled
-                        if (!phone || !operatorID || !amount) {
-                            alert('Please fill out all fields before submitting!');
-                            return;
+                // Check if all fields are filled
+                if (!phone || !operatorID || !amount) {
+                    alert('Please fill out all fields before submitting!');
+                    return;
+                }
+
+                // Prepare data payload
+                const payload = {
+                    mobile_number: phone,
+                    amount: amount,
+                    provider: operatorName, // Send operator name as provider
+                    operator_id: operatorID, // Send selected operator ID
+                };
+                console.log('Payload:', payload); // Log payload to check the structure
+
+                // Send data to backend
+                fetch('/recharge', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                    .then(response => {
+                        console.log('Response Status:', response.status); // Log status code
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('API Response:', data); // Log the entire API response
+                        if (data.apiResponse) {
+                            var info = data.apiResponse; // Ensure apiResponse exists in data
+
+                            // Checking for successful status
+                            if (info.STATUS === 1) {
+                                // Successful recharge
+                                rechargeForm.reset();
+                                alert(info.MESSAGE); // Show success message
+                                alert(`Your RequestID: ${info.REQUESTTXNID}`); // Show RequestTXNID
+                                alert(`Your OrderID: ${info.TXNNO}`); // Show TXNNO
+                            } else {
+                                // Handle failure
+                                console.log('Error Message:', info.ERROR_MASSAGE);
+                                alert(info.ERROR_MASSAGE || info.error ||
+                                    'Recharge failed. Please try again.');
+                            }
+                        } else {
+                            alert('Unexpected response from the server.');
                         }
-
-                        // Prepare data payload
-                        const payload = {
-                            mobile_number: phone,
-                            amount: amount,
-                            provider: operatorName, // Send operator name as provider
-                            operator_id: operatorID, // Send selected operator ID
-                        };
-                        console.log(payload);
-
-                        // Send data to backend
-                        fetch('/recharge', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                                        .getAttribute('content'),
-                                },
-                                body: JSON.stringify(payload),
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.apiResponse) {
-                                    var info = data.apiResponse; // Ensure apiResponse exists in data
-
-                                    // Checking for successful status
-                                    if (info.STATUS === 1) {
-                                        // Successful recharge
-                                        rechargeForm.reset();
-                                        alert(info.MESSAGE); // Show success message
-                                        alert(`Your RequestID: ${info.REQUESTTXNID}`); // Show RequestTXNID
-                                        alert(`Your OrderID: ${info.TXNNO}`); // Show TXNNO
-                                    } else {
-                                        // Handle failure
-                                        console.log(info.ERROR_MASSAGE);
-                                        
-                                        alert(info.ERROR_MASSAGE || info.error ||
-                                            'Recharge failed. Please try again.'); // Improved error message
-                                    }
-                                } else {
-                                    alert(
-                                    'Unexpected response from the server.'); // In case apiResponse is not in the response
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                                alert(
-                                'Something went wrong. Please try again later.'); // Show a generic error message
-                            });
-
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Something went wrong. Please try again later.');
                     });
-                });
+            });
+        });
     </script>
 
     <script>
