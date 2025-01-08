@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('datetime'); // Date and time of the transaction
             $table->unsignedBigInteger('user_id'); // Foreign key for users table
             $table->string('status')->default('pending');
+            $table->decimal('amount', 10, 2)->default(0)->after('status');
             $table->timestamps();
 
             // Foreign key relationships
