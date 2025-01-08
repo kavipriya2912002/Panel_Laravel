@@ -2614,6 +2614,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.appendChild(userIdCell);
                 row.appendChild(dateCell);
                 row.appendChild(statusCell);
+                row.appendChild(amountCell);
 
                 // Append the row to the table body
                 tableBody.appendChild(row);
