@@ -55,7 +55,11 @@ class ElectricityController extends Controller
         Log::info('API Request', ['url' => $apiUrl, 'params' => $queryParams]);
 
         // Make the GET request to the external API
-        $apiResponse = Http::withoutVerifying()->get($apiUrl, $queryParams);
+        $apiResponse = Http::withHeaders([
+            'Authorization' => 'Bearer ' . env('API_TOKEN'),
+            'Accept' => 'application/json',
+        ])->get($apiUrl, $queryParams);
+        
 
         // Handle response from the external API
         if ($apiResponse->successful()) {
