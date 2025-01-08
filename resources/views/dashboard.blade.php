@@ -2468,53 +2468,53 @@
             const billsDropdown = document.getElementById('billsoperator');
             const apiURL = "/operators"; // Ensure this route matches your backend route.
 
+            // Fetch operator list and populate dropdown
             fetch(apiURL)
                 .then(response => response.json())
                 .then(responseData => {
                     console.log(responseData); // Log the response for debugging.
 
-                    // Skip the first 11 entries and populate dropdown with the rest
-                    responseData.data.slice(11).forEach(bill => {
+                    // Populate dropdown with operators (skipping the first 11 entries if required)
+                    responseData.data.slice(11).forEach(operator => {
                         const option = document.createElement('option');
-                        option.value = bill.id; // Use the appropriate identifier for the bill.
-                        option.textContent = bill
-                            .operator_name; // Replace `operator_name` with the appropriate field.
+                        option.value = operator.id; // Use the appropriate identifier for the operator.
+                        option.textContent = operator
+                        .operator_name; // Replace `operator_name` with the correct field.
                         billsDropdown.appendChild(option);
                     });
                 })
-                .catch(error => console.error('Error fetching bills:', error));
+                .catch(error => console.error('Error fetching operators:', error));
         });
 
         document.addEventListener('DOMContentLoaded', () => {
             const billForm = document.getElementById('electricityForm');
+
+            // Handle form submission
             billForm.addEventListener('submit', (event) => {
                 event.preventDefault();
+
                 const phone = document.getElementById('billphone').value.trim();
                 const billID = document.getElementById('billsoperator').value;
                 const operatorName = document.getElementById('billsoperator').selectedOptions[0]?.text;
-                const amountElement = document.getElementById('billamount');
-                const amount = amountElement ? amountElement.value.trim() : '';
+                const amount = document.getElementById('billamount').value.trim();
 
-                // Basic validation
+                // Validation
                 if (!phone || !billID || !amount) {
                     alert('Please fill out all fields before submitting!');
                     return;
                 }
-                if (!/^[0-9]{10}$/.test(phone)) {
-                    alert('Enter a valid 10-digit phone number.');
-                    return;
-                }
 
-                // Prepare data payload
+                // Prepare payload for API
                 const payload = {
                     mobile_number: phone,
                     amount: amount,
                     provider: operatorName,
                     operator_id: billID,
                 };
+
                 console.log('Payload:', payload);
 
-                fetch('/billpay', {
+                fetch('/electricity', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -2523,14 +2523,14 @@
                         },
                         body: JSON.stringify(payload),
                     })
-                    .then((response) => {
+                    .then(response => {
                         if (!response.ok) {
                             throw new Error('Failed to send bill payment request.');
                         }
                         return response.json();
                     })
-                    .then((data) => {
-                        console.log('Recharge Response:', data);
+                    .then(data => {
+                        console.log('Payment Response:', data);
 
                         if (data.STATUS === 1) {
                             alert(data.MESSAGE);
@@ -2538,17 +2538,18 @@
                             alert(`Your OrderID: ${data.TXNNO}`);
                             billForm.reset();
                         } else {
-                            alert(data.error || data.ERROR_MASSAGE ||
+                            alert(data.error || data.ERROR_MESSAGE ||
                                 'Bill payment failed. Please try again.');
                         }
                     })
-                    .catch((error) => {
-                        console.error('Error in Bill payment request:', error);
+                    .catch(error => {
+                        console.error('Error in bill payment request:', error);
                         alert('Unable to process Bill Payment. Please try again later.');
                     });
             });
         });
     </script>
+
 
 
 
@@ -2700,6 +2701,10 @@
             });
         });
     </script>
+
+
+
+    <Script></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

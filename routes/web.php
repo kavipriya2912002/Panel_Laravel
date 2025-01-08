@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BillPaymentController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ElectricityController;
 use App\Http\Controllers\MobileOperatorsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RechargesController;
@@ -58,9 +59,10 @@ Route::post('/fetchbill', [BillPaymentController::class, 'fetchBills']);
 // routes/api.php
 Route::get('/transactions', [BillPaymentController::class, 'GetAllTransactions']);
 
+Route::post('/electricity', [ElectricityController::class, 'PayElectricity']);
+
 
 Route::get('/bills',[BillPaymentController::class,'getBills']);
-Route::post('/billpay', [BillPaymentController::class, 'BillPay']);
 
 });
 
