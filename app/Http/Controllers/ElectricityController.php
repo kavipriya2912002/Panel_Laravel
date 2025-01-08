@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ElectricityController extends Controller
 {
@@ -17,12 +19,27 @@ class ElectricityController extends Controller
         'operator_id' => 'required',
     ]);
 
+    // Fetch operator mapping from the database
+    $operatorMapping = DB::table('sp_operator_mapping')
+        ->where('operator_id', $request->input('operator_id'))
+        ->first();
+
+    if (!$operatorMapping) {
+        return response()->json([
+            'STATUS' => 0,
+            'ERROR_MESSAGE' => 'Invalid Operator ID.',
+        ], 400);
+    }
+
+    $operatorCode = $operatorMapping->value;
+    Log::info("Operator code", ['operator_code' => $operatorCode]);
+
     try {
-        // Construct the query parameters
-        $queryParams = [
+        // Construct query parameters
+        $queryParams = array_filter([
             'Mode' => 'online', // Adjust as required: online/offline/bbps
-            'at' => 'your_token_here', // Replace with the actual token
-            'op' => $validatedData['operator_id'], // Use operator ID
+            'at' => env('API_TOKEN'), // Replace with the actual token
+            'op' => $operatorCode, // Use operator ID
             'num' => $validatedData['mobile_number'], // Phone number
             'acno' => '', // Account number if applicable
             'acoth' => '', // Other account details
@@ -31,10 +48,13 @@ class ElectricityController extends Controller
             'ez1' => '', // Optional fields
             'ez2' => '',
             'ez3' => '',
-        ];
+        ]);
+
+        // Log the constructed URL and query parameters
+        $apiUrl = 'https://Apibox.co.in/Api/Service/OnlineBillPay';
+        Log::info('API Request', ['url' => $apiUrl, 'params' => $queryParams]);
 
         // Make the GET request to the external API
-        $apiUrl = 'https://Apibox.co.in/Api/Service/OnlineBillPay';
         $apiResponse = Http::get($apiUrl, $queryParams);
 
         // Handle response from the external API
@@ -45,8 +65,8 @@ class ElectricityController extends Controller
                 return response()->json([
                     'STATUS' => 1,
                     'MESSAGE' => $responseBody['MESSAGE'],
-                    'REQUESTTXNID' => $responseBody['REQUESTTXNID'],
-                    'TXNNO' => $responseBody['TXNNO'],
+                    'REQUESTTXNID' => $responseBody['REQUESTTXNID'] ?? '',
+                    'TXNNO' => $responseBody['TXNNO'] ?? '',
                 ]);
             } else {
                 return response()->json([
@@ -61,6 +81,9 @@ class ElectricityController extends Controller
             ], 500);
         }
     } catch (\Exception $e) {
+        // Log the exception details
+        Log::error('Error in PayElectricity', ['error' => $e->getMessage()]);
+
         return response()->json([
             'STATUS' => 0,
             'ERROR_MESSAGE' => 'An error occurred while processing the request.',
