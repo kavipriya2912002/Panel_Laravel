@@ -27,6 +27,7 @@ class AllTransaction extends Model
         'datetime',
         'user_id',
         'status',
+        'amount',
     ];
 
     /**

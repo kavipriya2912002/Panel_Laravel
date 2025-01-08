@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AllTransaction;
 use App\Models\Wallet;
 use App\Services\ServiceProviderFactory;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class RechargesController extends Controller
         Log::info('User Wallet Balance: ' . $wallet->balance);
 
         $amount = $request->input('amount');
-        
+
         // Step 3: Validate wallet balance before proceeding with recharge
         if ($wallet->balance < $amount) {
             return response()->json(['error' => 'Insufficient balance to proceed with recharge, Add AMOUNT IN WALLET'], 400);
@@ -73,15 +74,27 @@ class RechargesController extends Controller
 
         Log::info("apiResponse", ['apiResponse' => $apiResponse]);
 
-        // Step 9: Check the API response status
-        if ($apiResponse['STATUS'] ==3 ) { // Assuming STATUS 1 means success
-            // Step 10: Refund the amount back to the wallet
+        // Step 9: Store the transaction in `alltransactions` table
+        $transactionData = [
+            'transaction_type' => 'bbps',
+            'transaction_id' => $apiResponse['REQUESTTXNID'] ?? 0,
+            'datetime' => now(),
+            'user_id' => $userId,
+            'status' => $apiResponse['STATUS'] == 1 ? 'success' : 'failed',
+            'amount' => $amount,
+            'operator_txn_id' => $apiResponse['OPTXNID'] ?? null,
+        ];
+        AllTransaction::create($transactionData);
+
+        // Step 10: Handle API response status
+        if ($apiResponse['STATUS'] == 3) { // Failure case
+            // Refund the amount back to the wallet
             $wallet->balance += $amount;
             $wallet->save();
             Log::info('Refunded amount to wallet. New balance: ' . $wallet->balance);
 
             // Return the failure response
-            return response()->json(['error' => $apiResponse['ERROR_MASSAGE'] ?? 'Recharge failed'], 400);
+            return response()->json(['error' => $apiResponse['MESSAGE'] ?? 'Recharge failed'], 400);
         }
 
         // Step 11: Return the successful API response
@@ -90,6 +103,16 @@ class RechargesController extends Controller
     } catch (\Exception $e) {
         // Log the error for debugging
         Log::error('Recharge failed: ' . $e->getMessage());
+
+        // Store the failed transaction in the `alltransactions` table
+        AllTransaction::create([
+            'transaction_type' => 'bbps',
+            'transaction_id' => 0,
+            'datetime' => now(),
+            'user_id' => Auth::id(),
+            'status' => 'failed',
+            'amount' => $request->input('amount'),
+        ]);
 
         // Handle any unexpected exceptions
         return response()->json(['error' => $e->getMessage()], 400);
