@@ -2666,7 +2666,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>Customer:</strong> ${data.DATA.Customer || 'N/A'}</p>
                          <p><strong>Due Date:</strong> ${data.DATA.DueDate || 'N/A'}</p>
                         <p><strong>Status:</strong> ${data.DATA.DueDate || 'N/A'}</p>
-                        <p><strong>REF ID</strong> ${data.REFID || 'N/A'}</p>
+                        <p><strong>REF ID:</strong> ${data.REFID || 'N/A'}</p>
                     `;
                     billDetails.classList.remove('hidden');
                 } else {
