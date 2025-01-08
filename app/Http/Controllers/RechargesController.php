@@ -94,20 +94,22 @@ class RechargesController extends Controller
             Log::info('Refunded amount to wallet. New balance: ' . $wallet->balance);
 
             // Return the failure response
-            return response()->json(['error' => $apiResponse['MESSAGE'] ?? 'Recharge failed'], 400);
+            return response()->json([
+                'apiResponse' => [
+                    'STATUS' => 3,
+                    'MESSAGE' => $apiResponse['MESSAGE'] ?? 'Request failed!',
+                    'ERROR_MASSAGE' => $apiResponse['ERROR_MASSAGE'] ?? 'Unknown error',
+                    'ERRORCODE' => $apiResponse['ERRORCODE'] ?? '38',
+                    'REQUESTTXNID' => $apiResponse['REQUESTTXNID'] ?? 'txn_unknown',
+                    'HTTPCODE' => 200
+                ]
+            ], 400);
         }
 
         // Step 11: Return the successful API response
         return response()->json([
-            'apiResponse' => [
-                'STATUS' => 3,
-                'MESSAGE' => $apiResponse['MESSAGE'] ?? 'Request is failed!',
-                'ERROR_MASSAGE' => $apiResponse['ERROR_MASSAGE'] ?? 'Unknown error',
-                'ERRORCODE' => $apiResponse['ERRORCODE'] ?? '38',
-                'REQUESTTXNID' => $apiResponse['REQUESTTXNID'] ?? 'txn_unknown',
-                'HTTPCODE' => 200
-            ]
-        ], 400);
+            'apiResponse' => $apiResponse
+        ]);
 
     } catch (\Exception $e) {
         // Log the error for debugging
