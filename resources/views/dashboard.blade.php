@@ -246,10 +246,11 @@
                                                 <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                             </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('fetch')">Fetch Bill</span>
+                                            <span class="text-sm ml-2" onclick="showContent('fetch')">Fetch
+                                                Bill</span>
                                         </a>
                                     </li>
-                                    
+
 
                                 </ul>
 
@@ -512,7 +513,8 @@
                                                 <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                             </svg>
-                                            <span class="text-sm ml-2" onclick="showContent('fetch')">fetch Bills</span>
+                                            <span class="text-sm ml-2" onclick="showContent('fetch')">fetch
+                                                Bills</span>
                                         </a>
                                     </li>
 
@@ -692,7 +694,7 @@
                 <h3 class="mb-8 font-extrabold">
                     History
                 </h3>
-            
+
                 <!-- Added Overflow-x-auto for responsiveness -->
                 <div class="overflow-x-auto">
                     <table class="text-left w-full">
@@ -704,7 +706,7 @@
                                 <th class="p-4">Status</th>
                                 <th class="p-4">Amount</th>
                                 <th class="p-4">Transaction ID</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody class="bg-grey-light" id="transaction-table-body">
@@ -1165,7 +1167,8 @@
                         <h2 class="text-xl text-center font-extrabold text-gray-800 mb-4">DTH Recharge
                         </h2>
                         <form id="dthrechargeForm">
-                            <label for="phone" class="block text-sm text-gray-600 mb-1">Registered Number / Customer ID</label>
+                            <label for="phone" class="block text-sm text-gray-600 mb-1">Registered Number /
+                                Customer ID</label>
                             <input type="tel" id="dthphone" name="phone"
                                 placeholder="Enter your phone number" required
                                 class="w-full sm:w-3/4 md:w-1/2 p-2 text-sm border border-gray-300 rounded-md mb-4 focus:border-black focus:ring-1 focus:ring-gray-500">
@@ -1179,8 +1182,8 @@
                                 </select>
                             </div>
                             <label for="amount" class="text-sm text-gray-600">Enter Amount</label>
-                            <input id="dthrechargeamount" type="number" name="amount"
-                                placeholder="Enter amount" required
+                            <input id="dthrechargeamount" type="number" name="amount" placeholder="Enter amount"
+                                required
                                 class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
                             <button type="submit"
                                 class="w-full p-3 bg-black mt-3 text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black hover:focus:border-black transition-colors">
@@ -1207,7 +1210,7 @@
                                 <option value="" disabled selected>Loading operators...</option>
                             </select>
                         </div>
-            
+
                         <!-- Registered Number / Consumer ID -->
                         <div>
                             <label for="phone" class="block text-base font-medium text-gray-700 mb-2">
@@ -1217,20 +1220,20 @@
                                 placeholder="Enter your registered number or ID" required
                                 class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-50 focus:ring-2 focus:ring-black focus:border-black placeholder-gray-400">
                         </div>
-            
+
                         <!-- Enter Amount -->
                         <div>
                             <label for="amount" class="block text-base font-medium text-gray-700 mb-2">
                                 Enter Amount:
                             </label>
-                            <input id="billamount" type="number" name="amount"
-                                placeholder="Enter amount" required
+                            <input id="billamount" type="number" name="amount" placeholder="Enter amount"
+                                required
                                 class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
                         </div>
-            
+
                         <!-- Dynamic Fields (if applicable) -->
                         <div id="dynamicFields" class="space-y-4"></div>
-            
+
                         <!-- Submit Button -->
                         <button type="submit"
                             class="w-full py-3 text-lg font-semibold text-white bg-black rounded-md hover:bg-gray-800 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-800">
@@ -1239,9 +1242,9 @@
                     </form>
                 </div>
             </div>
-            
-            
-            
+
+
+
 
             <div id="loan" class="tab-content hidden">
                 <div class="max-w-sm w-full h-auto p-6 bg-white rounded-lg shadow-md mx-auto sm:max-w-md md:max-w-lg">
@@ -1321,19 +1324,13 @@
                             <label for="serviceNumber" class="block text-sm font-medium text-gray-700 mb-2">
                                 Enter Service Number
                             </label>
-                            <input 
-                                type="text" 
-                                id="serviceNumber" 
-                                name="serviceNumber" 
-                                placeholder="Enter your service number" 
+                            <input type="text" id="serviceNumber" name="serviceNumber"
+                                placeholder="Enter your service number"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                required 
-                            />
+                                required />
                         </div>
-                        <button 
-                            type="submit"
-                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black focus:ring-2 focus:ring-black focus:outline-none transition-colors"
-                        >
+                        <button type="submit"
+                            class="w-full p-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-400 hover:text-black focus:ring-2 focus:ring-black focus:outline-none transition-colors">
                             Fetch Bill
                         </button>
                     </form>
@@ -1345,8 +1342,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
 
 
 
@@ -2466,216 +2463,220 @@
     </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const billsDropdown = document.getElementById('billsoperator');
-    const apiURL = "/operators"; // Ensure this route matches your backend route.
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const billsDropdown = document.getElementById('billsoperator');
+            const apiURL = "/operators"; // Ensure this route matches your backend route.
 
-    fetch(apiURL)
-        .then(response => response.json())
-        .then(responseData => {
-            console.log(responseData); // Log the response for debugging.
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log(responseData); // Log the response for debugging.
 
-            // Skip the first 11 entries and populate dropdown with the rest
-            responseData.data.slice(11).forEach(bill => {
-                const option = document.createElement('option');
-                option.value = bill.id; // Use the appropriate identifier for the bill.
-                option.textContent = bill.operator_name; // Replace `operator_name` with the appropriate field.
-                billsDropdown.appendChild(option);
-            });
-        })
-        .catch(error => console.error('Error fetching bills:', error));
-});
+                    // Skip the first 11 entries and populate dropdown with the rest
+                    responseData.data.slice(11).forEach(bill => {
+                        const option = document.createElement('option');
+                        option.value = bill.id; // Use the appropriate identifier for the bill.
+                        option.textContent = bill
+                        .operator_name; // Replace `operator_name` with the appropriate field.
+                        billsDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching bills:', error));
+        });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const billForm = document.getElementById('electricityForm');
-    billForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const phone = document.getElementById('billphone').value.trim();
-        const billID = document.getElementById('billsoperator').value;
-        const operatorName = document.getElementById('billsoperator').selectedOptions[0]?.text;
-        const amountElement = document.getElementById('billamount');
-        const amount = amountElement ? amountElement.value.trim() : '';
+        document.addEventListener('DOMContentLoaded', () => {
+            const billForm = document.getElementById('electricityForm');
+            billForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const phone = document.getElementById('billphone').value.trim();
+                const billID = document.getElementById('billsoperator').value;
+                const operatorName = document.getElementById('billsoperator').selectedOptions[0]?.text;
+                const amountElement = document.getElementById('billamount');
+                const amount = amountElement ? amountElement.value.trim() : '';
 
-        // Basic validation
-        if (!phone || !billID || !amount) {
-            alert('Please fill out all fields before submitting!');
-            return;
-        }
-        if (!/^[0-9]{10}$/.test(phone)) {
-            alert('Enter a valid 10-digit phone number.');
-            return;
-        }
-
-        // Prepare data payload
-        const payload = {
-            mobile_number: phone,
-            amount: amount,
-            provider: operatorName,
-            operator_id: billID,
-        };
-        console.log('Payload:', payload);
-
-        fetch('/billpay', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            body: JSON.stringify(payload),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Failed to send bill payment request.');
+                // Basic validation
+                if (!phone || !billID || !amount) {
+                    alert('Please fill out all fields before submitting!');
+                    return;
                 }
-                return response.json();
-            })
-            .then((data) => {
-                console.log('Recharge Response:', data);
-
-                if (data.STATUS === 1) {
-                    alert(data.MESSAGE);
-                    alert(`Your RequestID: ${data.REQUESTTXNID}`);
-                    alert(`Your OrderID: ${data.TXNNO}`);
-                    billForm.reset();
-                } else {
-                    alert(data.error || data.ERROR_MASSAGE || 'Bill payment failed. Please try again.');
+                if (!/^[0-9]{10}$/.test(phone)) {
+                    alert('Enter a valid 10-digit phone number.');
+                    return;
                 }
-            })
-            .catch((error) => {
-                console.error('Error in Bill payment request:', error);
-                alert('Unable to process Bill Payment. Please try again later.');
+
+                // Prepare data payload
+                const payload = {
+                    mobile_number: phone,
+                    amount: amount,
+                    provider: operatorName,
+                    operator_id: billID,
+                };
+                console.log('Payload:', payload);
+
+                fetch('/billpay', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Failed to send bill payment request.');
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log('Recharge Response:', data);
+
+                        if (data.STATUS === 1) {
+                            alert(data.MESSAGE);
+                            alert(`Your RequestID: ${data.REQUESTTXNID}`);
+                            alert(`Your OrderID: ${data.TXNNO}`);
+                            billForm.reset();
+                        } else {
+                            alert(data.error || data.ERROR_MASSAGE ||
+                                'Bill payment failed. Please try again.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error in Bill payment request:', error);
+                        alert('Unable to process Bill Payment. Please try again later.');
+                    });
             });
-    });
-});
-
-
+        });
     </script>
 
 
 
 
-<script>
-   document.addEventListener('DOMContentLoaded', () => {
-    const operatorDropdown = document.getElementById('transfer');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const operatorDropdown = document.getElementById('transfer');
 
-    // Fetch operator list from backend
-    const apiUrl = "/transactions";
+            // Fetch operator list from backend
+            const apiUrl = "/transactions";
 
-    fetch(apiUrl)
-        .then(response => {
-            // If the response is not OK, throw an error
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Get the table body element
-            const tableBody = document.getElementById('transaction-table-body');
-            
-            
-            // Clear any existing rows
-            tableBody.innerHTML = '';
+            fetch(apiUrl)
+                .then(response => {
+                    // If the response is not OK, throw an error
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Get the table body element
+                    const tableBody = document.getElementById('transaction-table-body');
 
-            // Loop through each transaction and create a row
-            data.forEach(transaction => {
-                const row = document.createElement('tr');
-                console.log(transaction);
-                
-                // Create columns for each transaction attribute
-                const transactionTypeCell = document.createElement('td');
-                transactionTypeCell.classList.add('p-4');
-                transactionTypeCell.textContent = transaction.transaction_type;
 
-                const userIdCell = document.createElement('td');
-                userIdCell.classList.add('p-4');
-                userIdCell.textContent = transaction.user_id;
+                    // Clear any existing rows
+                    tableBody.innerHTML = '';
 
-                const dateCell = document.createElement('td');
-                dateCell.classList.add('p-4');
-                dateCell.textContent = new Date(transaction.datetime).toLocaleString(); // Ensure datetime is in a valid format
+                    // Loop through each transaction and create a row
+                    data.forEach(transaction => {
+                        const row = document.createElement('tr');
+                        console.log(transaction);
 
-                const statusCell = document.createElement('td');
-                statusCell.classList.add('p-4');
-                statusCell.textContent = transaction.status;
+                        // Create columns for each transaction attribute
+                        const transactionTypeCell = document.createElement('td');
+                        transactionTypeCell.classList.add('p-4');
+                        transactionTypeCell.textContent = transaction.transaction_type;
 
-                const amountCell = document.createElement('td');
-                amountCell.classList.add('p-4');
-                amountCell.textContent = transaction.amount;
+                        const userIdCell = document.createElement('td');
+                        userIdCell.classList.add('p-4');
+                        userIdCell.textContent = transaction.user_id;
 
-                const transactionidCell = document.createElement('td');
-                transactionidCell.classList.add('p-4');
-                transactionidCell.textContent = transaction.transaction_id;
+                        const dateCell = document.createElement('td');
+                        dateCell.classList.add('p-4');
+                        dateCell.textContent = new Date(transaction.datetime)
+                    .toLocaleString(); // Ensure datetime is in a valid format
 
-                // Apply green or red color based on status
-                if (transaction.status === 'success') {
-                    statusCell.style.color = 'green';
-                } else if (transaction.status === 'failed') {
-                    statusCell.style.color = 'red';
-                }
+                        const statusCell = document.createElement('td');
+                        statusCell.classList.add('p-4');
+                        statusCell.textContent = transaction.status;
 
-                // Append the cells to the row
-                row.appendChild(transactionTypeCell);
-                row.appendChild(userIdCell);
-                row.appendChild(dateCell);
-                row.appendChild(statusCell);
-                row.appendChild(amountCell);
-                row.appendChild(transactionidCell);
+                        const amountCell = document.createElement('td');
+                        amountCell.classList.add('p-4');
+                        amountCell.textContent = transaction.amount;
 
-                // Append the row to the table body
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching transactions:', error);
+                        const transactionidCell = document.createElement('td');
+                        transactionidCell.classList.add('p-4');
+                        transactionidCell.textContent = transaction.transaction_id;
+
+                        // Apply green or red color based on status
+                        if (transaction.status === 'success') {
+                            statusCell.style.color = 'green';
+                        } else if (transaction.status === 'failed') {
+                            statusCell.style.color = 'red';
+                        }
+
+                        // Append the cells to the row
+                        row.appendChild(transactionTypeCell);
+                        row.appendChild(userIdCell);
+                        row.appendChild(dateCell);
+                        row.appendChild(statusCell);
+                        row.appendChild(amountCell);
+                        row.appendChild(transactionidCell);
+
+                        // Append the row to the table body
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching transactions:', error);
+                });
         });
-});
+    </script>
 
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fetchForm = document.getElementById('fetchForm');
+            const billDetails = document.getElementById('billDetails');
+            const billContent = document.getElementById('billContent');
 
-<script>
-   document.addEventListener('DOMContentLoaded', () => {
-    const fetchForm = document.getElementById('fetchForm');
-    const billDetails = document.getElementById('billDetails');
-    const billContent = document.getElementById('billContent');
+            fetchForm.addEventListener('submit', (event) => {
+                event.preventDefault();
 
-    fetchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+                // Retrieve values from the form
+                const num = document.getElementById('serviceNumber').value.trim();
 
-        // Retrieve values from the form
-        const num = document.getElementById('serviceNumber').value.trim();
-
-        // Check if the field is filled
-        if (!num) {
-            alert('Please fill out the service number field before submitting!');
-            return;
-        }
-
-        // Prepare data payload
-        const payload = { num };
-
-        // Send data to the backend
-        fetch('/fetchbill', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            body: JSON.stringify(payload),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                // Check if the field is filled
+                if (!num) {
+                    alert('Please fill out the service number field before submitting!');
+                    return;
                 }
-                return response.json();
-            })
-            .then((data) => {
-                console.log('Bill details Response:', data);
 
-                // Display the bill details
-                if (data && Object.keys(data).length) {
-                    billContent.innerHTML = `
+                // Prepare data payload
+                const payload = {
+                    num
+                };
+
+                // Send data to the backend
+                fetch('/fetchbill', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log('Bill details Response:', data);
+
+                        // Display the bill details
+                        if (data && Object.keys(data).length) {
+                            billContent.innerHTML = `
                         <p><strong>Service Number:</strong> ${data.DATA.Amount || 'N/A'}</p>
                         <p><strong>Bill Amount:</strong> ${data.DATA.Bill_No || 'N/A'}</p>
                         <p><strong>Customer Name:</strong> ${data.DATA.Customer || 'N/A'}</p>
@@ -2683,21 +2684,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>Status:</strong> ${data.STATUS || 'N/A'}</p>
                         <p><strong>REF ID:</strong> ${data.REFID || 'N/A'}</p>
                     `;
-                    billDetails.classList.remove('hidden');
-                } else {
-                    billContent.innerHTML = '<p class="text-red-600">No bill details found for the provided service number.</p>';
-                    billDetails.classList.remove('hidden');
-                }
-            })
-            .catch((error) => {
-                console.error('Error in fetch request:', error);
-                billContent.innerHTML = '<p class="text-red-600">An error occurred while fetching the bill details. Please try again.</p>';
-                billDetails.classList.remove('hidden');
+                            billDetails.classList.remove('hidden');
+                        } else {
+                            billContent.innerHTML =
+                                '<p class="text-red-600">No bill details found for the provided service number.</p>';
+                            billDetails.classList.remove('hidden');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error in fetch request:', error);
+                        billContent.innerHTML =
+                            '<p class="text-red-600">An error occurred while fetching the bill details. Please try again.</p>';
+                        billDetails.classList.remove('hidden');
+                    });
             });
-    });
-});
-
-</script>
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -2780,9 +2782,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         },
                         body: JSON.stringify(payload),
                     })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        console.log('Recharge Response:', data.apiResponse);
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.apiResponse) {
+                            console.log(data.apiResponse); // Here you can use the response data
+                        }
 
                         if (data.STATUS === 1) {
                             // Successful recharge
@@ -2790,43 +2794,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             alert(data.MESSAGE);
                             alert(`Your RequestID ${data.REQUESTTXNID}`);
                             alert(`Your OrderID ${data.TXNNO}`);
-                        } else if (data.status === 'pending') {
-                            // Call the status check API if recharge is pending
-                            const refTxnId = data
-                                .refTxnId; // Assuming the backend provides this in the response
-                            fetch('/recharge/status')
-                                .then((statusResponse) => statusResponse.json())
-                                .then((statusData) => {
-                                    console.log('Status Check Response:', statusData);
-                                    if (statusData.STATUS === 1) {
-                                        alert('Recharge successful!');
-                                    } else {
-                                        alert(`Recharge failed: ${statusData.MESSAGE}`);
-                                    }
-                                })
-                                .catch((error) => {
-                                    console.error('Error in status check:', error);
-                                    alert(
-                                        'Unable to check recharge status. Please try again later.'
-                                    );
-                                });
-                        } else {
+                        }else {
                             // Handle immediate error
                             alert(data.error || data.ERROR_MASSAGE ||
                                 'Recharge failed. Please try again.');
                         }
+
                     })
-                    .catch((error) => {
-                        console.error('Error in recharge request:', error);
-                        alert('Unable to process recharge. Please try again later.');
-                    });
+                    .catch(error => console.error('Error:', error));
             });
         });
-
-
-
-
-
     </script>
 
     <script>
