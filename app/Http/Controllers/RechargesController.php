@@ -98,7 +98,16 @@ class RechargesController extends Controller
         }
 
         // Step 11: Return the successful API response
-        return response()->json($apiResponse);
+        return response()->json([
+            'apiResponse' => [
+                'STATUS' => 3,
+                'MESSAGE' => $apiResponse['MESSAGE'] ?? 'Request is failed!',
+                'ERROR_MASSAGE' => $apiResponse['ERROR_MASSAGE'] ?? 'Unknown error',
+                'ERRORCODE' => $apiResponse['ERRORCODE'] ?? '38',
+                'REQUESTTXNID' => $apiResponse['REQUESTTXNID'] ?? 'txn_unknown',
+                'HTTPCODE' => 200
+            ]
+        ], 400);
 
     } catch (\Exception $e) {
         // Log the error for debugging
