@@ -36,7 +36,7 @@ class ElectricityController extends Controller
 
     try {
         // Construct query parameters
-        $queryParams = array_filter([
+        $queryParams = [
             'Mode' => 'online', // Adjust as required: online/offline/bbps
             'at' => env('API_TOKEN'), // Replace with the actual token
             'op' => $operatorCode, // Use operator ID
@@ -48,7 +48,7 @@ class ElectricityController extends Controller
             'ez1' => '', // Optional fields
             'ez2' => '',
             'ez3' => '',
-        ]);
+        ];
 
         // Log the constructed URL and query parameters
         $apiUrl = 'https://Apibox.co.in/Api/Service/OnlineBillPay';
