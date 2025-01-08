@@ -2782,7 +2782,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log('Recharge Response:', data);
+                        console.log('Recharge Response:', data.apiResponse);
 
                         if (data.STATUS === 1) {
                             // Successful recharge
