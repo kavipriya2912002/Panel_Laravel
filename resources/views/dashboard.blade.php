@@ -695,11 +695,12 @@
                     History
                 </h3>
             
-                <!-- Added Overflow-x-auto for responsiveness -->
+                <!-- Table container for responsiveness -->
                 <div class="overflow-x-auto">
+                    <!-- Table for header -->
                     <table class="text-left w-full">
                         <thead class="bg-black text-white">
-                            <tr class="w-full mb-4">
+                            <tr>
                                 <th class="p-4">Transaction Type</th>
                                 <th class="p-4">User ID</th>
                                 <th class="p-4">Date</th>
@@ -709,12 +710,18 @@
                                 <th class="p-4">Download Report</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-grey-light overflow-y-auto max-h-96 block" id="transaction-table-body">
-                            <!-- Transaction rows will be inserted here dynamically -->
-                        </tbody>
                     </table>
+                    <!-- Table body container with scroll -->
+                    <div class="overflow-y-auto max-h-96">
+                        <table class="text-left w-full">
+                            <tbody class="bg-grey-light" id="transaction-table-body">
+                                <!-- Transaction rows will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+            
             
             
 
