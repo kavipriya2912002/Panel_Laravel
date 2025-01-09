@@ -2425,32 +2425,10 @@
                         if (data.STATUS === 1) {
                             // Successful recharge
                             rechargeForm.reset();
-                            alert(data.MESSAGE);
-                            alert(`Your RequestID ${data.REQUESTTXNID}`);
-                            alert(`Your OrderID ${data.TXNNO}`);
-                        } else if (data.status === 'pending') {
-                            // Call the status check API if recharge is pending
-                            const refTxnId = data
-                                .refTxnId; // Assuming the backend provides this in the response
-                            fetch('/recharge/status')
-                                .then((statusResponse) => statusResponse.json())
-                                .then((statusData) => {
-                                    console.log('Status Check Response:', statusData);
-                                    if (statusData.STATUS === 1) {
-                                        alert('Recharge successful!');
-                                    } else {
-                                        alert(`Recharge failed: ${statusData.MESSAGE}`);
-                                    }
-                                })
-                                .catch((error) => {
-                                    console.error('Error in status check:', error);
-                                    alert(
-                                        'Unable to check recharge status. Please try again later.'
-                                    );
-                                });
+                            alert(data.ERROR_MESSAGE);
                         } else {
                             // Handle immediate error
-                            alert(data.error || data.ERROR_MASSAGE ||
+                            alert(data.ERROR_MASSAGE ||
                                 'Recharge failed. Please try again.');
                         }
                     })
