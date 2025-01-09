@@ -15,7 +15,7 @@ class PdfController extends Controller
 public function generateTransactionPdf($transactionId)
 {
     // Fetch the transaction from the database
-    $transaction = Transaction::find($transactionId);
+    $transaction = AllTransaction::find($transactionId);
 
     if (!$transaction) {
         Log::error("Transaction with ID {$transactionId} not found.");
