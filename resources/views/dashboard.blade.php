@@ -2421,11 +2421,14 @@
                     .then((response) => response.json())
                     .then((data) => {
                         console.log('Recharge Response:', data);
-
+                        console.log(data.ERROR_MASSAGE);
+                        console.log(data.apiResponse.ERROR_MASSAGE);
                         if (data.STATUS === 1) {
                             // Successful recharge
                             rechargeForm.reset();
-                            alert(data.ERROR_MESSAGE);
+                            alert(data.MESSAGE);
+                            alert(`Your RequestID ${data.REQUESTTXNID}`);
+                            alert(`Your OrderID ${data.TXNNO}`);
                         } else {
                             // Handle immediate error
                             alert(data.ERROR_MASSAGE ||
