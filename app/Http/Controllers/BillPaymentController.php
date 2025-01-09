@@ -208,7 +208,7 @@ class BillPaymentController extends Controller
     {
         // Fetch all transactions from the database
         $transactions = AllTransaction::all();
-        Log::info($transactions);
+        // Log::info($transactions);
         // Return the transactions as a JSON response
         return response()->json($transactions);
     }
