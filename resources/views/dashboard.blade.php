@@ -2558,6 +2558,9 @@
                     data.forEach(transaction => {
                         const row = document.createElement('tr');
 
+                        let transId = transaction.id;
+                        console.log(transId);
+                        
                         const transactionTypeCell = document.createElement('td');
                         transactionTypeCell.classList.add('p-4');
                         transactionTypeCell.textContent = transaction.transaction_type;
