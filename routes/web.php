@@ -5,6 +5,7 @@ use App\Http\Controllers\BillPaymentController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ElectricityController;
 use App\Http\Controllers\MobileOperatorsController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RechargesController;
 use App\Http\Controllers\RouteController;
@@ -60,6 +61,8 @@ Route::post('/fetchbill', [BillPaymentController::class, 'fetchBills']);
 Route::get('/transactions', [BillPaymentController::class, 'GetAllTransactions']);
 
 Route::post('/electricity', [ElectricityController::class, 'PayElectricity']);
+
+Route::get('/transactions/{transactionId}/download-pdf', [PdfController::class, 'generateTransactionPdf']);
 
 
 Route::get('/bills',[BillPaymentController::class,'getBills']);

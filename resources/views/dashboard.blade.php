@@ -706,6 +706,7 @@
                                 <th class="p-4">Status</th>
                                 <th class="p-4">Amount</th>
                                 <th class="p-4">Transaction ID</th>
+                                <th class="p-4">Download Report</th>
 
                             </tr>
                         </thead>
@@ -2421,9 +2422,10 @@
                     .then((response) => response.json())
                     .then((data) => {
                         console.log('Recharge Response:', data);
-                       
-                      
-                        console.log(data.apiResponse?.ERROR_MESSAGE); // Use optional chaining for nested objects
+
+
+                        console.log(data.apiResponse
+                        ?.ERROR_MESSAGE); // Use optional chaining for nested objects
 
                         if (data.STATUS === 1) {
                             // Successful recharge
@@ -2513,7 +2515,7 @@
                         return response.json();
                     })
                     .then(data => {
-                        
+
 
                         if (data.STATUS === 1) {
                             alert(data.MESSAGE);
@@ -2539,33 +2541,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const operatorDropdown = document.getElementById('transfer');
-
-            // Fetch operator list from backend
             const apiUrl = "/transactions";
 
             fetch(apiUrl)
                 .then(response => {
-                    // If the response is not OK, throw an error
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
                     return response.json();
                 })
                 .then(data => {
-                    // Get the table body element
                     const tableBody = document.getElementById('transaction-table-body');
 
-
-                    // Clear any existing rows
                     tableBody.innerHTML = '';
 
-                    // Loop through each transaction and create a row
                     data.forEach(transaction => {
                         const row = document.createElement('tr');
-                        console.log(transaction);
 
-                        // Create columns for each transaction attribute
                         const transactionTypeCell = document.createElement('td');
                         transactionTypeCell.classList.add('p-4');
                         transactionTypeCell.textContent = transaction.transaction_type;
@@ -2576,8 +2568,7 @@
 
                         const dateCell = document.createElement('td');
                         dateCell.classList.add('p-4');
-                        dateCell.textContent = new Date(transaction.datetime)
-                            .toLocaleString(); // Ensure datetime is in a valid format
+                        dateCell.textContent = new Date(transaction.datetime).toLocaleString();
 
                         const statusCell = document.createElement('td');
                         statusCell.classList.add('p-4');
@@ -2587,9 +2578,21 @@
                         amountCell.classList.add('p-4');
                         amountCell.textContent = transaction.amount;
 
-                        const transactionidCell = document.createElement('td');
-                        transactionidCell.classList.add('p-4');
-                        transactionidCell.textContent = transaction.transaction_id;
+                        const transactionIdCell = document.createElement('td');
+                        transactionIdCell.classList.add('p-4');
+                        transactionIdCell.textContent = transaction.transaction_id;
+
+                        // Create a "Download Report" button
+                        const downloadCell = document.createElement('td');
+                        downloadCell.classList.add('p-4');
+                        const downloadButton = document.createElement('button');
+                        downloadButton.textContent = 'Download Report';
+                        downloadButton.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2',
+                            'rounded');
+                        downloadButton.addEventListener('click', () => {
+                            downloadReport(transaction.transaction_id);
+                        });
+                        downloadCell.appendChild(downloadButton);
 
                         // Apply green or red color based on status
                         if (transaction.status === 'success') {
@@ -2598,15 +2601,15 @@
                             statusCell.style.color = 'red';
                         }
 
-                        // Append the cells to the row
+                        // Append cells to the row
                         row.appendChild(transactionTypeCell);
                         row.appendChild(userIdCell);
                         row.appendChild(dateCell);
                         row.appendChild(statusCell);
                         row.appendChild(amountCell);
-                        row.appendChild(transactionidCell);
+                        row.appendChild(transactionIdCell);
+                        row.appendChild(downloadCell);
 
-                        // Append the row to the table body
                         tableBody.appendChild(row);
                     });
                 })
@@ -2614,6 +2617,38 @@
                     console.error('Error fetching transactions:', error);
                 });
         });
+
+        // Function to download the report as a PDF
+        function downloadReport(transactionId) {
+            // Assuming you have a route in Laravel to handle this request
+            const apiUrl = `/transactions/${transactionId}/download-pdf`;
+
+            fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/pdf',
+                    },
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to download the report.');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `transaction_${transactionId}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                })
+                .catch(error => {
+                    console.error('Error downloading the report:', error);
+                    alert('Unable to download the report. Please try again.');
+                });
+        }
     </script>
 
     <script>
