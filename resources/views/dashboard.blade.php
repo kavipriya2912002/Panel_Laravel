@@ -709,7 +709,7 @@
                     <th class="p-4">Download Report</th>
                 </tr>
             </thead>
-            <tbody class="bg-grey-light overflow-y-auto max-h-96" id="transaction-table-body">
+            <tbody class="bg-grey-light overflow-x-auto overflow-y-auto max-h-96" id="transaction-table-body">
                 <!-- Transaction rows will be inserted here dynamically -->
             </tbody>
         </table>
