@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
 
 class PdfController extends Controller
 {
@@ -24,6 +25,8 @@ class PdfController extends Controller
             'amount' => $transaction->amount,
             'transactionId' => $transaction->transaction_id,
         ];
+
+        Log::info($data);
 
         // Generate PDF
         $pdf = Pdf::loadView('reports.transactions', $data);
