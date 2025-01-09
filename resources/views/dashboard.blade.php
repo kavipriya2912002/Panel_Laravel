@@ -696,8 +696,8 @@
                 </h3>
             
                 <!-- Added Overflow-x-auto for responsiveness -->
-                <div class="overflow-x-auto">
-                    <table class="text-left w-full">
+                <div>
+                    <table class="text-left w-full overflow-x-auto">
                         <thead class="bg-black text-white">
                             <tr class="w-full mb-4">
                                 <th class="p-4">Transaction Type</th>
