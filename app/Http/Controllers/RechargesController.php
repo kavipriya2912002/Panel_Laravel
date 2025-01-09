@@ -97,10 +97,10 @@ class RechargesController extends Controller
             return response()->json([
                 'apiResponse' => [
                     'STATUS' => 3,
-                    'MESSAGE' => $apiResponse['MESSAGE'] ?? 'Request failed!',
-                    'ERROR_MASSAGE' => $apiResponse['ERROR_MASSAGE'] ?? 'Unknown error',
-                    'ERRORCODE' => $apiResponse['ERRORCODE'] ?? '38',
-                    'REQUESTTXNID' => $apiResponse['REQUESTTXNID'] ?? 'txn_unknown',
+                    'MESSAGE' => $apiResponse['MESSAGE'],
+                    'ERROR_MASSAGE' => $apiResponse['ERROR_MASSAGE'],
+                    'ERRORCODE' => $apiResponse['ERRORCODE'],
+                    'REQUESTTXNID' => $apiResponse['REQUESTTXNID'],
                     'HTTPCODE' => 200
                 ]
             ], 400);
