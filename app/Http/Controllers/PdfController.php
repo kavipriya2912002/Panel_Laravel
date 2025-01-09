@@ -26,7 +26,7 @@ class PdfController extends Controller
         ];
 
         // Generate PDF
-        $pdf = Pdf::loadView('reports.transaction', $data);
+        $pdf = Pdf::loadView('reports.transactions', $data);
 
         // Return PDF as a response
         return $pdf->download("transaction_{$transaction->transaction_id}.pdf");
