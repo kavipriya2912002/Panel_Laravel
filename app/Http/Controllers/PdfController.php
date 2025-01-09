@@ -12,7 +12,9 @@ class PdfController extends Controller
     {
         // Fetch transaction details from the database
         $transaction = Transaction::findOrFail($transactionId);
-
+        if (!$transaction) {
+            return response()->json(['error' => 'Transaction not found'], 404);
+        }
         // Pass transaction data to the PDF view
         $data = [
             'transactionType' => $transaction->transaction_type,

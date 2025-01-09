@@ -2590,6 +2590,8 @@
                         downloadButton.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2',
                             'rounded');
                         downloadButton.addEventListener('click', () => {
+                            console.log(transaction.transaction_id);
+                            
                             downloadReport(transaction.transaction_id);
                         });
                         downloadCell.appendChild(downloadButton);
@@ -2620,35 +2622,35 @@
 
         // Function to download the report as a PDF
         function downloadReport(transactionId) {
-            // Assuming you have a route in Laravel to handle this request
-            const apiUrl = `/transactions/${transactionId}/download-pdf`;
+    const apiUrl = `/transactions/${transactionId}/download-pdf`;
 
-            fetch(apiUrl, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/pdf',
-                    },
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to download the report.');
-                    }
-                    return response.blob();
-                })
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `transaction_${transactionId}.pdf`;
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                })
-                .catch(error => {
-                    console.error('Error downloading the report:', error);
-                    alert('Unable to download the report. Please try again.');
-                });
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/pdf',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to download the report. Status: ${response.status} - ${response.statusText}`);
         }
+        return response.blob();
+    })
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `transaction_${transactionId}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
+    .catch(error => {
+        console.error('Error downloading the report:', error);
+        alert('Error: Unable to download the report. Please check the logs for more details.');
+    });
+}
+
     </script>
 
     <script>
