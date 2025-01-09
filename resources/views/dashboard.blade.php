@@ -2593,7 +2593,7 @@
                         downloadButton.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2',
                             'rounded');
                         downloadButton.addEventListener('click', () => {
-                            console.log(transaction.transaction_id);
+                            console.log(transId);
                             
                             downloadReport(transId);
                         });
