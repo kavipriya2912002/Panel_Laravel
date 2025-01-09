@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AllTransaction;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -12,7 +13,7 @@ class PdfController extends Controller
     public function generateTransactionPdf($transactionId)
     {
         // Check if the transaction exists
-        $transaction = Transaction::find($transactionId);
+        $transaction = AllTransaction::find($transactionId);
     
         if (!$transaction) {
             // Log the error if the transaction does not exist
