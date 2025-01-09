@@ -2513,7 +2513,7 @@
                         return response.json();
                     })
                     .then(data => {
-                        console.log('Payment Response:', data);
+                        
 
                         if (data.STATUS === 1) {
                             alert(data.MESSAGE);
