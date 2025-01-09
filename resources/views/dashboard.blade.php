@@ -2595,7 +2595,7 @@
                         downloadButton.addEventListener('click', () => {
                             console.log(transaction.transaction_id);
                             
-                            downloadReport(transaction.transaction_id);
+                            downloadReport(transId);
                         });
                         downloadCell.appendChild(downloadButton);
 
