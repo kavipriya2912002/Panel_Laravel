@@ -2559,7 +2559,7 @@
                         const row = document.createElement('tr');
 
                         let transId = transaction.id;
-                        console.log(transId);
+                        console.log('transId',transId);
                         
                         const transactionTypeCell = document.createElement('td');
                         transactionTypeCell.classList.add('p-4');
