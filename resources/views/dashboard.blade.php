@@ -2421,8 +2421,10 @@
                     .then((response) => response.json())
                     .then((data) => {
                         console.log('Recharge Response:', data);
-                        console.log(data.ERROR_MASSAGE);
-                        console.log(data.apiResponse.ERROR_MASSAGE);
+                        console.log('Recharge Response:', data);
+                        console.log(data.ERROR_MESSAGE); // Use the correct key
+                        console.log(data.apiResponse?.ERROR_MESSAGE); // Use optional chaining for nested objects
+
                         if (data.STATUS === 1) {
                             // Successful recharge
                             rechargeForm.reset();
@@ -2460,7 +2462,7 @@
                         const option = document.createElement('option');
                         option.value = operator.id; // Use the appropriate identifier for the operator.
                         option.textContent = operator
-                        .operator_name; // Replace `operator_name` with the correct field.
+                            .operator_name; // Replace `operator_name` with the correct field.
                         billsDropdown.appendChild(option);
                     });
                 })
