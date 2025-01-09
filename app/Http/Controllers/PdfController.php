@@ -11,12 +11,16 @@ class PdfController extends Controller
 {
     public function generateTransactionPdf($transactionId)
     {
-        // Fetch transaction details from the database
-        $transaction = Transaction::findOrFail($transactionId);
+        // Check if the transaction exists
+        $transaction = Transaction::find($transactionId);
+    
         if (!$transaction) {
+            // Log the error if the transaction does not exist
+            Log::error("Transaction not found: {$transactionId}");
             return response()->json(['error' => 'Transaction not found'], 404);
         }
-        // Pass transaction data to the PDF view
+    
+        // Log the data if the transaction exists
         $data = [
             'transactionType' => $transaction->transaction_type,
             'userId' => $transaction->user_id,
@@ -25,13 +29,16 @@ class PdfController extends Controller
             'amount' => $transaction->amount,
             'transactionId' => $transaction->transaction_id,
         ];
-
-        Log::info($data);
-
-        // Generate PDF
+    
+        Log::info('Generating PDF for transaction:', $data);
+    
+        // Generate the PDF
         $pdf = Pdf::loadView('reports.transactions', $data);
-
-        // Return PDF as a response
-        return $pdf->download("transaction_{$transaction->transaction_id}.pdf");
+    
+        // Return the PDF response
+        return response($pdf->output(), 200)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="transaction_' . $transaction->transaction_id . '.pdf"');
     }
+    
 }
