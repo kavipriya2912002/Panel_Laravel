@@ -2421,19 +2421,19 @@
                     .then((response) => response.json())
                     .then((data) => {
                         console.log('Recharge Response:', data);
-                        console.log('Recharge Response:', data);
-                        console.log(data.ERROR_MESSAGE); // Use the correct key
+                       
+                      
                         console.log(data.apiResponse?.ERROR_MESSAGE); // Use optional chaining for nested objects
 
                         if (data.STATUS === 1) {
                             // Successful recharge
                             rechargeForm.reset();
-                            alert(data.MESSAGE);
-                            alert(`Your RequestID ${data.REQUESTTXNID}`);
-                            alert(`Your OrderID ${data.TXNNO}`);
+                            alert(data.apiResponse?.MESSAGE);
+                            alert(`Your RequestID ${data.apiResponse?.REQUESTTXNID}`);
+                            alert(`Your OrderID ${data.apiResponse?.TXNNO}`);
                         } else {
                             // Handle immediate error
-                            alert(data.ERROR_MASSAGE ||
+                            alert(data.apiResponse?.ERROR_MESSAGE ||
                                 'Recharge failed. Please try again.');
                         }
                     })
