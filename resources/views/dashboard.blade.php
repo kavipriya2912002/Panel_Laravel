@@ -694,7 +694,7 @@
                 <h3 class="mb-8 font-extrabold">
                     History
                 </h3>
-
+            
                 <!-- Added Overflow-x-auto for responsiveness -->
                 <div class="overflow-x-auto">
                     <table class="text-left w-full">
@@ -707,15 +707,15 @@
                                 <th class="p-4">Amount</th>
                                 <th class="p-4">Transaction ID</th>
                                 <th class="p-4">Download Report</th>
-
                             </tr>
                         </thead>
-                        <tbody class="bg-grey-light" id="transaction-table-body">
+                        <tbody class="bg-grey-light overflow-y-auto max-h-96" id="transaction-table-body">
                             <!-- Transaction rows will be inserted here dynamically -->
                         </tbody>
                     </table>
                 </div>
             </div>
+            
 
             <!-- Recharge Content -->
             <div id="recharge" class="tab-content hidden px-4">
