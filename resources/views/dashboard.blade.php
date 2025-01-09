@@ -696,7 +696,7 @@
     </h3>
 
     <!-- Added Overflow-x-auto for responsiveness -->
-    <div class="overflow-x-auto">
+    <div>
         <table class="text-left w-full">
             <thead class="bg-black text-white">
                 <tr class="w-full mb-4">
