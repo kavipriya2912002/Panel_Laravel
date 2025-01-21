@@ -207,8 +207,10 @@ class BillPaymentController extends Controller
     public function GetAllTransactions()
     {
         // Fetch all transactions from the database
-        $transactions = AllTransaction::all();
-        // Log::info($transactions);
+        $transactions = AllTransaction::where('status', 'failed')->get();  // This limits results to only 'failed' transactions
+
+
+        Log::info($transactions);
         // Return the transactions as a JSON response
         return response()->json($transactions);
     }

@@ -80,6 +80,11 @@
             <img src="{{ asset('assets/satellite-dish.png') }}" alt="Recharge DTH or TV" class="h-10 mb-3">
             <p class="text-L font-medium">Fetch </p>
         </a>
+
+        <a href="{{ route('transfer') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
+            <img src="{{ asset('assets/transfers.svg') }}" alt="wallet" class="h-9 mb-3">
+            <p class="text-L font-medium">Transactions</p>
+        </a>
     </div>
     
     </div>

@@ -44,4 +44,9 @@ class PageController extends Controller
     {
         return view('fetch');
     }
+
+    public function transfer()
+    {
+        return view('transfer');
+    }
 }

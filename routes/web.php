@@ -65,6 +65,7 @@ Route::get('/loan', [PageController::class, 'loan'])->name('loan');
 Route::get('/dth', [PageController::class, 'dth'])->name('dth');
 Route::get('/wallet', [PageController::class, 'wallet'])->name('wallet');
 Route::get('/fetch', [PageController::class, 'fetch'])->name('fetch');
+Route::get('/transfer', [PageController::class, 'transfer'])->name('transfer');
 
 Route::get('/operators', [MobileOperatorsController::class, 'getAllOperators']);
 Route::post('/fetchbill', [BillPaymentController::class, 'fetchBills']);
