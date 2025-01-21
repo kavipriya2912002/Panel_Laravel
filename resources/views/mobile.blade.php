@@ -13,7 +13,9 @@
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="text-center flex-grow">
-                <h1 class="text-2xl font-bold">BBPS Panel</h1>
+                <a href="{{ route('home') }}" class="text-2xl font-bold">
+                    BBPS Panel
+                </a>
             </div>
             <!-- Left-Aligned Content (Empty or Add if needed) -->
             <div class="flex-grow"></div>

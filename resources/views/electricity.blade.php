@@ -14,7 +14,9 @@
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="text-center flex-grow">
-                <h1 class="text-2xl font-bold">BBPS Panel</h1>
+                <a href="{{ route('home') }}" class="text-2xl font-bold">
+                    BBPS Panel
+                </a>
             </div>
             <!-- Left-Aligned Content (Empty or Add if needed) -->
             <div class="flex-grow"></div>
@@ -31,7 +33,7 @@
             </div>
         </div>
     </header>
-    
+
     <div id="electricity" class="tab-content mt-7">
         <div class="max-w-md w-full h-auto p-8 bg-white rounded-lg shadow-lg mx-auto sm:max-w-lg md:max-w-xl">
             <h2 class="text-3xl text-center font-extrabold text-gray-800 mb-8">
