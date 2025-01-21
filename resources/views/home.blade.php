@@ -18,19 +18,34 @@
         <!-- Left-Aligned Content (Empty or Add if needed) -->
         <div class="flex-grow"></div>
 
-        <!-- Center-Aligned Heading -->
-        
-
         <!-- Right-Aligned Content -->
         <div class="ml-auto flex items-center space-x-6">
             <div class="bg-gray-50 p-2 shadow rounded-lg text-center">
                 <span class="text-gray-600 text-sm">Wallet Balance</span>
                 <p id="wallet-amount" class="font-semibold text-lg">₹ 0.2</p>
             </div>
+            <!-- Logout Button -->
+            <button id="logout-button" class="bg-red-500 text-white px-4 py-2 rounded-lg">
+                Logout
+            </button>
         </div>
     </div>
 </header>
 
+<!-- Logout Confirmation Modal -->
+<div id="logout-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg w-1/3">
+        <h3 class="text-xl font-semibold">Are you sure you want to logout?</h3>
+        <div class="mt-4 flex justify-between">
+            <button id="logout-cancel" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg">
+                Cancel
+            </button>
+            <button id="logout-confirm" class="bg-red-500 text-white px-4 py-2 rounded-lg">
+                Logout Now
+            </button>
+        </div>
+    </div>
+</div>
 
 
 
@@ -91,6 +106,34 @@
   </div>
 
   <script>
+
+
+// Show the logout confirmation modal
+document.getElementById('logout-button').addEventListener('click', () => {
+        document.getElementById('logout-modal').classList.remove('hidden');
+    });
+
+    // Close the logout confirmation modal
+    document.getElementById('logout-cancel').addEventListener('click', () => {
+        document.getElementById('logout-modal').classList.add('hidden');
+    });
+
+    // Call the logout route when the user confirms
+    document.getElementById('logout-confirm').addEventListener('click', () => {
+        axios.post('/logout')
+            .then(response => {
+                // Handle successful logout, like redirecting to the login page
+                window.location.href = '/login'; // Replace with your login page URL
+            })
+            .catch(error => {
+                console.error('Logout failed:', error);
+                alert('Logout failed. Please try again.');
+            });
+    });
+
+
+
+
     
     function fetchWalletAmount() {
     axios.get('/get-wallet-amount')
