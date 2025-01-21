@@ -38,7 +38,7 @@
     
         <!-- Added Overflow-x-auto for responsiveness -->
         <div class="overflow-x-auto max-w-full">
-            <table class="text-left w-full table-auto">
+            <table class="text-left overflow-y-auto w-full table-auto">
                 <thead class="bg-black text-white">
                     <tr>
                         <th class="p-4">Transaction Type</th>
