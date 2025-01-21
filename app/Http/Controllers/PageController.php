@@ -40,4 +40,8 @@ class PageController extends Controller
     {
         return view('wallet');
     }
+    public function fetch()
+    {
+        return view('fetch');
+    }
 }

@@ -10,19 +10,28 @@
 </head>
 <body class="bg-gray-100">
   <!-- Header Section -->
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-           
-            <!-- Right-Aligned Content -->
-            <div class="ml-auto flex items-center space-x-6">
-            {{-- <span class="text-sm font-medium">Hello</span> --}}
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="text-center flex-grow">
+            <h1 class="text-2xl font-bold">BBPS Panel</h1>
+        </div>
+        <!-- Left-Aligned Content (Empty or Add if needed) -->
+        <div class="flex-grow"></div>
+
+        <!-- Center-Aligned Heading -->
+        
+
+        <!-- Right-Aligned Content -->
+        <div class="ml-auto flex items-center space-x-6">
             <div class="bg-gray-50 p-2 shadow rounded-lg text-center">
                 <span class="text-gray-600 text-sm">Wallet Balance</span>
                 <p id="wallet-amount" class="font-semibold text-lg">₹ 0.2</p>
             </div>
-            </div>
         </div>
-    </header>
+    </div>
+</header>
+
+
 
 
   <!-- Bill Payments Section -->
@@ -53,7 +62,7 @@
             <p class="text-L font-medium">Gas Bill</p>
         </a>
         <!-- Broadband -->
-        <a href="{{ route('broadband') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
+        {{-- <a href="{{ route('broadband') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
             <img src="/storage/router.png" alt="Broadband/Landline" class="h-10 mb-3">
             <p class="text-L font-medium">Broadband/Landline</p>
         </a>
@@ -61,11 +70,15 @@
         <a href="{{ route('loan') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
             <img src="/storage/loan.png" alt="Pay Loan" class="h-10 mb-3">
             <p class="text-L font-medium">Pay Loan</p>
-        </a>
+        </a> --}}
         <!-- Recharge DTH or TV -->
         <a href="{{ route('dth') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
             <img src="/storage/satellite-dish.png" alt="Recharge DTH or TV" class="h-10 mb-3">
             <p class="text-L font-medium">Recharge DTH or TV</p>
+        </a>
+        <a href="{{ route('fetch') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
+            <img src="/storage/satellite-dish.png" alt="Recharge DTH or TV" class="h-10 mb-3">
+            <p class="text-L font-medium">Fetch </p>
         </a>
     </div>
     

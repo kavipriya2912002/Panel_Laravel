@@ -12,19 +12,26 @@
 <body class="bg-gray-100">
 
     <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-           
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="text-center flex-grow">
+                <h1 class="text-2xl font-bold">BBPS Panel</h1>
+            </div>
+            <!-- Left-Aligned Content (Empty or Add if needed) -->
+            <div class="flex-grow"></div>
+    
+            <!-- Center-Aligned Heading -->
+            
+    
             <!-- Right-Aligned Content -->
             <div class="ml-auto flex items-center space-x-6">
-            {{-- <span class="text-sm font-medium">Hello</span> --}}
-            <div class="bg-gray-50 p-2 shadow rounded-lg text-center">
-                <span class="text-gray-600 text-sm">Wallet Balance</span>
-                <p id="wallet-amount" class="font-semibold text-lg">₹ 0.2</p>
-            </div>
+                <div class="bg-gray-50 p-2 shadow rounded-lg text-center">
+                    <span class="text-gray-600 text-sm">Wallet Balance</span>
+                    <p id="wallet-amount" class="font-semibold text-lg">₹ 0.2</p>
+                </div>
             </div>
         </div>
     </header>
-
+    
     <div id="electricity" class="tab-content mt-7">
         <div class="max-w-md w-full h-auto p-8 bg-white rounded-lg shadow-lg mx-auto sm:max-w-lg md:max-w-xl">
             <h2 class="text-3xl text-center font-extrabold text-gray-800 mb-8">
