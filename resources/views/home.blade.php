@@ -43,22 +43,22 @@
 
     <div class="grid grid-cols-4 gap-6">
         <a href="{{ route('wallet') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/lightbulb.png" alt="wallet" class="h-10 mb-3">
+            <img src="{{ asset('assets/transfers.svg') }}" alt="wallet" class="h-9 mb-3">
             <p class="text-L font-medium">Wallet</p>
         </a>
         <!-- Electricity -->
         <a href="{{ route('electricity') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/lightbulb.png" alt="Electricity" class="h-10 mb-3">
+            <img src="{{ asset('assets/lightbulb.png') }}" alt="Electricity" class="h-10 mb-3">
             <p class="text-L font-medium">Electricity</p>
         </a>
         <!-- Mobile Recharge -->
         <a href="{{ route('mobile') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/mobile.png" alt="Mobile Recharge" class="h-10 mb-3">
+            <img src="{{ asset('assets/mobile.png') }}" alt="Mobile Recharge" class="h-10 mb-3">
             <p class="text-L font-medium">Mobile Recharge</p>
         </a>
         <!-- Gas Bill -->
         <a href="{{ route('gas') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/gas.png" alt="Gas Bill" class="h-10 mb-3">
+            <img src="{{ asset('assets/gas.png') }}" alt="Gas Bill" class="h-10 mb-3">
             <p class="text-L font-medium">Gas Bill</p>
         </a>
         <!-- Broadband -->
@@ -73,11 +73,11 @@
         </a> --}}
         <!-- Recharge DTH or TV -->
         <a href="{{ route('dth') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/satellite-dish.png" alt="Recharge DTH or TV" class="h-10 mb-3">
+            <img src="{{ asset('assets/router.png') }}" alt="Recharge DTH or TV" class="h-10 mb-3">
             <p class="text-L font-medium">Recharge DTH or TV</p>
         </a>
         <a href="{{ route('fetch') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
-            <img src="/storage/satellite-dish.png" alt="Recharge DTH or TV" class="h-10 mb-3">
+            <img src="{{ asset('assets/satellite-dish.png') }}" alt="Recharge DTH or TV" class="h-10 mb-3">
             <p class="text-L font-medium">Fetch </p>
         </a>
     </div>
