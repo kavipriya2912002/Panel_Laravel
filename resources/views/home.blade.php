@@ -25,7 +25,7 @@
                 <p id="wallet-amount" class="font-semibold text-lg">₹ 0.2</p>
             </div>
             <!-- Logout Button -->
-            <button id="logout-button" class="bg-red-500 text-white px-4 py-2 rounded-lg">
+            <button id="logout-button" class=" text-black font-bold px-4 py-2 rounded-lg">
                 Logout
             </button>
         </div>
