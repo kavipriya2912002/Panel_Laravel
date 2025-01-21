@@ -55,7 +55,7 @@
   <!-- Bill Payments Section -->
   <div class="container mx-auto px-4 py-6">
     <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-white text-lg font-bold mb-6 bg-blue-600 border border-blue-700 rounded-md p-3 shadow-md">
+    <h2 class="text-white text-2xl font-bold mb-6 bg-blue-400 border border-blue-700 rounded-md p-3 shadow-md">
         Bill Payments
     </h2>
 
