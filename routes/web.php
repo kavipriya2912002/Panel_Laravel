@@ -4,7 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BillPaymentController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ElectricityController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MobileOperatorsController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RechargesController;
@@ -53,6 +55,15 @@ Route::post('/seats/book', [SeatController::class, 'bookSeat']);
 
 Route::post('/recharge', [RechargesController::class, 'recharge']);
 Route::get('/recharge/status', [RechargesController::class, 'getStatus']);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/electricity', [PageController::class, 'electricity'])->name('electricity');
+Route::get('/mobile', [PageController::class, 'mobile'])->name('mobile');
+Route::get('/gas', [PageController::class, 'gas'])->name('gas');
+Route::get('/broadband', [PageController::class, 'broadband'])->name('broadband');
+Route::get('/loan', [PageController::class, 'loan'])->name('loan');
+Route::get('/dth', [PageController::class, 'dth'])->name('dth');
+Route::get('/wallet', [PageController::class, 'wallet'])->name('wallet');
 
 Route::get('/operators', [MobileOperatorsController::class, 'getAllOperators']);
 Route::post('/fetchbill', [BillPaymentController::class, 'fetchBills']);
