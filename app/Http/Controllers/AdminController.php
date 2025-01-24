@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\LoginRequest;
+use App\Models\Wallet;
+use App\Models\WalletHistory;
 use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
@@ -84,4 +86,25 @@ class AdminController extends Controller
     //     // Redirect back with success message
     //     return redirect()->route('admin.index')->with('status', 'User status updated successfully.');
     // }
+
+    public function getWalletHistory(Request $request)
+    {
+        $userId = $request->user()->id; // Fetch the user ID from the request (assuming authenticated user)
+    
+        // Step 1: Fetch the wallet for the user
+        $wallet = Wallet::where('user_id', $userId)->first();
+    
+        // If no wallet is found, return an appropriate response
+        if (!$wallet) {
+            return response()->json(['message' => 'Wallet not found for this user'], 404);
+        }
+    
+        // Step 2: Fetch the wallet history using the wallet ID
+        $history = WalletHistory::where('wallet_id', $wallet->id)->orderBy('created_at', 'desc')->get();
+    
+        // Return the history as a JSON response
+        return response()->json($history);
+    }
+    
+
 }

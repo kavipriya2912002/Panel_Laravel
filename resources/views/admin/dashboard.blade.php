@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -15,6 +16,11 @@
                 <hr>
                 <li class="mb-4 mt-2">
                     <button onclick="showSection('login-status')" class="w-full text-center">Login Status</button>
+                </li>
+                <li class="mb-4 mt-2">
+                    <button onclick="showWalletHistory()" class="w-full text-center">
+                        Wallet History
+                    </button>
                 </li>
 
             </ul>
@@ -50,13 +56,36 @@
                                     </button>
                                     <button class="bg-black p-2 rounded-lg text-white" type="button"
                                         onclick="showHistoryPopup({{ $user->id }})">
-                                     Wallet History
+                                        Wallet History
                                     </button>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+
+        <div id="wallet-history-popup"
+            class="hidden fixed inset-0 flex items-center justify-center backdrop-blur-md bg-gray-100 bg-opacity-50 z-50">
+            <div class="relative tab-content block p-6 max-w-lg bg-white rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4 text-center">Wallet History</h3>
+                <table id="wallet-history-table" class="min-w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2">Date</th>
+                            <th class="border border-gray-300 px-4 py-2">Amount</th>
+                            <th class="border border-gray-300 px-4 py-2">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Wallet history will be dynamically added here -->
+                    </tbody>
+                </table>
+                <!-- Close button -->
+                <button class="absolute top-3 right-3 text-black font-bold"
+                    onclick="closeWalletHistoryPopup()">✕</button>
             </div>
         </div>
 
@@ -90,9 +119,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
 
 
@@ -134,6 +160,15 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
+
+
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
@@ -166,7 +201,7 @@
             display: flex;
         }
     </style>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         let selectedUserId = null;
 
@@ -240,7 +275,64 @@
         function showSection(section) {
             document.getElementById('user-list').classList.add('hidden');
             document.getElementById('login-status').classList.add('hidden');
+            document.getElementById('service-charge-form').classList.add('hidden');
+            document.getElementById('wallet-history-popup').classList.add('hidden');
             document.getElementById(section).classList.remove('hidden');
+        }
+
+        function toggleServiceChargeForm() {
+            // Hide other sections
+            document.getElementById('user-list').classList.add('hidden');
+            document.getElementById('login-status').classList.add('hidden');
+
+            // Show service charge form
+            document.getElementById('service-charge-form').classList.remove('hidden');
+        }
+
+
+        function showHistoryPopup(userId) {
+            const historyPopup = document.getElementById('wallet-history-popup');
+            const historyTableBody = document.querySelector('#wallet-history-table tbody');
+
+            // Clear existing data
+            historyTableBody.innerHTML = '';
+
+            // Fetch wallet history for the user
+            axios.get(`/admin/wallet-history/${userId}`)
+                .then(response => {
+                    const history = response.data;
+
+                    if (history.length > 0) {
+                        history.forEach(item => {
+                            const row = `
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">${new Date(item.created_at).toLocaleString()}</td>
+                            <td class="border border-gray-300 px-4 py-2">₹ ${item.amount}</td>
+                            <td class="border border-gray-300 px-4 py-2">${item.description || 'N/A'}</td>
+                        </tr>
+                    `;
+                            historyTableBody.innerHTML += row;
+                        });
+                    } else {
+                        historyTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" class="text-center border border-gray-300 px-4 py-2">No history available.</td>
+                    </tr>
+                `;
+                    }
+
+                    // Show the popup
+                    historyPopup.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error fetching wallet history:', error);
+                    alert('Failed to load wallet history.');
+                });
+        }
+
+        function closeWalletHistoryPopup() {
+            const historyPopup = document.getElementById('wallet-history-popup');
+            historyPopup.classList.add('hidden');
         }
     </script>
 </x-app-layout>

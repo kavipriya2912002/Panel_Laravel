@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\ServicechargeController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +40,13 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::put('/seats/unbook/{seatId}', [SeatController::class, 'unbookSeatadmin']);
 
     Route::get('/get-all-bookings', [BookingController::class, 'getAllBookings']);
+
+
+    Route::get('/set-service-charge', [ServicechargeController::class, 'showForm'])->name('service_charge.form');
+    Route::post('/set-service-charge', [ServiceChargeController::class, 'store'])->name('service_charge.store');
+    // Route::get('/set-service', [ServiceChargeController::class, 'getCharge'])->name('service_charge.getCharge');
+    Route::get('/wallet-history/{userId}', [AdminController::class, 'getWalletHistory'])->name('wallet.history');
+
 
 
     Route::get('/routes', [RouteController::class, 'index']); // Fetch all routes

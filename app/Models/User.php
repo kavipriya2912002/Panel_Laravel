@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function addedWalletHistories()
+{
+    return $this->hasMany(WalletHistory::class, 'admin_id');
+}
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wallet;
+use App\Models\WalletHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -49,32 +50,40 @@ class WalletController extends Controller
 
 
     public function AddMoneyToUser(Request $request)
-{
-    // Validate the incoming request
-    $validatedData = $request->validate([
-        'userId' => 'required|exists:users,id', // Ensure the user exists
-        'amount' => 'required|numeric|min:1', // Ensure amount is a positive number
-    ]);
+    {
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'userId' => 'required|exists:users,id', // Ensure the user exists
+            'amount' => 'required|numeric|min:1', // Ensure amount is a positive number
+        ]);
+    
+        $userId = $validatedData['userId'];
+        $amount = $validatedData['amount'];
+    
+        // Check if the user has a wallet entry
+        $wallet = Wallet::firstOrCreate(
+            ['user_id' => $userId], // Search by user_id
+            ['balance' => 0]        // Default balance if no entry exists
+        );
+    
+        // Update the wallet balance
+        $wallet->balance += $amount;
+        $wallet->save();
+    
+        // Create an entry in wallet history
+        WalletHistory::create([
+            'wallet_id' => $wallet->id,
+            'admin_id' => Auth::id(), // Assuming the admin is logged in
+            'amount' => $amount,
+        ]);
+    
+        // Return a response with the updated wallet balance
+        return response()->json([
+            'message' => 'Amount added to wallet successfully!',
+            'wallet' => $wallet->balance,
+        ]);
+    }
 
-    $userId = $validatedData['userId'];
-    $amount = $validatedData['amount'];
-
-    // Check if the user has a wallet entry
-    $wallet = Wallet::firstOrCreate(
-        ['user_id' => $userId], // Search by user_id
-        ['balance' => 0]        // Default balance if no entry exists
-    );
-
-    // Update the wallet balance
-    $wallet->balance += $amount;
-    $wallet->save();
-
-    // Return a response with the updated wallet balance
-    return response()->json([
-        'message' => 'Amount added to wallet successfully!',
-        'wallet' => $wallet->balance,
-    ]);
-}
 
 
     public function getWalletAmount()
