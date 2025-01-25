@@ -21,11 +21,12 @@ class ServicechargeController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
+    try {
         $validated = $request->validate([
             'user_id' => 'required|exists:users,id',
-            'service_identifier' => 'required|exists:services,service_identifier',
-            'service_provider_id' => 'required|exists:service_providers,id', // Corrected model name
+            'service_id' => 'required|exists:services,service_id',
+            'service_provider_id' => 'required|exists:service_providers,id',
             'range_from' => 'required|numeric|min:0',
             'range_to' => 'required|numeric|min:0|gte:range_from',
             'company_type' => 'required|in:flat,percentage',
@@ -36,12 +37,17 @@ class ServicechargeController extends Controller
             'retailer_value' => 'required|numeric|min:0',
         ]);
 
-        Log::info($validated);
+        Log::info('Validated data: ', $validated);
 
         ServiceCharge::create($validated);
 
         return redirect()->back()->with('success', 'Service charge set successfully.');
+    } catch (\Exception $e) {
+        Log::error('Error saving service charge: ' . $e->getMessage());
+        return redirect()->back()->with('error', 'There was an error saving the service charge.');
     }
+}
+
 
     public function getCharge()
     {

@@ -65,7 +65,7 @@
             </a>
             <a href="{{ route('admin.servicecharge') }}" class="flex flex-col items-center cursor-pointer bg-gray-50 shadow-md p-4 rounded-lg">
               <img src="{{ asset('assets/router.png') }}" alt="DTH" class="h-10 mb-3">
-              <p class="text-sm md:text-base font-medium">Service Charge set</p>
+              <p class="text-sm md:text-base font-medium">Set Service Charge</p>
             </a>
             
           </div>

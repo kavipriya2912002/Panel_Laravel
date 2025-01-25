@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\LoginRequest;
+use App\Models\Service;
+use App\Models\ServiceProvider;
 use App\Models\Wallet;
 use App\Models\WalletHistory;
 use Illuminate\Support\Facades\Log;
@@ -141,7 +143,11 @@ class AdminController extends Controller
 
     public function servicecharge()
     {
-        return view('admin.servicecharge');
+        $services = Service::all();
+        $users = User::all();
+        $serviceProviders = ServiceProvider::all(); 
+
+        return view('admin.servicecharge', compact('services', 'users', 'serviceProviders'));
     }
 
 
