@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\LoginRequest;
 use App\Models\Service;
+use App\Models\ServiceCharge;
 use App\Models\ServiceProvider;
 use App\Models\Wallet;
 use App\Models\WalletHistory;
@@ -138,7 +140,10 @@ class AdminController extends Controller
 
     public function commission()
     {
-        return view('admin.commission');
+        $services = Service::all();
+        $users = User::all();
+        $serviceProviders = ServiceProvider::all(); 
+        return view('admin.commission', compact('services', 'users', 'serviceProviders'));
     }
 
     public function servicecharge()
@@ -148,6 +153,16 @@ class AdminController extends Controller
         $serviceProviders = ServiceProvider::all(); 
 
         return view('admin.servicecharge', compact('services', 'users', 'serviceProviders'));
+    }
+
+   
+
+    public function showservicecharge()
+    {
+        $services = ServiceCharge::all();
+       
+
+        return view('admin.showservicecharge', compact('services'));
     }
 
 

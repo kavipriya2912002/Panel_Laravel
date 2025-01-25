@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CommissionController extends Controller
 {
@@ -19,10 +20,11 @@ class CommissionController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the incoming data
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'service_id' => 'required|exists:services,id',
-            'service_provider_id' => 'required|exists:sp_mapping_table,id',
+            'service_provider_id' => 'required|exists:service_providers,id',
             'range_from' => 'required|numeric',
             'range_to' => 'required|numeric',
             'company_type' => 'required|in:flat,percentage',
@@ -33,54 +35,66 @@ class CommissionController extends Controller
             'retailer_value' => 'required|numeric',
         ]);
 
-        $commission = Commission::create($request->all());
+        // Create a new commission record
+        Commission::create($request->all());
 
-        return response()->json(['message' => 'Commission created successfully', 'data' => $commission], 201);
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Commission created successfully!');
+    }
+    public function showcommission()
+    {
+        $commission = Commission::all();
+        return view('admin.showcommission', compact('commission'));
     }
 
-    /**
-     * Display the specified commission.
-     */
-    public function show($id)
+
+    // In your controller's edit method
+    public function edit($id)
     {
         $commission = Commission::find($id);
-
+    
         if (!$commission) {
             return response()->json(['message' => 'Commission not found'], 404);
         }
 
+        Log::info($commission);
+    
         return response()->json($commission);
     }
-
-    /**
-     * Update the specified commission in storage.
-     */
+   
     public function update(Request $request, $id)
     {
-        $commission = Commission::find($id);
 
-        if (!$commission) {
-            return response()->json(['message' => 'Commission not found'], 404);
-        }
+        Log::info("uqwrjyfjhfksj");
+        Log::info('Incoming request data:', $request->all());
 
-        $request->validate([
-            'user_id' => 'sometimes|exists:users,id',
-            'service_id' => 'sometimes|exists:services,id',
-            'service_provider_id' => 'sometimes|exists:sp_mapping_table,id',
-            'range_from' => 'sometimes|numeric',
-            'range_to' => 'sometimes|numeric',
-            'company_type' => 'sometimes|in:flat,percentage',
-            'company_value' => 'sometimes|numeric',
-            'distributor_type' => 'sometimes|in:flat,percentage',
-            'distributor_value' => 'sometimes|numeric',
-            'retailer_type' => 'sometimes|in:flat,percentage',
-            'retailer_value' => 'sometimes|numeric',
+        // Validate the incoming data
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'service_id' => 'required|exists:services,id',
+            'service_provider_id' => 'required|exists:service_providers,id',
+            'range_from' => 'required|numeric',
+            'range_to' => 'required|numeric',
+            'company_type' => 'required|in:flat,percentage',
+            'company_value' => 'required|numeric',
+            'distributor_type' => 'required|in:flat,percentage',
+            'distributor_value' => 'required|numeric',
+            'retailer_type' => 'required|in:flat,percentage',
+            'retailer_value' => 'required|numeric',
         ]);
 
-        $commission->update($request->all());
+        Log::info("validatedddd",$validated);
+        // Find the commission record
+        $commission = Commission::findOrFail($id);
 
-        return response()->json(['message' => 'Commission updated successfully', 'data' => $commission]);
+        // Update the commission record with the new values
+        $commission->update($validated);
+
+        // Redirect back with a success message
+        return redirect()->route('admin.index')->with('success', 'Commission updated successfully');
     }
+    
+
 
     /**
      * Remove the specified commission from storage.

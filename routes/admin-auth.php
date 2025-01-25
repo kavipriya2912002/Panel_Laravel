@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\CommissionController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ServicechargeController;
@@ -33,7 +34,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::post('/seats/book', [SeatController::class, 'bookSeat']);
     Route::post('/seats/unbook', [SeatController::class, 'unbookSeat']);
     Route::get('/seats/{routeId}', [SeatController::class, 'getAdminSeats']);
-    Route::post('/add-amount',[WalletController::class,'AddMoneyToUser']);
+    Route::post('/add-amount', [WalletController::class, 'AddMoneyToUser']);
     // routes/api.php
 
     Route::put('/seats/book/{seatId}', [SeatController::class, 'bookSeatadmin']);
@@ -54,6 +55,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('/wallethistory', [AdminController::class, 'wallethistorypage'])->name('admin.wallethistory');
     Route::get('/commission', [AdminController::class, 'commission'])->name('admin.commission');
     Route::get('/servicecharge', [AdminController::class, 'servicecharge'])->name('admin.servicecharge');
+    Route::get('/showservicecharge', [AdminController::class, 'showservicecharge'])->name('admin.showservicecharge');
+    Route::post('/commission', [CommissionController::class, 'store'])->name('commission.store');
+    Route::get('/showcommission', [CommissionController::class, 'showcommission'])->name('admin.showcommission');
+
+    Route::get('/showcommission/edit/{id}', [CommissionController::class, 'edit']);
+    Route::put('/showcommission/{id}', [CommissionController::class, 'update']); // Update commission
+    Route::delete('/showcommission/{id}', [CommissionController::class, 'destroy'])->name('commission.destroy'); // Delete commission
+
 
 
     Route::get('/routes', [RouteController::class, 'index']); // Fetch all routes
