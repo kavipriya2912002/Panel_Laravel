@@ -46,7 +46,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::post('/set-service-charge', [ServiceChargeController::class, 'store'])->name('service_charge.store');
     // Route::get('/set-service', [ServiceChargeController::class, 'getCharge'])->name('service_charge.getCharge');
     Route::get('/wallet-history/{userId}', [AdminController::class, 'getWalletHistory'])->name('wallet.history');
+    Route::get('/wallet-history', [AdminController::class, 'WalletHistory']);
 
+
+    Route::get('/userlist', [AdminController::class, 'userlist'])->name('admin.userlist');
+    Route::get('/loginstatus', [AdminController::class, 'loginstatus'])->name('admin.loginstatus');
+    Route::get('/wallethistory', [AdminController::class, 'wallethistorypage'])->name('admin.wallethistory');
+    Route::get('/commission', [AdminController::class, 'commission'])->name('admin.commission');
+    Route::get('/servicecharge', [AdminController::class, 'servicecharge'])->name('admin.servicecharge');
 
 
     Route::get('/routes', [RouteController::class, 'index']); // Fetch all routes

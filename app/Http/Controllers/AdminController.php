@@ -22,6 +22,7 @@ class AdminController extends Controller
     return view('admin.dashboard', compact('users', 'requests'));
     }
 
+   
 
     public function updateStatus(Request $request, $id)
 {
@@ -50,7 +51,7 @@ class AdminController extends Controller
                     ->update(['status' => 'rejected']);
     }
 
-    return redirect()->route('admin.index')->with('status', 'User status updated successfully.');
+    return redirect()->route('admin.loginstatus')->with('status', 'User status updated successfully.');
 }
 
    
@@ -105,6 +106,43 @@ class AdminController extends Controller
         // Return the history as a JSON response
         return response()->json($history);
     }
-    
+
+    public function WalletHistory(){
+        $wallethistory = WalletHistory::all();
+        return response()->json($wallethistory);
+
+    }
+
+
+
+    public function userlist()
+    {
+        $users = User::all();
+        return view('admin.userlist', compact('users'));
+    }
+
+    public function loginstatus()
+    {
+        $requests = LoginRequest::where('status', 'pending')->with('user')->get();
+
+        return view('admin.loginstatus', compact('requests'));
+    }
+
+    public function wallethistorypage()
+    {
+        $wallethistory = WalletHistory::all();
+        return view('admin.wallethistory', compact('wallethistory'));
+    }
+
+    public function commission()
+    {
+        return view('admin.commission');
+    }
+
+    public function servicecharge()
+    {
+        return view('admin.servicecharge');
+    }
+
 
 }
