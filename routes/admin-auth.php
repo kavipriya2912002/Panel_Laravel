@@ -59,9 +59,15 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::post('/commission', [CommissionController::class, 'store'])->name('commission.store');
     Route::get('/showcommission', [CommissionController::class, 'showcommission'])->name('admin.showcommission');
 
-    Route::get('/showcommission/edit/{id}', [CommissionController::class, 'edit']);
-    Route::put('/showcommission/{id}', [CommissionController::class, 'update']); // Update commission
+    Route::get('/showcommission/edit/{id}', [CommissionController::class, 'edit'])->name('commission.edit');
+    Route::put('/showcommission/{id}', [CommissionController::class, 'update'])->name('commission.update'); // Update commission
     Route::delete('/showcommission/{id}', [CommissionController::class, 'destroy'])->name('commission.destroy'); // Delete commission
+
+    Route::get('/showservicecharges', [ServicechargeController::class, 'showservicecharge'])->name('admin.showservicecharges');
+    Route::delete('/showservicecharges/{id}', [ServicechargeController::class, 'destroy'])->name('servicecharge.destroy');
+
+    Route::get('/showservicecharge/edit/{id}', [ServiceChargeController::class, 'edit'])->name('showservicecharge.edit');
+    Route::put('/showservicecharge/{id}', [ServiceChargeController::class, 'update'])->name('showservicecharge.update');
 
 
 

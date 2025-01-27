@@ -11,15 +11,45 @@ use Illuminate\Support\Facades\Log;
 
 class ServicechargeController extends Controller
 {
-    public function showForm()
+    public function showservicecharge()
     {
-        $services = Service::all();
-        $users = User::all();
-        $serviceProviders = ServiceProvider::all(); 
-
-        return view('admin.dashboard', compact('services', 'users', 'serviceProviders')); 
+        $commission = ServiceCharge::all();
+       
+       
+        return view('admin.showservicecharges', compact('commission'));
     }
 
+
+    public function edit($id)
+    {
+        $commission = ServiceCharge::all();
+        $servicecharge = ServiceCharge::findOrFail($id);
+        Log::info('Service charge details:', $servicecharge->toArray());
+        $users = User::all(); // Fetch users for dropdown
+        $services = Service::all(); // Fetch services for dropdown
+        $serviceProviders = ServiceProvider::all(); // Fetch service providers for dropdown
+        // Inside the controller method, just before returning the view
+        Log::info("View data", [
+            'commission' => $commission->toArray(),
+            'servicecharge' => $servicecharge->toArray(),
+            'users' => $users->toArray(),
+            'services' => $services->toArray(),
+            'serviceProviders' => $serviceProviders->toArray(),
+        ]);
+        
+
+        return view('admin.showservicecharges', compact('commission', 'servicecharge', 'users', 'services', 'serviceProviders'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $commission = ServiceCharge::findOrFail($id);
+        $commission->update($request->all());
+
+        return redirect()->route('admin.showservicecharges')->with('success', 'Service charge updated successfully!');
+    }
+
+    
     public function store(Request $request)
 {
     try {
@@ -49,12 +79,35 @@ class ServicechargeController extends Controller
 }
 
 
-    public function getCharge()
-    {
-        $services = Service::all();
-        $users = User::all();
-        $serviceProviders = ServiceProvider::all();
 
-        return view('admin.dashboard', compact('services', 'users', 'serviceProviders'));
+    public function destroy($id)
+    {
+        $commission = ServiceCharge::find($id);
+
+        if (!$commission) {
+            return response()->json(['message' => 'Service charge not found'], 404);
+        }
+
+        $commission->delete();
+
+        return redirect()->back()->with('success', 'Service Charge deleted successfully');
     }
 }
+//     public function showForm()
+//     {
+//         $services = Service::all();
+//         $users = User::all();
+//         $serviceProviders = ServiceProvider::all(); 
+
+//         return view('admin.dashboard', compact('services', 'users', 'serviceProviders')); 
+//     }
+
+
+//     public function getCharge()
+//     {
+//         $services = Service::all();
+//         $users = User::all();
+//         $serviceProviders = ServiceProvider::all();
+
+//         return view('admin.dashboard', compact('services', 'users', 'serviceProviders'));
+//     }

@@ -60,7 +60,10 @@
                     <td class="px-4 py-2">{{ $comm->retailer_type }}</td>
                     <td class="px-4 py-2">{{ $comm->retailer_value }}</td>
                     <td class="px-4 py-2 flex space-x-2">
-                        <button onclick="openEditForm({{ $comm->id }})" class="text-blue-500 hover:text-blue-700">Edit</button>
+                        <button onclick="location.href='{{ route('commission.edit', $comm->id) }}'"
+                            class="text-blue-500 hover:text-blue-700">
+                            Edit
+                        </button>
                         <form action="{{ route('commission.destroy', $comm->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this commission?');">
                             @csrf
                             @method('DELETE')
@@ -73,130 +76,122 @@
     </table>
 </div>
 
-<!-- Modal for editing the commission -->
-<div id="editFormModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded-lg w-full max-w-md">
-        <h3 class="text-xl font-semibold mb-4">Edit Commission</h3>
-        <form id="editForm" action="#" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="mb-4">
-                <label for="user_id" class="block text-sm font-medium text-gray-700">User ID</label>
-                <input type="text" id="user_id" name="user_id" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+@if (isset($commissioncharge))
+<div class="container mx-auto mt-8">
+    <form action="{{ route('commission.update', $commissioncharge->id) }}" method="POST" class="space-y-4">
+        @csrf
+        @method('PUT')
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="user_id" class="block text-gray-700 font-medium mb-1">User ID:</label>
+                <select name="user_id" id="user_id" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}"
+                            {{ $commissioncharge->user_id == $user->id ? 'selected' : '' }}>
+                            {{ $user->name }} (ID: {{ $user->id }})
+                        </option>
+                    @endforeach
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="service_id" class="block text-sm font-medium text-gray-700">Service ID</label>
-                <input type="text" id="service_id" name="service_id" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="service_id" class="block text-gray-700 font-medium mb-1">Service ID:</label>
+                <select name="service_id" id="service_id" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    @foreach ($services as $service)
+                        <option value="{{ $service->service_id }}"
+                            {{ $commissioncharge->service_id == $service->service_id ? 'selected' : '' }}>
+                            {{ $service->service_type }} (ID: {{ $service->id }})
+                        </option>
+                    @endforeach
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="service_provider_id" class="block text-sm font-medium text-gray-700">Service Provider ID</label>
-                <input type="text" id="service_provider_id" name="service_provider_id" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="service_provider_id" class="block text-gray-700 font-medium mb-1">Service Provider
+                    ID:</label>
+                <select name="service_provider_id" id="service_provider_id" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    @foreach ($serviceProviders as $provider)
+                        <option value="{{ $provider->id }}"
+                            {{ $commissioncharge->service_provider_id == $provider->id ? 'selected' : '' }}>
+                            {{ $provider->name }} (ID: {{ $provider->id }})
+                        </option>
+                    @endforeach
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="range_from" class="block text-sm font-medium text-gray-700">Range From</label>
-                <input type="number" id="range_from" name="range_from" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="range_from" class="block text-gray-700 font-medium mb-1">Range From:</label>
+                <input type="number" step="0.01" name="range_from" id="range_from"
+                    value="{{ $commissioncharge->range_from }}" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
-            <div class="mb-4">
-                <label for="range_to" class="block text-sm font-medium text-gray-700">Range To</label>
-                <input type="number" id="range_to" name="range_to" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="range_to" class="block text-gray-700 font-medium mb-1">Range To:</label>
+                <input type="number" step="0.01" name="range_to" id="range_to"
+                    value="{{ $commissioncharge->range_to }}" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
-            <div class="mb-4">
-                <label for="company_type" class="block text-sm font-medium text-gray-700">Company Type</label>
-                <input type="text" id="company_type" name="company_type" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="company_type" class="block text-gray-700 font-medium mb-1">Company Type:</label>
+                <select name="company_type" id="company_type"
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="flat" {{ $commissioncharge->company_type == 'flat' ? 'selected' : '' }}>Flat
+                    </option>
+                    <option value="percentage" {{ $commissioncharge->company_type == 'percentage' ? 'selected' : '' }}>
+                        Percentage</option>
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="company_value" class="block text-sm font-medium text-gray-700">Company Value</label>
-                <input type="number" id="company_value" name="company_value" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="company_value" class="block text-gray-700 font-medium mb-1">Company Value:</label>
+                <input type="number" step="0.01" name="company_value" id="company_value"
+                    value="{{ $commissioncharge->company_value }}" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
-            <div class="mb-4">
-                <label for="distributor_type" class="block text-sm font-medium text-gray-700">Distributor Type</label>
-                <input type="text" id="distributor_type" name="distributor_type" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="distributor_type" class="block text-gray-700 font-medium mb-1">Distributor
+                    Type:</label>
+                <select name="distributor_type" id="distributor_type"
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="flat" {{ $commissioncharge->distributor_type == 'flat' ? 'selected' : '' }}>Flat
+                    </option>
+                    <option value="percentage"
+                        {{ $commissioncharge->distributor_type == 'percentage' ? 'selected' : '' }}>Percentage</option>
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="distributor_value" class="block text-sm font-medium text-gray-700">Distributor Value</label>
-                <input type="number" id="distributor_value" name="distributor_value" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="distributor_value" class="block text-gray-700 font-medium mb-1">Distributor
+                    Value:</label>
+                <input type="number" step="0.01" name="distributor_value" id="distributor_value"
+                    value="{{ $commissioncharge->distributor_value }}" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
-            <div class="mb-4">
-                <label for="retailer_type" class="block text-sm font-medium text-gray-700">Retailer Type</label>
-                <input type="text" id="retailer_type" name="retailer_type" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="retailer_type" class="block text-gray-700 font-medium mb-1">Retailer Type:</label>
+                <select name="retailer_type" id="retailer_type"
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="flat" {{ $commissioncharge->retailer_type == 'flat' ? 'selected' : '' }}>Flat
+                    </option>
+                    <option value="percentage" {{ $commissioncharge->retailer_type == 'percentage' ? 'selected' : '' }}>
+                        Percentage</option>
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="retailer_value" class="block text-sm font-medium text-gray-700">Retailer Value</label>
-                <input type="number" id="retailer_value" name="retailer_value" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            <div>
+                <label for="retailer_value" class="block text-gray-700 font-medium mb-1">Retailer
+                    Value:</label>
+                <input type="number" step="0.01" name="retailer_value" id="retailer_value"
+                    value="{{ $commissioncharge->retailer_value }}" required
+                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update Commission</button>
-            <button type="button" onclick="closeEditForm()" class="ml-2 bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
-        </form>
-    </div>
+        </div>
+
+        <button type="submit" class="px-6 py-2 bg-blue-500 text-white font-bold rounded-lg shadow-sm hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            Update
+        </button>
+    </form>
 </div>
-
-<script>
-// Function to open the edit form modal and populate fields
-let commissionId = null;
-function openEditForm(id) {
-    commissionId = id;
-    axios.get(`/admin/showcommission/edit/${commissionId}`)
-        .then(response => {
-            const commissionData = response.data;
-            document.getElementById('editFormModal').classList.remove('hidden');
-            document.getElementById('user_id').value = commissionData.user_id;
-            document.getElementById('service_id').value = commissionData.service_id;
-            document.getElementById('service_provider_id').value = commissionData.service_provider_id;
-            document.getElementById('range_from').value = commissionData.range_from;
-            document.getElementById('range_to').value = commissionData.range_to;
-            document.getElementById('company_type').value = commissionData.company_type;
-            document.getElementById('company_value').value = commissionData.company_value;
-            document.getElementById('distributor_type').value = commissionData.distributor_type;
-            document.getElementById('distributor_value').value = commissionData.distributor_value;
-            document.getElementById('retailer_type').value = commissionData.retailer_type;
-            document.getElementById('retailer_value').value = commissionData.retailer_value;
-            // Set form action URL for updating
-            document.getElementById('editForm').action = `/admin/showcommission/${commissionData.id}`;
-        })
-        .catch(error => {
-            console.error('Error fetching commission data:', error);
-        });
-}
-
-// Function to close the edit form modal
-function closeEditForm() {
-    document.getElementById('editFormModal').classList.add('hidden');
-}
+@endif
 
 
-
-document.getElementById('editForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const formData = new FormData(this);
-
-    // Log FormData content
-    formData.forEach(function(value, key) {
-        console.log(key + ": " + value);
-    });
-
-    // Ensure CSRF token is included in request headers (if needed)
-    axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-    // Send the data via Axios PUT request
-    axios.put(`/admin/showcommission/${commissionId}`, formData)
-        .then(response => {
-            if (response.data.success) {
-                alert('Commission updated successfully!');
-                closeEditForm();
-                location.reload();
-            } else {
-                alert('Failed to update commission. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error updating commission:', error);
-            alert('An error occurred while updating the commission.');
-        });
-});
-
-
-</script>
 
 </body>
 </html>

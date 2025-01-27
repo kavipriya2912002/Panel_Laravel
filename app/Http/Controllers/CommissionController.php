@@ -3,21 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commission;
+use App\Models\Service;
+use App\Models\ServiceProvider;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class CommissionController extends Controller
 {
 
-    /**
-     * Display a listing of commissions.
-     */
-    public function index()
-    {
-        $commissions = Commission::all();
-        return response()->json($commissions);
-    }
-
+  
     public function store(Request $request)
     {
         // Validate the incoming data
@@ -51,47 +46,27 @@ class CommissionController extends Controller
     // In your controller's edit method
     public function edit($id)
     {
-        $commission = Commission::find($id);
+        $commission = Commission::all();
+        $commissioncharge = Commission::find($id);
+        $users = User::all(); // Fetch users for dropdown
+        $services = Service::all(); // Fetch services for dropdown
+        $serviceProviders = ServiceProvider::all(); // Fetch service providers for dropdown
     
-        if (!$commission) {
+        if (!$commissioncharge) {
             return response()->json(['message' => 'Commission not found'], 404);
         }
 
-        Log::info($commission);
-    
-        return response()->json($commission);
+        Log::info($commissioncharge);
+        return view('admin.showcommission', compact('commissioncharge','commission','users', 'services', 'serviceProviders'));
+
     }
    
     public function update(Request $request, $id)
     {
-
-        Log::info("uqwrjyfjhfksj");
-        Log::info('Incoming request data:', $request->all());
-
-        // Validate the incoming data
-        $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'service_id' => 'required|exists:services,id',
-            'service_provider_id' => 'required|exists:service_providers,id',
-            'range_from' => 'required|numeric',
-            'range_to' => 'required|numeric',
-            'company_type' => 'required|in:flat,percentage',
-            'company_value' => 'required|numeric',
-            'distributor_type' => 'required|in:flat,percentage',
-            'distributor_value' => 'required|numeric',
-            'retailer_type' => 'required|in:flat,percentage',
-            'retailer_value' => 'required|numeric',
-        ]);
-
-        Log::info("validatedddd",$validated);
-        // Find the commission record
         $commission = Commission::findOrFail($id);
+        $commission->update($request->all());
 
-        // Update the commission record with the new values
-        $commission->update($validated);
-
-        // Redirect back with a success message
-        return redirect()->route('admin.index')->with('success', 'Commission updated successfully');
+        return redirect()->route('admin.showcommission')->with('success', 'Commission updated successfully!');
     }
     
 
@@ -109,7 +84,8 @@ class CommissionController extends Controller
 
         $commission->delete();
 
-        return response()->json(['message' => 'Commission deleted successfully']);
+        return redirect()->back()->with('success', 'Commission deleted successfully');
+
     }
     
 }
