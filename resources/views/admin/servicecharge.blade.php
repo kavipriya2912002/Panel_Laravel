@@ -123,5 +123,29 @@
             </div>
         </form>
     </div>
+
+    <div id="logout-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg w-full sm:w-1/3">
+            <h3 class="text-xl font-bold mb-4">Are you sure you want to log out?</h3>
+            <div class="flex justify-between">
+                <button id="logout-cancel" class="px-4 py-2 bg-gray-300 text-black rounded-lg">Cancel</button>
+                <button id="logout-confirm" class="px-4 py-2 bg-red-500 text-white rounded-lg">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('logout-button').addEventListener('click', () => {
+                document.getElementById('logout-modal').classList.remove('hidden');
+            });
+            document.getElementById('logout-cancel').addEventListener('click', () => {
+                document.getElementById('logout-modal').classList.add('hidden');
+            });
+            document.getElementById('logout-confirm').addEventListener('click', () => {
+                axios.post('/admin/logout')
+                    .then(() => window.location.href = '/admin/login')
+                    .catch(error => alert('Logout failed. Please try again.'));
+            });
+    </script>
 </body>
 </html>
