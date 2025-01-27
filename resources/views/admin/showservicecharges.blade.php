@@ -28,60 +28,63 @@
 
     <div class="container mx-auto mt-8">
         <h2 class="text-2xl font-bold mb-4">Service Charges</h2>
-
+    
         <!-- Table to display commissions -->
-        <table class="table-auto w-full text-sm text-left text-gray-700">
-            <thead class="bg-gray-200">
-                <tr>
-                    <th class="px-4 py-2">User ID</th>
-                    <th class="px-4 py-2">Service ID</th>
-                    <th class="px-4 py-2">Service Provider ID</th>
-                    <th class="px-4 py-2">Range From</th>
-                    <th class="px-4 py-2">Range To</th>
-                    <th class="px-4 py-2">Company Type</th>
-                    <th class="px-4 py-2">Company Value</th>
-                    <th class="px-4 py-2">Distributor Type</th>
-                    <th class="px-4 py-2">Distributor Value</th>
-                    <th class="px-4 py-2">Retailer Type</th>
-                    <th class="px-4 py-2">Retailer Value</th>
-                    <th class="px-4 py-2">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($commission as $comm)
+        <div class="overflow-x-auto">
+            <table class="table-auto min-w-full text-sm text-left text-gray-700">
+                <thead class="bg-gray-200">
                     <tr>
-                        <td class="px-4 py-2">{{ $comm->user_id }}</td>
-                        <td class="px-4 py-2">{{ $comm->service_id }}</td>
-                        <td class="px-4 py-2">{{ $comm->service_provider_id }}</td>
-                        <td class="px-4 py-2">{{ $comm->range_from }}</td>
-                        <td class="px-4 py-2">{{ $comm->range_to }}</td>
-                        <td class="px-4 py-2">{{ $comm->company_type }}</td>
-                        <td class="px-4 py-2">{{ $comm->company_value }}</td>
-                        <td class="px-4 py-2">{{ $comm->distributor_type }}</td>
-                        <td class="px-4 py-2">{{ $comm->distributor_value }}</td>
-                        <td class="px-4 py-2">{{ $comm->retailer_type }}</td>
-                        <td class="px-4 py-2">{{ $comm->retailer_value }}</td>
-                        <td class="px-4 py-2 flex space-x-2">
-                            <button onclick="location.href='{{ route('showservicecharge.edit', $comm->id) }}'"
-                                class="text-blue-500 hover:text-blue-700">
-                                Edit
-                            </button>
-
-                            <form action="{{ route('servicecharge.destroy', $comm->id) }}" method="POST"
-                                onsubmit="return confirm('Are you sure you want to delete this commission?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
-                            </form>
-                        </td>
+                        <th class="px-4 py-2">User ID</th>
+                        <th class="px-4 py-2">Service ID</th>
+                        <th class="px-4 py-2">Service Provider ID</th>
+                        <th class="px-4 py-2">Range From</th>
+                        <th class="px-4 py-2">Range To</th>
+                        <th class="px-4 py-2">Company Type</th>
+                        <th class="px-4 py-2">Company Value</th>
+                        <th class="px-4 py-2">Distributor Type</th>
+                        <th class="px-4 py-2">Distributor Value</th>
+                        <th class="px-4 py-2">Retailer Type</th>
+                        <th class="px-4 py-2">Retailer Value</th>
+                        <th class="px-4 py-2">Actions</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($commission as $comm)
+                        <tr>
+                            <td class="px-4 py-2">{{ $comm->user_id }}</td>
+                            <td class="px-4 py-2">{{ $comm->service_id }}</td>
+                            <td class="px-4 py-2">{{ $comm->service_provider_id }}</td>
+                            <td class="px-4 py-2">{{ $comm->range_from }}</td>
+                            <td class="px-4 py-2">{{ $comm->range_to }}</td>
+                            <td class="px-4 py-2">{{ $comm->company_type }}</td>
+                            <td class="px-4 py-2">{{ $comm->company_value }}</td>
+                            <td class="px-4 py-2">{{ $comm->distributor_type }}</td>
+                            <td class="px-4 py-2">{{ $comm->distributor_value }}</td>
+                            <td class="px-4 py-2">{{ $comm->retailer_type }}</td>
+                            <td class="px-4 py-2">{{ $comm->retailer_value }}</td>
+                            <td class="px-4 py-2 flex space-x-2">
+                                <button onclick="location.href='{{ route('showservicecharge.edit', $comm->id) }}'"
+                                    class="text-blue-500 hover:text-blue-700">
+                                    Edit
+                                </button>
+    
+                                <form action="{{ route('servicecharge.destroy', $comm->id) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this commission?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+    
 
     @if (isset($servicecharge))
-    <div class="container mx-auto mt-8">
+    <div class="container mx-auto mt-8 px-4 sm:px-6 lg:px-8">
         <form action="{{ route('showservicecharge.update', $servicecharge->id) }}" method="POST" class="space-y-4">
             @csrf
             @method('PUT')
